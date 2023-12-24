@@ -1,0 +1,1 @@
+LinA Skript in Typst 
