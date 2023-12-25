@@ -1,6 +1,7 @@
-// This template was made to write a well structured and 
-// easy to work with script for a university math course. 
+// Minimal template to write a script for a math course
+// in university.
 #let uni-script-template(
+  title: [Title],
   module-name: [Course Name],
   body
 ) = {
@@ -94,38 +95,24 @@
   [
     #set align(center + horizon)
     #text(size: 26pt)[
-      Vorlesungsskript
+      #title
     ]
     #text(size: 16pt)[
       #pad(top: 0em, bottom: 0em, module-name)
     ]
     #v(2cm)
   ]
+
+  pagebreak()
+
+  // Automatically generates outline 
+  outline(
+    title: [Inhaltsverzeichnis],
+    indent: auto,
+  )
+  
   pagebreak()
 
   // Display the documents content
   body
-
 }
-
-#show: doc => uni-script-template(
-  module-name: [LinA I\* WiSe 23/24],
-  doc
-)
-
-#rect(
-  height: 100%,
-  width: 100%,
-  fill: aqua,
-)
-
-#outline(indent: auto)
-#pagebreak()
-
-= The Beginning
-#lorem(100)
-== Concept
-#lorem(100)
-#pagebreak()
-#lorem(100)
-
