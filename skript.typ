@@ -25,6 +25,15 @@ Wozu braucht man das?
 
 == Mengen
 
-#bolditalic[Definition 1.1: Mengen]
+Der Mengenbegriff wurde von Georg Cantor (dt. Mathematiker, 1845-1918) eingeführt.
 
-#box(width: 100%, height: 2in, fill: gray)
+#definition(
+  [
+    #bolditalic[Definition 1.1: Mengen] \
+    #set text(size: 11pt)
+    Unter einer #bolditalic[Menge] verstehen wir jede Zusammenfassung $M$ von bestimmten, wohlunterschiedenen Objekten $x$ unsere Anschauung order unseres Denkens, welche #bolditalic[Elemente] von $M$ genannt werden, zu einem Ganzen.
+  ]
+)
+
+#[some text]
+#[more text]
