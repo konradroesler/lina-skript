@@ -8,32 +8,19 @@
 
 = Motivation und mathematische Grundlagen
 
-Was ist linearge Algebra bzw. analytische Geometrie?
+Was ist lineare Algebra bzw. analytische Geometrie?
 
-- analytische Geometrie:
-  Beschreibung von geometrischen Fragen mit Hilfe von Gleichungen, Geraden, Ebenen sowie die Lösungen von Gleichungen als geometrische Form
-- lineare Algebra:
-  die Wissenschaft der linearen Gleichungssysteme bzw der Vektorräume und der linearen Abbildungen zwischen ihnen
+#boxedlist([analytische Geometrie: \ Beschreibung von geometrischen Fragen mit Hilfe von Gleichungen, Geraden, Ebenen sowie die Lösungen von Gleichungen als geometrische Form], [lineare Algebra: \ die Wissenschaft der linearen Gleichungssysteme bzw der Vektorräume und der linearen Abbildungen zwischen ihnen])
 
 Wozu braucht man das?
 
-- mathematische Grundlage für viele mathematische Forschung z.B. in der algebraischen Geometrie, Numerik, Optimierung 
-- viele Anwendungen z.B. Page-Rank-Algorithmus, lineare Regression
-- oder Optimierung:
-  linear: Beschreibung zulässiger Punkte als Lösung von (Un)-Gleichungen
-  nichtlinear: notwendige Optimalitätsbedingungen
+#boxedlist([mathematische Grundlage für viele mathematische Forschung z.B. in der algebraischen Geometrie, Numerik, Optimierung], [viele Anwendungen z.B. Page-Rank-Algorithmus, lineare Regression], [oder Optimierung: \ linear: Beschreibung zulässiger Punkte als Lösung von (Un)-Gleichungen \ nichtlinear: notwendige Optimalitätsbedingungen])
 
 == Mengen
 
 Der Mengenbegriff wurde von Georg Cantor (dt. Mathematiker, 1845-1918) eingeführt.
 
-#definition(
-  [
-    #bolditalic[Definition 1.1: Mengen] \
-    #set text(size: 11pt)
+#definition("1.1", "Mengen")[
     Unter einer #bolditalic[Menge] verstehen wir jede Zusammenfassung $M$ von bestimmten, wohlunterschiedenen Objekten $x$ unsere Anschauung order unseres Denkens, welche #bolditalic[Elemente] von $M$ genannt werden, zu einem Ganzen.
-  ]
-)
+]
 
-#[some text]
-#[more text]
