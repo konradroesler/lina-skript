@@ -55,7 +55,7 @@
   // Text specifications 
   set text(
     size: 12pt,
-    font: "CMU Serif",
+    font: "CMU Serif Roman",
   )
   // Change the line spacing
   set par(
@@ -66,6 +66,7 @@
   // Heading specifications 
   set heading(numbering: "1.")
   show heading: it => {
+    set text(font: "CMU Serif Roman", weight: "regular")
     if it.level == 1 {
       // Heading for chapters 
       set align(center)
