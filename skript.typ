@@ -118,8 +118,7 @@ $
 $
 Dies nennt man ein abgeschlossenes Intervall (die Grenzen sind enthalten). Sei jetzt $a,b in RR, a <= b$
 $
-[a,b[ := {x in RR | a <= x < b} #[oder] \
-]a,b] := {x in RR | a < x <= b}
+[a,b[ space.sixth := {x in RR | a <= x < b} #[oder] space.quarter ]a,b] := {x in RR | a < x <= b}
 $
 Diese Intervalle nennt man halboffene Intervalle (genau eine der Grenzen ist enthalten). Das Intervall 
 $
@@ -152,3 +151,113 @@ $1) ==> 2)$: Es gilt: $M != N$. Dann existiert $x in N$ mit $x in.not M$. Dann g
 $2) ==> 1)$: Es gilt $N backslash M != emptyset$. Dann existiert ein $x in N$ mit $x in.not M$. Daher gilt $N != M$. Es gilt außerdem: $M subset.eq N$. Daraus folgt $M subset N$.
 
 #endproof
+
+#bolditalic[Satz 1.9:] Seien $M, N, L$ Mengen. Dann gelten Folgende Aussagen:
+
+1. $M sect N subset.eq M #[und] M subset.eq M union N$
+2. $M backslash N subset.eq M$
+3. Kommutativgesetze: \
+#align(center, [$M sect N = N sect M #[und] M union N = N union M$])
+4. Assoziativgesetze: \
+#align(center, [
+$M sect (N sect L) = (M sect N) sect L$ \
+$M union (N union L) = (M union N) union L$  
+])
+5. Distributivgesetze: \ 
+#align(center, [
+$M union (N sect L) = (M union N) sect (M union L)$ \
+$M sect (N union L) = (M sect N) union (M sect L)$ \
+$M backslash (N sect L) = (M backslash N) union (M backslash L)$ \
+$M backslash (N union L) = (M backslash N) sect (M backslash L)$
+])
+
+#italic[Beweis:] Es gilt $x in M sect N$ genau dann, wenn $x in M and x in N$. Die Konjunktion zweier Aussagen ist symmetrisch bezüglich der Aussage. D.h. $A and B <==> B and A$. Es gilt also 
+$
+(x in M) and (x in N) <==> (x in N) and (x in M)
+$
+Verwenden wir die Definition der Schnittmenge (1.6) so erhalten wir
+$
+(x in N) and (x in M) <==> x in N sect M
+$
+Aus der Kette der Äquivalenzumformungen folgt $M sect N = N sect M$.
+#endproof
+
+Etwas kompakter für das erste Distributivgesetz:
+
+$
+x in M union (N sect L) &<==> (x in M) or (x in N union L) \
+&<==> (x in M) or ((x in N) and (x in L)) \
+&<==> (x in M or x in N) and (x in M or x in L) \
+&<==> (x in M union N) and (x in M union L) \
+&<==> x in (M union N) sect (M union L)
+$
+Damit ist $M union (N sect L) = (M union N) sect (M union L)$.
+#endproof
+
+Die übrigen Aussagen zeigt man analog. #italic[Übung]
+
+Damit ist $M union N union L$ für die Mengen $M, N, L$ wohldefiniert. Dies kann auf "viele" Mengen verallgemeinert werden:
+
+Ist $I != emptyset$ eine Menge und ist für jedes $i in I$ eine Menge $M_i$ gegeben, dann sind:
+$
+union.big_(i in I) M_i := {x | exists i in I #[mit] x in M_i} \
+\
+sect.big_(i in I) M_i := {x | forall i in I #[mit] x in M_i}
+$
+Die Menge I heißt auch #bolditalic[Indexmenge]. Für $I = {1, ..., n}$ verwendet man auch die Notation
+$
+union.big_(i = 1)^n M_i := {x | exists i in I #[mit] x in M_i} \
+\
+sect.big_(i = 1)^n M_i := {x | forall i in I #[mit] x in M_i}
+$
+
+#definition("1.10", "Kardinalität, Potenzmenge")[
+  Sei $M$ eine endliche Menge, d.h. $M$ enthält endlich viele Elemente.
+
+  Die #bolditalic[Mächtigkeit] oder #bolditalic[Kardinalität] von $M$, bezeichnet mit $|M| #[oder] \#M$ ist die Anzahl von Elementen in $M$. 
+
+  Die #bolditalic[Potenzmenge] von $M$, bezeichnet mit $cal(P)(M)$ ist die Menge aller Teilmengen von $M$.
+  D.h. 
+  $
+  cal(P)(M) := {N | N subset.eq M}
+  $
+]
+
+#bolditalic[Beispiel 1.11:]
+
+Die leere Menge $emptyset$ hat die Kardinalität Null. Es gilt $cal(P)(emptyset) = {emptyset}, abs(cal(P)(emptyset)) = 1$.
+
+Für $M = {2, 4, 6}$ gilt $abs(M) = 3$. $cal(P)(M) = {emptyset, {2}, {4}, {6}, {2, 4}, {2, 6}, {4, 6}, {2, 4, 6}}$.
+
+Man kann zeigen: $abs(cal(P)(M)) = 2^(abs(M))$. Deswegen wird auch die Notation $2^M$ für die Potenzmenge von $M$ verwendet.
+
+== Relationen
+
+#definition("1.12", "Kartesisches Produkt")[
+  Sind $M$ und $N$ zwei Mengen, so heißt die Menge 
+  $
+  M times N := {(x, y) | x in M and y in N}
+  $
+  das #bolditalic[kartesische Produkt] von $M$ und $N$.
+
+  Sind $n$ Mengen $M_1, ..., M_n$ gegeben, so ist deren kartesisches Produkt gegeben druch:
+  $
+  M_1 times ... times M_n := {(x_1, ..., x_n) | x_1 in M_1 and ... and x_n in M_n}
+  $
+  Das n-fache kartesische Produkt einer Menge von $M$ ist:
+  $
+  M^n := M times ... times M := {(x_1, ..., x_n) | x_i in M #[für] i = 1, ..., n}
+  $
+
+  Ein Element $(x, y) in M times N$ heißt geordnetes Paar und eine Element $(x_1, ..., x_n) in M_1 times ... times M_n$ heißt #bolditalic[(geordnetes) n-Tupel].
+]
+ 
+Ist mindestens eine der auftretenden Mengen leer, so ist auch das resultierende kartesische Produkt leer, d.h. die leere Menge. Das kartesische Produkt wurde nach Rene Decartes benannt. Rene Decartes war ein französische Mathematiker (1596-1650) und ein Begründer der analytischen Geometrie.
+
+#bolditalic[Beispiel 1.14:] Das kartesische Produkt zweier Intervalle.
+
+Seien $[a, b] subset RR$ und $[c, d] subset RR$ zwei abgeschlossene Intervalle von reellen Zahlen. Dann ist das kartesische Produkt beider Intervalle gegeben durch:
+$
+[a,b] times [c,d] := {(x, y) | x in [a,b] and y in [c,d]}
+$
+Das kartesische Produkt ist nicht kommutativ. Beweis durch Gegenbeispiel.
