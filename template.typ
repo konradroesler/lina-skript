@@ -39,13 +39,13 @@
     ),
     footer: locate(loc => {
       // ugliest code ever written
-      if pagecounter.at(loc).at(0) == 2 {
+      if pagecounter.at(loc).at(0) == 1 {
         counter(page).update(0)
       }
       pagecounter.step()
       set text(10pt)
       set align(center)
-      if pagecounter.at(loc).at(0) > 2 {
+      if pagecounter.at(loc).at(0) > 1 {
           counter(page).at(loc).at(0)
         }
       }
