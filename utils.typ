@@ -35,3 +35,12 @@
 } 
 
 #let corres = $op(hat(#h(1pt) = #h(1pt)))$
+
+#let endproof = [
+  #set text(size: 0.75em)
+  #align(right, $ballot$)
+]
+
+#let italic(content) = [
+  #text(style: "italic", weight: "medium")[#content]
+]
