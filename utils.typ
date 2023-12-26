@@ -33,3 +33,5 @@
     )
   )
 } 
+
+#let corres = $op(hat(#h(1pt) = #h(1pt)))$
