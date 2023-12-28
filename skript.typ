@@ -254,10 +254,162 @@ Man kann zeigen: $abs(cal(P)(M)) = 2^(abs(M))$. Deswegen wird auch die Notation 
  
 Ist mindestens eine der auftretenden Mengen leer, so ist auch das resultierende kartesische Produkt leer, d.h. die leere Menge. Das kartesische Produkt wurde nach Rene Decartes benannt. Rene Decartes war ein französische Mathematiker (1596-1650) und ein Begründer der analytischen Geometrie.
 
-#bolditalic[Beispiel 1.14:] Das kartesische Produkt zweier Intervalle.
+#bolditalic[Beispiel 1.13:] Das kartesische Produkt zweier Intervalle.
 
 Seien $[a, b] subset RR$ und $[c, d] subset RR$ zwei abgeschlossene Intervalle von reellen Zahlen. Dann ist das kartesische Produkt beider Intervalle gegeben durch:
 $
 [a,b] times [c,d] := {(x, y) | x in [a,b] and y in [c,d]}
 $
 Das kartesische Produkt ist nicht kommutativ. Beweis durch Gegenbeispiel.
+
+#definition("1.14", "Relationen", [
+  Seien $M$ und $N$ nichtleere Mengen. Eine Menge $R subset.eq M times N$ heißt #bolditalic[Relation] zwischen $M$ und $N$. Ist $M = N$, so nennt man $R$ #bolditalic[Relation auf $M$]. Für $(x, y) in R$ schreibt man $x attach(tilde, br: R) y$ oder $x tilde y$, wenn die Relation aus dem Kontext klar ist. Ist mindestens eine der beiden Mengen leer, dann ist auch jede Relation zwischen den beiden Mengen die leere Menge.
+])
+
+#bolditalic[Beispiel 1.15:] Sei $M = NN$ und $N = ZZ$. Dann ist 
+$
+R := {(x, y) in M times N | x + y = 1}
+$
+eine Relation zwischen $M$ und $N$. Es gilt 
+$
+R = {(1,0),(2,-1),(3,-2),...} = {(n, -n + 1) | n in NN}
+$
+
+#definition("1.16", "reflexiv, symmetrisch, antisymmetrisch, transitiv", [
+  Es sei $M$ eine nicht leere Menge. Eine Relation auf $M$ heißt:
+
+  #box(width: 100%, inset: (top:2.5mm, right: 0.5cm, left: 0.5cm), [
+  #bolditalic[1. reflexiv:] 
+  #v(-2mm)
+  $
+  forall x in M: x tilde x
+  $
+  #bolditalic[2. symmetrisch:] 
+  #v(-2mm)
+  $
+  forall x,y in M: x tilde y ==> y tilde x
+  $
+  #bolditalic[3. antisymmetrisch:] 
+  #v(-2mm)
+  $
+  forall x,y in M: x tilde y and y tilde x ==> x = y
+  $
+  #bolditalic[4. transitiv:] 
+  #v(-2mm)
+  $
+  forall x,y,z in M: x tilde y and y tilde z ==> x tilde z
+  $
+  ])
+])
+
+Falls die Relation $R$ reflexiv, transitiv und symmetrisch ist, so nennt man $R$ eine #bolditalic[Äquivalenzrelation] auf $M$. Ist $R$ reflexiv, transitiv und antisymmetrisch, so nennt man $R$ eine #bolditalic[partielle Ordnung] auf $M$. 
+
+#bolditalic[Beispiel 1.17:] $M = RR$
+
+#boxedlist([Die Relation $<$ auf $M = RR$ ist transitiv, aber weder reflexiv noch symmetrisch und auch nicht antisymmetrisch.],[Die Relation $<=$ auf $M = RR$ ist reflexiv, antisymmetrisch und transitiv. Sie ist nicht symmetrisch. $<=$ ist somit eine partielle Ordnung.],[Die Relation $=$ auf $RR$ ist reflexiv, symmetrisch und transitiv. Also ist $=$ eine Äquivalenzrelation. (Äquivalenzrelationen können auch antisymmetrisch sein)])
+
+
+
+#bolditalic[Beispiel 1.18:] Interpretiert man "Pfeile" als Objekte mit gleicher Orientierung und Länge, erhält man die Äquivalenzrelation 
+$
+x tilde y :<==> #[$x$ und $y$ haben die gleiche Länge und Orientierung]
+$
+Auf Grund der Transitivität sind somit alle Pfeile einer vorgegebenen Orientierung und Länge äquivalent zu dem Pfeil, der im Koordinatenursprung startet und die gleiche Länge sowie Orientierung besitzt. Somit können wir Vektor $x = (x_1, x_2) in RR^2$ als Repräsentant einer ganzen Klasse von Pfeilen interpretieren. Alle zueinander äquivalente Pfeile haben gemeinsam, dass die Differenz zwischen End- und Anfangspunkt genau den Vektor $x$ ergeben.
+
+Als Formalisierung erhält man:
+
+#definition("1.19", "Äquivalenzklassen, Quotientenmenge", [
+  Sei $tilde$ eine Äquivalenzrelation auf einer nichtleeren Menge $M$. Die Äquivalenzklasse eines Element $overline(a) in M$ ist definiert durch: 
+  $
+  [overline(a)] := {a in M | a tilde overline(a)}
+  $
+  Ist die Relation nicht aus dem Kontext klar, schreibt man $[overline(a)]_tilde$.
+
+  Elemente einer Äquivalenzklasse werden als #bolditalic[Vertreter] oder #bolditalic[Repräsentanten] der Äquivalenzklasse bezeichnet. Die Menge aller Äquivalenzklassen einer Äquivalenzrelation $tilde$ in einer Menge $M$, d.h. 
+  $
+  M \/ tilde #h(1.5mm) := {[a]_tilde | a in M}
+  $
+  wird als #bolditalic[Faktormenge] oder #bolditalic[Quotientenmenge] bezeichnet.
+  ])
+
+#bolditalic[Beispiel 1.20:] #italic[(Vortsetzung von Beispiel 1.18)]
+
+Die Menge aller Pfeile gleicher Länge und Orientierung bilden eine solche Äquivalenzklasse, welche durch den Vektor $x = (x_1, x_2) in RR^2$ repräsentiert wird. Die Menge der Vektoren $x = (x_1, x_2) in RR^2$ bilden die Quotientenklasse.
+
+#bolditalic[Beispiel 1.21:] Für eine gegebene Zahl $x in NN$ ist die Menge: 
+
+$
+R_n := {(a, b) in ZZ^2 | a - b #[ist ohne Rest durch $n$ teilbar]}
+$
+eine Äquivalenzrelation auf $ZZ$, denn 
+
+#boxedlist([
+  reflexiv: $a tilde a, (a, a) in R_n :<==> a - a = 0 space checkmark$
+  ], [
+    symmetrie: \ 
+      #v(0.5mm)
+      $a tilde b ==> (a, b) in R_n ==> a - b #[ist ohne Rest teilbar] ==> a - b = k dot n \ ==> b - a = - k dot n ==> (b, a) in R_n ==> b tilde a space checkmark$ 
+    ], [
+      transitiv: zz: $a tilde b and b tilde c ==> a tilde c$
+      $
+      a tilde b ==> a - b = k dot n \
+      b tilde c ==> b - c = l dot n
+      $
+
+      Gleichungen addieren: $a - c = n(k + l) ==> a tilde c space checkmark$ 
+      ])
+
+Für $a$ wird die Äquivalenzklasse $[a]$ auch die Restklasse von $a #italic[modulo] n$ genannt.
+
+$
+[a] = a + n dot z = {a + n z | z in ZZ}
+$
+
+Die Äquivalenzrelation $R_n$ definiert auch eine Zerlegung der Menge $ZZ$ in disjunkte Teilmengen, nähmlich 
+
+$
+[0] union [1] union ... union [n-1] = union.big_(a = 0)^(n-1) [a] = ZZ
+$
+
+Es gilt allgemein: Ist $tilde$ eine Äquivalenzrelation auf $M$, so ist $M$ die Vereinigung aller Äquivalenzklassen. 
+
+#boxedlist([
+  "$subset.eq$": $#humongousspace$ 
+  #v(-2mm)
+  $
+  M = union.big_(a in M) {a} subset.eq union.big_(a in M) [a] space checkmark
+  $
+], [
+  "$supset.eq$": 
+  #v(-2mm)
+  $
+  [a] subset M ==> union.big_(a in M) [a] subset.eq M space checkmark
+  $
+])
+#endproof
+
+#bolditalic[Satz 1.22:] Ist $R$ eine Äquivalenzrelation auf der Menge $M$ und sind $a, b in M$, dann sind folgende Aussagen äquivalent:
+
+#align(center, grid(columns: (auto, auto, auto), gutter: 2cm, [1) $[a] = [b]$], [2) $[a] sect [b] != emptyset$], [3) $a tilde b$]))
+
+#italic[Beweis:] Durch Ringschluss
+
+zu zeigen: $1 ==> 2, 2 ==> 3, 3 ==> 1$
+
+$1 ==> 2$: 
+
+#align(center, box(width: 90%, [Wegen $a tilde a ==> a in [a] = [b] ==> a in [a] sect [b] ==> [a] sect [b] != emptyset$]))
+
+$2 ==> 3$:
+
+#align(center, box(width: 90%, [Aus $[a] sect [b] != emptyset ==>$ es existiert $c in [a] sect [b]$. Nach Definition gilt dann $c tilde a$ wegen der Symmetrie von $a tilde c$. Nach Definition auch $c tilde b$. Wegen der Transitivät der Relation gilt dann auch $a tilde b$]))
+
+$3 ==> 1$:
+
+#align(center, box(width: 90%, [Es gilt $a tilde b$. Sei $c in [a] ==> c tilde a$. Wegen der Transitivät folgt \ $c tilde b ==> c in [b] ==> [a] subset.eq [b]$. Analog folgt $[b] subset.eq [a]$.]))
+
+#endproof
+
+Aus Satz 1.22 2) folgt, dass die Äquivalenzklassen eine disjunkte Zerlegung der Menge $M$ darstellen.
+
+#definition("1.23", "")[Sei $M$ eine Menge und sei für jedes Element $m in M$ eine weitere Menge $S_m$ gegeben. Für $cal(S) := {S_m | m in M}$ ist die Teilmengenrelation $subset.eq$ eine partielle Ordnung. Die Menge $cal(S)$ heißt dann #bolditalic[partiell geordnet]. Eine Menge $hat(S) in cal(S)$ heißt #bolditalic[maximales Element] von $cal(S)$ (bezüglich $subset.eq$), wenn aus $S in cal(S)$ und $hat(S) in cal(S)$ folgt, dass $S = hat(S)$ ist. Eine nichtleere Teilmenge $cal(K) subset.eq cal(S)$ heißt #bolditalic[Kette] (bezüglich $subset.eq$), wenn für alle $K_1, K_2 in cal(K)$ gilt, dass $K_1 subset.eq K_2$ oder $K_2 subset.eq K_1$. Ein Element $hat(K) in cal(S)$ heißt #bolditalic[obere Schranke] der Kette $cal(K)$, wenn $K subset.eq hat(K)$ für alle $K in cal(K)$ gilt.]

@@ -2,6 +2,10 @@
   text(font: "CMU Serif Bold", weight: "bold")[#content]
 }
 
+#let italic(content) = {
+  text(font: "CMU Serif Italic", weight: "regular")[#content]
+  }
+
 #let bolditalic(content) = {
   text(font: "CMU Serif BoldItalic", weight: "bold")[#content]
 }
@@ -24,6 +28,7 @@
 
 #let boxedlist(..content) = {
   box(
+    width: 100%,
     inset: (
       right: 0.5cm,
       left: 0.5cm,
@@ -44,3 +49,7 @@
 #let italic(content) = [
   #text(style: "italic", weight: "medium")[#content]
 ]
+
+#let humongousspace = [
+  $wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide$
+ ]
