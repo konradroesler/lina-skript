@@ -413,3 +413,69 @@ $3 ==> 1$:
 Aus Satz 1.22 2) folgt, dass die Äquivalenzklassen eine disjunkte Zerlegung der Menge $M$ darstellen.
 
 #definition("1.23", "")[Sei $M$ eine Menge und sei für jedes Element $m in M$ eine weitere Menge $S_m$ gegeben. Für $cal(S) := {S_m | m in M}$ ist die Teilmengenrelation $subset.eq$ eine partielle Ordnung. Die Menge $cal(S)$ heißt dann #bolditalic[partiell geordnet]. Eine Menge $hat(S) in cal(S)$ heißt #bolditalic[maximales Element] von $cal(S)$ (bezüglich $subset.eq$), wenn aus $S in cal(S)$ und $hat(S) in cal(S)$ folgt, dass $S = hat(S)$ ist. Eine nichtleere Teilmenge $cal(K) subset.eq cal(S)$ heißt #bolditalic[Kette] (bezüglich $subset.eq$), wenn für alle $K_1, K_2 in cal(K)$ gilt, dass $K_1 subset.eq K_2$ oder $K_2 subset.eq K_1$. Ein Element $hat(K) in cal(S)$ heißt #bolditalic[obere Schranke] der Kette $cal(K)$, wenn $K subset.eq hat(K)$ für alle $K in cal(K)$ gilt.]
+
+#bolditalic[Beispiel 1.24:] Sei $cal(S) = P({2, 4, 6, 8, 10})$
+
+Dann ist 
+$
+cal(K) = {emptyset, {2}, {2, 6}, {2, 6, 10}} subset.eq cal(S)
+$
+Die Menge $K = {2, 6, 10}$, das maximale Elemnt von $cal(S)$ ist $hat(S) = {2, 4, 6, 8, 10}$.
+
+#align(center, [Gibt es immer ein maximales Element?])
+
+#bolditalic[Lemma 1.25: Zornsche Lemma]
+
+Sei $M$ eine Menge und sei $cal(S) subset.eq cal(P)(M)$ eine nichtleere Menge mit der Eigenschaft, dass für jede Kette $cal(K) subset.eq cal(S)$ auch ihre Vereinigunsmenge in $cal(S)$ liegt, d.h.
+$
+union.big_(A in cal(K)) A in cal(S)
+$
+Dann besitzt $cal(S)$ ein maximales Element. 
+
+#italic[Beweis:] Das Zornsche Lemma ist ein fundamentales Resultat aus der Mengenlehre, hier ohne Beweis
+#endproof
+
+#bolditalic[Lemma 1.26:] Sei $M$ eine Menge und $cal(K) subset.eq cal(P)(M)$ eine Kette. Dann gibt es zu je endlich vielen $A_1, ..., A_n in cal(K)$ ein $hat(i) in {1, ..., n}$ mit $A_i subset.eq A_(hat(i))$ für alle $i in {1, ..., n}$. 
+
+#italic[Beweis:] Durch vollständige Induktion über $n$.
+
+Induktionsanfang: n = 1
+
+D.h. wir haben $A_1 in cal(K)$ und für $hat(i) = 1$ gilt $A_1 subset.eq A_(hat(i)) = A_1 space checkmark$
+
+Induktionsschritt: $n - 1 arrow.bar n$
+
+Für $A_1, ..., A_(n-1) in cal(K)$ exisitert ein $hat(j) in {1, ..., n-1}$ mit $A_i subset.eq A_(hat(j))$ für alle $i in {1, ..., n-1}$. Mit 
+$
+hat(i) := cases(hat(j) "für" A_n subset.eq A_(hat(j)), n "für" A_(hat(j)) subset.eq A_n)
+$
+folgt die Behautpung.
+#endproof
+
+== Abbildungen
+
+#definition("1.27", "Abbildungen")[Es Seien $X$ und $Y$ beliebig, nichtleere Mengen. Eine #bolditalic[Abbildung] von $X$ nach $Y$ ist eine Vorschrift $f$, die jedem Element $x in X$ genau ein Element $f(x) in Y$ zuordnet. Man schreibt
+$
+f: X arrow Y, space x arrow.bar y = f(x)
+$
+Die Menge $X$ heißt #bolditalic[Definitionsbereich] von $f$, die Menge $Y$ heißt #bolditalic[Wertebereich] von $f$
+
+#underline[Achtung:] Jede Abbildung besteht aus drei "Teilen". Angabe des Definitionsbereichs, Angabe des Wertebereichs, Angabe der Zuordnungsvorschrift.]
+
+#bolditalic[Beispiel 1.28:] Sei $M$ eine nichtleere Menge. Dann ist 
+$
+f: M arrow N, space x arrow.bar x = f(x)
+$
+eine Abbildung $f$ #bolditalic[Identität] von $M$ mit der Notation $I_m \/ "Id"_m$. 
+
+Sei $X = Y = RR$, dann ist $f: RR arrow RR, space x arrow.bar f(x) := 7x + 2$ eine Abbildung.
+
+#definition("1.29", "Bild, Urbild")[Seien $X, Y$ beliebige nichtleere Mengen und $f: X arrow Y$. Es gelte $M subset.eq X$ und $N subset.eq Y$. Dann heißen die Mengen:
+$
+f(M) &:= {f(x) in Y | x in M} subset.eq Y #[das #bolditalic[Bild] von $M$ unter $f$.] \
+f^(-1)(N) &:= {x in X | f(x) in N} subset.eq X #[das #bolditalic[Urbild] von $N$ under $f$.] 
+$
+Ist $emptyset != M subset.eq X$, dann heißt $f_(|M): M arrow Y, space x arrow.bar f(x)$, die #bolditalic[Einschränkung] von $f$ auf $M$.
+]
+
+#bolditalic[Beispiel 1.30:] Sei $X = Y = RR$ und $x arrow.bar f(x) = x^4$. Dann ist $RR$ Definitions- und Wertebereich von $f$.
