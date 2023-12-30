@@ -53,3 +53,5 @@
 #let humongousspace = [
   $wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide$
  ]
+
+ #let circ = $op(circle.small)$

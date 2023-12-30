@@ -1,5 +1,6 @@
 #import "utils.typ": *
 #import "template.typ": uni-script-template
+#import "@preview/tablex:0.0.7": tablex, gridx, hlinex, vlinex, colspanx, rowspanx
 #show: doc => uni-script-template(
   title: [Vorlesungsskript],
   module-name: [LinA I\* WiSe 23/24],
@@ -479,3 +480,262 @@ Ist $emptyset != M subset.eq X$, dann heißt $f_(|M): M arrow Y, space x arrow.b
 ]
 
 #bolditalic[Beispiel 1.30:] Sei $X = Y = RR$ und $x arrow.bar f(x) = x^4$. Dann ist $RR$ Definitions- und Wertebereich von $f$.
+
+#boxedlist([$f(RR) = RR_+ := [0, infinity[$ das Bild von $f$ #v(2mm)], [$f([0,2]) = [0, 16]$ #v(2mm)], [$f^(-1)([16, 81]) = [-3, -2] union [2, 3]$ das Urbild des Intervalls $[16, 81]$ unter $f$. #v(2mm)])
+
+#definition("1.31", "injektiv, surjektiv, bijektiv")[Seien $X, Y$ zwei beliebige, nichtleere Mengen und $f : X arrow Y$ eine Abbildung. Dann heißt $f$:
+
+#boxedlist([#bolditalic[injektiv:] falls für alle $x, tilde(x) in X$ gilt: $humongousspace$
+#v(-1mm)
+$
+f(x) = f(tilde(x)) ==> x = tilde(x)
+$
+#v(1mm)
+],[
+  #bolditalic[surjektiv:] falls für jedes $y in Y$ gilt:
+#v(-1mm)
+$
+exists space.sixth x in X: f(x) = y
+$
+#v(1mm)
+],[
+  #bolditalic[bijektiv:] falls $f$ injektiv und surjektiv ist
+])]
+
+Man kann sich anhand der Definition leicht überlegen, dass eine Abbildung $f: X arrow Y$ genau dann bijektiv ist, wenn es für jedes $y in Y$ #underline[genau] ein $x in X$ gibt, sodass $f(x) = y$ gilt.
+
+#bolditalic[Beispiel 1.32:] Betrachte die Funktion $f: RR arrow RR, space x arrow.bar max(0, x)$
+
+#boxedlist[$f: RR arrow RR$, $f$ ist weder injektiv noch surjektiv][$f: RR arrow RR_+$, $f$ ist surjektiv, aber nicht injektiv][$f: RR_+ arrow RR_+$, $f$ ist injektiv aber nicht surjektiv][$f: RR_+ arrow RR_+$, $f$ ist bijektiv]
+
+#definition("1.33", "Komposition")[Seien $X, Y, Z$ nichtleere Mengen und die Abbildungen $f: X arrow Y, space x arrow.bar f(x)$ sowie $g: Y arrow Z, space y arrow.bar g(y)$ gegeben. Dann ist die #bolditalic[Komposition] oder #bolditalic[Hintereinanderausführung] von $f$ und $g$ die Abbildung 
+$
+g compose f: X arrow Z, space x arrow.bar g(f(x)) in Z
+$
+]
+
+#bolditalic[Satz 1.34:] Seien $W, X, Y$ und $Z$ nichtleere Mengen, und die Abbildungen $f: W arrow X$, $g: X arrow Y$, $h: Y arrow Z$ gegeben. Dann gilt:
+
+#box(width: 100%, inset: (right: 1cm, left: 1cm), [
+  1. $h compose (g compose f) = (h compose g) compose f$, d.h. die Komposition von Abbildungen ist Assoziativ
+  2. Sind beide Abbildungen $f$ und $g$ injektiv/surjektiv/bijektiv, dann ist auch die Komposition $g compose f$ injektiv / surjektiv / bijektiv.
+  3. Ist $g compose f$ injektiv, dann ist $f$ injektiv
+  4. Ist $g compose f$ surjktiv, dann ist $g$ surjektiv
+])
+
+#italic[Beweis:] (Übungsaufgabe)
+
+1. $h compose (g compose f)(x) = h((g compose f)(x)) = h(g(f(x))) = (h compose g)(f(x)) = ((h compose g) compose f)(x)$
+
+2. #[Für jedes $x_1, x_2 in X$ folgt aus $g$ injektiv: $g(f(x_1)) = g(f(x_2)) ==> f(x_1) = f(x_2)$. Aus $f$ injektiv folgt widerum: $f(x_1) = f(x_2) ==> x_1 = x_2$. Also gilt $g(f(x_1)) = g(f(x_2)) ==>$ $x_1 = x_2$. Somit ist $g compose f$ injektiv.
+  
+Für jedes $z in Z$ folgt aus $g$ surjektiv: $exists space.sixth y in Y: f(y) = z$. Für jedes $y in Y$ folgt aus $f$ surjektiv widerium: $exists space.sixth x in X: f(x) = y$. Also folgt $forall space.sixth z in Z space.sixth exists space.sixth x in X: g(f(x)) = z$. Somit ist $g compose f$ surjektiv. 
+
+Sind $f$ und $g$ bijektiv, folgt aus den obigen Beweisen, dass $g compose  f$ injektiv und surjektiv ist. Somit ist $g compose f$ auch bijektiv.
+]
+
+3. Ist $f$ nicht injektiv, dann existieren $x_1, x_2 in X$ mit $f(x_1) = f(x_2)$ aber $x_1 != x_2$. Wegen $g compose f$ injektiv gilt $g(f(x_1)) = g(f(x_2)) ==> x_1 = x_2$. Damit $g(f(x_1)) = g(f(x_2))$ gilt, muss auch $f(x_1) = f(x_2)$ gelten, dann gilt aber auch $f(x_1) = f(x_2) ==> x_1 = x_2$. Dies ist ein Widerspruch $arrow.zigzag$. $f$ ist also injektiv.
+
+4. Ist $g$ nicht surjektiv, dann existiert ein $z in Z$ für das kein $y in Y$ mit $g(y) = z$ existiert. Wegen $g compose f$ surjektiv gilt $forall space.sixth z in Z space.sixth exists space.sixth x in X: g(f(x)) = z$. Dann gilt auch $g(f(x)) = g(y) = z, space y in Y$, also existiert ein $y in Y$ mit $g(y) = z$. Dies ist ein Widerspruch $arrow.zigzag$. Also ist $g$ surjektiv. 
+#endproof
+
+#bolditalic[Satz 1.35:] Seien $X, Y$ nichtleere Mengen und $f: X arrow Y$ eine Abbildung. Die Abbildung ist genau dann bijektiv, wenn es eine Abbildung $g: Y arrow X$ existiert, so dass $g compose f = "Id"_X$ und $f compose g = "Id"_Y$ gilt.
+
+#italic[Beweis:] 
+
+"$==>$" 
+
+Zu jedem $y in Y$ existiert genau ein $x_y in X$ mit $f(x_y) = y$. Damit kann man eine Abbildung $g$ definieren durch: 
+$
+g: Y arrow X, space g(y) = x_y
+$
+Für $y in Y$ folgt dann $(f compose g)(y) = f(g(y)) = f(x_y) = y ==> f compose g = "Id"_Y$.
+Sei $x in X ==>$ $f(x) = y in Y$. Wegen der Bijektivität von $f$ folgt $x = x_y in X$ 
+
+Dann gilt: 
+$
+(g compose f)(x) = g(f(x)) = g(y) = x_y = x ==> g compose f = "Id"_X
+$
+
+"$<==$": 
+
+Es gilt: $g compose f = "Id"_X$, $"Id"_X$ ist injektiv. Wegen Satz 1.34, 3) ist dann auch $f$ injektiv. Des weiteren gilt $f compose g = "Id"_Y$ ist surjektiv. Wegen 1.34, 4) ist dann auch $f$ surjektiv $==>$ $f$ ist bijektiv
+
+#bolditalic[Frage:] Gibt es eine weitere Abbildung, $tilde(g): Y arrow X$ mit den gleichen Eigenschaften wie im letzten Satz? Wegen Satz 1.34, 1) gilt:
+$
+tilde(g) = "Id"_X compose tilde(g) = (g compose f) compose tilde(g) = g compose (f compose tilde(g)) = g compose "Id"_Y = g
+$
+
+#definition("1.36", "inverse Abbildung / Umkehrabbildung")[
+  Seien $X, Y$ zwei nichtleere Mengen und $f: X arrow Y$ eine Abbildung. Ist $f$ bijektiv, dann heißt die in Satz 1.35 definierte, eindeutige Abbildung $g: Y arrow X$ #bolditalic[inverse Abbildung] oder #bolditalic[Umkehrabbildung] von $f$ und wird $f^(-1)$ bezeichnet.
+]
+
+#bolditalic[Beispiel 1.37:] Die Abbildung $f: RR arrow RR, space f(x) = 3x - 5$ ist bijektiv. Die zu $f$ inverse Abbildung erhält man durch Umformung.
+$
+y = 3x - 5 <==> y + 5 = 3x <==> x = 1/3(y+5)
+$
+Also $f^(-1): RR arrow RR, space y arrow.bar 1/3(y+5)$
+
+#bolditalic[Achtung:] $f: RR arrow RR, f(x) = x^2$ ist nicht bijektiv.
+$
+tilde(f): RR arrow RR_+, space tilde(f)(x) = x^2 wide wide tilde(f)^(-1)(y) = sqrt(y)
+$
+
+#bolditalic[Achtung:] Die Notation $f^(-1)$ ist doppelt Belegt! Zum einen für die Notation der Umkehrabbildung und zum Anderen für die Notation des Urbilds.
+
+#bolditalic[Satz 1.38:] Seien $X, Y$ und $Z$ nichtleere Mengen und die Abbildungen $f: X arrow Y$ sowie $g: Y arrow Z$ bijektiv. 
+
+Dann gilt:
+
+#box(width:100%, inset: (left: 1cm, right: 1cm), [
+  1. f^(-1) ist bijektiv $wide (f^(-1)^(-1)) = f$ #v(1mm) 
+  2. $(g compose f)^(-1) = f^(-1) compose g^(-1)$ 
+])
+
+#italic[Beweis:] (1. Übungsaufgabe)
+
+1. #[
+$
+f &= f compose "Id"_X \ &= f compose (f^(-1) compose (f^(-1))^(-1)) \ &= (f compose f^(-1)) compose (f^(-1))^(-1) \ &= "Id"_Y compose (f^(-1))^(-1) \ &= (f^(-1))^(-1)
+$
+]
+
+2. #[Aus Satz 1.34 folgt, dass $g compose f$ bijektiv ist. $==>$ $(g compose f)^(-1)$ existiert und ist eindeutig bestimmt. Es gilt 
+$
+(f^(-1) compose g^(-1)) compose (g compose f) \
+&= f^(-1) compose ((g^(-1) compose g) compose f) \
+&= f^(-1) compose ("Id"_Y compose f) \
+&= f^(-1) compose f = "Id"_X
+$
+Analgog ziegt man: $(g compose f) compose (f^(-1) compose g^(-1)) = "Id"_Y$
+$
+==> (g compose f)^(-1) = f^(-1) compose g^(-1)
+$
+]
+#endproof
+
+#pagebreak()
+
+= Algebraische Strukturen
+
+Algebraische Strukturen sind Mengen und Verknüpfungen, die auf den Elementen der Menge definiert sind. Ein Beispiel dafür ist die Menge aller ganzen Zahlen mit der Addition als Verknüpfung.
+
+Algebraische Strukturen besitzen wichtige Eigenschaften:
+
+#boxedlist[Die Summe zweier ganzer Zahlen ist wieder eine ganze Zahl $corres$ Abgeschlossenheit der Menge bezüglich der Verknüpfung][Es gibt die ganze Zahl 0, sodass für jede ganze Zahl $a in ZZ$ gilt: $0 + a = a$. Dieses Element nennt man das neutrale Element][Für jede ganze Zahl $a in Z$ gibt es ein $-a in ZZ$, sodass gilt: $(-a) + a = 0$. Dieses Element nennt man das inverse Element von $a$]
+
+Algebraische Strukturen erlauben es uns, abstrakte Konzepte aus konkreten Beispielen zu extrahieren und später komplexe Zusammenhänge mit diesen Konzepten zu analysieren und Stück für Stück zu erweitern.
+
+== Gruppen
+
+#definition("2.1", "innere Verknüpfung, Halbgruppe")[Sei $M$ eine nichtleere Menge. Eine Abbildung $circ: M times M arrow M, space (a, b) arrow.bar a circ b$ heißt #bolditalic[(innere) Verknüpfung] auf $M$. Gilt: $(a circ b) circ c =  a circ (b circ c)$, dann heißt die Verknüpfung #bolditalic[assoziativ] und $(M, circ)$ eise #bolditalic[Halbgruppe]. Gilt für eine Halbgruppe, dass $a circ b = b circ a$, so heißt die Halbgruppe #bolditalic[abelsch] oder #bolditalic[kommutativ].]
+
+Je nach Kontext kann die Notation einer Verknüpfung variieren. ($a circ b$, $a dot b$, $a b$)
+
+#bolditalic[Beispiel 2.2:] 
+
+#boxedlist[$(NN, +)$ und $(NN, ast)$ sind kommutative Halbgruppen][Sei $X$ eine nichtleere Menge. Dann ist $M := "Abb"(X, X)$ $= {"Abbildungen" f: X arrow X}$ eine Halbgruppe mit der Verknüpfung $compose$ als Komposition von Abbildungen (Def. 1.33). Diese Halbgruppe ist nicht abelsch.
+
+Beweis durch Gegenbeispiel:
+
+Sei $a, b, c in X, a != b, a != c, b != c$. Definiere $f, g in M$ mit 
+]
+$
+f(x) := cases(b "für" x = a, a "für" x = b, x "sonst") wide wide g(x) := cases(c "für" x = a, a "für" x = c, x "sonst")
+$
+#h(1cm) Dann folgt:
+$
+(f compose g)(a) = f(g(a)) = f(c) = c \
+(g compose f)(a) = g(f(a)) = g(b) = b \
+checkmark
+$
+
+Die Halbgruppe ist ein relativ "schwaches" Konzept. Deswegen braucht man weitere Eigenschaften:
+
+#definition("2.3", "neutrales Element")[
+  Sei $M$ eine nichtleere Menge und $circ$ eine innere Verknüpfung auf $M$. Existiert ein Element $e in M$ mit 
+  $
+  a circ e = e circ a = a wide forall space.sixth a in M
+  $
+  so heißt $e$ #bolditalic[neutrales Element] für die Verknüpfung $circ$. 
+
+  Eine Halbgruppe, die ein neutrales Element besitzt heißt #bolditalic[Monoid].
+]
+
+#bolditalic[Beispiel 2.24:] Kein Monoid
+
+Gegeben sei die Menge $M = {a, b}$ und die folgende Verknüfung 
+
+#align(center, tablex(
+  columns: 3, 
+  auto-lines: false,
+  (), vlinex(), (), (),
+  $circ$, $a$, $b$,
+  hlinex(), 
+  $a$, $a$, $b$,
+  $b$, $a$, $b$,
+))
+
+Mann kann nachrechenen, dass $(M, circ)$ eine Halbgruppe ist. Mann kann auch prüfen, dass $a$ linksneutral aber nicht rechtsneutral ist, sowie dass $b$ rechtsneutral aber nicht linksneutral ist. Somit besitzt die Halbgruppe kein neutrales Element, $(M, circ)$ ist also kein Monoid.
+
+#bolditalic[Bemerkung:] In der Definition eines Monoids wird nur die Existens aber nicht die Eindeutigkeit des neutralen Elements gefordert. Ist dies sinnvoll?
+
+#bolditalic[Lemma 2.5:] Sei $(M, circ)$ ein Monoid und $e_1, e_2 in M$ neutrale Elemente, dann gilt
+$
+e_1 = e_2
+$
+#italic[Beweis:]
+$
+e_1 &= e_1 circ e_2 \
+&= e_2
+$
+#endproof
+
+#bolditalic[Beispiel 2.6:]
+
+#boxedlist[$(NN, +)$ ist kein Monoid, da kein neutrales Element existiert ($0 in.not NN$ in LinA)][$(NN, dot)$ ist ein Monoid mit dem neutralen Element $e = 1$][Für $NN_0 = NN union {0}$ ist $(NN_0, +)$ ein Monoid mit dem neutralen Element $e = 0$]
+
+#definition("2.7", "Gruppen")[Ein Monoid $(M, circ)$ ist eine #bolditalic[Gruppe], wenn für jedes $a in M$ ein $b in M$ existiert, so dass 
+$
+a circ b = b circ a = e
+$
+wobei $e$ das neutrale Element des Monoids ist. Wir nennen $b$ das #bolditalic[inverse Element] zu dem gegebenen Element $a$ und bezeichnen es mit $a^(-1) = b$.
+]
+
+#bolditalic[Bemerkung:] Für $circ = +$, d.h. additiv geschriebene Gruppen schreibt man auch $-a := b$.
+
+#bolditalic[Beispiel 2.8:]
+
+#boxedlist[$(ZZ, +)$, $(QQ, +)$ und $(RR, +)$ sind kommutative Gruppen][$(NN, +)$ ist keine Gruppe, da kein neutrales Element und keine inversen Elemente existieren][Rechnen mit binären Zahlen
+
+Betrachtet wird $FF_2 = {0, 1}$ und die Verknüpfungen
+
+#set align(center)
+
+#box(width: 50%, grid(columns: (1fr, 1fr),
+  tablex(
+    columns: 3,
+    auto-lines: false,
+    align: horizon + center,
+    (), vlinex(), (), (),
+    $+$, $0$, $1$,
+    hlinex(),
+    $0$, $0$, $1$,
+    $1$, $1$, $0$,
+    ),
+  tablex(
+    columns: 3,
+    auto-lines: false,
+    align: horizon + center,
+    (), vlinex(), (), (),
+    $dot$, $0$, $1$,
+    hlinex(),
+    $0$, $0$, $0$,
+    $1$, $0$, $1$,
+    ), 
+))
+#set align(left)
+
+Anhand der Verknüpfungstabellen erkennt man, dass $(FF_2, +)$ mit dem neutralen Element $e = 0$ eine abelsche Gruppe ist. Jedoch ist $(FF_2, dot)$ keine Gruppe, da zwar ein neutrales Element $e = 1$, aber das Element $0$ kein inverses Element besitzt.
+]
+
