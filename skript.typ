@@ -739,3 +739,159 @@ Betrachtet wird $FF_2 = {0, 1}$ und die Verknüpfungen
 Anhand der Verknüpfungstabellen erkennt man, dass $(FF_2, +)$ mit dem neutralen Element $e = 0$ eine abelsche Gruppe ist. Jedoch ist $(FF_2, dot)$ keine Gruppe, da zwar ein neutrales Element $e = 1$, aber das Element $0$ kein inverses Element besitzt.
 ]
 
+#bolditalic[Satz 2.9:] Sei $(M, circ)$ eine Gruppe, dann gilt:
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm), [
+  1. Es gibt #bolditalic[genau ein] neutrales Element in $M$.
+  2. Jedes Element der Menge $M$ besitzt #bolditalic[genau ein] inverses Element.
+  3. Jedes linksinverse Element ist gleichzeitig auch rechtsinvers.
+  4. Jedes linksneutrale Element ist gleichzeitig auch rechtsneutral.
+  ]
+)
+
+#italic[Beweis:]
+
+1. Folgt aus Lemma 2.5, da $(M, circ)$ nach Definition ein Monoid ist.
+2. #[
+  Annahme: Seien $b in M$ und $tilde(b) in M$ inverse Elemente zu $a in M$. 
+
+  zu zeigen: $z = tilde(z)$
+
+  Dann gilt: 
+  $
+  b &= b circ e \
+  &= b circ (a circ tilde(b)) \ 
+  &= (b circ a) circ tilde(b) \
+  &= e circ tilde(b) \
+  &= tilde(b)
+  $
+]  
+3. #[
+  Es sei $b in M$ ein linksinverses Element zu $a in M$. D.h. $b circ a = e$. Sei $tilde(b) in M$ ein linksneutrales Element zu $b in M$. D.h. $tilde(b) circ b = e$.
+  $
+  a circ b &= e circ (a circ b) \
+  &= tilde(b) circ b circ (a circ b) \
+  &= tilde(b) circ (b circ a) circ b \
+  &= tilde(b) circ e circ b \
+  &= tilde(b) circ b \
+  &= e #hide($tilde(b)$)
+  $
+]
+4. #[
+  Es gelte $e circ a = a$ und $b circ a = a circ b = e$
+
+  Dann gilt: $(a circ b) circ a = a circ (b circ a) = a circ e = a wide checkmark$
+]
+
+#bolditalic[Lemma 2.10:] Sei $(M, circ)$ eine Gruppe. Gilt für ein $a in M$, dass $c circ a = a$ für ein $c in M$; dann ist $c$ das neutrale Element der Gruppe.
+
+#italic[Beweis:] Sei $e$ das neutrale Element (es gibt genau 1) der Gruppe $(M, circ)$ und für $a, c in M$ gelte: $c circ a = a$. Sei $b$ das inverse Element zu $a$.
+$
+c &= c circ e \
+  &= c circ (a circ b) \
+  &= (c circ a) circ b \
+  &= a circ b \
+  &= e 
+$
+#endproof
+
+Besonders wichtig in der linearen Algebra sind Abbildungen zwischen Gruppen, die bezüglich der Verknüpfung "kompatibel" sind.
+
+#definition("2.11", "Homomorphismus")[
+  Seien $(M, circ)$ und $(N, oplus)$ Gruppen. Eine Abbildung $f: M arrow N$ heißt #bolditalic[Homomorphismus] (oder #bolditalic[Gruppenhomomorphismus]) falls:
+  $
+  f(x circ y) = f(x) oplus f(y) wide forall space.sixth x, y in M
+  $
+  Ein Homomorphismus heißt #bolditalic[Isomorphismus], wenn er bijektiv ist.
+]
+
+#bolditalic[Beispiel 2.12:] Die Abbildung $f: RR arrow RR_(>0)$ mit $f(x) = e^(2x)$ ist ein Homomorphismus zwischen $(RR, +)$ und $(RR_(>0), dot)$ mit $RR_(>0) = {x in RR | x > 0}$ denn 
+$
+f(x + y) = e^(2(x+y)) = e^(2x) dot e^(2y) = f(x) dot f(y)
+$
+
+#bolditalic[Satz 2.13:] Sei $f: M arrow N$ für die Gruppen $(M, circ)$ und $(N, oplus)$ ein Homomorphismus sowie $e_M$ und $e_N$ jeweils die neutralen Elemente. Dann gilt $f(e_M) = e_N$.
+
+#italic[Beweis:] Sei $a in M$ beliebig gewählt, dann folgt 
+$
+f(a) = f(e_M circ a) = f(e_M) oplus f(a) = e_N oplus f(a) \
+attach(==>, t: "2.10") f(e_M) "ist ein neutrales Element" attach(==>, t: "2.9") f(e_M) = e_N
+$
+#endproof
+
+Homomorphismen bilden das neutrale Element im Definitionsbereich immer auf das neutrale Element des Wertebereichs ab. Später werden wir sehen, dass wenn der Homomorphismus nicht bijektiv ist, noch mehr Elemente auf das neutrale Element im Wertebereich $e_N$ abgebildet werden können. Dies motiviert folgende Definition:
+
+#definition("2.14", "Kern")[
+  Ist $f: (M, circ) arrow (N, oplus)$ ein Homomorphismus, so nennt man:
+  $
+  ker(f) := {a in M | f(a) = e_N}
+  $ 
+  den #bolditalic[Kern] von $f$.
+]
+
+== Ringe
+
+Ringe sind eine Erweiterung der algebraischen Strukturen von einer auf zwei Verknüpfungen. 
+
+#definition("2.15", "Ring")[
+  Seien $R$ eine Menge und "$+$" sowie "$dot$" zwei Verknüpfungen auf $R$. Das Tripel $(R, +, dot)$ heißt #bolditalic[Ring], falls gilt:
+
+  #box(width: 100%, inset: (left: 0.5cm, right: 0.5cm), [
+    1. $(R, +)$ ist eine kommutative Gruppe, deren neutrales Element wir mit $0$ bezeichnen.
+    2. $(R, dot)$ ist eine Halbgruppe, d.h. es gilt das Assoziativgesetz.
+    3. #[
+      Es gelten die Distributivgesetze: $forall a, b, c in R$ 
+      $
+      a dot (b + c) = a dot b + a dot c  \
+      (a + b) dot c = a dot c + b dot c
+      $
+    ]
+    Ein Ring heißt kommutativ, wenn $dot$ kommutativ ist. D.h. $a dot b = b dot a, space forall space.sixth a, b in R$. Ein Element $1 in R$ heißt #bolditalic[Einselement], wenn es das neutrale Element bezüglich der Multiplikation ist. Das heißt wenn für alle $a in R$ gilt: $1 dot a = a dot 1 = a$.
+  ])
+]
+
+#bolditalic[Achtung:] Die Formulierung der Distributivitätsgesetze impliziert, dass die Multiplikation stärker bindet als die Addition ("Punkt vor Strich").
+
+#bolditalic[Beispiel 2.16:]
+
+#boxedlist[$(NN, +, dot)$ ist kein Ring][$(ZZ, +, dot)$ ist ein kommutativer Ring mit Einselement]
+
+#boxedlist[
+  $(FF_2, +, dot)$ ist ein kommutativer Körper mit Einselement, denn
+
+  #boxedlist[das neutrale Element bezüglich der Addition ist die $0$, denn $0 + 0 = 0$, $0 + 1 = 1$, $1 + 0 = 0$][das additive inverse Element zu $0$ ist $0$ und zu $1$ die $1$, denn $1 + 1 = 0$][die Addition ist kommutativ][die Addition ist assoziativ, zeigt man durch nachrechnen für alle $8$ Möglichkeiten][das neutrale Element für die Multiplikation ist $1$, denn $0 dot 1 = 0$ und $1 dot 1 = 1$][die Multiplikation ist kommutativ][die Multiplikation ist assoziativ, zeigt man durch nachrechnen][die Distributivgesetze gelten, zeigt man durch nachrechnen]
+]
+
+In Ringen gelten die "üblichen" Rechenregeln, z.B.:
+$
+0 dot a = 0
+$
+#italic[Beweis:]
+$
+0 dot a &= 0 dot a + 0 dot a - 0 dot a = (0 + 0) dot a - 0 dot a \
+&= 0 dot a - 0 dot a = 0
+$
+oder auch 
+$
+(-1) dot a = -a
+$
+#italic[Beweis:]
+$
+a + (-1) dot a &= 0, "denn" \
+a + (-1) dot a &= 1 dot a + (-1) dot a = (1 + (-1)) dot a = 0 dot a = 0
+$
+analog zeigt man $a dot 0 = 0$ und $a dot (-1) = -a$
+
+#bolditalic[Bemerkung:] Wenn in einem Ring die Gleichung $1 = 0$ gilt, folgt
+$
+a = a dot 1 = a dot 0 = 0
+$
+Somit muss $R$ der Nullring sein, $R = {0}$.
+
+#bolditalic[Beispiel 2.17:] Ring der Polynome 
+
+Sei $(R, +, dot)$ ein kommutativer Ring mit Eins. Ein Polynom mit Koeffizienten in $R$ und der Unbekannten $t in R$ (kurz Polynom über $R$) ist gegeben durch
+$
+p(t) = a_0 dot t^0 + a_1 dot t^1 + ... + a_n dot t^n, wide a_0, a_1, ..., a_n in R
+$
+Die Menge aller Polynome über $R$ wird mit $P[t]$ bezeichnet. 
