@@ -895,3 +895,323 @@ $
 p(t) = a_0 dot t^0 + a_1 dot t^1 + ... + a_n dot t^n, wide a_0, a_1, ..., a_n in R
 $
 Die Menge aller Polynome über $R$ wird mit $P[t]$ bezeichnet. 
+
+Betrachte zwei Polynome $p, q in P[t]$ mit
+$
+p(t) = a_0 + a_1 t + ... + a_n t^n "und" q(t) = b_0 + b_1 t + b_m t^m
+$
+mit $n >= m$. Ist $n > m$, so setzen wir $b_j = 0$ für $j = m + 1, ..., n$. $p(t)$ und $q(t)$ sind gleich, wenn $a_j = b_j$ für alle $j in {1, ..., n}$ gilt.
+
+Aufgrund der Eigenschaften von $R$ gilt
+$
+a_0 + a_1 t + ... + a_(n-1) t^(n-1) + a_n t^n = a_n t^n + a_(n-1) t^(n-1) + ... + a_1 t + a_0
+$
+Der Grad eines Polynoms $p(t) in P[t]$ ist definiert als der größte Index $j$ für den $a_j != 0$ gilt. Gibt es keinen solchen Index, ist $p(t)$ das Nullpolynom, d.h. $p(t) = 0$ für alle $t in R$ und man definiert den Grad von $p(t)$ als $- infinity$.
+
+Sind zwei Polynome $p, q in P[t]$ wie oben definiert, und setzen wir wieder $b_j = 0$ für alle $j in {m+1, ..., n}$, dann sind die Verknüpfungen "$+$" und "$dot$" wie folgt definiert:
+$
+p(t) + q(t) = (a_0 + b_0) + (a_1 + b_1) t + ... +(a_n + b_n) t^n "und" \
+p(t) dot q(t) = c_0 + c_1 t + ... + c_(n+m) t^(n+m), wide c_k := sum_(i+k = k) a_i dot b_j
+$
+Mit dem Nullpolynom definiert wie oben und dem Einspolynom definiert als $p(t) := 1$ kann man nachrechnen, dass $(P[t], +, dot)$ ein kommutativer Ring ist.
+
+#definition("2.18", "invertierbar")[
+  Es sei $(R, +, dot)$ ein Ring mit Eins und $a in R$ gegeben. Ein Element $b in R$ heißt #bolditalic[invers] (bezüglich $dot$) zu $a$, wenn gilt:
+  $
+  a dot b = b dot a = 1
+  $
+  Existiert zu $a in R$ ein inverses Element, so heißt $a$ #bolditalic[invertierbar].
+]
+
+#bolditalic[Satz 2.19:] Es sei $(R, +, dot)$ ein Ring mit Eins. Dann gilt:
+
+#box(width: 100%, inset: (right: 1cm, left: 1cm), [
+  1. Existiert zu $a in R$ ein inverses Element bezüglich $dot$, so ist dies eindeutig bestimmt. Dies wird mit $a^(-1)$ gekennzeichnet.
+
+  2. Wenn $a b in R$ invertierbar sind, dann ist auch $a dot b$ invertierbar und es gilt:
+  $
+  (a dot b)^(-1) = b^(-1) dot a^(-1)
+  $
+])
+
+#italic[Beweis:] Siehe oben im Abschnitt zu Abbildungen. 
+#endproof
+
+== Körper 
+
+Eine knappe Definition eines Körpers: 
+
+Ein kommutativer Ring mit Eins heißt Körper, falls $0 != 1$ gilt (der Nullring wird ausgeschlossen) und jedes Element $a in R backslash {0}$ invertierbar ist.
+
+Es folgt eine äquivalente und formalere Definition:
+
+#definition("2.20", "Körper", [
+  Eine Menge $K$ mit zwei Verknüpfungen
+  $
+  +: K times K arrow K, space (a, b) arrow.bar a + b wide wide "Addition" \
+  dot: K times K arrow K, space (a, b) arrow.bar a dot b wide space "Multiplikation"
+  $
+  heißt #bolditalic[Körper], wenn gilt:
+
+  #boxedlist[$(K, +)$ ist eine kommutative Gruppe #humongousspace][$(K backslash {0}, dot)$ ist auch eine kommutative Gruppe][
+    Es gelten die Distributivgesetze
+    $
+    a dot (b + c) = a dot b + a dot c \
+    (a + b) dot c = a dot c + b dot c 
+    $
+  ]
+])
+
+#bolditalic[Lemma 2.21:] Sei $(K, +, dot)$ ein Körper. Gilt für $a, b in K$, dass $a dot b = 0$, so ist mindestens eins davon die $0$.
+
+#italic[Beweis:] 
+
+Fall 1: $a = b = 0$
+
+Fall 2: o.B.d.A: $a != 0 ==> exists space.sixth a^(-1): a dot a^(-1) = 1$
+$
+b = 1 dot b = (a^(-1) dot a) dot b = a^(-1) dot (a dot b) = a^(-1) dot 0 = 0 
+$
+#endproof
+Diese Eigenschaft nennt man Nullteilerfreiheit.
+
+#bolditalic[Beispiel 2.22:]
+
+#boxedlist[$(RR, +, dot)$ ist ein Körper][$(ZZ, +, dot)$ ist kein Körper, da die multiplikativ inversen Elemente in $QQ$, aber nicht immer in $ZZ$ liegen]
+
+#bolditalic[Beispiel 2.23:] komplexe Zahlen
+
+Die Menge der komplexen Zahlen ist definiert als:
+$
+CC := {(x, y) | x, y in RR}
+$
+d.h. $CC = RR times RR$. Die zwei Verknüpfungen Addition und Multiplikation werden wie folgt definiert:
+$
++ &: CC times CC arrow CC, space (a, b) + (c, d) = (a + c, b + d) \
+dot &: CC times CC arrow CC, space (a, b) dot (c, d) = (a dot c - b dot d, a dot d + b dot c)
+$
+
+Wir verwenden impliziet die Operationen auf den reellen Zahlen, $+, -, dot$. Dann sieht man:
+
+#boxedlist[Das neutrale Element in $CC$ bezüglich $+$ ist die $0_CC = (0,0)$][Das neutrale Element in $CC$ bezüglich $dot$ ist die $1_CC = (1, 0)$]
+
+Man rechnet nach, dass 
+
+#boxedlist[
+  Das inverse Element bezüglich $+$ in $CC$ definiert ist mit #humongousspace 
+  $
+  -(x, y) = (-x, -y) in CC wide forall space.sixth (x, y) in CC \
+  $
+][
+  Das inverse Element bezüglich $dot$ in $CC$ definiert ist mit 
+  $
+  (x, y)^(-1) = (x/(x^2 + y^2), y/(x^2 + y^2)) in CC wide forall space.sixth (x, y) in CC backslash {0_CC}
+  $
+]
+Das Überprüfen der Rechengesetze zeigt, dass $CC$ ein Körper ist.
+
+Für die Teilmenge 
+$
+M := {(x, 0) | x in RR} subset CC 
+$
+kann man jedes Element der reellen Zahlen mit einem Element der Menge $M$ mit der bijektiven Abbildung 
+$
+RR arrow M, space x arrow.bar (x, 0)
+$
+identifizieren. Mit $0_RR arrow.bar (0, 0) = 0_CC$, $1_RR arrow.bar (1, 0) = 1_CC$ kann man $M$ als Teilkörper von $CC$ auffassen. Es gilt jedoch auch $RR subset.eq.not CC$ (zummindest in LinA).
+
+Eine besondere komplexe zahl ist die imaginäre Einheit $(0, 1)$, für die gilt:
+$
+(0, 1) dot (0, 1) = (-1, 0) corres -1
+$
+Dabei wird $(-1, 0) in CC$ mit $-1 in RR$ über die oben genannte bijetkive Abbildung identifiziert. Mit der Definition $i := (0, 1)$ folgt
+$
+i dot i = -1
+$
+Mit dieser Notation und Identifikation kann man eine komplexe Zahl $z in CC$ beschreiben mit 
+$
+z = (x, y) &= (x, 0) + (0, y) = (x, 0) + (0, 1) dot (y, 0) \
+&= x + i y 
+$
+Man schreibt $"Re"(z) = x$ als #bolditalic[Realanteil] von $z$ und $"Im"(z) = y$ als #bolditalic[Imaginäranteil] von $z$.
+
+Man definiert zu $(x, y) in CC$ die #bolditalic[konjugiert komplexe Zahl] durch 
+$
+overline(z) = (x, -y) in CC
+$
+Damit erhält man für ein $z = (x, y) in CC$:
+$
+abs(z) := sqrt(z dot overline(z)) &= sqrt((x + i y) dot (x - i y)) \
+&= sqrt(x^2 - i x y + i x y - i^2 y^2) \
+&= sqrt(x^2 + y^2)
+$
+
+== Vektorräume
+
+#bolditalic[Beispiel 2.24:] Kräfeparallelogramm 
+
+Betrachten wir einige Gesetze aus der Mechanik:
+
+Je zwei am selben Punkt angreifende Kräfte können durch eine einzige Kraft ersetzt werden. Diese resultierende Kraft (= Gesamtkraft) hat die gleiche Wirkung wie die Einzelkräfte.
+$
+F = F_1 + F_2 wide "die Kräfte können als Vektoren betrachtet werden"
+$
+#boxedlist[Ein Vektor hat eine Länge und eine Richtung][Vektoren kann man addieren][Vektoren können mit einer reellen Zahl multipliziert werden]
+
+#bolditalic[Beispiel 2.25:] Interpolationsproblem
+
+Gegeben sind reelle Zahlen $a, b, c in RR$. Gesucht ist ein Polynom zweiten Grades $p(t) in P[t]$ mit 
+$
+p(1) = a wide p(2) = b) wide p(3) = c
+$
+für ein $p(t) = a_0 + a_1 t + a_2 t^2$. D.h. es muss gelten:
+$
+p(1) = a_0 + a_1 dot 1 + a_2 dot 1 = a \
+p(2) = a_0 + a_1 dot 2 + a_2 dot 4 = b \
+p(3) = a_0 + a_1 dot 3 + a_2 dot 9 = c
+$
+Diese Gleichung hat genau eine Lösung.
+$
+p(t) = (3a-3b+c) + (-5a/2 + 4b - 3c/2) t + (a/2 - b + c/2) t^2
+$
+Eine alternative Darstellung ist 
+$
+p_1(t) = 1/2(t - 2)(t - 3) wide p_2(t) = -(t - 1)(t - 3) wide p_3(t) = 1/2(t - 1)(t - 2)
+$
+für die gilt: 
+$
+p_i(k) = cases(1 "für" i = k, 0 "sonst")
+$
+Dann ist $p(t)$ gegeben durch:
+$
+p(t) = a p_1(t) + b p_2(t) + c p_3(t)
+$
+#bolditalic[Beobachtung:] Die additive Verknüpfung zweier Elemente gleicher Art und Multiplikation mit einer reellen Zahl ($corres$ Skalar).
+
+Solch eine algebraische Sturktur wollen wir beschreiben:
+
+#definition("2.26", "Vektorraum")[
+  Sei $K$ ein Körper. Ein Vektorraum über $K$, kurz $K$-Vektorraum, ist eine Menge $V$ mit zwei Abbildungen:
+
+  #boxedlist[
+    Addition #humongousspace
+    $
+    +: V times V arrow V, space (v, w) arrow.bar v + w
+    $
+  ][
+    skalare Multipliktation
+    $
+    dot: K times V arrow V, space (lambda, v) arrow.bar lambda v
+    $
+  ]
+  für die folgendes gilt:
+
+  #boxedlist[
+    $(V, +)$ ist eine kommutative Gruppe #humongousspace
+  ][
+    Für alle $v, w in V$ und $lambda, mu in K$ gilt:
+    
+    #box(width: 100%, inset: (left: 4.5cm), [
+      1. $lambda dot (mu dot v) = (lambda dot mu) dot v$
+      2. $1 dot v = v$ 
+      3. $lambda dot (v + w) = lambda dot v + lambda dot w$
+      4. $(lambda + mu) dot v = lambda dot v  + mu dot v$ 
+    ])
+  ]
+
+  Ein Element $v in V$ nennen wir #bolditalic[Vektor], ein $mu in K$ nenn wir einen #bolditalic[Skalar].
+]
+
+#bolditalic[Beobachtung:] Für einen Vektorraum sind die Operatinen $+$ und die skalare Multiplikation $dot$ abeschlossen.
+
+#bolditalic[Beispiel 2.27:] Für einen Körper $K$ ist der Standartvektorraum gegeben durch die Menge $V = K^n$ für ein $n in NN$. Die n-Tupel werden geschrieben als 
+$
+v = vec(v_1, v_2, dots.v, v_n) "mit" v_1, v_2, ..., v_n in K
+$
+Die Addition und die skalare Multiplikation ist komponentenweise definiert.
+$
+v + w = vec(v_1, v_2, dots.v, v_n) + vec(w_1, w_2, dots.v, w_n) = vec(v_1 + w_1, v_2 + w_2, dots.v, v_n + w_n) \
+lambda dot w = lambda dot vec(w_1, w_2, dots.v, w_n) = vec(lambda dot w_1, lambda dot w_2, dots.v, lambda dot w_n)
+$
+Damit ist der Vektorraum $V = K^n$ ein $K$-Vektorraum. Der Nullvektor $arrow(v_0)$ ist definiert durch
+$
+arrow(0) = vec(0, 0, dots.v, 0)
+$
+Das additiv inverse Element ist gegeben durch 
+$
+-v = - vec(v_1, v_2, dots.v, v_n) = vec(-v_1, -v_2, dots.v, -v_n) "für" v_1, v_2, ..., v_n in K 
+$
+Da $K$ ein Körper ist, ist die so definierte skalare Multiplikation assoziativ, distributiv und mit $1 in K$ kompatibel ($1 dot v = v$).
+
+#bolditalic[Beispiel 2.28:] Polynome 
+
+Die Menge $P[t]$ aller Polynome über einen Körper $K$ mit der Unbekannten $t$ bilden einen $K$-Vektorraum, wenn die Addition von Polynomen wie in Beispiel 2.17 definiert ist nd die skalare Multiplikation für ein $p(t) = a_0 + a_1 t + ... a_n t^n in P[t]$ definiert ist durch:
+$
+dot: K times P[t] arrow P[t] \
+\
+lambda dot p(t) = (lambda a_0) + (lambda a_1) t + ... + (lambda a_n) t^n 
+$
+
+#bolditalic[Beispiel 2.29:] Abbildungen
+
+Die Menge $V = "Abb"(RR, RR)$ der Abbildungen $f: RR arrow RR$ bilden einen Vektorraum über den Körper $RR$ mit den Verknüpfungen
+$
++: V times V arrow V, space (f, g) arrow.bar f + g wide (f + g)(x) := f(x) + g(x)
+$
+und 
+$
+dot: RR times V arrow V, space (lambda, g) arrow.bar lambda dot g 
+$
+Das Gleiche gilt für 
+$
+V &:= {"stetige Abbildungen" f: RR arrow RR} \
+V &:= {"differenzierbare Abbildungen" f: RR arrow RR}
+$
+
+#bolditalic[Lemma 2.30:] Für den $K$-Vektorraum $(V, +, dot)$ mit dem Nullement $0_K$ des Körpers und $0_V$ des Vektorraums. Dann gilt
+
+#box(width: 100%, inset: (right: 1cm, left: 1cm))[
+  1. $0_K dot v = 0_V$
+  2. $lambda dot 0_V = 0_V$
+  3. $-(lambda dot v) = (-lambda) dot v = lambda dot (-v) wide forall space.sixth lambda in K, forall space.sixth v in V$
+]
+
+#italic[Beweis:]
+
+zu 1) $forall space.sixth v in V$ gilt
+
+$
+0_K dot v &= (0_K + 0_K) dot v = 0_K dot v + 0_K dot v wide bar.v -(0_K dot v) \
+0_V &= 0_K dot v + 0_V = 0_K dot v \
+0_V &= 0_K dot v 
+$
+
+zu 2) $forall space.sixth lambda in K$ gilt
+
+$
+lambda dot 0_V &= lambda dot (0_V + 0_V) = lambda dot 0_V + lambda dot 0_V wide bar.v -(lambda dot 0_V) \
+0_V &= lambda dot 0_V
+$
+
+zu 3) $forall space.sixth lambda in K, forall space.sixth v in V$ gilt 
+
+$
+lambda dot v + ((-lambda) dot v ) = (lambda - lambda) dot v = 0_K dot v = 0_V space checkmark \
+lambda dot v + (lambda dot (-v)) = (lambda dot (v - v)) = lambda dot 0_V = 0_V space checkmark 
+$
+#endproof
+
+#definition("2.31", "Untervektorraum")[
+  Sei $(V, +, dot)$ ein $K$-Vektorraum und sei $U subset.eq V$. Dann ist $(U, + dot)$ ein #bolditalic[Untervektorraum], kurz #bolditalic[Unterraum] von $(V, +, dot)$.
+]
+
+#bolditalic[Lemma 2.32:] Sei $(V, +, dot)$ ein $K$-Vektorraum und $U subset.eq V$. Dann ist $(U, +, dot)$ genau dann ein Unterraum von $V$, wenn gilt:
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. $u + w in U wide forall space.sixth u, w in U$
+  2. $lambda u in U wide forall space.sixth lambda in U, forall space.sixth u in U$
+]
+
+#italic[Beweis:] (Übung)
+
+
