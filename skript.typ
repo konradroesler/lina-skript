@@ -1214,4 +1214,111 @@ $
 
 #italic[Beweis:] (Übung)
 
+Ist $U$ nicht abgeschlossen bezüglich der Addition und der skalaren Multiplikation, dann ist $(U, +)$ keine kommutative Gruppe und $(U, dot)$ keine Halbgruppe. In beiden Fällen ist $(U, +, dot)$ dann kein Vektorraum und somit auch kein Untervektorraum von $(V, +, dot)$.
+#endproof
+
+#bolditalic[Beispiel 2.33:] 
+
+#boxedlist[Jeder Vektorraum $(V, +, dot)$ hat die Vektorräume $(U = V, + dot)$ und $(U = {0_V}, +, dot)$][Für jedes $u in NN_0$ ist die Menge aller Polynome mit dem Grad kleiner gleich $n$, d.h. die Menge $P[t]_(<=n) = {p(t) in P[t] | "Grad"(p) <= n}$ ist mit den Verknüpfungen aus Beispiel 2.28 ein Unterraum von $(P[t], +, dot)$]
+
+#definition("2.34", "Linearkombination")[
+  Seien $(V, +, dot)$ ein $K$-Vektorraum, $n in NN$ und $v_1, ..., v_n in V$. Ein Vektor der Form 
+  $
+  lambda_1 v_1 + lambda_2 v_2 + ... + lambda_n v_n = sum_(i = 1)^n lambda_i v_i = v in V
+  $
+  heißt #bolditalic[Linearkombination] von $v_1, ..., v_n in V$ mit den Koeffizienten $lambda_1, ..., lambda_n in K$. Die #bolditalic[lineare Hülle] / Der #bolditalic[Spann] von $v_1, ..., v_n in V$ ist die Menge 
+  $
+  "Span"{v_1, ..., v_n} := {sum_(i=1)^n lambda_i v_i | lambda_1, ..., lambda_n in K}
+  $
+]
+
+#bolditalic[Lemma 2.35:] Sei $(V, +, dot)$ ein $K$-Vektorraum und $v_1, ..., v_n in V$, dann ist $("Span"{v_1, ..., v_n}, +, dot)$ ein Unterraum von $(V, +, dot)$.
+
+#italic[Beweis:] Es gilt $"Span"{v_1, ..., v_n} subset.eq V$. Wegen Lemma 2.32 reicht es zu zeigen, dass $U := "Span"{v_1, ..., v_n}$ bezüglich $+$ und $dot$ abgeschlossen ist. Dies gilt nach der Definition der linearen Hülle.
+#endproof
+
+#bolditalic[Beispiel 2.36:] Für $V = RR^3, K = RR$. Betrachte
+$
+M = {vec(3, 0, 1), vec(9, 0, 3)}, "ist" vec(12, 0, 4) in "Span"(M) "?"
+$
+Ja, denn es gilt:
+$
+1 dot v_1 + 1 dot v_2 = vec(3+9, 0+0, 1+3) = vec(12, 0, 4)
+$
+Des weiteren gilt:
+$
+"Span"(M) = {lambda dot vec(3, 0, 1) | lambda in RR} = A
+$
+#italic[Beweis:] 
+
+"$subset.eq$": 
+
+$A = {vec(3, 0, 1) dot lambda | lambda in RR} subset.eq {lambda dot vec(3, 0, 1) + 0 dot vec(9, 0, 3) | lambda in RR} subset.eq "Span"(M)$
+
+"$supset.eq$": 
+
+$
+x = vec(x_1, x_2, x_3) in "Span"(M) <==> vec(x_1, x_2, x_3) &= lambda_1 vec(3, 0, 1) + lambda_2 vec(9, 0, 3) \ 
+&= lambda_1 vec(3,0,1) + 3 lambda_2 vec(3, 0, 1) \ 
+&= (lambda_1 + 3 lambda_2) vec(3, 0, 1) \ 
+==> x = (lambda_1 + 3 lambda_2) vec(3, 0, 1) in A
+$
+#endproof
+
+#pagebreak()
+
+= Basen und Dimensionen von Vektorräumen
+
+Dieses Kapitel motiviert unter anderem die Frage, wie man Vektorräume effizient beschreiben kann.
+
+== Lineare Unabhängigkeit
+
+#definition("3.1", "lineare Unabhängigkeit")[
+  Sei $V$ ein $K$-Vektorraum. Die Vektoren $v_1, ..., v_n in V$ heißten #bolditalic[linear unabhängig], wenn aus 
+  $
+  sum_(i = 1)^n lambda_i v_i = 0 wide "mit" lambda_1, ..., lambda_n in K 
+  $
+  folgt, dass $lambda_1 = lambda_2 = ... = lambda_n = 0$ gilt. Folgt dies nicht, d.h. gilt 
+  $
+  sum_(i = 1)^n lambda_i v_i = 0 wide "mit" lambda_1, ..., lambda_n in K
+  $
+  die nicht alle gleich $0$ sind, so heißten $v_1, ..., v_n$ #bolditalic[linear abhängig].
+
+  #boxedlist[Die leere Menge ist linear unabhängig.][Ist $M != emptyset$ eine Menge und für jedes $m in M$ ein Vektor $v_m in V$ gegeben, so nennt man die Menge ${v_m}_(m in M)$ linear unabhängig, wenn endlich viele Vektoren immer linear unabhängig sind. Gilt dies nicht, so ist die Menge ${v_m}_(m in M)$ linear abhängig.]
+]
+
+#bolditalic[Bemerkung:] Nach Definition sind die Vektoren $v_1, ..., v_n$ genau dann linear unabhängig, wenn sich der Nullvektor aus ihnen nur in der Form $0 = 0 dot v_1 + ... + 0 dot v_n$ mit endlich vielen Vektoren darstellen lässt
+
+#bolditalic[Beispiel 3.2:] Fortsetzung von Beispiel 2.36
+
+Die Vektoren aus $M = {(3,0,1), (9,0,3)}$ sind linear abhängig, da 
+$
+3 vec(3, 0, 1) - vec(9, 0, 3) = vec(0, 0, 0) wide "mit" lambda_1 = 3, lambda_2 = -1
+$
+Der Vektor $v_1 = (3, 0, 1)$ dagegen ist linear unabhängig, da
+$
+0 dot vec(3, 0, 1) = vec(0, 0, 0) wide "mit" lambda_1 = 0
+$
+
+#bolditalic[Beispiel 3.3:] $V = RR^3, K = RR$
+
+Betrachte $M = {(3, 0, 1), (9, 0, 3), (0, 1, 1)}$. Sind diese Vektoren linear unabhängig? Die allgemeine Vorgehensweise ist hier, ein lineares Gleichungssystem aufzustellen und zu lösen. Hat das Gleichungssystem eine Lösung $!= 0$, dann sind die Vektoren linear abhängig.
+
+Hier: $==>$ linear abhängig
+
+#bolditalic[Lemma 3.4:] Sei $V$ ein $K$-Vektorraum. Dann gilt:
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. Ein einzelner Vektor ist genau dann linear unabhängig, wenn $v != 0_V$ gilt
+  2. Sind $v_1, ..., v_n in V$ linear unabhängig und ist ${u_1, ..., u_m} subset.eq {v_1, ..., v_n}$, dann ist auch die Menge $u_1, ..., u_m$ linear unabhängig
+  3. Sind $v_1, ..., v_n in V$ linear abhängig und $u_1, ..., u_m in V$. Dann ist auch $v_1, ..., v_n, u_, ..., u_m$ linear abhängig 
+]
+
+#italic[Beweis:]
+
+zu 1: Sei $v in V, v != 0_V$. Es soll gelten: $lambda v = 0 ==> lambda = 0, "da" v != 0_V$
+
+zu 2: $v_1, ..., v_n$ sind linear unabhängig
+
+
 
