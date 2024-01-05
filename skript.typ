@@ -1318,7 +1318,144 @@ Hier: $==>$ linear abhängig
 
 zu 1: Sei $v in V, v != 0_V$. Es soll gelten: $lambda v = 0 ==> lambda = 0, "da" v != 0_V$
 
-zu 2: $v_1, ..., v_n$ sind linear unabhängig
+zu 2: $v_1, ..., v_n$ sind linear unabhängig und es gilt ${u_1, ..., u_m} subset.eq$ ${v_1, ..., v_n}$.
 
+Damit die Vektoren ${u_1, ..., u_m}$ linear unabhängig sind, muss gelten
+$
+lambda_1 u_1 + ... + lambda_m u_m = 0
+$
+Wegen der linearen Unabhängigkeit von ${v_1, ..., v_n}$ gilt nach Umbennenung der Vektoren ${u_1, ..., u_m}$:
+$
+lambda_i_1 v_i_1 + ... + lambda_i_m + v_i_m + limits(sum_(j = 1)^n)_(j in.not {i_1, ..., i_m}) ==> lambda_i_1 = ... = lambda_i_m = 0
+$
 
+zu 3: $v_1, ..., v_n$ sind linear abhängig $==> exists space.sixth lambda_i in K$, so dass nicht alle $lambda_i$ gleich Null sind und $lambda_1 v_1 + lambda_2 v_2 + ... + lambda_n v_n = 0$ gilt.
 
+$==> lambda_1 v_1 + ... + lambda_n v_n + mu_1 u_1 + ... + mu_m u_m = 0$ $==> mu_1, ..., mu_m = 0$ $==>$ Mit Koeffizienten $lambda_1, ..., lambda_n, mu_1, mu_m$ lassen sich $v_1, ..., v_n, u_1, ..., u_m$ linear zu Null kombinieren ohne, dass alle Koeffizienten Null sind $==> v_1, ..., v_n, u_1, ..., u_m$ sind linear abhängig
+#endproof
+
+Eine alternative Definition der linearen Unabhängigkeit motiviert Satz 3.5:
+
+#bolditalic[Satz 3.5:] Sei $V$ ein $K$-Vektorraum. Eine Menge $M subset.eq V$ ist genau dann linear unabhängig, wenn kein Vektor $v in V$ als Linearkombination dargestellt werden kann.
+
+#italic[Beweis:] 
+
+"$==>$": Annahme: $M subset.eq V$ sind linear unabhängig und es existiert ein Vektor $v in M$, der als Linearkombination von endlichen Vektoren aus $M backslash {v}$ dargestellt werden kann. D.h. es existieren $lambda_1, ..., lambda_n in K backslash {0}, n >= 1$ und $v_1, ..., v_n in M backslash {v}$ mit 
+$
+sum_(i = 1)^n lambda_i v_i = v ==> -v + sum_(i = 1)^n lambda_i v_i = 0 space arrow.zigzag
+$
+Dies ist ein Widerspruch zur Annahme, dass die Vektoren linear unabhängig sind. Es existiert also kein Vektor, welcher als Linearkombination ausgedrückt werden kann.
+
+"$<==$": Angenommen $M$ wäre linear abhängig. D.h. es existieren $n in NN$ und $v_1, ..., v_n in M, lambda_1, ..., lambda_n in K$ mit $lambda_1 != 0 "und" sum_(k = 1)^n lambda_k v_k = 0$ $==>$ 
+$
+sum_(k = 1)^n lambda_k/lambda_1 v_k = 0 ==> v_1 + sum_(k = 2)^n lambda_k/lambda_1 v_k = 0 \
+==> v_1 = -sum_(k = 2)^n lambda_k/lambda_1 v_k space arrow.zigzag
+$
+Dies ist ein Widerspruch dazu, dass man $v$ nicht als Linearkombination darstellen kann. Die Vektoren sind also linear unabhängig.
+#endproof
+
+#definition("3.6", "Span für unendliche Mengen")[
+  Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, $M$ eine Menge und $v_m in M space forall space.sixth m in M$ gegeben. Dann ist der Spann der Familie ${v_m}_(m in M)$ gegeben durch
+  $
+  "Span"{v_m}_(m in M) := {#box(width: auto, height: 0.7cm, [
+    $ 
+    v in V | exists space.sixth n in NN "und endliche Teilmenge" J subset M, \
+    abs(j) = n "mit" v in "Span"{v_j}_(j in J) 
+    $
+  ])}
+  $
+]
+
+#bolditalic[Beispiel 3.7:] $M = NN$, $v_m := t^m$, $t in K$, $"Span"{v_m}_(m in M) = P[t]$
+
+#bolditalic[Satz 3.8:] Sei $K$ ein Körper, $V$ ein $K$-Vektorraum und $M$ eine Menge. Dann sind folgende Aussagen äquivalent:
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. ${v_m}_(m in M)$ ist linear unabhängig
+  2. jeder Vektor $v in "Span"{v_m}_(m in M)$ hat eine eindeutige Darsetllung als Linearkombination
+]
+
+#italic[Beweis:]
+
+$1 ==> 2$: Beweis per Kontraposition 
+
+Seien $I, J subset.eq M$ endlich. Sei $lambda_K in K$, $k in I$ und $mu_k in K$, $k in J$. Betrachte den Vektor $v in V$. Für diesen gilt:
+$
+v_I = sum_(k in I) lambda_k v_k "und" v_J = sum_(k in J) mu_k v_k
+$
+Überlegung: Wähle ein $k in I union J$. Falls gilt $k in I backslash J$, setze $lambda_k = =$. Falls gilt $k in J backslash I$, setze $mu_k = 0$. Es folgt
+$
+==> 0 = sum_(k in I union J) (lambda_k - mu_k) v_k
+$
+Da die Darstellung $v_I$ und $v_J$ von $v$ unterschiedlich sind, existiert ein $k in I union J$ mit $lambda_k - mu_k != 0$.
+$
+==> {v_m}_(m in M) "ist linear unabhängig"
+$
+
+$2 ==> 1$: Beweis per Kontraposition
+
+Angenommen ${v_m}_(m in M)$ wäre linear unabhängig. Dann existiert ein endliches $J subset.eq M$ und $lambda_k in K$ für $k in J$ mit $0 = sum_(k in J) lambda_k v_k$ und mindestens ein $lambda_k != 0$.
+
+Sei $v in "Span"{v_m}_(m in M)$, d.h. es existiert ein endliches $I subset.eq M$ mit $mu_k in K$ für alle $k in I$ mit 
+$
+v = sum_(k in I) mu_k v_k ==> v + 0 = lambda_(k in I) mu_k v_n + sum_(k in J) lambda_k v_k = sum_(k in I union J) (mu_k + lambda_k) v_k
+$
+Es gilt wieder $mu_k = 0$ für $k in J backslash I$ und $lambda_k = 0$ für $k in I backslash J$. Da für mindestens ein $k in J union I$, $(mu_k + lambda_k) != lambda_k$, ist dies eine zweite Darstellung von $v$.
+#endproof
+
+#definition("3.9", "Erzeugendensystem")[
+  Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, $M$ eine Menge und $v_m$ für $m in M$ Vektoren in $V$. Die Menge ${v_m}_(m in M)$ heißt #bolditalic[Erzeugendensystem] von $V$, falls 
+  $
+  "Span"{v_m}_(m in M) = V
+  $
+]
+
+#bolditalic[Beispiel 3.10:] Sei $K$ ein Körper, $V$ ein Vektorraum mit $V = K^n$, $n in NN$
+
+Dann ist mit 
+$
+e_1 := vec(1, 0, dots.v, 0), space e_2 := vec(0, 1, dots.v, 0), space ..., space e_n := vec(0, 0, dots.v, 1)
+$
+die Menge ${e_i}_(in in {1, ..., n})$ ein Erzeugendensystem von $K^n$.
+
+#definition("3.11", "Basis")[
+  Sei $K$ ein Körper, $V$ ein Vektorraum, $M$ eine Menge und $v_m$ für $m in M$ Vektoren in von $V$. Dann heißt ${v_m}_(m in M)$ #bolditalic[Basis] von $V$, falls sie linear unabhängig und ein Erzeugendensystem von $V$ ist.
+]
+
+#bolditalic[Beispiel 3.12:] Das Erzeugendensystem aus 3.10 ist eine Basis. Anmerkung: Basen sind nicht eindeutig. Für $K^3$ gilt etwa
+$
+v_1 = vec(1,1,0) space v_2 = vec(1,0,1) space v_3 = vec(0, 1, 1) 
+$ 
+ist ebenfalls eine Basis.
+
+#bolditalic[Beispiel 3.13:] Die Familie ${t^i}_(i in NN)$ ist ein Erzeugendensystem von $P[t]$, denn es gilt $"Span"{t^i}_(i in NN) = P[t]$. Um zu prüfen, ob die Familie auch Basis von $P[t]$ muss die lineare Unabhängigkeit gerpüft werden. Sei $n in NN_0$, $a_0, a_1, ..., a_n in K$ und betrachte $p(t) = a_0 + a_1 t + ... + a_n t^n$ mit $p(t) = 0$.
+
+Falls $a_k != 0$ für ein $k in {0, ..., n}$ gilt, so hat $p(t)$ höchstens $n$ Nullstellen in $K$. $0 in P[t]$ hat aber unendlich viele Nullstellen. D.h. es existiert ein $t in K$ mit $p(t) != 0 space arrow.zigzag$. Es folgt, dass die Familie ${t^i}_(i in NN)$ linear unabhängig ist. Somit ist ${t^i}_(i in NN)$ eine Basis von $P[t]$.
+
+#bolditalic[Satz 3.14:] Sei $K$ ein Körper, $V$ ein Vektorraum und $B := {v_1, ..., v_n} subset.eq V$ eine Basis von $V$. Dann ist äquivalent
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. $B$ ist eine Basis #h(1fr)
+  2. $B$ ist ein unverkürzbares Erzeugendensystem, d.h. $forall r in {1, ..., n}$ ist die Menge $B backslash {v_r}$ kein Erzeugendensystem von $V$
+  3. Für alle $v in V$ existieren eindeutige $lambda_1, ..., lambda_n$ mit 
+  $
+  v = sum_(k = 1)^n lambda_k v_k
+  $
+  4. $B$ ist unverlängerbar linear unabhängig. D.h. für alle $v in V$ ist $B union {v}$ linear abhängig
+]
+
+#italic[Beweis:] Beweis durch Kontraposition
+
+$1 ==> 2$: Angenommen $B$ ist ein verkürzbares Erzeugendensystem. D.h. o.B.d.A $r = 1$, $B backslash {v_1}$ ist auch ein Erzeugendensystem von $V$. Also existieren $lambda_2, ..., lambda_n in K$ mit 
+$
+v_1 = sum_(k = 2)^n lambda_k v_k
+$
+Mit Satz 3.5 folgt, dass $B$ linear abhängig ist. Also ist $B$ keine Basis.
+
+$2 ==> 3$: Beweis durch Kontraposition
+
+Angenommen, es existiert $v in V$, $lambda_k, mu_k in K$ mit 
+$
+v = sum_(k = 1)^n lambda_K v_k "und" v = sum_(k = 1)^n mu_k v_k 
+$
+o.B.d.A gilt $mu_1 != lambda_1$. Dann folgt $0 = sum_(k = 1)^n (lambda_k - mu_k) v_k$.
