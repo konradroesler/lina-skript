@@ -1459,3 +1459,84 @@ $
 v = sum_(k = 1)^n lambda_K v_k "und" v = sum_(k = 1)^n mu_k v_k 
 $
 o.B.d.A gilt $mu_1 != lambda_1$. Dann folgt $0 = sum_(k = 1)^n (lambda_k - mu_k) v_k$.
+
+Weiterhin gilt 
+$
+0 = sum_(k = 1)^n (lambda_k -mu_k)/(lambda_1 - mu_1) v_k ==> v_1 = sum_(k = 2)^n -(lambda_k - mu_k)/(lambda_1 - mu_1) v_k
+$
+Sei nun $w in V$, dann existiert ein $alpha_k in K$ mit 
+$
+w = sum_(k = 1)^n alpha_k v_k = alpha_1 v_1 + sum_(k = 2) alpha_k v_k = star
+$
+Wir defnieren
+$
+beta_k = -(lambda_k - mu_k)/(lambda_1 - mu_1)
+$
+Dann gilt 
+$
+star = sum_(k = 2)^n (alpha_1 beta_k + alpha_k) v_k
+$
+Also war $B$ kürzbar.
+
+$3 ==> 4$:
+
+Satz 3.8 liefert, dass $B$ linear unabhängig ist. Sei $v in V backslash B$. Dann existieren $lambda_1, ..., lambda_k in K$ mit 
+$
+v = sum_(k = 1)^n lambda_k v_k
+$
+Das heißt $B union {v}$ ist linear abhängig nach Satz 3.8.
+
+$4 ==> 1$:
+
+Sei $B$ unverlängerbar linear abhängig. Sei $v in V$. Dann ist $B union {u}$ linear abhängig. Also existiert $lambda_1, ..., lambda_n, lambda in K$ mit 
+$
+0 = sum_(k = 1)^n lambda_k v_k + lambda v "wobei nicht alle" lambda_k, lambda = 0
+$
+Da $B$ linear unabhängig ist folgt $lambda != 0$. Daraus folgt
+$
+v = sum_(k = 1)^n -lambda_k/lambda v_k
+$ 
+Also ist $B$ ein Erzeugendensystem und somit eine Basis.
+#endproof
+
+#definition("3.15", "endlichdimensional, unendlichdimensional")[
+  Sei $(V, +, dot)$ ein $K$-Vektorraum für dein eine endliche Menge $M = {v_1, ..., v_n} subset V$ existiert, so dass $"Span" M = V$. Dann nennt man $V$ #bolditalic[endlich erzeugt] und sagt $V$ ist #bolditalic[endlichdimensional]. Ist $V$ nicht von endlich vielen Vektoren erzeugt, nennt man $V$ #bolditalic[unendlichdimensional].   
+]
+
+#bolditalic[Beispiel 3.16:]
+
+#boxedlist[
+  Die Einheitsvektoren aus Beispiel 3.10 sind eine Basis des $K^n$ für einen Körper $K$. Damit ist $K^n$ endlich erzeugt.
+][
+  Der Vektorraum $P[t]$ der Polynome aus Beispiel 3.13 ist über dem Körper $K$ mit der Basis ${t^i}_(i in NN_0)$ ist nicht endlich erzeugt.
+][
+  Sei $V$ der Vektorraum der stetigen reellwertigen Funktionen auf dem Intervall $[0, 1]$. Dann ist $V$ unendlichdimensional, denn:
+
+  Sei für $n in NN$ die Funktion $f_n in V$ definiert durch
+  $
+  f_n: [0, 1] -> RR, space x arrow.bar cases(0"," &0 <= x <= 1/(n+1), 2n(n+1)x-2n"," &1/(n+1)<=x<=1/2(1/n + 1/(n+1)), -2(n+1)x+2n+2"," wide&1/2(1/n + 1/(n+1)), 0"," &1/n <=x<=1)
+  $
+  Es gilt für jede Linearkombination der $f_n$ und $j, k in NN$ mit $j <= k$, dass
+  $
+  sum_(j = 1)^k lambda_j f_j(1/2(1/j + 1/(j+1))) = lambda_j "bei" f_j = 1", sonst" 0 
+  $
+  Damit ist:
+  $
+  sum_(i = 1)^k lambda_i f_i(x) = 0_v in V, space forall x in [0, 1]
+  $
+  nur erfüllt, wenn $lambda_i = 0$ für alle $1 <= i <= k$. Damit sind die $f_n$ linear unabhängig. Also ist $V$ unendlichdimensional.
+]
+
+#bolditalic[Frage:] Hat jeder Vektorraum eine Basis?
+
+Diese Frage ist relativ einfach im endlichdimensionalen Fall:
+
+#bolditalic[Lemma 3.17:] Basisauswahlsatz 
+
+Ein $K$-Vektorraum $(V, +, dot)$ ist genau dann endlich, erzeugt, wenn er eine endliche Basis besitzt.
+
+#italic[Beweis:]
+
+"$<==$": endliche Basis $==>$ endliches Erzeugendensystem $==>$ endlich erzeugt
+
+"$==>$": Sei $V$ endlich erzeugt
