@@ -436,19 +436,19 @@ Dann besitzt $cal(S)$ ein maximales Element.
 #italic[Beweis:] Das Zornsche Lemma ist ein fundamentales Resultat aus der Mengenlehre, hier ohne Beweis
 #endproof
 
-#bolditalic[Lemma 1.26:] Sei $M$ eine Menge und $cal(K) subset.eq cal(P)(M)$ eine Kette. Dann gibt es zu je endlich vielen $A_1, ..., A_n in cal(K)$ ein $hat(i) in {1, ..., n}$ mit $A_i subset.eq A_(hat(i))$ für alle $i in {1, ..., n}$. 
+#bolditalic[Lemma 1.26:] Sei $M$ eine Menge und $cal(K) subset.eq cal(P)(M)$ eine Kette. Dann gibt es zu je endlich vielen $A_1, ..., A_n in cal(K)$ ein $hat(dotless.i) in {1, ..., n}$ mit $A_i subset.eq A_(hat(dotless.i))$ für alle $i in {1, ..., n}$. 
 
 #italic[Beweis:] Durch vollständige Induktion über $n$.
 
 Induktionsanfang: n = 1
 
-D.h. wir haben $A_1 in cal(K)$ und für $hat(i) = 1$ gilt $A_1 subset.eq A_(hat(i)) = A_1 space checkmark$
+D.h. wir haben $A_1 in cal(K)$ und für $hat(dotless.i) = 1$ gilt $A_1 subset.eq A_(hat(dotless.i)) = A_1 space checkmark$
 
 Induktionsschritt: $n - 1 arrow.bar n$
 
-Für $A_1, ..., A_(n-1) in cal(K)$ exisitert ein $hat(j) in {1, ..., n-1}$ mit $A_i subset.eq A_(hat(j))$ für alle $i in {1, ..., n-1}$. Mit 
+Für $A_1, ..., A_(n-1) in cal(K)$ exisitert ein $hat(dotless.j) in {1, ..., n-1}$ mit $A_i subset.eq A_(hat(dotless.j))$ für alle $i in {1, ..., n-1}$. Mit 
 $
-hat(i) := cases(hat(j) "für" A_n subset.eq A_(hat(j)), n "für" A_(hat(j)) subset.eq A_n)
+hat(dotless.i) := cases(hat(dotless.j) "für" A_n subset.eq A_(hat(dotless.j)), n "für" A_(hat(dotless.j)) subset.eq A_n)
 $
 folgt die Behautpung.
 #endproof
@@ -523,7 +523,7 @@ $
   4. Ist $g compose f$ surjktiv, dann ist $g$ surjektiv
 ])
 
-#italic[Beweis:] (Übungsaufgabe)
+#italic[Beweis:] (Übungsaufgabe, Blatt 4 Aufgabe 1)
 
 1. $h compose (g compose f)(x) = h((g compose f)(x)) = h(g(f(x))) = (h compose g)(f(x)) = ((h compose g) compose f)(x)$
 
@@ -588,11 +588,11 @@ $
 Dann gilt:
 
 #box(width:100%, inset: (left: 1cm, right: 1cm), [
-  1. f^(-1) ist bijektiv $wide (f^(-1)^(-1)) = f$ #v(1mm) 
+  1. $f^(-1)$ ist bijektiv $wide (f^(-1))^(-1) = f$ #v(1mm) 
   2. $(g compose f)^(-1) = f^(-1) compose g^(-1)$ 
 ])
 
-#italic[Beweis:] (1. Übungsaufgabe)
+#italic[Beweis:] (1. Übungsaufgabe) 
 
 1. #[
 $
@@ -857,7 +857,7 @@ Ringe sind eine Erweiterung der algebraischen Strukturen von einer auf zwei Verk
 #boxedlist[$(NN, +, dot)$ ist kein Ring][$(ZZ, +, dot)$ ist ein kommutativer Ring mit Einselement]
 
 #boxedlist[
-  $(FF_2, +, dot)$ ist ein kommutativer Körper mit Einselement, denn
+  $(FF_2, +, dot)$ ist ein kommutativer Ring mit Einselement, denn
 
   #boxedlist[das neutrale Element bezüglich der Addition ist die $0$, denn $0 + 0 = 0$, $0 + 1 = 1$, $1 + 0 = 0$][das additive inverse Element zu $0$ ist $0$ und zu $1$ die $1$, denn $1 + 1 = 0$][die Addition ist kommutativ][die Addition ist assoziativ, zeigt man durch nachrechnen für alle $8$ Möglichkeiten][das neutrale Element für die Multiplikation ist $1$, denn $0 dot 1 = 0$ und $1 dot 1 = 1$][die Multiplikation ist kommutativ][die Multiplikation ist assoziativ, zeigt man durch nachrechnen][die Distributivgesetze gelten, zeigt man durch nachrechnen]
 ]
@@ -1539,4 +1539,252 @@ Ein $K$-Vektorraum $(V, +, dot)$ ist genau dann endlich, erzeugt, wenn er eine e
 
 "$<==$": endliche Basis $==>$ endliches Erzeugendensystem $==>$ endlich erzeugt
 
-"$==>$": Sei $V$ endlich erzeugt
+"$==>$": Sei $V$ endlich erzeugt $==> exists v_1, ..., v_n: "Span"{v_1, ..., v_n} = V$. Ist dieses Erzuegendensystem nicht minimial, d.h. linear abhängig, dann folgt mit Satz 3.5, dass ein $v_i, 1 <= i <= n$, als Linearkombation der anderen $v_j, i != j$ dargestellt werden kann. Entfernen des $v_i$ liefert ein kleineres Erzeugendensystem. Wiederhole $n-1$-Mal, bis die verbleibende Menge linear unabhängig ist. Soimt enthält jedes endliche erzeugendensystem ein minimales Erzeugendensystem und somit eine Basis.
+#endproof
+
+Für den unendlichdimensionalen Fall ist mehr Arbeit nötig:
+
+#bolditalic[Satz 3.18:] Jeder $K$-Vektorraum $(V, +, dot)$ besitzt eine Basis (ein minimales Erzeugendensystem).
+
+#italic[Beweis:] 
+
+Idee: Wir wenden das zornsche Lemma auf $M = V$ und \ $cal(S) = {A subset.eq V | "die Familie" {v}_(v in A) "ist linear unabhängig"} subset.eq cal(P)(M)$
+
+Dazu treffen wir die Annahme, dass die Vorraussetzungen für das Zornsche Lemma gelten. Dann hat $cal(S)$ ein maximales Element bezüglich der Relation $<=$. 
+
+Da maximal linear unabhängige Familien von Vektoren aus $V$ Basen von $V$ sind (Satz 3.14), ist damit die Behauptung gezeigt. 
+
+Jetzt müssen wir die Verwednung des Zornschen Lemmas rechtfertigen.
+
+Für $cal(K) subset.eq cal(S)$, $cal(K)$ ist eine Kette, gilt $union.big_(A in cal(K)) A in cal(S)$. Sei $cal(K) subset.eq cal(S)$ seine Kette. zu zeigen:
+$
+B := union.big_(A in cal(K)) A in cal(S)
+$
+D.h. die Vektoren aus $B$ sind eine Menge von linear unabhängigen Vektoren. Seien dazu endlich viele Vektoren $v_1, ..., v_n in B$ beliebig vorgegeben. Per Definition von $B$ existiert in der gegebenen Kette $cal(K)$ für jeden Index $i in {1, ..., n}$ eine Menge $A_i in cal(K)$ mit $v_i in A_i$. 
+
+Nach Lemma 1.26 über endliche Teilmengen von Ketten gibt es einen Index $tilde(dotless.i) "mit" A_i subset.eq A_tilde(dotless.i)$ für alle $i$. $==>$ alle Vektoren $v_1, ..., v_n in A_tilde(dotless.i) in cal(S)$. Daraus folgt, dass ${v_1, ..., v_n}$ linear unabhängig ist.
+#endproof 
+
+== Basen
+
+Man kann eine Basis als Koordinatensystem in einem Vektorraum auffassen. Wichtig ist, dass Basen nicht eindeutig sind (vergleiche Beispiel 3.12). Eine sehr wichtige Frage der linearen Algebra ist: Welche Basis wählt man?
+
+#bolditalic[Beispiel 3.19:] Um aus einer im Verhältnis $1:1$ in Wasser gelösten System eine Lösung im Mischungsverhältnis $a:b$ zu bekommen, verdünnt man $y$ Teile der Lösung mit $x$ Teilen Wasser, so dass
+$
+x dot vec(1,1) + y dot vec(1,0) = vec(a, b) wide x"-Koordinate ist Wasser," y"-Koordinate ist Substanz"
+$
+Eine andere Darstellung der Basis ist 
+$
+vec(1, 1/2) &= 1 dot e_1 + 1/2 dot e_2 = 1 dot vec(1,0) + 1/2 dot vec(0,1) \
+&= 1/2 v_1 + 1/2 v_2 = 1/2 vec(1,1) + 1/2 vec(1,0)
+$
+Man sieht:
+
+#boxedlist[$1$ Parameter in $RR^1$][$2$ Parameter in $RR^2$][$3$ Parameter in $RR^3$]
+
+#bolditalic[Ziel:] Alle Basen eines endlich erzeugten Vektorraums haben gleich viele Elemente.
+
+#align(center, [Das ist durchaus nicht offensichtlich#bolditalic[!!!]])
+
+#bolditalic[Beispiel 3.20:] Es gibt eine bijektive Abbildung $f: NN -> NN times NN$. Dafür kann man z.B. das Diagonalargument von Geord Cantor verwenden.
+
+Zum Beweis der Aussage sind noch Vorarbeiten notwendig.
+
+#bolditalic[Satz 3.21:] Basisergänzungssatz 
+
+Sei $(V, +, dot)$ eine $K$-Vektorraum,
+
+#boxedlist[${u_i}_(i in I) subset.eq V$ ein linear unabhängiges System][${v_j}_(j in J) subset.eq V$ ein Erzeugendensystem von $V$]
+
+Dann gibt es eine Teilmenge $tilde(J) subset.eq J$ mit der Eigenschaft, dass das System
+$
+B := {w_k}_(k in I union tilde(J)) "mit" w_k := cases(u_i &k = i in I, v_j &k = j in tilde(J))
+$
+eine Basis von $V$ bildet.
+
+#italic[Beweis:] Sei $tilde(J) subset.eq J$ eine bezüglich $subset.eq$ maximal gewählte Teilmenge mit der Eigenschaft, dass $B$ wie im Satz definiert, ein linear unabhängiges System ist. Für endliche Mengen $J$ ist das klar (siehe Lemma 3.17). Für Mengen mit unendlich vielen Elementen folgt aus dem zornschen Lemma (Satz 3.18). Damit: $B$ ist ein maximales linear unabhängiges System.
+
+Wegen der Maximalität ist für jeden Index $j in J backslash tilde(J)$ das System $B union {v_j}$ linear abhängig
+$==> exists lambda, lambda_i in K, i in I union tilde(J):$
+$
+lambda dot v_j + sum_(i in I union tilde(J)) lambda_i dot v_i = 0
+$
+wegen der linearen Unabhängigkeit der ${v_i}_(i in I union tilde(J))$ muss $lambda != 0$ gelten
+$
+==> v_j = - sum_(i in I union tilde(J)) lambda_i / lambda dot w_i in "Span" B
+$
+Dies gilt für alle $j in J backslash tilde(J) ==> v_j in "Span" B space forall j in J ==> B "Basis"$
+#endproof
+
+#bolditalic[Beispiel 3.22:] In $V = RR^3$ bilden die Vektoren ${e_1, e_2, e_3}$ die Standardbasis. Des Weiteren sind die Vektoren $u_1= (3, 1, 0) "und" u_2 = (1, 3, 0)$ linear unabhängig. Satz 3.21 liefert, dass ${u_1, u_2, e_3}$ eine Basis ist. 
+
+#bolditalic[Satz 3.23:] Austauschsatz von Steinitz 
+
+(Ernst Steinitz, deutscher Mathematiker, 1871 - 1928)
+
+Sei $(V, +, dot)$ ein $K$-Vektorraum,
+
+#boxedlist[$B = {v_1, ..., v_n}$ eine (endliche Basis)][$C = {u_1, ..., u_m}$ eine linear unabhängige Familie]
+
+Dann ist $m <= n$ und nach geeigneten umnummerieren der Vektoren in $B$ ist das durch austauschen der ersten $m$-Vektoren erhaltene System 
+$
+tilde(B) := {u_1, ..., u_m, v_(m+1), ..., v_n} "eine Basis von" V "über" K
+$
+
+#italic[Beweis:] Aus dem Basisergänzungssatz folgt, dass man das linear unabhängig System $u_1, ..., u_m$ zu einer Basis $u_1, ..., u_m, v_j_1, ..., v_j_k_0$ für ein $k_0 >= 0$ und geeignete Indizes $j_1, ..., j_k_0 in {1, ..., n}$ erweitern kann.
+
+Die Menge ${u_1, ..., u_(m-1), v_j_1, ..., v_j_k_0}$ ist immer noch linear unabhängig aber kein Basis. Aus dem Basisergänzungssatz folgt wieder, dass man diese Menge zu einer Basis ${u_1, ..., u_(m-1), v_j_1, ..., v_j_k_0, v_j_(k_0 + 1), ..., v_j_k_1}$ für ein $k_1 > k_0$ und weitere Indizes $j_(k_0 + 1), ..., v_k_1 in {1, ..., n}$. Setzt man dieses Verfahren induktiv $v$-mal fort, erhält man im $r$-ten Schritt eine Basis ${u_1, ..., u_(m - r), v_j_1, v_j_2, ..., v_j_k_(r - 1), v_j_(k_(r-1)+1), ...., v_j_k_r}$ für ein $k_r > k_(r-1)$ und weitere Indizes $j_(k_(r-1)+1), ..., j_k_r in {1, ..., n}$. Nach $m$ Schritten sind alle $u_i, 1 <= i <= m$ ersetzt. 
+
+Als neue Basis erhält man
+$
+hat(B) := {v_j_1, ..., v_j_m}
+$
+welche ausschließlich Vektoren aus $B$ enthält. $B$ war ein minimales Erzeugendensystem. Also muss die neue Menge $hat(B)$ bis auf die Umordnung mit der Menge $B$ übereinstimmen. Für die Menge der Indizes gilt also:
+$
+hat(B) = {v_j_1, ..., v_j_k_m} = {v_1, ..., v_n} = B 
+$
+Also folgt: $k_m = n$
+
+Wir haben jeweils mindestens einen Vektor ergänzt, d.h. 
+$
+k_m > k_(m-1) > ... > k_1 > 0 ==> k_m >= m ==> n = k_m >= m ==> n >=m ==> "erste Aussage"
+$
+Dann folgt die zweite Aussage aus dem Basisergänzungssatz.
+#endproof
+
+#bolditalic[Lemma 3.24:] Ist $(V, +, dot)$ ein von endlich vielen Vektoren erzeugter $K$-Vektorraum, so besitzt $V$ eine Basis und je zwei Basen von $V$ haben gleich viele Elemente. 
+
+#italic[Beweis:] Sei $V = "Span"{v_1, ..., v_n}$ mit $v_1 != 0$. Nach Satz 3.21 kann ${v_1}$ durch Hinzunahme von geeigneten Elementen aus ${v_2, ..., v_n}$ zu einer Basis von $V$ ergänzen. Also besitzt $V$ eine Basis mit endlich vielen Elementen.
+
+Seien $U = {u_1, ..., u_l} "und" W = {w_1, ..., w_k}$ zwei solche Basen. Dann folgt aus dem Satz 3.23 aus Symmetrie, dass $k = l$. 
+#endproof
+
+#bolditalic[Ausblick:] Man kann mit Konzepten der Mengenlehre auch zeigen, dass es für unendlich erzeugte Vektorräume $V$ gilt: Für je zwei Basen ${u_i}_(i in I)$ und ${w_j}_(i in J)$ von $V$ existiert eine bijektive Abbildung $f: I -> J$.
+
+Folgerung aus Satz 3.8 in Zusammenhang mit Lemma 3.24: Da für eine Basis $B := {v_1, ..., v_n}$ eines $K$-Vektorraums $V$ gilt, dass $"Span" B = V$, sind für $v in V$ die Koeffizienten (= Koordinaten) $lambda_1, ..., lambda_n$ zur Darstellung von $v$ eindeutig. 
+
+#bolditalic[Beispiel 3.25:] für $V = RR^3$ sind 
+$
+B_1 := {vec(1, 0, 0), vec(0, 1, 0), vec(0, 0, 1)} "und" B_2 := {vec(-2, -1, 0), vec(-2, 3, 0), vec(-5, 0, 2)}
+$
+zwei Basen. Der Vektor $v = (-5, 11, 2)$ besitzt bezüglich $B_1$ die Koordinaten $lambda_1 = -5, lambda_2 = 11, lambda_3 = 2$. Was sind die Koordinaten bezüglich $B_2$? Es muss gelten:
+$
+a vec(2, -1, 0) + b vec(-2, 3, 0) + c vec(-5, 0, 2) = vec(-15, 11, 2)
+$
+anders kann man dies notieren als
+$
+vec(2a - 2b - 5c, -a + 3b + 0c, 0a + 0b + 2c) = vec(-15, 11, 2)
+$
+Berechnung der $a, b, c$ über ein lineares Gleichungssystem ergibt $a = 2, b = 3, c = 1$.
+
+#bolditalic[Beispiel 3.26:] Für den $RR$-Vektorraum $P_(<= 2)[t]$ der reellen Polynome vom Grad $<= 2$ sind:
+$
+B_1 := {1, t, t^2} "und" B_2 := {-t, t^2 - 2, t^2 + 2}
+$
+zwei Basen. Sei $p(t) = a + b t + c t^2$ ein beliebiges Polynom aus $P_(<= 2)[t]$. Dann sind die Koeffizienten für $B_1: lambda_1 = a, lambda_2 = b, lambda_3 = c$. Für $B_2$ gilt:
+$
+"Basiswechsel, siehe Kapitel" 4 space space cases(1 = -1/4(t^2-2)+1/4(t^2+2), t = (-1)(-t), t^2 = 1/2(t^2+2)+1/2(t^2-2))
+$
+Es gilt 
+$
+a 1 + b t + c t^2 &= a(-1/4(t^2-2)+1/4(t^2+2)) + b(-1)(-t) + c(1/2(t^2+2)+1/2(t^2-2)) \
+&= -b(-t) + (-a/4 + c/2)(t^2-2) + (a/4 + c/2)(t^2+2)
+$
+
+== Dimensionen
+
+#definition("3.27", "Dimension eines Vektorraums")[
+  Die Dimension eines Vektorraum $(V, +, dot)$ über $K$ ist definiert als:
+  $
+  dim_K(V) := cases(n &"falls" V "eine Basis der Länge" n "hat", infinity &"sonst")
+  $
+  Wenn der Kontext klar ist schreibt man $dim V$.
+]
+
+#bolditalic[Beispiel 3.28:] Sei $K$ ein Körper. Es gilt 
+
+#boxedlist[$dim_K(V) = n$ genau dann, wenn $V = {0}$][
+  für $V = K^n$ folgt mit der Standardbasis, dass $dim_K(V) = n$][für die Dimension eines Vektorraums ist der jeweilige Grundkörper $K$ entscheident, z.B. $CC$ und $K = CC$ gilt $dim_CC V = 1$ für $K = RR$ aber $dim_RR V = 2$. 
+][der $K$-Vektorraum $P[t]$ ist nicht endlich erzeugt, also $dim_K P[t] = infinity$]
+
+#bolditalic[Beispiel 3.29:] Sei $V = K^n$ für einen Körper $K$. Um zu prüfen, dass $n$ Vektoren aus $V$ eine Basis werden, muss nur deren lineare Unabhängigkeit geprüft werden. Seien z.B. $B$ in $V = RR^3$ die Vektoren
+$
+v_1 = vec(2, -1, 0) space v_2 = vec(-2, 3, 0) space v_3 = vec(-5, 0, 2)
+$
+gegeben. Sind diese liear unabhängig?
+$
+lambda_1 vec(2, -1, 0) + lambda_2 vec(-2, 3, 0) + lambda_3 vec(-5, 0, 2) attach(=, t: !) vec(0,0,0)
+$
+Dazu wird ein lienares Gleichungssystem aufgestellt 
+$
+vec(2a - 2b - 5c, -a + 3b + 0c, 0a + 0b + 2c) = vec(0,0,0)
+$
+$==> a = 0, b = 0, c = 0$.
+
+Somit sind die Vektoren linear unabhängig.
+
+#bolditalic[Lemma 3.30:] Sei $(V, +, dot)$ ein $K$-Vekorraum mit $n := dim_K V < infinity$ und $B = {v_1, ..., v_n} subset V$ eine Familie von genau $n$ Vektoren. Dann sind folgende Aussagen äquivalent:
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. $B$ ist eine Basis
+  2. $B$ ist linear unabhängig 
+  3. $B$ ist ein Erzeugendensystem
+]
+
+#italic[Beweis:] (Übungsaufgabe, Blatt 8, Aufgabe 1)
+
+$1 ==> 2 "und" 1 ==> 3$: Folgt direkt aus der Definition einer Basis.
+
+$2 ==> 1$: Angenommen $B$ ist keine Basis von $V$. Da $B$ linear unabhängig ist, kann $B$ kein Erzeugendensystem von $V$ sein. Mit dem Basisergänzungssatz (Satz 3.21) lässt sich das linear unabhängige System $B$ mit Vektoren eines Erzeugendensystems von $V$, wir wählen $V$ selbst, zu einer Basis $B'$ ergänzen. Definiere die $B'$ wie folgt:
+$
+B' = B union {v_(n+1), ..., v_(n + k)}, wide v_(n+1), ..., v_(n + k) in V backslash B
+$
+Dann hat $B$ mit Sicherheit mehr als $n$ Elemente. Dies ist ein Widerspruch dazu, dass die Dimension des Vektorraums $n$ ist (Definition 3.27 und Lemma 3.24). Die Annahme muss also falschs sein. $==>$ $B$ ist eine Basis von $V$.
+
+$3 ==> 1$: Angenommen $B$ ist keine Basis von $V$. Da $B$ ein Erzeugendensystem ist, kann $B$ nicht linear unabhängig sein. Daraus folgt, dass $B$ zu einem minimalen Erzeugendensystem, also einer Basis $B'$ verkürzbar ist. Definiere $B'$ wie folgt:
+$
+B' = B backslash {v_n_0, ..., v_n_k}, wide v_n_0, ..., v_n_k in B 
+$
+Dann hat $B'$ mit Sicherheit weniger als $n$ Elemente. Dies ist ein Widerspruch dazu, dass die Dimension des Vektorraums $n$ ist. Die Annahme muss also falsch sein. $==>$ $B$ ist eine Basis von $V$.
+#endproof
+
+#bolditalic[Lemma 3.31:] Sei $(V, +, dot)$ ein endlich erzeugter $K$-Vektorraum. Jeder Untervektorraum $W subset.eq V$ ist dann ebenfalls endlichdimensional und es gilt:
+$
+dim W <= dim V 
+$
+mit Gleichheit genau dann, wenn $W = V$.
+
+#italic[Beweis:] jede linear unabhängige Familie in $W$ ist auch linear unabhängig in $V$. Damit besteht sie nach dem Austauschsatz von Steinitz aus höchstens $dim_K V$ Elementen. Daraus folgt, dass $W$ endlich erzeugt ist mit $dim_K W <= dim_K V$. Im Fall von $dim_K W = dim_K V$ folgt mit Lemma 3.30, dass jede Basis von $W$ auch eine Basis von $V$ ist. $==>$ $V = W$
+#endproof
+
+#bolditalic[Achtung:] Die letzte Aussage (d.h. $V = W$) gilt nicht für unendlich erzeugte Vektorräume. Denn der $K$-Vektorraum $P[t]$ aller Polynome hat die Basis der Monome ${t^n}_(n in NN_0)$. Die Menge aller Polynome aus $P[t]$ mit $a_0 = 0$ ist ein Unterraum mit der Basis ${t^n}_(n in NN)$ und wird mit $W$ bezeichnet. Dann gilt 
+$
+dim_K P[t] = infinity = dim_K W, "aber" P[t] != W
+$
+
+== Direkte Summen
+
+Aus der Definition von Mengenoperationen aus dem ersten Kapitel folgt: sind $U_1 "und" U_2$ zwei Unterräume des $K$-Vektorraums $(V, +, dot)$, so gilt für ihren Durchschnitt:
+$
+U_1 sect U_2 = {u in V | u in U_1 and u in U_2}
+$
+
+#definition("3.32", "Summe von Mengen")[
+  Sei $(V, +, dot)$ ein $K$-Vektorraum für die Unterräume $U_1, ..., U_r subset.eq V$ definiert man ihre Summe als die Teilmenge
+  $
+  U_1 + U_2 + ... U_r := {u_1 + u_2 + ... + u_r | u_i in U_i "für" 1 <= i <= r} subset.eq V
+  $
+]
+
+Für den Durchschnitt und die Summe von Untervektorräumen gelten folgende Regeln:
+
+#bolditalic[Lemma 3.33:] Sind $U_1, U_2, U_3$ Unterräume des $K$-Vektorraums $(V, +, dot)$, dann gilt:
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. $U_1 sect U_2$ und $U_1 + U_2$ sind Unterräume von $V$
+  2. $U_1 + (U_2 + U_3) = (U_1 + U_2) + U_3 "und" U_1 + U_2 = U_2 + U_1$
+  3. $U_1 + {0} = U_1$ und $U_1 + U_1 = U_1$
+  4. $U_1 subset.eq U_1 + U_2$ mit Gleichheit, d.h. $U_1 = U_1 + U_2$, wenn $U_2 subset.eq U_1$
+]
+
+#italic[Beweis:] (Übungsaufgabe)
