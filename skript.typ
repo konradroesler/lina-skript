@@ -2358,7 +2358,7 @@ dim(ker(f)) = dim(V) - dim(im(f)) = 3 - 2 = 1 \
 ==> {0_(RR^3)} subset ker(f)
 $
 
-#bolditalic[Lemma 4.19:] Zwei endlichdimensionale $K$-Vektorräume $V$ und $W$ sind genau dann isomorph, ewnn
+#bolditalic[Lemma 4.19:] Zwei endlichdimensionale $K$-Vektorräume $V$ und $W$ sind genau dann isomorph, wenn
 $
 dim(V) = dim(W)
 $
@@ -2431,7 +2431,7 @@ mit Koeffizienten $a_(i, j) in K$ für $1 <= i <= m$ und $1 <= j <= n$.
 
 #italic[Beweis:] "$<==$": Die Dimensionen passen aufgrund der Definitionen. Die Linearität $f$ folgt aus den Rechengesetzen im Körper.
 
-"$==>$": Sei $f in L(K^n, K^m)$. Zu zeigen: $f$ ist in angegebener Form darstellen. 
+"$==>$": Sei $f in L(K^n, K^m)$. Zu zeigen: $f$ ist in angegebener Form darzustellen. 
 
 #bolditalic[Beobachtung:] Wenn $f$ so darstellbar ist, haben alle Bilder der Standardbasis $e_1, ..., e_n$:
 $
@@ -2463,7 +2463,7 @@ James Sylvester (brit. Mathematiker, 1814 - 1897) erfand den Begriff der Matrix 
 Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
 
 #definition("5.1", "Matrix")[
-  Sei $(R, +, dot)$ ein kommutativer Ring mit Eins und seien $n, m in NN_0$. Ein recheckiges Schema der Form
+  Sei $(R, +, dot)$ ein kommutativer Ring mit Eins und seien $n, m in NN_0$. Ein rechteckiges Schema der Form
   $
   mat(
     a_(1,1), a_(1,2), ..., a_(1,n);
@@ -2481,11 +2481,11 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
 
   Diese leeren Matritzen werden in manchen Beweisen aus technischen Gründen benötigt. In der Regel gilt aber $n, m >= 1$.
 ][
-  Die Nullmatri in $R^(m times n)$ ist die Matrix, bei der alle Einträge gleich $0$ sind. Sie wird mit $0^(m times n)$ bezeichnet
+  Die Nullmatrix in $R^(m times n)$ ist die Matrix, bei der alle Einträge gleich $0$ sind. Sie wird mit $0^(m times n)$ bezeichnet
 ][
   Ist $m = n$, so nennt man $A in R^(m times n)$ quadratisch bzw. eine quadratische Matrix
 ][
-  Ist $A in R^(n times n)$ heißten die Einträge $a_(j,j)$ für $1 <= j <= n$ #bolditalic[Diagonaleinträge] von 
+  Ist $A in R^(n times n)$ heißen die Einträge $a_(j,j)$ für $1 <= j <= n$ #bolditalic[Diagonaleinträge] von 
   $
   A = mat(
       a_(1,1), ..., ...;
@@ -2496,11 +2496,11 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
 ]
 
 #boxedlist[
-  Die Kronecker-Delta Funktion $f_(i j)$ für $i in I$ und $j in J$, $I, J$ sind Indexmengen, ist benannt nach Leopold Kronecker (1823 - 1891) und gegeben durch 
+  Die Kronecker-Delta Funktion $f_(i j)$ für $i in I$ und $j in J$, $I$ und $J$ sind Indexmengen, ist benannt nach Leopold Kronecker (1823 - 1891) und gegeben durch 
   $
   f_(i j) = cases(1 &i = j, 0 "sonst")
   $
-  Damit definiert man die Eineitsmatrix $I_n in R^(n times n)$ durch
+  Damit definiert man die Einheitsmatrix $I_n in R^(n times n)$ durch
   $
   I_n := [f_(i j)] = mat(
       1, ..., 0;
