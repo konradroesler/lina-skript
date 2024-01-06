@@ -2,6 +2,7 @@
 // in university.
 #let uni-script-template(
   title: [Title],
+  author: [Author],
   module-name: [Course Name],
   body
 ) = {
@@ -23,7 +24,7 @@
       )
       if elems != () {
         if counter(page).at(elems.first().location()) == counter(page).at(loc) {
-          smallcaps[#module-name] + h(1fr)
+          smallcaps[#module-name] + h(1fr) + author
           return
         }
       }
@@ -32,8 +33,9 @@
         loc,
       )
       if elems != () {
-        smallcaps[#module-name] + h(1fr)
+        smallcaps[#module-name] + h(1fr) 
         elems.last().body
+        h(1fr) + author
         }
       }
     ),

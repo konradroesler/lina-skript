@@ -58,3 +58,5 @@
  #let oplus = $op(plus.circle)$
  #let otimes = $op(times.circle)$
  #let odot = $op(dot.circle)$
+
+ #let rg(content) = $"rg"(content)$ 

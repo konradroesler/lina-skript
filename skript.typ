@@ -3,6 +3,7 @@
 #import "@preview/tablex:0.0.7": tablex, gridx, hlinex, vlinex, colspanx, rowspanx
 #show: doc => uni-script-template(
   title: [Vorlesungsskript],
+  author: [Konrad Rösler],
   module-name: [LinA I\* WiSe 23/24],
   doc
 )
@@ -1961,7 +1962,9 @@ $
 
 Nun behandeln wir Abbildungen, die zur Vektorstruktur "passen". Diese heißen lineare Abbildungen. Unser Ziel ist es, die Eigenschaften von linearen Abbildungen zu analysieren.
 
-#definition("4.1", "Definitionen und grundlegende Eigenschaften")[
+== Definitionen und grundlegende Eigenschaften
+
+#definition("4.1", "Lineare Abbildung")[
   Seien $V$ und $W$ zwei $K$-Vektorräume. Eine Abbildung $f: V -> W$ heißt #bolditalic[lineare Abbildung], wenn gilt 
   
   #box(width: 100%, inset: (left: 0.5cm, right: 0.5cm))[
@@ -1998,3 +2001,524 @@ $
 f(vec(x_1, x_2)) = vec(a x_1 + b x_2, c x_1 + d x_2) in RR^2
 $
 eine lineare Abbildung, denn
+
+1)
+$
+f(lambda vec(x_1, x_2)) &= vec(a lambda x_1 + b lambda x_2, c lambda x_1 + d lambda x_2) = vec(lambda(a x_1 + b x_2), lambda (b x_1 + c x_2)) \
+&= lambda vec(a x_1 + b x_2, c x_1 + d x_2) = lambda f(vec(x_1, x_2)) space checkmark
+$
+
+2)
+$
+f(vec(x_1, x_2) + vec(y_1, y_2)) &= f(vec(x_1 + y_1, x_2 + y_2)) = vec(a(x_1 + y_1) + b(x_2 + y_2), c(x_1 + y_1) + d(x_2 + y_2)) \
+&= vec(a x_1 + b x_2, c x_1 + d x_2) + vec(a y_1 + b y_2, c y_1 + d y_2) = f(vec(x_1, x_2)) + f(vec(y_1, y_2))
+$
+Damit haben wir auch bewiesen, dass für $phi in RR$ die Abbildung 
+$
+f(vec(x_1, x_2)) = vec(cos(phi) x_1 - sin(phi) x_2, sin(phi) x_1 + cos(phi) x_2)
+$
+linear ist. Dies ist eine Drehung um den Ursprung mit dem Drehwinkel $phi$. Für $phi = 45°$
+$
+f(vec(1,0)) = (cos(45°), sin(45°)) = vec(1/sqrt(2), 1/sqrt(2))
+$
+
+#bolditalic[Beispiel 4.4:] Sei $V = C^infinity(RR)$ der reelle Vektorraum aller unendlichen oft differenzierbaren Funktionen $g: RR -> RR$ mit punktweisen Addition und skalaren Multiplikation. Dann ist 
+$
+d/(d x): V -> V, f arrow.bar f' = d/(d x) f
+$
+eine lineare Abbildung, denn für alle $f, g in V$ und $a, b in RR$ gilt:
+$
+(f + g)'(x) = f'(x) + g'(x) wide forall x in RR \
+(a dot f)'(x) = a f'(x) wide forall x in RR 
+$ 
+
+#bolditalic[Lemma 4.5:] Seien $V, W$ $K$-Vektorräume und $f: V -> W$ eine lineare Abbildung, $0_V$ der Nullvektor in $V$ und $0_W$ der Nullvektor in $W$. Dann gilt 
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. $f(0_V) = 0_W$
+  2. $f(-x) = -f(x) wide forall x in V$
+]
+
+#italic[Beweis:] Es folgt aus Definition 4.1, 1), dass 
+$
+f(0_V) = f(0_K dot 0_V) = 0_K dot f(0_V) = 0_W \
+f(-x) = f((-1) dot x) = (-1) dot f(x) = -f(x)
+$
+#endproof
+
+#bolditalic[Lemma 4.6:] Seien $V, W$ $K$-Vektorräume. Für $f, g in L(V, W)$ und $lambda in K$ seien $f + g$ und $lambda dot f$ definiert durch
+$
+(f + g)(v) = f(v) + g(v) wide forall v in V \
+(lambda dot f)(v) = lambda f(v) wide forall v in V, forall lambda in K
+$
+Dann ist $(L(V, W), +, dot)$ ein $K$-Vektorraum.
+
+#italic[Beweis:] (Übungsaufgabe)
+#endproof
+
+#bolditalic[Lemma 4.7:] Sei $V$ ein $K$-Vektorraum und $B := {v_1, ..., v_n} subset V$ eine endliche Familie von Vektoren. Dann ist:
+$
+Phi_B: K^n -> V, (a_i)_(i <= i <= n) arrow.bar sum_(i = 1)^n a_i v_i
+$
+ein Homomorphimus von $K$-Vekroräumen.
+
+#italic[Beweis:] Seien $lambda in K$ und zwei Tupel $a = (a_1, ..., a_n) in K^n$, $b = (b_1, ..., b_n) in K^n$ gegeben. Mit der Definition der direkten Summe ist.
+$
+a + lambda b = (a_i + lambda b_i)_(1<=i<=n) in K^n
+$ 
+und deswegen gilt
+$
+Phi_B (a + lambda b) &= Phi_B (a_i + lambda b_i)_(1 <= i <= n) = sum_(i = 1)^n underbrace((a_i + lambda b_i), in space.sixth K) underbrace(v_i, in space.sixth V) \
+&= sum_(i = 1)^n a_i v_i + lambda sum_(i = 1)^n b_i v_i = Phi_B (a) + lambda Phi_B (b) = "Def 4.1"
+$
+#endproof
+
+#bolditalic[Wichtig:] $B = {v_1, ..., v_n}$ ist endlich! Für $B$ mit unendlich vielen Elementen bräuchte man eine äußere direkte Summe.
+
+Aus abstrakter Sicht kennen wir jetzt endlichdimensionale Vektorräume, denn: Jeder endlichdimensionaler Vektorraum ist isomorph zu einer direkten Summe von Kopien des Grundkörpers.
+
+#bolditalic[Satz 4.8:] Struktursatz für Vektorräume 
+
+Sei $V$ ein $K$-Vektorraum und $B = {v_1, ..., v_n} subset V$ eine Basis von $V$. Dann ist die Abbildung 
+$
+Phi_B: K^n -> V, (lambda_i)_(1 <=i <= n) arrow.bar sum_(i = 1)^n lambda_i v_i
+$
+ein Isomorphismus, d.h. $K^n corres V$.
+
+#italic[Beweis:] Nach Lemma 4.7 ist $Phi_B$ eine lineare Abbildung. Zu zeigen: $Phi_B$ ist bijektiv
+$
+B "Basis" ==> "Span" B = V ==> Phi_B "surjektiv" \
+B "Basis" ==> "jedes" v in V "besitzt eine eindeutige Darstellung" v = sum_(i = 1)^n lambda_i v_i
+$
+#endproof
+
+Für eine gegebene Basis $B$ nenn man $Phi_B$ auch Koordinatenabbildung.
+$
+Phi "bijektiv" ==> exists Phi^(-1)_B "als inverse Abbildung"
+$
+
+#bolditalic[Beispiel 4.9:] Sei $K^(n+1) = RR^(n+1)$ und $P_(<=n)[t]$ der Raum der Polynome von Grad kleiner gleich $n$ für $n in NN$. Eine Basis von $P_(<=n)[t]$ ist gegeben durch $B = {1, t, t^2, ..., t^n}$, vergleiche Beispiel 3.13.
+
+Dann ist: 
+$
+Phi_B: K^(n+1) -> P_(<=n)[t], space (a_i)_(0 <= i <= n) arrow.bar sum_(i = 0)^n a_i t^i
+$
+ein Isomorphismus. Weitherhin ist
+$
+Phi_B^(-1) = P_(<=n)[t] -> K^(n+1), space p(t) = sum_(i = 0)^n a_i t^i arrow.bar (a_i)_(0 <=i <= n) in K^(n+1) 
+$
+die inverse Koordinatenabbildung. 
+
+Um eine lineare Abbildung zu definieren, reicht es ihre Werte auf einer beliebigen Basis anzugeben.
+
+#bolditalic[Lemma 4.10:] Sei $V$ ein endlichdimensionaler Vektorraum über $K$ mit einer Basis $B := {v_1, .., v_n}$, $W$ ein beliebiger $K$-Vektorraum und $C = {w_1, ..., w_n}$ einer Familie von Vektoren in $W$. Dann gibt es genau eine lineare Abbildung von $f$ von $V$ nach $W$ mit 
+$
+f(v_i) = w_i "für" 1 <= i <=n
+$
+
+#italic[Beweis:] zu zeigen: Existens und Eindeutigkeit 
+
+Eindeutigkeit: Seien $f, g in L(V, W)$ mit $f(v_i) = g(v_i) = w_i$, $forall i in {1, ..., n}$. Sei $v in sum lambda_i v_i$: Dann gilt
+$
+f(v) &= f(sum lambda_i v_i) = sum_(i = 1)^n lambda_i f(v_i) \
+&= sum_(i = 1)^n lambda_i w_i = sum_(i = 1)^n lambda_i g(v_i) = g(v) \
+&==> f(x) = g(x) space forall v in V \
+&==> f "ist eindeutig bestimmt"
+$
+Existens: $B$ Basis $==> "Span" B = V ==> "zu" v in V$ existieren nach Satz 3.8 eindeutige Koordinaten 
+$
+lambda_i^v, 1<=i<=n  "mit"
+v = sum_(i = 1)^n lambda_i^v v_i
+$
+Definiere $f: V -> W, space f(v) = sum_(i = 1)^n lambda_i^v w_i in W ==> f(v_i) = w_i$
+
+Ist $f$ linear?
+
+Für jedes $mu in K$ gilt:
+$
+mu_v &= sum_(i = 1)^n (mu lambda_i^v v_i) ==> f(mu_v) = f(sum_(i = 1)^n (mu lambda_i^v w_i)) \
+&= mu sum lambda_i^v w_i = mu f(v) wide "erste Eigenschaft" checkmark 
+$
+Sei $u = sum_(i = 1)^n lambda_i^u v_i ==>$
+$
+f(v + u) &= f(sum_(i = 1)^n lambda_i^v v_i + sum_(i = 1) lambda_i^u v_i) = f(sum_(i = 1) (lambda_i^v + lambda_i^u) v_i) \
+&= sum_(i = 1)^n (lambda_i^v + lambda_i^u) w_i = sum_(i = 1)^n lambda_i^v w_i + sum_(i = 1)^n lambda_i^u w_i \
+&= f(v) + f(w) wide "zweite Eigenschaft" checkmark
+$
+$
+==> f "linear"
+$
+#endproof
+
+== Kern, Bild und Rang von linearen Abbildungen
+
+Kern und Bild wurden bereits im Kapitel 2 behandelt. Hier behandeln wir die Konzepte im Kontext linearer Abbildungen.
+
+#definition("4.11", "Kern, Bild")[
+  Es seien $V$ und $W$ $K$-Vektorräume sowie $f: V -> W$ eine lineare Abbildung. Die Menge 
+  $
+  ker(f) := {v in V | f(v) = 0}
+  $
+  heißt #bolditalic[Kern] der linearen Abbildung $f$. 
+
+  Die Menge 
+  $
+  im(f) := f(V) = {w in W | exists v in V: w = f(v)}
+  $
+  heißt #bolditalic[Bild] der linearen Abbildung $f$.
+]
+
+#bolditalic[Beispiel 4.12:] 
+
+#box(width: 100%, inset: (right: 1cm, left: 1cm))[
+  1. #[Für den Isomorphismus aus Beispiel 4.9 gilt:
+    $
+    Phi_B: K^(n+1) -> P_(<=n)[t]
+    $
+    mit
+    $
+    ker(Phi_B) = {0_(K^(n+1))}
+    $
+    denn nur $0 in K^(n+1)$ wird auf das Nullpolynom abgebildet.
+  ]
+  2. #[
+    Fortsetzung von Beispiel 4.3 (Drehungsmatritzen)
+
+    Für $a = 0 = b$, $c, d in RR, c != 0$ und damit 
+    $
+    f: RR^2 -> RR^2, space f(vec(x_1, x_2)) = vec(a x_1 + b x_2, c x_1 + d x_2) = vec(0, c x_1 + d x_2)
+    $ 
+    gilt: 
+    $
+    ker(f) = {vec(x_1, x_2) in RR^2 | x_1 = -(d x^2) / c}, \
+    im(f) = {vec(0, x) | x in RR} subset RR^2
+    $
+    weil $x = c x_1 + d x_2$ für jedes $x in RR$ lösbar ist $(c != 0)$.
+  ]
+]
+
+#bolditalic[Lemma 4.13:] Es seien $V$ und $W$ zwei $K$-Vektorräume und $f: V -> W$ eine lineare Abbildung. Dann gilt :
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. $ker(f) subset.eq V$ ist ein Untervektorraum von $V$ 
+  2. $im(f) subset.eq W$ ist ein Untervektorraum von $W$
+]
+
+#italic[Beweis:]
+
+zu 1) $0_V in ker(f) ==> ker(f) != emptyset$. Weitherhin ist $ker(f)$ abgeschlossen bezüglich Addition und Multiplikation, denn sei $x, tilde(x) in ker(f), lambda, mu in K$.
+
+Zu zeigen: $lambda x + mu tilde(x) in ker(f)$
+$
+f(lambda x + mu tilde(x)) = lambda f(x) + lambda f(tilde(x)) = 0_W \
+==> "Abgeschlossenheit in" V
+$
+Daraus folgt auch mit $tilde(x) = 0_V$ die Abgeschlossenheit bezüglich der Multiplikation. 
+
+$==> ker(f)$ Unterraum $checkmark$
+
+zu 2) $f(0_V) = 0_W in im(f) != emptyset$
+
+zu zeigen: $im(f)$ abgeschlossen bezüglich $+$ und $dot$. Seien $y, tilde(y) in im(f), lambda, mu in K$
+
+$==> x, tilde(x) in V: f(x) = y and f(tilde(x) = tilde(y))$. Dann gilt für $lambda x + mu tilde(x)$, dass
+$
+f(lambda x+ mu tilde(x)) &= lambda f(x) + mu f(tilde(x)) = lambda y + mu tilde(y) \
+&==> lambda x + mu tilde(x) "ist das Urbild von" lambda y + mu tilde(y) \
+&==> lambda y + mu tilde(y) in im(f)
+$
+#endproof
+
+#definition("4.14", "Rang einer Abbildung")[
+  Es seien $V$ und $W$ zwei $K$-Vektoräume und $f: V -> W$ eine lineare Abbildung. Der #bolditalic[Rang] der linearen Abbildung $f$ ist definiert als
+  $
+  rg(f) := dim_K (im(f))
+  $
+]
+
+#bolditalic[Lemma 4.15:] Es seien $V$ und $W$ zwei $K$-Vektorräume und $f in L(V, W)$, $W$ sei endlichdimensional. Dann gilt 
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. $f$ surjektiv $<==>$ $rg(f) = dim W$
+  2. $f$ injektiv $<==>$ $dim(ker(f)) = 0$
+]
+
+#italic[Beweis:] 
+
+zu 1) "$==>$": Sei $f$ surjektiv. Dann gilt $W = f(v) = im(f)$ und damit auch 
+$
+rg(f) = dim(im(f)) = dim W 
+$
+"$<==$": Es gilt $rg(f) = dim(im(f)) = W$. Nach Lemma 4.13 ist $im(f)$ ein Vektorraum. Da $W$ endlichdimensional ist, folgt mit Lemma 3.31
+$
+==> im(f) = W, space f "surjektiv"
+$
+
+zu 2) "$==>$": Sei $f$ injektiv. Wir wissen $f(0_V) = 0_W$.
+$
+==> ker(f) = {v in V | f(v) = 0} = {0_V} ==> dim(ker(f)) = 0
+$
+
+"$<==$": Es gilt $dim(ker(f)) = 0 ==> ker(f) = {0_V}$. Damit erhält man für $x, tilde(x) in V$ wegen der Linearität in $f$:
+$
+f(x) = f(tilde(x)) <==> f(x) - f(tilde(x)) = 0 <==> f(x - tilde(x)) = 0 in ker(f) \
+<==> x - tilde(x) in ker(f) <==> x - tilde(x) = 0 <==> x = tilde(x) space f "injektiv"
+$
+#endproof
+
+#bolditalic[Satz 4.16:] Dimensionsformel
+
+Seien $V$ und $W$ zwei endlichdimensionale $K$-Vektorräume und $f in L(V, W)$. Dann gilt 
+$
+dim(ker(f)) + dim(im(f)) = dim V
+$
+
+#italic[Bewei:] Mit $r := dim(ker(f)), n := dim V$ gilt 
+$
+v < infinity "und" r < infinity "sowie" r <= n
+$
+Sei $tilde(B) := {v_1, ..., v_r}$ eine Basis von $ker(f)$. Mithilfe des Austauschsatzes von Steinitz (3.23) kann $tilde(B)$ zu einer Basis $B = {v_1, ..., v_r, v_(r+1), ..., v_n}$ von $V$ ergänzt werden.
+
+zu zeigen: $C = {f(v_(r +1 )), ..., f(v_n)}$ ist eine Basis von $im(f)$.
+
+1) Erzeugendensystem
+
+$f$ linear $==>$ $"Span" C subset im(f)$. Sei $y in im(f) ==> exists x in V: f(x) = y$.
+
+$B$ ist eine Basis von $V$ $==>$ es existiert eine eindeutige Darstellung 
+$
+x = sum_(i = 1)^n lambda_i v_i
+$
+Mit der Linearität von $f$ folgt:
+$
+f(x) = f(sum_(i = 1)^n lambda_i v_i) = sum_(i = 1)^n lambda_i f(v_i) = \
+v_1, ..., v_r in ker(f) ==> y = f(x) = sum_(i = 1)^n lambda_i f(v_i) \
+==> im(f) subset.eq "Span" C \
+==> im(f) = "Span" C \
+checkmark
+$
+
+lineare Unabhängigkeit: Sei 
+$
+sum_(i = r+1)^n lambda_i f(v_i) = 0
+$
+zu zeigen: $x_i = 0 "für" r + 1 <= i <= n$
+$
+f "linear" ==> 0 = sum_(i = r +1)^n lambda_i f(v_i) = f(sum_(i = r+1)^n lambda_i v_i) \
+==> sum_(i = r+1)^n lambda_i v_i in ker(f)
+$
+$==>$ es existieren eindeutige Koeffizienten $mu_i in K, 1 <= i <= r$
+$
+sum_(i = r+1)^n lambda_i v_i = sum_(i = 1)^n mu_i v_i
+==> sum_(i = r+1)1n lambda_i v_i - sum_(i = 1)^n mu_i v_i = 0
+$
+${v_1, ..., v_n}$ sind Basis von $V$. $==>$ $mu_i = ... = mu_r = lambda_(r+1) = ... = lambda_n = 0$. $==>$ $f(v_(n+1)), ..., f(v_n)$ sind linear unabhängig $==>$ $C$ ist Basis von $im(f)$ 
+$
+==> dim(im(f)) = n - r 
+$
+#endproof
+
+#bolditalic[Beispiel 4.17:] Fortsetzung von Beispiel 4.12.
+
+zu 1) 
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+    $Phi_B: K^(n+1) -> P_(<=n)[t]$
+
+    Es gilt $ker(Phi_B) = {0} ==> dim(ker(f)) = 0$
+
+    $==> dim(P_(<=n)[t]) = n + 1$
+]
+
+zu 2) 
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+    $f: RR^2 -> RR^2, space a = b = 0, c != 0, c, d in RR$
+
+    Es gilt 
+    $
+    dim(ker(f)) = dim({vec(x_1, x_2) | s_1 = (d x_2)/c}) &= 1 \
+    dim(im(f)) = dim({vec(0, x) | x in RR}) &= 1 \
+    dim(ker(f)) + dim(im(f)) = dim(RR^2) &= 2 
+    $
+]
+
+#bolditalic[Beispiel 4.18:] Sei $V = RR^3, W = RR^3$ und $f: V -> W$
+$
+f(vec(x_1, x_2, x_3)) = vec(x_1 - x_2 + 2 x_3, x_1 + x_2 + x_3, 0x_1 + 3x_2 + 0x_3)
+$
+gegeben. Damit ist $f$ linear. Nach Lemma 4.10 wird das Bild $im(f)$ durch die Bilder $f(e_1), f(e_2)$ und $f(e_3)$ erzeugt.
+$
+==> im(f) = "Span"{vec(1,1,0), vec(-1, 1, 3), vec(2,2,0)} \
+==> rg(f) = dim(im(f)) = 2 
+$
+Aus der Dimensionsformel folgt 
+$
+dim(ker(f)) = dim(V) - dim(im(f)) = 3 - 2 = 1 \
+==> {0_(RR^3)} subset ker(f)
+$
+
+#bolditalic[Lemma 4.19:] Zwei endlichdimensionale $K$-Vektorräume $V$ und $W$ sind genau dann isomorph, ewnn
+$
+dim(V) = dim(W)
+$
+
+#italic[Beweis:] 
+
+"$==>$": Gilt $V corres W$, so existiert ein Isomorphismus $f in L(V, W)$. 
+
+Lemma 4.15: 
+$
+ker(f) = {0} wide (f "injektiv") \
+im(f) = W  wide (f "surjektiv")
+$
+Satz 4.16:
+$
+dim(V) &= dim(ker(f)) + dim(im(f)) \
+&= 0 + dim(W) \
+&= dim(W) space checkmark
+$
+
+"$<==$": $dim(V) = dim(W) < infinity$
+
+Seien ${v_1, ..., v_n}$ und ${w_1, ..., w_n}$ Basen von $V$ bzw. $W$. Nach Lemma 4.10 gibt es genau eine Abbildung $f in L(V, W)$ mit 
+$
+f(v_i) = w_i, wide 1 <= i <= n
+$
+Ist $v = lambda_1 v_1 + lambda_2 v_2 + ... + lambda_n v_n in ker(f)$. Dann gilt $0 = f(v) = f(lambda_1 v_1 + ... + lambda_n v_n)$ $attach(=, t: f in L(V, W)) lambda_1 f(v_1) + ... + lambda_n f(v_n) =$ $lambda_1 w_1 + ... + lambda_n w_n$
+$w_1, ..., w_n$ linear unabhängig
+$==>$ $lambda_1 = lambda_2 = ... = lambda_n = 0 ==> v = 0 ==> ker(f) = {0_V} attach(==>, t: "4.15") f "injektiv"$
+Mit der Dimensionsformel folgt 
+$
+dim(V) &= 0 + dim(im(f)) \
+dim(W) &
+$
+$
+==> "mit" im(f) <= W ==> im(f) = W ==> f "surjektiv"
+$
+#endproof
+
+Was passiert bei Verknüpfungen von linearen Abbildungen?
+
+#bolditalic[Satz 4.20:] Seien $V, W$ und $X$ drei endlichdimensionale $K$-Vektorräume sowie $f in L(V, W)$ und $g in L(W, X)$. Dann gilt 
+$
+g circ f in L(V, X) "und" \
+dim(im(g circ f)) = dim(im(f)) - dim(im(f) sect ker(g))
+$
+
+#italic[Beweis:] 1) $g circ f in L(V, X)$: Für $u, v in V$ und $lambda, mu in K$ erhält man:
+$
+(g circ f)(lambda u + mu v) &= g(f(lambda u + mu v)) \
+&= g(lambda f(u) + mu f(u)) = lambda g(f(u)) + lambda g(f(v)) \
+&= lambda (g circ f)(u) + mu (g circ f)(v) space checkmark
+$
+
+2) Betrachte $tilde(g) := g_(|im(f))$. Die Dimensionsformel liefert 
+$
+dim(im(f)) = dim(im(tilde(g))) + dim(ker(tilde(g)))
+$
+Des weiteren gilt: $im(tilde(g)) := {g(v) in X | v in im(f)} = im(g circ f)$
+$
+ker(tilde(g)) = {v in im(f) | tilde(g)(v) = 0} = im(f) sect ker(g)
+$
+#endproof
+
+#bolditalic[Lemma 4.21:] Sei $K$ ein Körper. Die linearen Abbildungen $f: K^n -> K^m$ sind genau die Abbildungen der Form:
+$
+vec(x_1, x_2, dots.v, x_n) -> vec(a_(1,1) x_1 + a_(1,2) x_2 + ... + a_(1,n) x_n, a_(2,1) x_1 + a_(2,2) x_2 + ... + a_(2, n) x_n, dots.v, a_(n,1) x_1 + a_(n, 2) x_2 + ... + a_(m, n) x_n)
+$
+mit Koeffizienten $a_(i, j) in K$ für $1 <= i <= m$ und $1 <= j <= n$. 
+
+#italic[Beweis:] "$<==$": Die Dimensionen passen aufgrund der Definitionen. Die Linearität $f$ folgt aus den Rechengesetzen im Körper.
+
+"$==>$": Sei $f in L(K^n, K^m)$. Zu zeigen: $f$ ist in angegebener Form darstellen. 
+
+#bolditalic[Beobachtung:] Wenn $f$ so darstellbar ist, haben alle Bilder der Standardbasis $e_1, ..., e_n$:
+$
+f(e_i) = vec(a_(1, i), dots.v, a_(m, i)) in K^m
+$
+Deswegen definieren wir
+$
+vec(a_(1, i), dots.v, a_(m, i)) := f(e_i) in K^m
+$
+Jetzt definieren wir $g in L(K^n, K^m)$ durch
+$
+g(vec(x_1, ..., x_n)) = vec(a_(1,1) x_1 + ... + a_(1,n) x_n, dots.v, a_(m,1) x_1 + ... + a_(m, n) x_n)
+$
+Per Konstruktion gilt $f(e_i) = g(e_i)$. 
+
+Mit Lemma 4.10 folgt $f = g$.
+#endproof
+
+Dieses Resultat motiviert das nächste Kapitel:
+
+#pagebreak()
+
+= Matritzen
+
+James Sylvester (brit. Mathematiker, 1814 - 1897) erfand den Begriff der Matrix im Jahr 1850. Die im folgenden definierte Matrixoperationen führte Arthur Cayley (brit. Mathematiker, 1821 - 1895) im Jahr 1858 ein.
+
+== Definitionen und Basisoperationen
+
+Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
+
+#definition("5.1", "Matrix")[
+  Sei $(R, +, dot)$ ein kommutativer Ring mit Eins und seien $n, m in NN_0$. Ein recheckiges Schema der Form
+  $
+  mat(
+    a_(1,1), a_(1,2), ..., a_(1,n);
+    dots.v, dots.v, dots.down, dots.v;
+    a_(m,1), a_(m,2), ..., a_(m,n);;
+  )
+  $
+  mit $a_(i,j) in K$ für $1 <= i <= m$ und $1 <= j <= n$ heißt #bolditalic[(m $times$ n) Matrix] mit den Einträgen in $R$. Die Einträge nennt man auch Koeffizienten. Die Menge aller ($m times n$) Matritzen nennt man $R^(m times n)$.
+]
+
+#bolditalic[Bemerkungen:] 
+
+#boxedlist[
+  Rein formal erlaubt diese Definition $n = 0$ oder $m = 0$. Dann erhält man Matritzen der Form $0 times n$, $m times 0$ oder $0 times 0$.
+
+  Diese leeren Matritzen werden in manchen Beweisen aus technischen Gründen benötigt. In der Regel gilt aber $n, m >= 1$.
+][
+  Die Nullmatri in $R^(m times n)$ ist die Matrix, bei der alle Einträge gleich $0$ sind. Sie wird mit $0^(m times n)$ bezeichnet
+][
+  Ist $m = n$, so nennt man $A in R^(m times n)$ quadratisch bzw. eine quadratische Matrix
+][
+  Ist $A in R^(n times n)$ heißten die Einträge $a_(j,j)$ für $1 <= j <= n$ #bolditalic[Diagonaleinträge] von 
+  $
+  A = mat(
+      a_(1,1), ..., ...;
+      dots.v, dots.down, dots.v;
+      ..., ..., a_(n, n); 
+    )
+  $
+]
+
+#boxedlist[
+  Die Kronecker-Delta Funktion $f_(i j)$ für $i in I$ und $j in J$, $I, J$ sind Indexmengen, ist benannt nach Leopold Kronecker (1823 - 1891) und gegeben durch 
+  $
+  f_(i j) = cases(1 &i = j, 0 "sonst")
+  $
+  Damit definiert man die Eineitsmatrix $I_n in R^(n times n)$ durch
+  $
+  I_n := [f_(i j)] = mat(
+      1, ..., 0;
+      dots.v, dots.down, dots.v;
+      0 ,..., 1;
+    )
+  $
+  Man verwendet $I$, wenn $n$ aus dem Kontext klar ist.
+][
+  Die $i$-te Zeile von $A in R^(m times n)$ ist 
+  $
+  (a_(i, 1), ..., a_(i, n)) in R^(1 times n) "für" i = 1, ..., m "ist ein Zeilenvektor" 
+  $
+  Die $j$-te Spalte von $A in R^(m times n)$ ist 
+  $
+  vec(a_(1, j), dots.v, a_(m, j)) in R^(m times 1) "für" i = 1, ..., n "ist ein Spaltenvektor"
+  $
+  Diese sind selbst wieder Matritzen.
+]
+
+
