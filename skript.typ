@@ -1772,7 +1772,7 @@ $
 #definition("3.32", "Summe von Mengen")[
   Sei $(V, +, dot)$ ein $K$-Vektorraum für die Unterräume $U_1, ..., U_r subset.eq V$ definiert man ihre Summe als die Teilmenge
   $
-  U_1 + U_2 + ... U_r := {u_1 + u_2 + ... + u_r | u_i in U_i "für" 1 <= i <= r} subset.eq V
+  U_1 + U_2 + ... + U_r := {u_1 + u_2 + ... + u_r | u_i in U_i "für" 1 <= i <= r} subset.eq V
   $
 ]
 
@@ -1788,3 +1788,213 @@ Für den Durchschnitt und die Summe von Untervektorräumen gelten folgende Regel
 ]
 
 #italic[Beweis:] (Übungsaufgabe)
+#endproof
+
+#bolditalic[Beispiel 3.34:] Sei $V := RR^3, U_1 := "Span"{(1, 0, 0), (0, 1, 0)}, U_2 := {(0, 1, 0), (0, 0, 1)}$. Dann gilt für $v in V, v = (v_1, v_2, v_3)$
+$
+v = v_1 vec(1,0,0) + v_2 vec(0,1,0) + v_3 vec(0,0,1)
+$
+Also gilt: $U_1 + U_2 = V$, insbesondere gilt auch $dim(U_1 + U_2) = 3$, $dim U_1 = 2 = dim U_2$. Weiterhin gilt
+$
+v_1 vec(1,0,0) in U_1 "und" v_2 vec(0, 1, 0) + v_3 vec(0, 0, 1) in U_2
+$
+Aslo ist die Darstellung von $v$ als Summe #bolditalic[nicht] eindeutig. Insbesondere ist $dim(U_1 sect U_2) = 1$.
+
+#bolditalic[Lemma 3.35:] Sei $V$ ein $K$-VR und $r in NN$ und $U_1, ..., U_r$ Untervektorräume von $V$. Dann sind folgende Aussagen äquivalent.
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. Für $u in sum_(i = 1)^r U_i$ existieren eindeutige $u_i in U_i$, $i in {1, ..., r}$ mit $u = sum_(i = 1)^r u_i$
+  2. #[
+    Für $u_i in U_i$, $i in {1, ..., r}$ mit $0 = sum u_i$ gilt
+    $
+    u_i = 0 wide i in {1, ..., r}
+    $
+  ]
+  3. #[
+    Für $i in {1, ..., r}$ gilt 
+    $
+    U_i sect limits(sum_(j = 1)^r)_(j != i) u_i = {0_V}
+    $
+  ]
+]
+
+#italic[Beweis:] (Übungsaufgabe, Blatt 9, Aufgabe 1)
+
+$1 ==> 2$: 
+
+Eine Darstellung des Nullvektors ist $0 = 0_1 + ... 0_r$ mit $0_i in U_i$. Da jeder Vektor eine eindeutige Darstellung bestizt, folgt 2).
+
+$2 ==> 3$: Beweis durch Kontraposition  
+
+Angenommen es gilt $U_i sect limits(sum_(j = 1)^r)_(j != i) u_i != {0_V}$. Dann existiert ein Vektor $v$ mit $v in U_i$ und $v in U_1 + ... + U_(i-1) + U_(i+1) + ... + U_r$. Da $U_i$ und $U_1 + ... + U_(i-1) + U_(i+1) + ... + U_r$ Untervektorräume von $V$ bilden, gilt auch $-v in U_i$ und $-v in U_1 + ... + U_(i-1) + U_(i+1) + ... + U_r$. Daraus folgt
+$
+sum_(j = 1)^r u_j = v + limits(sum_(j = 1)^r)_(j != i) u_i = v + (-v) = 0 
+$
+Somit gilt 
+$
+sum u_i = 0 "aber" u_j != 0, j in {1, ..., r}
+$
+
+$3 ==> 1$: Beweis durch Kontraposition
+
+Angenommen ein Vektor $v in V$ besitzt keine eindeutige Darstellung. Dann gilt für ein $u in U_i$:
+$
+u = sum_(j = 1)^r u_j "mit" u_j = 0, j != i "und" u_j = u, j = i 
+$
+Dann gilt $u in U_i$ und insbesondere $u in U_1 + ... + U_(i-1) + U_(i+1) + ... U_r$. Somit ist die Schnittmenge $U_i sect U_1 + ... + U_(i-1) + U_(i+1) + ... + U_r != {0_V}$. 
+#endproof
+
+#definition("3.36", "Direkte Summe")[
+  Sei $V$ ein $K$-VR und $r in NN, U_1, ..., U_r$ Untervektorräume von $V$. Dann heißt die Summe $sum U_i$ #bolditalic[direkt], falls eine der Bedingungen aus Lemma 3.35 zutrifft.
+  
+  Wir schreiben dann 
+  $
+  U_1 oplus U_2 oplus ... oplus U_r
+  $
+]
+
+#bolditalic[Beispiel:] Seien $V, U_1, U_2$ wie im Beispeil 3.34. Dann gilt $V = U_1 + U_2$, aber nicht $U_1 oplus U_2$. Sei weiter $U_3 := "Span"{(0, 0, 1)}$. Dann gilt $V = U_1 + U_3$ und $U_1 oplus U_3$.
+
+#bolditalic[Lemma] (ohne Nummer)
+
+Sei $V$ ein $K$-VR. Seien $U_1, U_2$ UVRs von $V$. Dann gilt
+$
+dim(U_1 + U_2) <= dim U_1 + dim U_2 space (ast)
+$
+Falls $U_1 oplus U_2$ gilt sogar Gleichheit.
+
+Dabei sei $infinity + infinity = infinity, infinity + n = infinity, n <= infinity "für" n in NN$ und es gilt $infinity <= infinity$.
+
+#italic[Beweis:] 
+
+#bolditalic[Fall 1:] $dim U_1 = infinity$ oder $dim U_2 = infinity$. Dann gilt $(ast)$ nach den Rechenregeln der erweiterten Arithmetik.
+
+Andernfalls existieren $m, l in NN$ mit $dim U_1 = m "und" dim U_2 = l$.
+
+Sei $u_1, ..., u_m$ eine Basis von $U_1$ und $u_(m+1), ..., u_(m+l)$ eine Basis von $U_2$. Sei weiter $u in U_1 + U_2$, dann existieren $v in U_1$ und $w in U_2$, sodass $u = v + w$. Zu $v$ und $w$ existieren $lambda_1, ..., lambda_m in K$ bzw. $lambda_(m+1), ..., lambda_(m+l) in K$ mit 
+$
+v = sum_(i = 1)^m lambda_i u_i "und" w = sum_(i = m + 1)^(m+l) lambda_i u_i
+$
+Also $u = v + w$
+$
+u = sum_(i = 1)^m lambda_i u_i + sum_(i = m +1)^(m+l) lambda_i u_i = sum_(i = 1)^(m+l) lambda_i u_i
+$
+Also ist $u_1, ..., u_(m+l)$ ein Erzeugendensystem von $U_1 + U_2$. Es folgt $dim(U_1 + U_2) <= m+l = dim U_1 + dim U_2$. 
+
+Sei nun $U_1 oplus U_2$. Falls $dim(U_1 + U_2) = infinity$ gilt $(ast)$ mit Gleichheit. Andernfalls existieren $n in NN$ mit $dim(U_1 + U_2) = n$. Da $U_1$ und $U_2$ Untervektorräume von $U_1 + U_2$ sind, existieren $m, l in NN$ mit $dim U_1 = m <= n$ und $dim U_2 = l <= n$. Sei wieder $u_1, ..., u_m$ eine Basis von $U_1$ und $u_(m+1), ..., u_(m+l)$ eine Basis von $U_2$. Seien $lambda_1, ..., lambda_(m+l) in K$ mit 
+$
+0 = sum_(i = 1)^(m+l) lambda_i u_i = underbrace(sum_(i = 1)^m lambda_i u_i, = space.sixth v space.sixth in space.sixth U_1) + underbrace(sum_(i = m+1)^(m+l) lambda_i u_i, = space.sixth w space.sixth in space.sixth U_2)
+$
+Da $U_1 oplus U_2$ folgt $v = 0 = w$. Da $u_i, i in {1, ..., m}$ eine Basis von $U_1$ ist, folgt $0 = lambda_i i in {1, ..., m}$. Analog folgt dies für $lambda_(m+1), ..., lambda_(m+l)$. Also ist $u_1, ..., u_(m+l)$ linear unabhängig.
+
+$==>$ $dim U_1 + dim U_2 = m + l <= dim(U_1 + U_2)$
+#endproof
+
+#bolditalic[Satz 3.38:] Sei $V$ ein $K$-VR und $U$ ein UVR von $V$. Dann existiert ein Untervektorraum $U^top subset.eq V$ mit $V = U oplus U^top$ (heißt $V = U + U^top$ und $U oplus U oplus U^top$). Insbesondere gilt dann 
+$
+dim V = dim U + dim U^top
+$
+
+#italic[Beweis:] Sei $(u_i)_(i in I)$ eine Basis von $U$. Nach Satz 3.21 existiert eine Menge $J$ und Vektoren $w_j, j in J$ mit
+$
+I sect J = emptyset "und" v_k := cases(u_k &k in I, w_k &k in J), k in I union J
+$
+ist eine Basis von $V$.
+
+Mit $U^top = "Span"{w_j}_(j in J)$ gilt dann $V = U + U^top$. Sei $v in V$, dann existieren eindeutige ${lambda_i}_(i in I) subset.eq K$ mit 
+$
+v = sum_(k in I union J) lambda_k v_k = underbrace(sum_(k in I) lambda_k v_k, in space.sixth U) + underbrace(sum_(k in J) lambda_k v_k, in space.sixth U^top)
+$
+die Eindeutigkeit der $lambda_k, k in I union J$ garantiert die Eindeutigkeit von $u$ und $w$. Also $U oplus U^top$.
+#endproof
+
+Ein durch Satz 3.38 aus $U$ und $V$ erhaltener Untervektorraum $U^top$ heißt #bolditalic[Komplement] von $U$ in $V$.
+
+#bolditalic[Beispiel 3.39:] Seien $V, U_1$ und $U_3$ wie in Beispiel 3.37. Dann gilt $V = U_1 oplus U_3$ d.h. $U_3$ ist ein Komplement von $U_1$ in $V$. Sei weiter $tilde(U_3) := "Span"{(1, 0, 0)}$. Dann gilt auch $V = U_1 oplus tilde(U_3)$.
+
+Insbesondere sind die Komplemente aus Satz 3.38 nicht eindeutig bestimmt.
+
+#bolditalic[Satz 3.40:] Sei $V$ ein endlich erzeugter $K$-VR. Seien $U_1, U_2$ UVRs von $V$. Dann gilt 
+$
+dim(U_1 sect U_2) + dim(U_1 + U_2) = dim U_1 + dim U_2
+$
+
+#italic[Beweis:] Sei $U := U_1 sect U_2$ und für $i in {1, 2}$ sei $W_i$ das Komplement von $U$ in $U_i$. Es gilt 
+$
+U_i = U oplus W_i, space i in{1, 2}
+$
+Dann gilt $U_1 + U_2 = U + W_1 + U + W_2 = U + W_1 + W_2$
+$
+W_1 sect (U + W_2) &= W_1 sect W_2 \
+&= W_1 sect U_1 sect U_2 ("da" W_1 subset.eq U_1) \
+&= W_1 sect U \
+&= {0_V}
+$
+Analog folgt $W_2 sect (U + W_1) = {0_V}$. Sei $u in U_1, w_1 in W_1, w_2 in W_2$ mit $0 = u + w_1 + w_2$, dann gilt 
+$
+w_1 = - (u + w_2) \
+w_2 = - (u + w_1)
+$
+Also $w_1 = 0$ und $w_2 = 0$ und damit auch $u = 0$. Also $U oplus W_1 oplus W_2$. Es folgt
+$
+dim(U_1 + U_2) &= dim(U + W_1) + dim W_2 \
+&= dim U + dim W_1 + dim W_2
+$
+Aus der Wahl von $W_i$ folgt
+$
+dim U_1 = dim U + dim W_1 \
+dim U_2 = dim U + dim W_2
+$
+durch einsetzen erhält man 
+$
+dim U + dim(U_1 + U_2) = dim U_1 + dim U_2
+$
+oder (nur für endliche wegen $- infinity$)
+$
+dim(U_1 + U_2) = dim U_1 + dim U_2 - dim U
+$
+#endproof
+
+#pagebreak()
+
+= Lineare Abbildungen
+
+Nun behandeln wir Abbildungen, die zur Vektorstruktur "passen". Diese heißen lineare Abbildungen. Unser Ziel ist es, die Eigenschaften von linearen Abbildungen zu analysieren.
+
+#definition("4.1", "Definitionen und grundlegende Eigenschaften")[
+  Seien $V$ und $W$ zwei $K$-Vektorräume. Eine Abbildung $f: V -> W$ heißt #bolditalic[lineare Abbildung], wenn gilt 
+  
+  #box(width: 100%, inset: (left: 0.5cm, right: 0.5cm))[
+    1. $underbrace(f(lambda dot v), "Skalarmultiplikation in" V) = underbrace(lambda dot f(v), "Skalarmultiplikation in" W) wide forall space.sixth v in V, forall space.sixth lambda in K$
+    #h(5pt)
+    2. $underbrace(f(v + w), "Addition in" V) = underbrace(f(v) + f(w), "Addition in" W)$
+    #h(5pt)
+  ]
+  Die Menge aller linearen Abbildungen von $V$ nach $W$ bezeichnet man mit $L(V, W)$. Eine lineare Abbildung $f: V -> W$ wird auch #bolditalic[lineare Transformation] oder #bolditalic[(Vektorraum-) Homomorphismus] genannt.
+
+  Eine bijektive lineare Abbildung nennt man #bolditalic[(Vektorraum-) Isomorphismus]. Gibt es für zwei $K$-Vektorräume $V$ und $W$ einen Isomorphismus, so heißen die Räume $V$ und $W$ isomorph, geschrieben
+  $
+  V corres W
+  $
+  Eine lineare Abbildung $f: V -> V$ heißt #bolditalic[Endomorphismus] und ein bijektiver Endomorphismus heißt #bolditalic[Automorhpismus].
+]
+
+#bolditalic[Bemerkung:] Als Übungsaufgabe: 
+$
+"Definition 4.1, 1) + 2)" <==> f(lambda v + mu w) = lambda f(v) + mu f(w) wide forall v, w in V, forall lambda, mu in K
+$
+
+#bolditalic[Beispiel 4.2:] Für $a in RR$ ist $f: RR -> RR, f(x) = a x$ eine lineare Abbildung. Ihr Graph ist eine Gerade durch den Ursprung.
+
+Betrachte eine Gerade $f(x) = a x + b$ und betrachte 
+$
+&f(x + y) = a(x + y) + b \
+&f(x) + f(y) = a(x) + b + a(y) + b = a(x+y) + 2b
+$
+$f$ ist also nur eine lineare Abbildung, wenn $b = 0$ gilt. Streng genommen sind geraden der Form $f(x) = m x + n$ keine linearen Abbildung. Korrekt ist, sie als affine Abbildungen zu bezeichnen.
+
+#bolditalic[Beispiel 4.3:] Für $a, b, c, d in RR$ ist $f: RR^2 -> RR^2$
+$
+f(vec(x_1, x_2)) = vec(a x_1 + b x_2, c x_1 + d x_2) in RR^2
+$
+eine lineare Abbildung, denn
