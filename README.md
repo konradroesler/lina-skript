@@ -1,5 +1,7 @@
 LinA Skript in Typst 
 
-Repository am besten als zip Archiv runterladen, entpacken und alles bis auf skript.pdf löschen.
+skript.pdf kann einfach runtergeladen werden
 
-Bei Fehlern gern ne mail an konrad.roesler@student.hu-berlin.de
+bei Fehlern gern anschreiben
+
+sry wegen typos
