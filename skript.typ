@@ -1977,7 +1977,7 @@ Nun behandeln wir Abbildungen, die zur Vektorstruktur "passen". Diese heißen li
 
   Eine bijektive lineare Abbildung nennt man #bolditalic[(Vektorraum-) Isomorphismus]. Gibt es für zwei $K$-Vektorräume $V$ und $W$ einen Isomorphismus, so heißen die Räume $V$ und $W$ isomorph, geschrieben
   $
-  V corres W
+  V isomorph W
   $
   Eine lineare Abbildung $f: V -> V$ heißt #bolditalic[Endomorphismus] und ein bijektiver Endomorphismus heißt #bolditalic[Automorhpismus].
 ]
@@ -2083,7 +2083,7 @@ Sei $V$ ein $K$-Vektorraum und $B = {v_1, ..., v_n} subset V$ eine Basis von $V$
 $
 Phi_B: K^n -> V, (lambda_i)_(1 <=i <= n) arrow.bar sum_(i = 1)^n lambda_i v_i
 $
-ein Isomorphismus, d.h. $K^n corres V$.
+ein Isomorphismus, d.h. $K^n isomorph V$.
 
 #italic[Beweis:] Nach Lemma 4.7 ist $Phi_B$ eine lineare Abbildung. Zu zeigen: $Phi_B$ ist bijektiv
 $
@@ -2365,7 +2365,7 @@ $
 
 #italic[Beweis:] 
 
-"$==>$": Gilt $V corres W$, so existiert ein Isomorphismus $f in L(V, W)$. 
+"$==>$": Gilt $V isomorph W$, so existiert ein Isomorphismus $f in L(V, W)$. 
 
 Lemma 4.15: 
 $

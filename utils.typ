@@ -40,6 +40,7 @@
 } 
 
 #let corres = $op(hat(#h(1pt) = #h(1pt)))$
+#let isomorph = $op(tilde(#h(1pt) = #h(1pt)))$
 
 #let endproof = [
   #set text(size: 0.75em)
