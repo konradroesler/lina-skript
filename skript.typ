@@ -334,7 +334,7 @@ Als Formalisierung erhält man:
   wird als #bolditalic[Faktormenge] oder #bolditalic[Quotientenmenge] bezeichnet.
   ])
 
-#bolditalic[Beispiel 1.20:] #italic[(Vortsetzung von Beispiel 1.18)]
+#bolditalic[Beispiel 1.20:] #italic[(Fortsetzung von Beispiel 1.18)]
 
 Die Menge aller Pfeile gleicher Länge und Orientierung bilden eine solche Äquivalenzklasse, welche durch den Vektor $x = (x_1, x_2) in RR^2$ repräsentiert wird. Die Menge der Vektoren $x = (x_1, x_2) in RR^2$ bilden die Quotientenklasse.
 
@@ -1898,7 +1898,7 @@ $
 
 #italic[Beweis:] Sei $(u_i)_(i in I)$ eine Basis von $U$. Nach Satz 3.21 existiert eine Menge $J$ und Vektoren $w_j, j in J$ mit
 $
-I sect J = emptyset "und" v_k := cases(u_k &k in I, w_k &k in J), k in I union J
+I sect J = emptyset "und" v_k := cases(u_k &k in I, w_k &k in J) wide k in I union J
 $
 ist eine Basis von $V$.
 
