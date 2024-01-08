@@ -608,7 +608,7 @@ $
 &= f^(-1) compose ("Id"_Y compose f) \
 &= f^(-1) compose f = "Id"_X
 $
-Analgog ziegt man: $(g compose f) compose (f^(-1) compose g^(-1)) = "Id"_Y$
+Analog zeigt man: $(g compose f) compose (f^(-1) compose g^(-1)) = "Id"_Y$
 $
 ==> (g compose f)^(-1) = f^(-1) compose g^(-1)
 $
@@ -1587,7 +1587,7 @@ Man sieht:
 
 #align(center, [Das ist durchaus nicht offensichtlich#bolditalic[!!!]])
 
-#bolditalic[Beispiel 3.20:] Es gibt eine bijektive Abbildung $f: NN -> NN times NN$. Dafür kann man z.B. das Diagonalargument von Geord Cantor verwenden.
+#bolditalic[Beispiel 3.20:] Es gibt eine bijektive Abbildung $f: NN -> NN times NN$. Dafür kann man z.B. das Diagonalargument von Georg Cantor verwenden.
 
 Zum Beweis der Aussage sind noch Vorarbeiten notwendig.
 
