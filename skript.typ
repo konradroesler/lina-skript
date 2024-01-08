@@ -677,9 +677,9 @@ Gegeben sei die Menge $M = {a, b}$ und die folgende Verknüfung
   $b$, $a$, $b$,
 ))
 
-Mann kann nachrechenen, dass $(M, circ)$ eine Halbgruppe ist. Mann kann auch prüfen, dass $a$ linksneutral aber nicht rechtsneutral ist, sowie dass $b$ rechtsneutral aber nicht linksneutral ist. Somit besitzt die Halbgruppe kein neutrales Element, $(M, circ)$ ist also kein Monoid.
+Man kann nachrechenen, dass $(M, circ)$ eine Halbgruppe ist. Man kann auch prüfen, dass $a$ linksneutral aber nicht rechtsneutral ist, sowie dass $b$ rechtsneutral aber nicht linksneutral ist. Somit besitzt die Halbgruppe kein neutrales Element, $(M, circ)$ ist also kein Monoid.
 
-#bolditalic[Bemerkung:] In der Definition eines Monoids wird nur die Existens aber nicht die Eindeutigkeit des neutralen Elements gefordert. Ist dies sinnvoll?
+#bolditalic[Bemerkung:] In der Definition eines Monoids wird nur die Existenz aber nicht die Eindeutigkeit des neutralen Elements gefordert. Ist dies sinnvoll?
 
 #bolditalic[Lemma 2.5:] Sei $(M, circ)$ ein Monoid und $e_1, e_2 in M$ neutrale Elemente, dann gilt
 $
@@ -1540,7 +1540,7 @@ Ein $K$-Vektorraum $(V, +, dot)$ ist genau dann endlich, erzeugt, wenn er eine e
 
 "$<==$": endliche Basis $==>$ endliches Erzeugendensystem $==>$ endlich erzeugt
 
-"$==>$": Sei $V$ endlich erzeugt $==> exists v_1, ..., v_n: "Span"{v_1, ..., v_n} = V$. Ist dieses Erzuegendensystem nicht minimial, d.h. linear abhängig, dann folgt mit Satz 3.5, dass ein $v_i, 1 <= i <= n$, als Linearkombation der anderen $v_j, i != j$ dargestellt werden kann. Entfernen des $v_i$ liefert ein kleineres Erzeugendensystem. Wiederhole $n-1$-Mal, bis die verbleibende Menge linear unabhängig ist. Soimt enthält jedes endliche erzeugendensystem ein minimales Erzeugendensystem und somit eine Basis.
+"$==>$": Sei $V$ endlich erzeugt $==> exists v_1, ..., v_n: "Span"{v_1, ..., v_n} = V$. Ist dieses Erzuegendensystem nicht minimial, d.h. linear abhängig, dann folgt mit Satz 3.5, dass ein $v_i, 1 <= i <= n$, als Linearkombation der anderen $v_j, i != j$ dargestellt werden kann. Entfernen des $v_i$ liefert ein kleineres Erzeugendensystem. Wiederhole $n-1$-Mal, bis die verbleibende Menge linear unabhängig ist. Soimt enthält jedes endliche Erzeugendensystem ein minimales Erzeugendensystem und somit eine Basis.
 #endproof
 
 Für den unendlichdimensionalen Fall ist mehr Arbeit nötig:
@@ -1697,15 +1697,15 @@ $
 #definition("3.27", "Dimension eines Vektorraums")[
   Die Dimension eines Vektorraum $(V, +, dot)$ über $K$ ist definiert als:
   $
-  dim_K(V) := cases(n &"falls" V "eine Basis der Länge" n "hat", infinity &"sonst")
+  dim_K (V) := cases(n &"falls" V "eine Basis der Länge" n "hat", infinity &"sonst")
   $
   Wenn der Kontext klar ist schreibt man $dim V$.
 ]
 
 #bolditalic[Beispiel 3.28:] Sei $K$ ein Körper. Es gilt 
 
-#boxedlist[$dim_K(V) = n$ genau dann, wenn $V = {0}$][
-  für $V = K^n$ folgt mit der Standardbasis, dass $dim_K(V) = n$][für die Dimension eines Vektorraums ist der jeweilige Grundkörper $K$ entscheident, z.B. $CC$ und $K = CC$ gilt $dim_CC V = 1$ für $K = RR$ aber $dim_RR V = 2$. 
+#boxedlist[$dim_K (V) = n$ genau dann, wenn $V = {0}$][
+  für $V = K^n$ folgt mit der Standardbasis, dass $dim_K (V) = n$][für die Dimension eines Vektorraums ist der jeweilige Grundkörper $K$ entscheident, z.B. $CC$ und $K = CC$ gilt $dim_CC V = 1$ für $K = RR$ aber $dim_RR V = 2$. 
 ][der $K$-Vektorraum $P[t]$ ist nicht endlich erzeugt, also $dim_K P[t] = infinity$]
 
 #bolditalic[Beispiel 3.29:] Sei $V = K^n$ für einen Körper $K$. Um zu prüfen, dass $n$ Vektoren aus $V$ eine Basis werden, muss nur deren lineare Unabhängigkeit geprüft werden. Seien z.B. $B$ in $V = RR^3$ die Vektoren
@@ -2116,7 +2116,7 @@ $
 f(v_i) = w_i "für" 1 <= i <=n
 $
 
-#italic[Beweis:] zu zeigen: Existens und Eindeutigkeit 
+#italic[Beweis:] zu zeigen: Existenz und Eindeutigkeit 
 
 Eindeutigkeit: Seien $f, g in L(V, W)$ mit $f(v_i) = g(v_i) = w_i$, $forall i in {1, ..., n}$. Sei $v in sum lambda_i v_i$: Dann gilt
 $
@@ -2125,7 +2125,7 @@ f(v) &= f(sum lambda_i v_i) = sum_(i = 1)^n lambda_i f(v_i) \
 &==> f(x) = g(x) space forall v in V \
 &==> f "ist eindeutig bestimmt"
 $
-Existens: $B$ Basis $==> "Span" B = V ==> "zu" v in V$ existieren nach Satz 3.8 eindeutige Koordinaten 
+Existenz: $B$ Basis $==> "Span" B = V ==> "zu" v in V$ existieren nach Satz 3.8 eindeutige Koordinaten 
 $
 lambda_i^v, 1<=i<=n  "mit"
 v = sum_(i = 1)^n lambda_i^v v_i
@@ -2182,7 +2182,7 @@ Kern und Bild wurden bereits im Kapitel 2 behandelt. Hier behandeln wir die Konz
     denn nur $0 in K^(n+1)$ wird auf das Nullpolynom abgebildet.
   ]
   2. #[
-    Fortsetzung von Beispiel 4.3 (Drehungsmatritzen)
+    Fortsetzung von Beispiel 4.3 (Drehungsmatrizen)
 
     Für $a = 0 = b$, $c, d in RR, c != 0$ und damit 
     $
@@ -2454,7 +2454,7 @@ Dieses Resultat motiviert das nächste Kapitel:
 
 #pagebreak()
 
-= Matritzen
+= Matrizen
 
 James Sylvester (brit. Mathematiker, 1814 - 1897) erfand den Begriff der Matrix im Jahr 1850. Die im folgenden definierte Matrixoperationen führte Arthur Cayley (brit. Mathematiker, 1821 - 1895) im Jahr 1858 ein.
 
@@ -2471,15 +2471,15 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
     a_(m,1), a_(m,2), ..., a_(m,n);;
   )
   $
-  mit $a_(i,j) in K$ für $1 <= i <= m$ und $1 <= j <= n$ heißt #bolditalic[(m $times$ n) Matrix] mit den Einträgen in $R$. Die Einträge nennt man auch Koeffizienten. Die Menge aller ($m times n$) Matritzen nennt man $R^(m times n)$.
+  mit $a_(i,j) in K$ für $1 <= i <= m$ und $1 <= j <= n$ heißt #bolditalic[(m $times$ n) Matrix] mit den Einträgen in $R$. Die Einträge nennt man auch Koeffizienten. Die Menge aller ($m times n$) Matrizen nennt man $R^(m times n)$.
 ]
 
 #bolditalic[Bemerkungen:] 
 
 #boxedlist[
-  Rein formal erlaubt diese Definition $n = 0$ oder $m = 0$. Dann erhält man Matritzen der Form $0 times n$, $m times 0$ oder $0 times 0$.
+  Rein formal erlaubt diese Definition $n = 0$ oder $m = 0$. Dann erhält man Matrizen der Form $0 times n$, $m times 0$ oder $0 times 0$.
 
-  Diese leeren Matritzen werden in manchen Beweisen aus technischen Gründen benötigt. In der Regel gilt aber $n, m >= 1$.
+  Diese leeren Matrizen werden in manchen Beweisen aus technischen Gründen benötigt. In der Regel gilt aber $n, m >= 1$.
 ][
   Die Nullmatrix in $R^(m times n)$ ist die Matrix, bei der alle Einträge gleich $0$ sind. Sie wird mit $0^(m times n)$ bezeichnet
 ][
@@ -2518,7 +2518,7 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
   $
   vec(a_(1, j), dots.v, a_(m, j)) in R^(m times 1) "für" i = 1, ..., n "ist ein Spaltenvektor"
   $
-  Diese sind selbst wieder Matritzen.
+  Diese sind selbst wieder Matrizen.
 ]
 
 
