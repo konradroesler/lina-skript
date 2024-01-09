@@ -2519,6 +2519,200 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
   vec(a_(1, j), dots.v, a_(m, j)) in R^(m times 1) "für" i = 1, ..., n "ist ein Spaltenvektor"
   $
   Diese sind selbst wieder Matrizen.
+][
+  Sind $m_1, m_2, n_1, n_2 in NN_0$ und $A_(i,j) in R^(m, n)$ für $i,j = 1,2$ gegeben, definieren diese eine sogenannte #bolditalic[Blockmatrix] der Form 
+  $
+  A = mat(
+    A_(1,1), A_(1,2);
+    A_(2,1), A_(2,2);
+    ) in R^(m_1 + m_2, n_1 + n_2)
+  $
 ]
 
+#bolditalic[Beispiel 5.2:] 
+$
+A = mat(
+  1, -2, 3;
+  -4, 5, 6;
+  ) in ZZ^(2, 3)
+space "und" space
+B = mat(
+    -1, 0;
+    0, 1;
+    1, -1;
+  ) in ZZ^(3,2)
+$ 
+ist $b_(2,2) = 1$ und 
+$
+vec(0,1,-1) in ZZ^(3,1)
+$
+die zweite Spalte von $B$. Keine dieser Matrizen inst quadratisch.
 
+#definition("5.3", "Addition von Matrizen")[
+  Seien $A, B in R^(m, n)$ zwei Matrizen. Dann ist $C = A + B in R^(m,n)$ definiert durch
+  $
+  C := A + B = mat(
+    a_(1,1), ..., a_(1, n);
+    dots.v, dots.down, dots.v;
+    a_(m,1), ..., a_(m,n);
+    ) + mat(
+        b_(1,1), ..., b_(1,n);
+        dots.v, dots.down, dots.v;
+        b_(m, 1), ..., b_(m, n);
+      ) = mat(
+          a_(1,1) + b_(1,1), ..., a_(1,n) + b_(1,n);
+          dots.v, dots.down, dots.v;
+          a_(m,1) + b_(m,1), ..., a_(m,n) + b_(m,n);
+        )
+  $
+  Die Addition in $R^(m,n)$ erfolgt also komponentenweise basieren auf der Addition auf $R$.
+]
+
+#bolditalic[Achtung:] Die Addition ist nur für Matrizen gleicher Größe / Dimension definiert.
+
+#definition("5.4", "Multiplikation einer Matrix mit einem Skalar")[
+  Sei $A in R^(m,n)$ eine Matrix und $lambda in R$. Dann ist $C = lambda dot A in R^(m,n)$ definiert durch
+  $
+  C = lambda A = lambda mat(
+    a_(1,1), ..., a_(1,n);
+    dots.v, dots.down, dots.v;
+    a_(m,1), ..., a_(m,n);
+    ) = mat(
+      lambda a_(1,1), ..., lambda a_(1,n);
+      dots.v, dots.down, dots.v;
+      lambda a_(m,1), ..., lambda a_(m,n);
+      )
+  $
+  Die Multiplikation einer Matrix mit einem Skalar aus $R$ erfolgt komponentenweise basierend auf der Multiplikation in $R$. 
+]
+
+#definition("5.5", "Multiplikation von Matrizen")[
+  Seien $A in R^(m,n)$ und $B in R^(n, l)$ zwei Matrizen. Dann ist $C = A dot B in R^(m, l)$ definiert durch
+  $
+  C := A dot B = mat(c_(1,1), ..., c_(1,l); dots.v, dots.down, dots.v; c_(m,1), ..., c_(m,l)) space "mit" space c_(i,j) = sum_(k = 1)^n a_(i,k) dot b_(k, j)
+  $
+  für $i = 1, ..., m$ und $j = 1, ..., l$
+]
+
+#bolditalic[Bemerkung:] Um das Produkt $A dot B$ berechnen zu können #bold[muss] die Anzahl der Spalten von $A$ gleich der Anzahl von Zeilen in $B$ sein.
+
+#bolditalic[Merkregel:] 
+$
+c_(i,j) =  i"-te Zeile von" A "mal" j"-t Spalte von" B
+$
+Oder Zeile "mal" Spalte. ("mal" $corres$ Skalarprodukt)
+
+#bolditalic[Beispiel 5.6:] Für die Matrizen
+$
+A = mat(1, -2, 3; -4, 5, 6) in ZZ^(2,3), space B = mat(-1, 0;0, 1; 1, -1) in ZZ^(3,2) space "und" space C = mat(1, 3, 5; 2, 4, 6) in ZZ^(3, 2) 
+$
+gilt:
+
+$A + B$ geht nicht
+
+$
+B + C = mat(0, 2; 3, 5; 6, 5) in ZZ^(3,2) wide 3 dot A = mat(3, -6, 9; -12, 15, 18) in ZZ^(2,3)
+$
+
+$
+A dot B = mat(2, -5; 10, -1) in ZZ^(2,2) wide B dot A = mat(-1, 2, -3; -4, 5, 6; 5, -7, -3) in ZZ^(3,3)
+$
+Also $A dot B$ und $B dot A$ sind für dieses Beispiele definiert, aber $A dot B != B dot A$. Damit ist die Multiplikation von Matrizen nicht kommutativ. Dies gilt auch für gleichgroße Matrizen:
+$
+D = mat(1, -2; -4, 5) in ZZ^(2,2) space, space E =  mat(-1, 0; 0, 1) in ZZ^(2,2) ==> 
+$
+$
+D dot E = mat(-1, -2; 4, 5) space != space mat(-1, 2; -4, 5) = E dot D
+$
+
+#bolditalic[Lemma 5.7:] Für $A, tilde(A) in R^(m,m) space B, tilde(B) in R^(m,l), space C in R^(l,k) "sowie" lambda, mu in R$ gelten
+
+#boxedlist[
+  Assoziativgesetze, d.h. 
+  $
+  A dot (B dot C) = (A dot B) dot C space "und" (lambda mu) dot A = lambda dot (mu dot A)
+  $
+][
+  Distributivitätsgesetze , d.h.
+  $
+  (A + tilde(A)) dot B &= A dot B + A dot B \
+  A dot (B + tilde(B)) &= A dot B + A dot tilde(B)\
+  (lambda dot mu) dot A &= lambda dot A + mu dot A \
+  lambda dot (A + tilde(A)) &= lambda dot A + lambda dot tilde(A)\
+  lambda dot (A dot B) &= A dot (lambda dot B)
+  $
+][
+  und mit 
+  $
+  I_n = mat(1, ..., 0; dots.v, dots.down, dots.v; 0, ..., 1) in $R^(n,n)$ "bzw." I_m in R^(m,m)
+  $
+  gilt 
+  $
+  I_n dot A = A = A dot I_m
+  $
+]
+
+#italic[Beweis:] Nachrechnen
+#endproof
+
+#definition("5.8", "Transposition von Matrizen")[
+  Sei
+  $
+  A = mat(a_(1,1), ..., a_(1,n); dots.v, dots.down, dots.v; a_(m,1), ..., a_(m,n)) in R^(m times n)
+  $
+  eine Matrix. Dann ist die zu $A$ #bolditalic[Transponierte] Matrix $A^top$ definert durch 
+  $
+  A^top := mat(a_(1,1), ..., a_(m,1); dots.v, dots.down, dots.v; a_(1,n), ..., a_(m,n)) in R^(n times m)
+  $
+]
+
+#bolditalic[Beispiel 5.9:] Die zu 
+$
+A = mat(1,-2,3;-4,5,6) in ZZ^(2,3)
+$
+tranponierte Matrix ist
+$
+A^top = mat(1, -4; -2, 5; 3, 6) in ZZ^(3,2)
+$
+
+#bolditalic[Lemma 5.10:] Für $A, tilde(A) in R^(m,n), space B in R^(n,l) "und" lambda in R$ gilt 
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  #show par: set block(spacing: 0.65em)
+  1. $(A^top)^top = A$
+
+  2. $(A + tilde(A))^top = A^top + tilde(A)^top$
+
+  3. $(lambda dot A)^top = lambda dot A^top$
+
+  4. $underbrace(underbrace(A dot B, in space R^(m,l))^top, in space R^(l,m)) = underbrace(underbrace(B^top, in space R^(m,l)) dot underbrace(A^top, in space R^(n,m)), in space R^(l,m)))$
+]
+
+#italic[Beweis:] Nachrechnen.
+#endproof
+
+#bolditalic[Zur Notation:]
+$
+R^n, space v in R^n, space v = vec(v_1, dots.v, v_n) in R^(n,1)
+$
+d.h. $v$ wird immer als Spaltenvektor interpretiert.
+
+Für Zeilenvektor: 
+$
+w in R^(1,n) "gilt" w^top in R^(n,1) isomorph R^n
+$
+#bolditalic[Beobachtung:] Alle Operationen, die wir für Matrizen definiert haben, sind konsistent mit den Vektoroperationen, wenn diese im obigen Sinn als Matrizen interpretiert werden.
+
+== Matrizengruppen und -ringe
+
+#bolditalic[Lemma 5.11:] Mit den angegebenen Rechenregeln ist $R^(m,n)$ ein $R$-Vektorraum der Dimension $m dot n$. 
+
+#italic[Beweis:] Aufgrund der Rechenregeln ist $R^(m,n)$ abgeschlossen bezüglich der 
+$
++: R^(m, n) times R^(m, n) -> R^(m,n) space "und" space dot space.thin: R times R^(m,n) -> R^(m,n)
+$
+Zur Dimension: $A in R^(m,n)$ kann dargestellt werden durch
+$
+a_(1,1) dot mat(1, 0, ..., 0; dots.v, dots.v, dots.down, dots.v; 0, 0, ..., 0) + a_(1,2) mat(0, 1, ..., 0; dots.v, dots.v, dots.down, dots.v; 0, 0, ..., 0) ==> "Erzeugendensystem + lin. unabhägnig" ==> "Basis" 
+$
+#endproof
