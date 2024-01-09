@@ -376,7 +376,7 @@ $
 Es gilt allgemein: Ist $tilde$ eine Äquivalenzrelation auf $M$, so ist $M$ die Vereinigung aller Äquivalenzklassen. 
 
 #boxedlist([
-  "$subset.eq$": $#humongousspace$ 
+  "$subset.eq$": $#sspace$ 
   #v(-2mm)
   $
   M = union.big_(a in M) {a} subset.eq union.big_(a in M) [a] space checkmark
@@ -486,7 +486,7 @@ Ist $emptyset != M subset.eq X$, dann heißt $f_(|M): M arrow Y, space x arrow.b
 
 #definition("1.31", "injektiv, surjektiv, bijektiv")[Seien $X, Y$ zwei beliebige, nichtleere Mengen und $f : X arrow Y$ eine Abbildung. Dann heißt $f$:
 
-#boxedlist([#bolditalic[injektiv:] falls für alle $x, tilde(x) in X$ gilt: $humongousspace$
+#boxedlist([#bolditalic[injektiv:] falls für alle $x, tilde(x) in X$ gilt: $#sspace$
 #v(-1mm)
 $
 f(x) = f(tilde(x)) ==> x = tilde(x)
@@ -954,7 +954,7 @@ Es folgt eine äquivalente und formalere Definition:
   $
   heißt #bolditalic[Körper], wenn gilt:
 
-  #boxedlist[$(K, +)$ ist eine kommutative Gruppe #humongousspace][$(K backslash {0}, dot)$ ist auch eine kommutative Gruppe][
+  #boxedlist[$(K, +)$ ist eine kommutative Gruppe #sspace][$(K backslash {0}, dot)$ ist auch eine kommutative Gruppe][
     Es gelten die Distributivgesetze
     $
     a dot (b + c) = a dot b + a dot c \
@@ -999,7 +999,7 @@ Wir verwenden impliziet die Operationen auf den reellen Zahlen, $+, -, dot$. Dan
 Man rechnet nach, dass 
 
 #boxedlist[
-  Das inverse Element bezüglich $+$ in $CC$ definiert ist mit #humongousspace 
+  Das inverse Element bezüglich $+$ in $CC$ definiert ist mit #sspace
   $
   -(x, y) = (-x, -y) in CC wide forall space.sixth (x, y) in CC \
   $
@@ -1095,7 +1095,7 @@ Solch eine algebraische Sturktur wollen wir beschreiben:
   Sei $K$ ein Körper. Ein Vektorraum über $K$, kurz $K$-Vektorraum, ist eine Menge $V$ mit zwei Abbildungen:
 
   #boxedlist[
-    Addition #humongousspace
+    Addition #sspace
     $
     +: V times V arrow V, space (v, w) arrow.bar v + w
     $
@@ -1108,7 +1108,7 @@ Solch eine algebraische Sturktur wollen wir beschreiben:
   für die folgendes gilt:
 
   #boxedlist[
-    $(V, +)$ ist eine kommutative Gruppe #humongousspace
+    $(V, +)$ ist eine kommutative Gruppe #sspace
   ][
     Für alle $v, w in V$ und $lambda, mu in K$ gilt:
     
@@ -2425,9 +2425,9 @@ $
 
 #bolditalic[Lemma 4.21:] Sei $K$ ein Körper. Die linearen Abbildungen $f: K^n -> K^m$ sind genau die Abbildungen der Form:
 $
-vec(x_1, x_2, dots.v, x_n) -> vec(a_(1,1) x_1 + a_(1,2) x_2 + ... + a_(1,n) x_n, a_(2,1) x_1 + a_(2,2) x_2 + ... + a_(2, n) x_n, dots.v, a_(n,1) x_1 + a_(n, 2) x_2 + ... + a_(m, n) x_n)
+vec(x_1, x_2, dots.v, x_n) -> vec(a_(1 1) x_1 + a_(1 2) x_2 + ... + a_(1 n) x_n, a_(2 1) x_1 + a_(2 2) x_2 + ... + a_(2 n) x_n, dots.v, a_(n 1) x_1 + a_(n 2) x_2 + ... + a_(m n) x_n)
 $
-mit Koeffizienten $a_(i, j) in K$ für $1 <= i <= m$ und $1 <= j <= n$. 
+mit Koeffizienten $a_(i j) in K$ für $1 <= i <= m$ und $1 <= j <= n$. 
 
 #italic[Beweis:] "$<==$": Die Dimensionen passen aufgrund der Definitionen. Die Linearität $f$ folgt aus den Rechengesetzen im Körper.
 
@@ -2435,15 +2435,15 @@ mit Koeffizienten $a_(i, j) in K$ für $1 <= i <= m$ und $1 <= j <= n$.
 
 #bolditalic[Beobachtung:] Wenn $f$ so darstellbar ist, haben alle Bilder der Standardbasis $e_1, ..., e_n$:
 $
-f(e_i) = vec(a_(1, i), dots.v, a_(m, i)) in K^m
+f(e_i) = vec(a_(1 i), dots.v, a_(m i)) in K^m
 $
 Deswegen definieren wir
 $
-vec(a_(1, i), dots.v, a_(m, i)) := f(e_i) in K^m
+vec(a_(1 i), dots.v, a_(m i)) := f(e_i) in K^m
 $
 Jetzt definieren wir $g in L(K^n, K^m)$ durch
 $
-g(vec(x_1, ..., x_n)) = vec(a_(1,1) x_1 + ... + a_(1,n) x_n, dots.v, a_(m,1) x_1 + ... + a_(m, n) x_n)
+g(vec(x_1, dots.v, x_n)) = vec(a_(1 1) x_1 + ... + a_(1 n) x_n, dots.v, a_(m 1) x_1 + ... + a_(m n) x_n)
 $
 Per Konstruktion gilt $f(e_i) = g(e_i)$. 
 
@@ -2466,12 +2466,12 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
   Sei $(R, +, dot)$ ein kommutativer Ring mit Eins und seien $n, m in NN_0$. Ein rechteckiges Schema der Form
   $
   mat(
-    a_(1,1), a_(1,2), ..., a_(1,n);
+    a_(1 1), a_(1 2), ..., a_(1 n);
     dots.v, dots.v, dots.down, dots.v;
-    a_(m,1), a_(m,2), ..., a_(m,n);;
+    a_(m 1), a_(m 2), ..., a_(m n);;
   )
   $
-  mit $a_(i,j) in K$ für $1 <= i <= m$ und $1 <= j <= n$ heißt #bolditalic[(m $times$ n) Matrix] mit den Einträgen in $R$. Die Einträge nennt man auch Koeffizienten. Die Menge aller ($m times n$) Matrizen nennt man $R^(m times n)$.
+  mit $a_(i j) in K$ für $1 <= i <= m$ und $1 <= j <= n$ heißt #bolditalic[(m $times$ n) Matrix] mit den Einträgen in $R$. Die Einträge nennt man auch Koeffizienten. Die Menge aller ($m times n$) Matrizen nennt man $R^(m times n)$.
 ]
 
 #bolditalic[Bemerkungen:] 
@@ -2485,24 +2485,24 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
 ][
   Ist $m = n$, so nennt man $A in R^(m times n)$ quadratisch bzw. eine quadratische Matrix
 ][
-  Ist $A in R^(n times n)$ heißen die Einträge $a_(j,j)$ für $1 <= j <= n$ #bolditalic[Diagonaleinträge] von 
+  Ist $A in R^(n times n)$ heißen die Einträge $a_(j j)$ für $1 <= j <= n$ #bolditalic[Diagonaleinträge] von 
   $
   A = mat(
-      a_(1,1), ..., ...;
+      a_(1 1), ..., ...;
       dots.v, dots.down, dots.v;
-      ..., ..., a_(n, n); 
+      ..., ..., a_(n  n); 
     )
   $
 ]
 
 #boxedlist[
-  Die Kronecker-Delta Funktion $f_(i j)$ für $i in I$ und $j in J$, $I$ und $J$ sind Indexmengen, ist benannt nach Leopold Kronecker (1823 - 1891) und gegeben durch 
+  Die Kronecker-Delta Funktion $delta_(i j)$ für $i in I$ und $j in J$, $I$ und $J$ sind Indexmengen, ist benannt nach Leopold Kronecker (1823 - 1891) und gegeben durch 
   $
-  f_(i j) = cases(1 &i = j, 0 "sonst")
+  delta_(i j) = cases(1 &i = j, 0 "sonst")
   $
   Damit definiert man die Einheitsmatrix $I_n in R^(n times n)$ durch
   $
-  I_n := [f_(i j)] = mat(
+  I_n := [delta_(i j)] = mat(
       1, ..., 0;
       dots.v, dots.down, dots.v;
       0 ,..., 1;
@@ -2512,24 +2512,24 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
 ][
   Die $i$-te Zeile von $A in R^(m times n)$ ist 
   $
-  (a_(i, 1), ..., a_(i, n)) in R^(1 times n) "für" i = 1, ..., m "ist ein Zeilenvektor" 
+  (a_(i 1), ..., a_(i n)) in R^(1 times n) "für" i = 1, ..., m "ist ein Zeilenvektor" 
   $
   Die $j$-te Spalte von $A in R^(m times n)$ ist 
   $
-  vec(a_(1, j), dots.v, a_(m, j)) in R^(m times 1) "für" i = 1, ..., n "ist ein Spaltenvektor"
+  vec(a_(1 j), dots.v, a_(m j)) in R^(m times 1) "für" i = 1, ..., n "ist ein Spaltenvektor"
   $
   Diese sind selbst wieder Matrizen.
 ][
-  Sind $m_1, m_2, n_1, n_2 in NN_0$ und $A_(i,j) in R^(m, n)$ für $i,j = 1,2$ gegeben, definieren diese eine sogenannte #bolditalic[Blockmatrix] der Form 
+  Sind $m_1, m_2, n_1, n_2 in NN_0$ und $A_(i j) in R^(m, n)$ für $i j = 1 2$ gegeben, definieren diese eine sogenannte #bolditalic[Blockmatrix] der Form 
   $
   A = mat(
-    A_(1,1), A_(1,2);
-    A_(2,1), A_(2,2);
+    A_(1 1), A_(1 2);
+    A_(2 1), A_(2 2);
     ) in R^(m_1 + m_2, n_1 + n_2)
   $
 ]
 
-#bolditalic[Beispiel 5.2:] 
+#bolditalic[Beispiel 5.2:] Für 
 $
 A = mat(
   1, -2, 3;
@@ -2542,7 +2542,7 @@ B = mat(
     1, -1;
   ) in ZZ^(3,2)
 $ 
-ist $b_(2,2) = 1$ und 
+ist $a_(2 3) = 6$, $(1, -2, 3) in ZZ^(1,3)$ die erste Zeile von $A$ und $b_(2 2) = 1$ und 
 $
 vec(0,1,-1) in ZZ^(3,1)
 $
@@ -2552,17 +2552,17 @@ die zweite Spalte von $B$. Keine dieser Matrizen inst quadratisch.
   Seien $A, B in R^(m, n)$ zwei Matrizen. Dann ist $C = A + B in R^(m,n)$ definiert durch
   $
   C := A + B = mat(
-    a_(1,1), ..., a_(1, n);
+    a_(1 1), ..., a_(1 n);
     dots.v, dots.down, dots.v;
-    a_(m,1), ..., a_(m,n);
+    a_(m 1), ..., a_(m n);
     ) + mat(
-        b_(1,1), ..., b_(1,n);
+        b_(1 1), ..., b_(1 n);
         dots.v, dots.down, dots.v;
-        b_(m, 1), ..., b_(m, n);
+        b_(m 1), ..., b_(m n);
       ) = mat(
-          a_(1,1) + b_(1,1), ..., a_(1,n) + b_(1,n);
+          a_(1 1) + b_(1 1), ..., a_(1 n) + b_(1 n);
           dots.v, dots.down, dots.v;
-          a_(m,1) + b_(m,1), ..., a_(m,n) + b_(m,n);
+          a_(m 1) + b_(m 1), ..., a_(m n) + b_(m n);
         )
   $
   Die Addition in $R^(m,n)$ erfolgt also komponentenweise basieren auf der Addition auf $R$.
@@ -2574,13 +2574,13 @@ die zweite Spalte von $B$. Keine dieser Matrizen inst quadratisch.
   Sei $A in R^(m,n)$ eine Matrix und $lambda in R$. Dann ist $C = lambda dot A in R^(m,n)$ definiert durch
   $
   C = lambda A = lambda mat(
-    a_(1,1), ..., a_(1,n);
+    a_(1 1), ..., a_(1 n);
     dots.v, dots.down, dots.v;
-    a_(m,1), ..., a_(m,n);
+    a_(m 1), ..., a_(m n);
     ) = mat(
-      lambda a_(1,1), ..., lambda a_(1,n);
+      lambda a_(1 1), ..., lambda a_(1 n);
       dots.v, dots.down, dots.v;
-      lambda a_(m,1), ..., lambda a_(m,n);
+      lambda a_(m 1), ..., lambda a_(m n);
       )
   $
   Die Multiplikation einer Matrix mit einem Skalar aus $R$ erfolgt komponentenweise basierend auf der Multiplikation in $R$. 
@@ -2589,7 +2589,7 @@ die zweite Spalte von $B$. Keine dieser Matrizen inst quadratisch.
 #definition("5.5", "Multiplikation von Matrizen")[
   Seien $A in R^(m,n)$ und $B in R^(n, l)$ zwei Matrizen. Dann ist $C = A dot B in R^(m, l)$ definiert durch
   $
-  C := A dot B = mat(c_(1,1), ..., c_(1,l); dots.v, dots.down, dots.v; c_(m,1), ..., c_(m,l)) space "mit" space c_(i,j) = sum_(k = 1)^n a_(i,k) dot b_(k, j)
+  C := A dot B = mat(c_(1 1), ..., c_(1 l); dots.v, dots.down, dots.v; c_(m 1), ..., c_(m l)) space "mit" space c_(i j) = sum_(k = 1)^n a_(i k) dot b_(k j)
   $
   für $i = 1, ..., m$ und $j = 1, ..., l$
 ]
@@ -2598,13 +2598,13 @@ die zweite Spalte von $B$. Keine dieser Matrizen inst quadratisch.
 
 #bolditalic[Merkregel:] 
 $
-c_(i,j) =  i"-te Zeile von" A "mal" j"-t Spalte von" B
+c_(i j) =  i"-te Zeile von" A "mal" j"-t Spalte von" B
 $
 Oder Zeile "mal" Spalte. ("mal" $corres$ Skalarprodukt)
 
 #bolditalic[Beispiel 5.6:] Für die Matrizen
 $
-A = mat(1, -2, 3; -4, 5, 6) in ZZ^(2,3), space B = mat(-1, 0;0, 1; 1, -1) in ZZ^(3,2) space "und" space C = mat(1, 3, 5; 2, 4, 6) in ZZ^(3, 2) 
+A = mat(1, -2, 3; -4, 5, 6) in ZZ^(2,3), space B = mat(-1, 0; 0, 1; 1, -1) in ZZ^(3,2) space "und" space C = mat(1, 3, 5; 2, 4, 6) in ZZ^(3, 2) 
 $
 gilt:
 
@@ -2628,7 +2628,7 @@ $
 #bolditalic[Lemma 5.7:] Für $A, tilde(A) in R^(m,m) space B, tilde(B) in R^(m,l), space C in R^(l,k) "sowie" lambda, mu in R$ gelten
 
 #boxedlist[
-  Assoziativgesetze, d.h. 
+  Assoziativgesetze, d.h. #sspace
   $
   A dot (B dot C) = (A dot B) dot C space "und" (lambda mu) dot A = lambda dot (mu dot A)
   $
@@ -2644,7 +2644,7 @@ $
 ][
   und mit 
   $
-  I_n = mat(1, ..., 0; dots.v, dots.down, dots.v; 0, ..., 1) in $R^(n,n)$ "bzw." I_m in R^(m,m)
+  I_n = mat(1, ..., 0; dots.v, dots.down, dots.v; 0, ..., 1) in R^(n,n) "bzw." I_m in R^(m,m)
   $
   gilt 
   $
@@ -2658,11 +2658,11 @@ $
 #definition("5.8", "Transposition von Matrizen")[
   Sei
   $
-  A = mat(a_(1,1), ..., a_(1,n); dots.v, dots.down, dots.v; a_(m,1), ..., a_(m,n)) in R^(m times n)
+  A = mat(a_(1 1), ..., a_(1 n); dots.v, dots.down, dots.v; a_(m 1), ..., a_(m n)) in R^(m times n)
   $
   eine Matrix. Dann ist die zu $A$ #bolditalic[Transponierte] Matrix $A^top$ definert durch 
   $
-  A^top := mat(a_(1,1), ..., a_(m,1); dots.v, dots.down, dots.v; a_(1,n), ..., a_(m,n)) in R^(n times m)
+  A^top := mat(a_(1 1), ..., a_(m 1); dots.v, dots.down, dots.v; a_(1 n), ..., a_(m n)) in R^(n times m)
   $
 ]
 
@@ -2713,6 +2713,6 @@ $
 $
 Zur Dimension: $A in R^(m,n)$ kann dargestellt werden durch
 $
-a_(1,1) dot mat(1, 0, ..., 0; dots.v, dots.v, dots.down, dots.v; 0, 0, ..., 0) + a_(1,2) mat(0, 1, ..., 0; dots.v, dots.v, dots.down, dots.v; 0, 0, ..., 0) ==> "Erzeugendensystem + lin. unabhägnig" ==> "Basis" 
+a_(1 1) dot mat(1, 0, ..., 0; dots.v, dots.v, dots.down, dots.v; 0, 0, ..., 0) + a_(1 2) mat(0, 1, ..., 0; dots.v, dots.v, dots.down, dots.v; 0, 0, ..., 0) ==> "Erzeugendensystem + lin. unabhägnig" ==> "Basis" 
 $
 #endproof

@@ -51,9 +51,9 @@
   #text(style: "italic", weight: "medium")[#content]
 ]
 
-#let humongousspace = [
-  $wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide wide$
- ]
+#let sspace = [
+  #h(100cm)
+]
 
  #let circ = $op(circle.small)$
  #let oplus = $op(plus.circle)$
