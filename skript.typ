@@ -2705,14 +2705,168 @@ $
 
 == Matrizengruppen und -ringe
 
-#bolditalic[Lemma 5.11:] Mit den angegebenen Rechenregeln ist $R^(m,n)$ ein $R$-Vektorraum der Dimension $m dot n$. 
+#bolditalic[Lemma 5.11:] Mit den angegebenen Rechenregeln gilt
 
-#italic[Beweis:] Aufgrund der Rechenregeln ist $R^(m,n)$ abgeschlossen bezüglich der 
+#box(width: 100%, inset: (right: 1cm, left: 1cm))[
+  1. #[
+    $(R^(m, n), +)$ ist eine kommutative Gruppe mit dem neutralen Element $0 in R^(m, n)$, d.h. der Nullmatrix und dem zu $A in R^(m, n)$ inversen Element $-A = (-a_(i j)) in R^(m, n)$. Manschreibt statt $A + (-B) = A - B$.
+  ]
+  2. #[
+    Ist $R$ ein Körper, so ist $R^(m, n)$ ein $R$-Vektorrau der Dimension $m dot n$.
+  ] 
+]
+
+#italic[Beweis:] 
+
+1) Folgt durch Nachrechnen unter Ausnutzung der Eigenschaften von $R$.
+
+2) Aufgrund der Rechenregeln ist $R^(m,n)$ abgeschlossen bezüglich der 
 $
-+: R^(m, n) times R^(m, n) -> R^(m,n) space "und" space dot space.thin: R times R^(m,n) -> R^(m,n)
++: R^(m, n) times R^(m, n) -> R^(m,n) space "und" space dot.op: R times R^(m,n) -> R^(m,n)
 $
 Zur Dimension: $A in R^(m,n)$ kann dargestellt werden durch
 $
-a_(1 1) dot mat(1, 0, ..., 0; dots.v, dots.v, dots.down, dots.v; 0, 0, ..., 0) + a_(1 2) mat(0, 1, ..., 0; dots.v, dots.v, dots.down, dots.v; 0, 0, ..., 0) ==> "Erzeugendensystem + lin. unabhägnig" ==> "Basis" 
+a_(1 1) dot mat(1, 0, ..., 0; dots.v, dots.v, dots.v, dots.v; 0, 0, ..., 0) + a_(1 2) dot mat(0, 1, ..., 0; dots.v, dots.v, dots.v, dots.v; 0, 0, ..., 0) \
+==> "Erzeugendensystem + linear unabhägnig" ==> "Basis" 
 $
 #endproof
+
+Aufgrund der Eigenschaft 2 aus Lemma 5.10 ist die Transposition von Matrizen ein Homomorphismus (vlg. Definition 2.11) der Gruppen $(R^(m,n), +)$ und $(R^(n,m), +)$ 
+
+#bolditalic[Lemma 5.12:] Sei $n in NN$. Die Menge der quadratischen Matrizen $R^(n, n)$, d.h. $(R^(n,n), +, dot)$, ist ein Ring mit Eins, welche durch die Einheitsmatrix $I_n$ gegeben ist. Dieser Ring ist kommutativ.
+
+#italic[Beweis:] Lemma 5.11: $(R^(n,n), +)$ ist eine kommutative Gruppe mit neutralem Element $0 in R^(n,n)$. Lemma 5.7: Assoziativität, Distributivitätsgesetze, Einselement $I_n$. $==>$ Ring mit $1$ $space.thin checkmark$
+
+$n = 1$: Kommutativität folgt aus Eigenschaften von $R$. Für $n = 2$ gilt mit 
+$
+A = mat(0,0;1,0) space "und" space B = mat(0,0;0,1), "dass" \
+A dot B = mat(0,0;0,0) != mat(0,0;1,0) = B dot A
+$
+#endproof
+
+Aus dem Beispiel im letzten Satz folgt auch, dass $A, B in R^(n,n)$ mit 
+
+#boxedlist[$A != 0 in R^(n,n)$, $B != 0 in R^(n,n)$][$A dot B = 0$]
+
+existiert. Damit besitzt $R^(n,n)$ sogenannte nichttriviale Nullteiler. Mit $R = RR$ gilt dies auch wenn $R$ ein Körper ist.
+
+Weitere wichtige Eigenschaft:
+
+Invertierbarkeit bezüglich der Multiplikation!
+
+#bolditalic[Frage:] Gibt es für jede Matrix $A in R^(n,n)$ eine Matrix $A^(-1)$, so dass $A dot A^(-1) = I-n = A^(-1) dot A$? Wenn dies gilt, dann müsste $A^(-1)$ existieren, so dass für 
+$
+A = mat(0,0;1,0) space "gilt" space A dot A^(-1) = I = A^(-1) dot A \
+A dot A^(-1) = mat(0,0;1,0) dot mat(a,b;c,d) = mat(1,0;0,1)
+$
+Für das erste Element der Matrix folgt 
+$
+0 dot a + 0 dot c = underbrace(0 != 1, "Ring mit" 0 != 1) space arrow.zigzag
+$
+#bolditalic[Folgerung:] Nicht alle quadratischen Matrizen sind invertierbar.
+
+#bolditalic[Beispiel 3.13:] Die Matrix 
+$
+A = mat(1,0;2,3) in ZZ^(2,2)
+$
+ist damit über $R = ZZ$ nicht invertierbar. Es gilt 
+$
+mat(1,0;2,3) dot underbrace(mat(1,0;-2/3, 1/3), A^(-1) space.thin in space.thin QQ^(2,2)) = mat(1,0;0,1) = I_2
+$
+Ist $A in QQ^(2,2)$, dann ist $A$ invertierbar. Also: Invertierbarkeit hängt vom Ring $R$ ab!
+
+#align(center, "strich rechts einfügen um abzugrenzen")
+
+#bolditalic[Lemma 5.14:] Sind $A, B in R^(n,n)$ zwei invertierbare Matrizen. D.h. es existieren $A^(-1), B^(-1) in R^(n,n)$ mit $A dot A^(-1) = I = A^(-1) dot A$ und $B dot B^(-1) = I = B^(-1) dot B$, so gilt:
+
+#boxedlist[
+  $A dot B$ ist invertierbar und es ist $#sspace$
+  $
+  (A dot B)^(-1) = B^(-1) dot A^(-1)
+  $
+][
+  $A^top$ ist invertierbar und es ist $(A^top)^(-1) = (A^(-1))^top = A^(-top)$
+]
+
+#italic[Beweis:] 
+
+1. Aussage: Folgt aus der allgemeinen Aussage für Ringe mit Eins im Satz 2.13.
+
+2. Aussage: Regel 4 aus Lemma 5.10:
+$
+(A^(-1))^top dot A^top = (A dot A^(-1))^top = (I_n)^top = I_n = (I_n)^top = (A^(-1) dot A)^top = A^top dot (A^(-1))^top
+$
+#endproof
+
+#bolditalic[Lemma 5.15:] Die Menge $"GL"_n (R) := {A in R^(n,n) | A "invertierbar"}$ bilden mit der Matrixmultiplikation eine Gruppe.
+
+#italic[Beweis:] Lemma 5.14, 1. Aussage: Abgeschlossenheit bezüglich $dot$. Lemma 5.7: Assoziativität $+$ neutrale Element $I_n$. Mit $(A^(-1))^(-1) = A$ ist auch $A^(-1)$ invertierbar $==>$ $A^(-1) in "GL"_n (R)$.
+#endproof
+
+#italic[Hinweis:] $space.thin"GL"_n (R)$ = General linear Group
+
+Matrixmultiplikation: $A in R^(m,n), v in R^(n, 1) = R^n$
+$
+mat(a_(1 1), ..., a_(1, n); dots.v, dots.down, dots.v; a_(m 1), ..., a_(m n)) dot vec(v_(1 1), dots.v, v_(n 1)) = A dot v
+$
+definiert damit auch die Matrix-Vektor-Multiplikation.
+
+Diese Beobachtung motiviert:
+
+== Matrizen und lineare Abbildungen
+
+#bolditalic[Beispiel 5.16:] Fortsetzung von Beispiel 4.3.
+
+Die lineare Abbildung $f: RR^2 -> RR^2$,
+$
+y = f(x) = f(vec(x_1, x_2)) = vec(a x_1 + b x_2, c x_1 + d x_2)
+$
+mit $a, b, c, d in RR$ wird beschrieben duch 
+$
+y = f(x) = underbrace(underbrace(mat(a, b; c, d), in space.thin R^(2,2)) dot underbrace(vec(x_1, x_2), in space.thin R^(2, 1)), in space.thin R^(2,1)) = A dot x space "mit" A = mat(a, b; c, d)
+$
+Die Kombination mit Lemma 4.21 liefert:
+
+#bolditalic[Satz 5.17:] Sei $K$ ein Körper. Zu jeder linearen Abbildung $f: K^n -> K^m, space.thin y = f(x)$, existiert eine Matrix $A in K^(m,n)$, so dass gilt
+$
+y = f(x) = A dot x
+$
+
+#italic[Beweis:] Nach Lemma 4.21 besitzt jede lineare Abbildung $f: K^n -> K^m$ die Form
+$
+y = f(x) = mat(a_(1 1) x_1 + a_(1 2) x_2 + ... + a_(1 n) x_n; a_(2 1) x_1 + a_(2 2) x_2 + ... + a_(2 n) x_n; dots.v; a_(m 1) x_1 + x_(m 2) x_2 + ... + a_(m n) x_n)
+$
+mit Koeffizienten $a_(i j) in K$, $i = 1, ..., m$, j = $1, ..., n$. Mit den Rechenregeln für Matrizen inklusive dem Spezialfall der Vektoren folgt
+$
+y = f(x) = A dot x space "mit" space A = mat(a_(1 1), a_(1 2), ..., a_(1 n); a_(2 1), a_(2 2), ..., a_(2 n); dots.v, dots.v, dots.v, dots.v; a_(m 1), a_(m 2), ..., a_(m n))
+$
+#endproof
+
+Was gilt für allgemeine Basen?
+
+#bolditalic[Satz 5.18:] Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ und $f: V -> W$ eine lineare Abbildung. Dann gibt es eine eindueitg bestimmte Matrix $(A_f)^(B, C) = (a_(i j)) in K^(m, n)$ so, dass 
+$
+W in.rev f(v_j) = sum_(i = 1)^m a_(i j) w_i wide j = 1, ..., n
+$
+gilt. Die Abbildung $F: L(V, W) -> K^(m, n)$ mit $F(f) = (A_f)^(B, C)$ ist ein Isomorphismus zwischen zwei $K$-Vektorräumen.
+
+
+#italic[Beweis:] Da $C$ eine Basis von $W$ ist, besitzt jedes $w in W$ eine eindeutige Darstellung als Linearkombination der Vektoren ${w_1, ..., w_m}$. Damit besitzt auch für jedes $f in L(V, W)$ die Vektoren $f(v_1), ..., f(v_n)$ eine eindeutige Darstellung. Die Koeffizienten dieser Linearkombinationen bestimmen eindeutig die Matrix $(A_f)^(B, C)$.
+
+zu zeigen: $F$ ist ein Isomorphismus.
+
+$F$ ist linear: Seien $f, g in L(V, W)$ mit den zugehörigen Matrizen $(A_f)^(B, C)$ bzw. $(A_f)^(B, C)$ mit 
+$
+(A_f)^(B, C) = (a_(i j)), (A_g)^(B, C), (A_f)^(B, C) in K^(m, n), (A_g)^(B, C) in K^(m, n)
+$
+Für $lambda, mu in K$ gilt 
+$
+(lambda f + mu g)(v_j) &= lambda f(v_j) + mu g(v_j) = lambda sum_(i = 1)^m a_(i j) w_i) + mu sum_(i = 1)^m b_(i j) w_i \
+&= sum_(i = 1)^m underbrace((lambda a_(i j) + mu b_(i j)), "Matrix für" lambda + mu g) w_i
+$
+Also ist
+$
+F(lambda f + mu g) = lambda F(f) + mu F(g)
+$
+$==> F$ linear
+
