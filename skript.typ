@@ -2775,7 +2775,7 @@ mat(1,0;2,3) dot underbrace(mat(1,0;-2/3, 1/3), A^(-1) space.thin in space.thin 
 $
 Ist $A in QQ^(2,2)$, dann ist $A$ invertierbar. Also: Invertierbarkeit hängt vom Ring $R$ ab!
 
-#align(center, "strich rechts einfügen um abzugrenzen")
+#sect_delim
 
 #bolditalic[Lemma 5.14:] Sind $A, B in R^(n,n)$ zwei invertierbare Matrizen. D.h. es existieren $A^(-1), B^(-1) in R^(n,n)$ mit $A dot A^(-1) = I = A^(-1) dot A$ und $B dot B^(-1) = I = B^(-1) dot B$, so gilt:
 
@@ -2861,7 +2861,7 @@ $
 $
 Für $lambda, mu in K$ gilt 
 $
-(lambda f + mu g)(v_j) &= lambda f(v_j) + mu g(v_j) = lambda sum_(i = 1)^m a_(i j) w_i) + mu sum_(i = 1)^m b_(i j) w_i \
+(lambda f + mu g)(v_j) &= lambda f(v_j) + mu g(v_j) = lambda sum_(i = 1)^m a_(i j) w_i + mu sum_(i = 1)^m b_(i j) w_i \
 &= sum_(i = 1)^m underbrace((lambda a_(i j) + mu b_(i j)), "Matrix für" lambda + mu g) w_i
 $
 Also ist
