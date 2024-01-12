@@ -2733,7 +2733,7 @@ $
 
 Aufgrund der Eigenschaft 2 aus Lemma 5.10 ist die Transposition von Matrizen ein Homomorphismus (vlg. Definition 2.11) der Gruppen $(R^(m,n), +)$ und $(R^(n,m), +)$ 
 
-#bolditalic[Lemma 5.12:] Sei $n in NN$. Die Menge der quadratischen Matrizen $R^(n, n)$, d.h. $(R^(n,n), +, dot)$, ist ein Ring mit Eins, welche durch die Einheitsmatrix $I_n$ gegeben ist. Dieser Ring ist kommutativ.
+#bolditalic[Lemma 5.12:] Sei $n in NN$. Die Menge der quadratischen Matrizen $R^(n, n)$, d.h. $(R^(n,n), +, dot)$, ist ein Ring mit Eins, welche durch die Einheitsmatrix $I_n$ gegeben ist. Dieser Ring ist nur für $n = 1$ kommutativ.
 
 #italic[Beweis:] Lemma 5.11: $(R^(n,n), +)$ ist eine kommutative Gruppe mit neutralem Element $0 in R^(n,n)$. Lemma 5.7: Assoziativität, Distributivitätsgesetze, Einselement $I_n$. $==>$ Ring mit $1$ $space.thin checkmark$
 
@@ -2754,7 +2754,7 @@ Weitere wichtige Eigenschaft:
 
 Invertierbarkeit bezüglich der Multiplikation!
 
-#bolditalic[Frage:] Gibt es für jede Matrix $A in R^(n,n)$ eine Matrix $A^(-1)$, so dass $A dot A^(-1) = I-n = A^(-1) dot A$? Wenn dies gilt, dann müsste $A^(-1)$ existieren, so dass für 
+#bolditalic[Frage:] Gibt es für jede Matrix $A in R^(n,n)$ eine Matrix $A^(-1)$, so dass $A dot A^(-1) = I_n = A^(-1) dot A$? Wenn dies gilt, dann müsste $A^(-1)$ existieren, so dass für 
 $
 A = mat(0,0;1,0) space "gilt" space A dot A^(-1) = I = A^(-1) dot A \
 A dot A^(-1) = mat(0,0;1,0) dot mat(a,b;c,d) = mat(1,0;0,1)
@@ -2765,7 +2765,7 @@ $
 $
 #bolditalic[Folgerung:] Nicht alle quadratischen Matrizen sind invertierbar.
 
-#bolditalic[Beispiel 3.13:] Die Matrix 
+#bolditalic[Beispiel 5.13:] Die Matrix 
 $
 A = mat(1,0;2,3) in ZZ^(2,2)
 $
@@ -2844,20 +2844,20 @@ $
 
 Was gilt für allgemeine Basen?
 
-#bolditalic[Satz 5.18:] Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ und $f: V -> W$ eine lineare Abbildung. Dann gibt es eine eindueitg bestimmte Matrix $(A_f)^(B, C) = (a_(i j)) in K^(m, n)$ so, dass 
+#bolditalic[Satz 5.18:] Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ und $f: V -> W$ eine lineare Abbildung. Dann gibt es eine eindueitg bestimmte Matrix $A_f^(B, C) = (a_(i j)) in K^(m, n)$ so, dass 
 $
 W in.rev f(v_j) = sum_(i = 1)^m a_(i j) w_i wide j = 1, ..., n
 $
-gilt. Die Abbildung $F: L(V, W) -> K^(m, n)$ mit $F(f) = (A_f)^(B, C)$ ist ein Isomorphismus zwischen zwei $K$-Vektorräumen.
+gilt. Die Abbildung $F: L(V, W) -> K^(m, n)$ mit $F(f) = A_f^(B, C)$ ist ein Isomorphismus zwischen zwei $K$-Vektorräumen.
 
 
-#italic[Beweis:] Da $C$ eine Basis von $W$ ist, besitzt jedes $w in W$ eine eindeutige Darstellung als Linearkombination der Vektoren ${w_1, ..., w_m}$. Damit besitzt auch für jedes $f in L(V, W)$ die Vektoren $f(v_1), ..., f(v_n)$ eine eindeutige Darstellung. Die Koeffizienten dieser Linearkombinationen bestimmen eindeutig die Matrix $(A_f)^(B, C)$.
+#italic[Beweis:] Da $C$ eine Basis von $W$ ist, besitzt jedes $w in W$ eine eindeutige Darstellung als Linearkombination der Vektoren ${w_1, ..., w_m}$. Damit besitzt auch für jedes $f in L(V, W)$ die Vektoren $f(v_1), ..., f(v_n)$ eine eindeutige Darstellung. Die Koeffizienten dieser Linearkombinationen bestimmen eindeutig die Matrix $A_f^(B, C)$.
 
 zu zeigen: $F$ ist ein Isomorphismus.
 
-$F$ ist linear: Seien $f, g in L(V, W)$ mit den zugehörigen Matrizen $(A_f)^(B, C)$ bzw. $(A_f)^(B, C)$ mit 
+$F$ ist linear: Seien $f, g in L(V, W)$ mit den zugehörigen Matrizen $A_f^(B, C)$ bzw. $A_g^(B, C)$ mit 
 $
-(A_f)^(B, C) = (a_(i j)), (A_g)^(B, C), (A_f)^(B, C) in K^(m, n), (A_g)^(B, C) in K^(m, n)
+A_f^(B, C) = (a_(i j)), A_g^(B, C) = (b_(i j)), A_f^(B, C) in K^(m, n), A_g^(B, C) in K^(m, n)
 $
 Für $lambda, mu in K$ gilt 
 $
