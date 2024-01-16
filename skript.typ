@@ -3011,13 +3011,13 @@ $
 A_(g circ f)^(B,D) = A_g^(C, D) dot A_f^(B,C)
 $
 
-#italic[Beweis:] Satz 4.20: $g circ f in L(V, X)$. Seien $B = {v_1, ..., v_n}, C = {w_1, ..., w_m}, D = {x_1, ..., x_s}$ und die Darstellungsmatrizen gegeben durch 
+#italic[Beweis:] Satz 4.20: $g circ f in L(V, X)$. Seien $B = {v_1, ..., v_n}$, $C = {w_1, ..., w_m}$, $D = {x_1, ..., x_s}$ und die Darstellungsmatrizen gegeben durch 
 $
 A_f^(B, C) = (a_(i j))_(i = 1, ..., m space.thin "Zeilen")^(j = 1, ..., n space.thin "Spalten") "sowie" A_g^(C, D) = (b_(i j))_(i = 1, ..., s)^(j = 1, ..., m)
 $
 Dann folgt für $v_j, j = 1, ..., n$
 $
-(g circ f)(v_j) = g(underbrace(sum_(k = 1)^m a_(k j) w_k, = space.thin f(v_j))) = sum_(k = 1)^m a_(k j) g(w_k) \
+(g circ f)(v_j) = g lr(size: #3em, (underbrace(sum_(k = 1)^m a_(k j) w_k, = space.thin f(v_j)) )) = sum_(k = 1)^m a_(k j) g(w_k) \
 = sum_(k = 1)^m a_(k j) sum_(i = 1)^s b_(i k) x_i = sum_(i = 1)^s sum_(k = 1)^m a_(k j) b_k x_i \
 = sum_(i = 1)^s (sum_(k = 1)^m b_(i k) a_(k j)) x_i
 $ 
