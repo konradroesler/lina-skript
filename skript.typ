@@ -2834,7 +2834,7 @@ $
 
 #italic[Beweis:] Nach Lemma 4.21 besitzt jede lineare Abbildung $f: K^n -> K^m$ die Form
 $
-y = f(x) = mat(a_(1 1) x_1 + a_(1 2) x_2 + ... + a_(1 n) x_n; a_(2 1) x_1 + a_(2 2) x_2 + ... + a_(2 n) x_n; dots.v; a_(m 1) x_1 + x_(m 2) x_2 + ... + a_(m n) x_n)
+y = f(x) = mat(a_(1 1) x_1 + a_(1 2) x_2 + ... + a_(1 n) x_n; a_(2 1) x_1 + a_(2 2) x_2 + ... + a_(2 n) x_n; dots.v; a_(m 1) x_1 + a_(m 2) x_2 + ... + a_(m n) x_n)
 $
 mit Koeffizienten $a_(i j) in K$, $i = 1, ..., m$, j = $1, ..., n$. Mit den Rechenregeln für Matrizen inklusive dem Spezialfall der Vektoren folgt
 $
