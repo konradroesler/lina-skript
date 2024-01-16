@@ -55,11 +55,11 @@
   #h(100cm)
 ]
 
- #let circ = $op(circle.small)$
- #let oplus = $op(plus.circle)$
- #let otimes = $op(times.circle)$
- #let odot = $op(dot.circle)$
+#let circ = $op(circle.small)$
+#let oplus = $op(plus.circle)$
+#let otimes = $op(times.circle)$
+#let odot = $op(dot.circle)$
 
- #let rg(content) = $"rg"(content)$ 
+#let rg(content) = $"rg"(content)$ 
 
- #let sect_delim = align(right, line(length: 5%, stroke: 0.5pt))
+#let sect_delim = align(right, line(length: 5%, stroke: 0.5pt))

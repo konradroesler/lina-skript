@@ -12,7 +12,7 @@
 
 Was ist lineare Algebra bzw. analytische Geometrie?
 
-#boxedlist([analytische Geometrie: \ Beschreibung von geometrischen Fragen mit Hilfe von Gleichungen, Geraden, Ebenen sowie die Lösungen von Gleichungen als geometrische Form], [lineare Algebra: \ die Wissenschaft der linearen Gleichungssysteme bzw der Vektorräume und der linearen Abbildungen zwischen ihnen])
+#boxedlist[analytische Geometrie: \ Beschreibung von geometrischen Fragen mit Hilfe von Gleichungen, Geraden, Ebenen sowie die Lösungen von Gleichungen als geometrische Form][lineare Algebra: \ die Wissenschaft der linearen Gleichungssysteme bzw der Vektorräume und der linearen Abbildungen zwischen ihnen]
 
 Wozu braucht man das?
 
@@ -1373,7 +1373,7 @@ Dies ist ein Widerspruch dazu, dass man $v$ nicht als Linearkombination darstell
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. ${v_m}_(m in M)$ ist linear unabhängig
-  2. jeder Vektor $v in "Span"{v_m}_(m in M)$ hat eine eindeutige Darsetllung als Linearkombination
+  2. jeder Vektor $v in "Span"{v_m}_(m in M)$ hat eine eindeutige Darstellung als Linearkombination
 ]
 
 #italic[Beweis:]
@@ -1384,7 +1384,7 @@ Seien $I, J subset.eq M$ endlich. Sei $lambda_K in K$, $k in I$ und $mu_k in K$,
 $
 v_I = sum_(k in I) lambda_k v_k "und" v_J = sum_(k in J) mu_k v_k
 $
-Überlegung: Wähle ein $k in I union J$. Falls gilt $k in I backslash J$, setze $lambda_k = =$. Falls gilt $k in J backslash I$, setze $mu_k = 0$. Es folgt
+Überlegung: Wähle ein $k in I union J$. Falls gilt $k in I backslash J$, setze $lambda_k = 0$. Falls gilt $k in J backslash I$, setze $mu_k = 0$. Es folgt
 $
 ==> 0 = sum_(k in I union J) (lambda_k - mu_k) v_k
 $
@@ -1519,11 +1519,11 @@ Also ist $B$ ein Erzeugendensystem und somit eine Basis.
   $
   Es gilt für jede Linearkombination der $f_n$ und $j, k in NN$ mit $j <= k$, dass
   $
-  sum_(j = 1)^k lambda_j f_j(1/2(1/j + 1/(j+1))) = lambda_j "bei" f_j = 1", sonst" 0 
+  sum_(j = 1)^k lambda_j f_j (1/2(1/j + 1/(j+1))) = lambda_j "bei" f_j = 1", sonst" 0 
   $
   Damit ist:
   $
-  sum_(i = 1)^k lambda_i f_i(x) = 0_v in V, space forall x in [0, 1]
+  sum_(i = 1)^k lambda_i f_i (x) = 0_v in V, space forall x in [0, 1]
   $
   nur erfüllt, wenn $lambda_i = 0$ für alle $1 <= i <= k$. Damit sind die $f_n$ linear unabhängig. Also ist $V$ unendlichdimensional.
 ]
@@ -1599,7 +1599,7 @@ Sei $(V, +, dot)$ eine $K$-Vektorraum,
 
 Dann gibt es eine Teilmenge $tilde(J) subset.eq J$ mit der Eigenschaft, dass das System
 $
-B := {w_k}_(k in I union tilde(J)) "mit" w_k := cases(u_i &k = i in I, v_j &k = j in tilde(J))
+B := {w_k}_(k in I union tilde(J)) "mit" w_k := cases(u_i"," space &k = i in I, v_j"," space &k = j in tilde(J))
 $
 eine Basis von $V$ bildet.
 
@@ -2869,4 +2869,164 @@ $
 F(lambda f + mu g) = lambda F(f) + mu F(g)
 $
 $==> F$ linear
+
+#bolditalic[Satz 5.18:] $V, W$ sind $K$-Vektorräume, $B = {v_1, ..., v_n}$ ist Basis von $V$, $C = {w_1, ..., w_m}$ ist Basis von $W$für $f in L(V, W)$ gilt 
+$
+exists ! A_f^(B,C) in K^(m,n): space f(v_j) = sum_(i = 1)^m a_j w_i space j = 1, ..., n \
+$
+und $F: L(V, W) -> K^(m,n), space F(f) = A_f^(B,C)$ ist ein Isomorphismus.
+
+#italic[Beweis:] zu zeigen: $F$ ist bijektiv
+
+Sei $f in "ker"(F)$, dann $F(f) = 0 in K^(m,n)$. Also ist $f(v_j) = 0$ for $j = 1, ..., n$. Da ${v_1, ..., v_n}$ eine Basis von $V$ ist, folgt für alle $v in V:$
+$
+f(v) = f(sum_(j = 1)^n lambda_j v_j) attach(=, t: f "linear") sum_(j = 1)^n lambda_j underbrace(f(v_j), 0 in W) = 0 in W \
+==> f = 0 in L(V, W) ==> "ker"(F) = {0} ==>^"Lemma 4.15" F "injektiv"
+$
+Sei $A in K^(m,n)$ beliebig gewählt. zu zeigen: $exists f in L(V, W): F(f) = A$. 
+
+Lemma 4.10: Es existiert genau eine lineare Abbildung $f in L(V,W)$ mit 
+
+#align(center, box(width: 80%, height: auto, inset: 0.5cm, radius: 10pt, fill: rgb(245, 245, 245), [
+  #set align(left)
+  #bold[Zwischenüberlegung]
+  #v(5pt)
+  ${tilde(w)_1, ..., tilde(w)_n} space exists! f: f(v_j) = tilde(w)_j space space j = 1, ..., n$
+  $
+  ==> tilde(w)_j = sum_(i = 1)^m a_(i j) w_i, space.quad j = 1, ..., n space "mit" space A = (a_(i j)) in K^(m,n)
+  $
+]))
+
+$
+f(v_j) = sum_(i = 1)^m a_j w_i space j = 1, ..., n
+$
+Für diese $f$ gilt dann $F(f) = A$
+$
+==> F "surjektiv"
+$
+#endproof
+
+#bolditalic[Bemerkungen:] 
+
+#boxedlist[Im letzten Satz kann man #bold[nicht] 
+$
+f(v_j) = w_j #sspace
+$
+finden, da $n != m$ gelten kann.][
+  Wir hatten schon: $V$ $K$-Vektorraum, $"dim"(V) = n in NN$
+  $
+  "dann" V isomorph K^n
+  $
+  Mit Satz 5.18 folgt jetzt:
+  $
+  L(V, W) isomorph K^(n,m)
+  $
+  ][
+    Aus Satz 4.19 und Lemma 5.11 mit dem Körper $K$ folgt
+    $
+    "dim"(L(V,W)) = "dim"(K^(m,n))
+    $
+    ]
+
+#definition("5.19", "Matrixdarstellung")[
+  Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ sowie $f in L(V, W)$. Die durch Satz 5.18 eindeutig bestimmte Matrix $A_f^(B,C) in K^(m, n)$ heißt #bolditalic[Matrixdarstellung] oder die #bolditalic[darstellende Matrix] von $f in L(V, W)$ bezüglich der Basen $B$ und $C$
+  ]
+
+#bolditalic[Beispiel 5.20:] Fortsetzung von Beispiel 4.3. Die lineare Abbildung $f: RR^2 -> RR^2$ einer Drehung im $RR^2$ für einen gegebenen Winkel $phi in RR$ bezüglich der Standardbasis $S = {e_1, e_2}$ ist eindeutig durch die Darstellungsmatrix
+$
+A_f^(S, S) = mat(cos(phi), -sin(phi); sin(phi), cos(phi))
+$
+bestimmt.
+
+#bolditalic[Beispiel 5.21:] Fortsetzung Beispiel 4.18. Die lineare Abbildung $f: RR^3 -> RR^3$ besitzt für die Standardbasis die Darstellungsmatrix 
+$
+A_f^(3,3) = mat(1,-1,2;1,1,2;0,3,0) space -> space "rg(A)" = 2
+$
+für $S = {e_1, e_2, e_3}$. Beispeil 4.18: $"rg"(f) = dim(im(f))$.
+
+#definition("5.22", "Spaltenrang, Zeilenrang")[
+  Sei $A in K^(m,n)$, $K$ ein Körper, gegeben. Die Maximalzahl linear unabhängiger Spaltenvektoren von $A$ heißt #bolditalic[Spaltenrang] von $A$ und wird mit $"rg"_S (A)$ bezeichnet. Die Maximalzahl der linear unabhängigen Zeilenvektoren von $A$ heißt #bolditalic[Zeilenrang] von $A$ und wird mit $rg_Z (A)$ bezeichnet. 
+  $
+  ==> A_f^(S,S) = mat(1, -1, 2; 1, 1, 2; 0, 3, 0) wide rg_S (A) = 2
+  $
+]
+
+#bolditalic[Satz 5.23:] Seien $V, W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ sowie $f in L(V, W)$ mit der Darstellungsmatrix $A_f^(B, C) = (a_(i j))_(i=1,....,m)^(j = 1, ... n) in K^(m,n)$. Dann gilt die Gleichheit 
+$
+rg(f) = rg_S(A_f^(B,C))
+$
+
+#italic[Beweis:] Es gilt 
+$
+f(v_j)  sum_(i = 1)^m a_(i j) w_i space j = 1, ..., n 
+$
+Damit sind die Spaltenvektoren
+$
+vec(a_(1 j), a_(2 j), dots.v, a_(m j)) in K^m space j = 1, ..., n
+$
+die Koordinaten von $f(v_j)$ bezüglich der Basis $C$. Aufgrund der Isomorphie von $W$ und $K^m$ können damit diese Spaltenvektoren als Erzeugendensystem von $im(f)$ interpretiert werden. Damit folgt 
+$
+rg(f) = dim(im(f)) = dim("Span"(vec(a_(1 1), a_(2 1), dots.v, a_(m 1)), ..., vec(a_(1 n), a_(2 n), dots.v, a_(m n)))) = rg_S (A)
+$
+#endproof
+
+#bolditalic[Beispiel 5.24:] Fortsetzung von Beispiel 5.21
+
+Für die Darstellungsmatrix 
+$
+A_f^(S, S) = mat(1, -1, 2;1, 1, 2;0, 3, 0)
+$
+gilt $rg(f) = 2 = rg_S (A_f^(S, S))$.
+
+Graphische Darstellung der Ergebnisse: $V, W$ sind $K$-Vektorräume, $B = {v_1, ..., v_n}$ ist Basis von $V$, $C = {w_1, ..., w_m}$ ist Basis von $W$. Für $f in L(V, W)$ gilt 
+
+Mit Satz 5.18 und dem Struktursatz 4.8 können die Ergebnisse mit folgenden #bold[kommutativen Diagramme] zusammengefaßt werden:
+$
+space V space -->^f space W \
+Phi_B arrow.b space wide space arrow.b Phi_C \
+space K^n -->_(A_f^(B,C)) K^m \
+$
+Solche kommutativen Diagramme sind sehr wichtige Hilfsmittel! Man erhält daraus folgenden Aussagen:
+
+#boxedlist[
+  Für die gegebenen Basen $B$ und $C$ gibt es zwei Wege von $V$ nach $K^m$:
+  $
+  Phi_C circ f = A_f^(B,C) circ Phi_B
+  $
+  D.h.:
+  $
+  Phi_C(f(v)) = A_f^(B,C) dot Phi_B(v) space forall v in V
+  $
+][
+  Mithilfe der inversen Abbildungen kann man auch andere Wege gehen, z.B:
+  $
+  f = Phi_C circ A_f^(B,C) dot Phi_B
+  $
+]
+
+Was passiert bei der Verknüpfung von linearen Abbildungen mit den Darstellungsmatrizen?
+
+#bolditalic[Satz 5.25:] Seien $V, W$ und $X$ drei dreiendlichdimensionale $K$-Vektorräume mit den Basen $B, C$ und $D$. Für gegebene $f in L(V, W) "und" g in L(W, X)$ gilt
+$
+A_(g circ f)^(B,D) = A_g^(C, D) dot A_f^(B,C)
+$
+
+#italic[Beweis:] Satz 4.20: $g circ f in L(V, X)$. Seien $B = {v_1, ..., v_n}, C = {w_1, ..., w_m}, D = {x_1, ..., x_s}$ und die Darstellungsmatrizen gegeben durch 
+$
+A_f^(B, C) = (a_(i j))_(i = 1, ..., m space.thin "Zeilen")^(j = 1, ..., n space.thin "Spalten") "sowie" A_g^(C, D) = (b_(i j))_(i = 1, ..., s)^(j = 1, ..., m)
+$
+Dann folgt für $v_j, j = 1, ..., n$
+$
+(g circ f)(v_j) = g(underbrace(sum_(k = 1)^m a_(k j) w_k, = space.thin f(v_j))) = sum_(k = 1)^m a_(k j) g(w_k) \
+= sum_(k = 1)^m a_(k j) sum_(i = 1)^s b_(i k) x_i = sum_(i = 1)^s sum_(k = 1)^m a_(k j) b_k x_i \
+= sum_(i = 1)^s (sum_(k = 1)^m b_(i k) a_(k j)) x_i
+$ 
+D.h. für die Darstellungsmatrix 
+$
+A_(g circ f)^(B, C) = (c_(i j))_(i = 1, ..., s)^(j = 1, ..., n)
+$
+gilt $A_(g circ f)^(B, D) = A_f^(C, D) dot A_f^(B, C)$.
+#endproof
+
+== Basiswechsel
 
