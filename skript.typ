@@ -2685,7 +2685,7 @@ $
 
   3. $(lambda dot A)^top = lambda dot A^top$
 
-  4. $underbrace(underbrace(A dot B, in space R^(m,l))^top, in space R^(l,m)) = underbrace(underbrace(B^top, in space R^(m,l)) dot underbrace(A^top, in space R^(n,m)), in space R^(l,m)))$
+  4. $underbrace(underbrace(A dot B, in space R^(m,l))^top, in space R^(l,m)) = underbrace(underbrace(B^top, in space R^(m,l)) dot underbrace(A^top, in space R^(n,m)), in space R^(l,m))$
 ]
 
 #italic[Beweis:] Nachrechnen.
@@ -2712,7 +2712,7 @@ $
     $(R^(m, n), +)$ ist eine kommutative Gruppe mit dem neutralen Element $0 in R^(m, n)$, d.h. der Nullmatrix und dem zu $A in R^(m, n)$ inversen Element $-A = (-a_(i j)) in R^(m, n)$. Manschreibt statt $A + (-B) = A - B$.
   ]
   2. #[
-    Ist $R$ ein Körper, so ist $R^(m, n)$ ein $R$-Vektorrau der Dimension $m dot n$.
+    Ist $R$ ein Körper, so ist $R^(m, n)$ ein $R$-Vektorraum der Dimension $m dot n$.
   ] 
 ]
 
@@ -3030,3 +3030,102 @@ gilt $A_(g circ f)^(B, D) = A_f^(C, D) dot A_f^(B, C)$.
 
 == Basiswechsel
 
+Seiene $V$ und $W$ zwei $K$-Vektorräume mit $dim(V) = n in NN$ und $dim(W) = m in NN$ mit $B = {v_1, ..., v_n}$ als Basis von $V$. Nach dem Struktursatz für Vektorräume Satz 4.8 gilt 
+$
+Phi_B: K^n -> V, space (v_1, ..., v_n) arrow.bar sum_(i = 1)^n x_i v_i
+$
+Die Kunst der linearen Algebra besteht darin, zu einem gegebenen Problem, welches durch eine lineare Abbildung beschreiben werden kann, geschicket Basen zu wählen, so dass die Darsetllung möglichst einfach ist.
+
+#bolditalic[Beispiel 5.26:] Sei $V = RR^2$. Für die Standardbasis $C = {e_1, e_2}$ erhält man 
+$
+Phi_C = RR^2 -> V, space (x_1, x_2) arrow.bar sum_(i = 1)^2 x_i e_i \
+= x_1 vec(1,0) + x_2 vec(0,1) = vec(x_1, x_2) = mat(1, 0; 0, 1) vec(x_1, x_2)
+$
+Die Basis $B = {e_1, e_1+e_2}$ liefert 
+$
+Phi_B: RR^2 -> V, space (x_1,x_2) arrow.bar sum_(i = 1)^2 x_i v_i \
+= x_1 vec(1,0) + x_2 vec(1,1) = vec(x_1 + x_2, x_2) = mat(1,1;0,1) vec(x_1, x_2) 
+$
+$V$ = Ebene die durch $RR^2$ beschrieben wird.
+
+#bold[Frage:] Darstellung von $F$ in den unterschielichen Basen.
+
+#bolditalic[Lemma 5.27:] Der Basiswechsel zwischen zwei Basen $B$ und $C$ des $K$-Vektorraums $V$ mit $dim(V) = n in NN$ ist der Isomorphismus
+$
+Phi_(B C) = Phi^(-1)_C = Phi_B
+$
+
+#italic[Beweis:] Basierend auf dem Diagramm
+
+#align(center, figure(
+  image("bilder/527.jpg", width: 80%),
+))
+
+Es fehlt noch die Isomorphieeigenschaft. Nach dem Struktursatz 4.8 gilt: $Phi_B, Phi_C$ sind Isomorphismen.Dann ist auch 
+
+#boxedlist[$Phi^(-1)_C$ ein Isomorphismus][$Phi^(-1)_C circ Phi_B$ ein Isomorphismus]
+
+siehe Satz 1.38.
+#endproof
+
+#bolditalic[Beobachtung:] Sei $V$ ein $K$-Vektorraum mit Basis $B = {v_1, ..., v_n}$ und $C = {e_1, ..., e_n}$ die Standardbasis. Dann ist
+
+#boxedlist[$Phi_C: K^n -> V$ die Identität, d.h. $A^(C,C)_(Phi_C) = I_n$ (siehe oben)][$Phi_(C,C) = Phi^(-1)_C circ Phi_B = Phi_B space ==> space Phi_(B,C) (e_i) = Phi_B (e_i) = v_i$]
+
+Die zum Basiswechsel gehörende Matrix $A_(Phi_(B,C))^(B,C)$ von einer gegebenen Basis $B = {v_1, ..., v_n}$ zur Standardbasis ist die Matrix, deren Spalten den Basisvektorenvon $B$ entsprechen, d.h.
+$
+A_(Phi_(B,C))^(B,C) = mat(v_1, v_2, ..., v_n) space #italic[$v_i$ ist immer ein Spaltenvektor]
+$
+
+#bolditalic[Beispiel 5.28:] Sei $V = RR^2$ und $B = {e_1, e_1+ e_2}$ sowie $C = {e_1,e_2}$. Damit ist 
+$
+A_(Phi_(B,C))^(B,C) = mat(1,1;0,1) = "Gl"_2 (RR) space "mit"
+$
+$
+(A_(Phi_(B,C))^(B,C))^(-1) = mat(1,-1;0,1)
+$
+Man erhält z.B.:
+$
+Phi_(B,C) (vec(1/2,1/2)) = mat(1,1,0,1) vec(1/2, 1/2) = (1,1/2)
+$
+
+Jetzt für lineare Abbildungen:
+
+#bolditalic[Lemma 5.29:] Seien $V$ und $W$ $K$-Vektorräume mit $dim(V) = n, dim(W) = m$ sowie $f in L(V, W)$. Weiter seien $B, tilde(B)$ zwei Basen von $V$ und $C, tilde(C)$ zwei Basen von $W$. Dann gilt für die Darstellungsmatrizen, dass
+$
+A_f^(tilde(B), tilde(C)) = Phi_(C,tilde(C)) wide A_f^(B,C) Phi_(B, tilde(B))^(-1) 
+$
+bzw.
+$
+A_f^(B, C) = Phi_(C, tilde(C))^(-1) wide A_f^(tilde(B),tilde(C)) Phi_(B, tilde(B))^(-1)
+$
+#italic[Beweis:] Dies folgt aus dem kommutativen Diagramm.
+
+#align(center, figure(
+  image("bilder/529.jpg", width: 80%)
+))
+
+#bolditalic[Beispiel:] Sei die Darstellungsmatrix der linearen Abbildung $f: V -> W$ mit $V = RR^3$ und $W = RR^2$ bezüglich der Standardabasen gegeben durch 
+$
+A_f^(B,C)  mat(1,1,-2;-6,3,3)
+$
+Wir suchen jetzt die Darstellung bezüglich der Basen 
+$
+tilde(B) = {vec(0,0,-1),vec(0,1,0),vec(1,1,1)} wide tilde(C) = {vec(2,-3), vec(1,3)}
+$
+Mit $v_1 = -1 dot e_3, space v_2 = e_2, space v_3 = e_1 + e_2 + e_3$ folgt aus der Linearität von $f$, dass
+$
+f(v_1) = f(-1 dot e_1) = -f(e_3) = w_1 \
+f(v_2) = f(e_2) = w_2 \
+f(v_3) = f(e_1) + f(e_2) + f(e_3) = 0
+$
+Also wird $f$ bezüglich der Basen $tilde(B)$ und $tilde(C)$ durch
+$
+A_f^(tilde(B), tilde(C)) = mat(1,0,0;0,1,0)
+$
+beschrieben.
+
+#bolditalic[Fazit:] Der richtige Basiswechsel bringt die Abbildung $f$ in sehr einfache Gestalt. Man kann zeigen: Für $V, W$ endlichdimensional und $f in L(V,W)$ mit $dim(im(f)) = r in NN$, $c = dim(V)-r$, $a = dim(W)-r$ existieren Basen $B$ von $V$ und $C$ von $W$, so dass 
+$
+A_f^(B,C) = mat(I_r, 0_(r times b); 0_(a times r), 0_(a times b)) space "z.B. Mehrmann Satz 10.24"
+$
