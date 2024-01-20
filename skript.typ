@@ -2058,7 +2058,7 @@ Dann ist $(L(V, W), +, dot)$ ein $K$-Vektorraum.
 
 #bolditalic[Lemma 4.7:] Sei $V$ ein $K$-Vektorraum und $B := {v_1, ..., v_n} subset V$ eine endliche Familie von Vektoren. Dann ist:
 $
-Phi_B: K^n -> V, (a_i)_(i <= i <= n) arrow.bar sum_(i = 1)^n a_i v_i
+Phi_B: K^n -> V, (a_i)_(1 <= i <= n) arrow.bar sum_(i = 1)^n a_i v_i
 $
 ein Homomorphimus von $K$-Vekroräumen.
 
@@ -2111,7 +2111,7 @@ die inverse Koordinatenabbildung.
 
 Um eine lineare Abbildung zu definieren, reicht es ihre Werte auf einer beliebigen Basis anzugeben.
 
-#bolditalic[Lemma 4.10:] Sei $V$ ein endlichdimensionaler Vektorraum über $K$ mit einer Basis $B := {v_1, .., v_n}$, $W$ ein beliebiger $K$-Vektorraum und $C = {w_1, ..., w_n}$ einer Familie von Vektoren in $W$. Dann gibt es genau eine lineare Abbildung von $f$ von $V$ nach $W$ mit 
+#bolditalic[Lemma 4.10:] Sei $V$ ein endlichdimensionaler Vektorraum über $K$ mit einer Basis $B := {v_1, .., v_n}$, $W$ ein beliebiger $K$-Vektorraum und $C = {w_1, ..., w_n}$ einer Familie von Vektoren in $W$. Dann gibt es genau eine lineare Abbildung $f$ von $V$ nach $W$ mit 
 $
 f(v_i) = w_i "für" 1 <= i <=n
 $
@@ -2136,12 +2136,12 @@ Ist $f$ linear?
 
 Für jedes $mu in K$ gilt:
 $
-mu_v &= sum_(i = 1)^n (mu lambda_i^v v_i) ==> f(mu_v) = f(sum_(i = 1)^n (mu lambda_i^v w_i)) \
-&= mu sum lambda_i^v w_i = mu f(v) wide "erste Eigenschaft" checkmark 
+mu v &= sum_(i = 1)^n (mu lambda_i^v v_i) ==> f(mu v) = f(sum_(i = 1)^n (mu lambda_i^v v_i)) =^"Def" sum_(i = 1)^n (mu lambda_i w_i) \
+&= mu sum_(i = 1)^n lambda_i^v w_i = mu f(v) wide "erste Eigenschaft" checkmark 
 $
 Sei $u = sum_(i = 1)^n lambda_i^u v_i ==>$
 $
-f(v + u) &= f(sum_(i = 1)^n lambda_i^v v_i + sum_(i = 1) lambda_i^u v_i) = f(sum_(i = 1) (lambda_i^v + lambda_i^u) v_i) \
+f(v + u) &= f(sum_(i = 1)^n lambda_i^v v_i + sum_(i = 1)^n lambda_i^u v_i) = f(sum_(i = 1)^n (lambda_i^v + lambda_i^u) v_i) \
 &= sum_(i = 1)^n (lambda_i^v + lambda_i^u) w_i = sum_(i = 1)^n lambda_i^v w_i + sum_(i = 1)^n lambda_i^u w_i \
 &= f(v) + f(w) wide "zweite Eigenschaft" checkmark
 $
@@ -2425,7 +2425,7 @@ $
 
 #bolditalic[Lemma 4.21:] Sei $K$ ein Körper. Die linearen Abbildungen $f: K^n -> K^m$ sind genau die Abbildungen der Form:
 $
-vec(x_1, x_2, dots.v, x_n) -> vec(a_(1 1) x_1 + a_(1 2) x_2 + ... + a_(1 n) x_n, a_(2 1) x_1 + a_(2 2) x_2 + ... + a_(2 n) x_n, dots.v, a_(n 1) x_1 + a_(n 2) x_2 + ... + a_(m n) x_n)
+vec(x_1, x_2, dots.v, x_n) -> vec(a_(1 1) x_1 + a_(1 2) x_2 + ... + a_(1 n) x_n, a_(2 1) x_1 + a_(2 2) x_2 + ... + a_(2 n) x_n, dots.v, a_(m 1) x_1 + a_(m 2) x_2 + ... + a_(m n) x_n)
 $
 mit Koeffizienten $a_(i j) in K$ für $1 <= i <= m$ und $1 <= j <= n$. 
 
@@ -2637,7 +2637,7 @@ $
   $
   (A + tilde(A)) dot B &= A dot B + A dot B \
   A dot (B + tilde(B)) &= A dot B + A dot tilde(B)\
-  (lambda dot mu) dot A &= lambda dot A + mu dot A \
+  (lambda + mu) dot A &= lambda dot A + mu dot A \
   lambda dot (A + tilde(A)) &= lambda dot A + lambda dot tilde(A)\
   lambda dot (A dot B) &= A dot (lambda dot B)
   $
@@ -2685,7 +2685,7 @@ $
 
   3. $(lambda dot A)^top = lambda dot A^top$
 
-  4. $underbrace(underbrace(A dot B, in space R^(m,l))^top, in space R^(l,m)) = underbrace(underbrace(B^top, in space R^(m,l)) dot underbrace(A^top, in space R^(n,m)), in space R^(l,m))$
+  4. $underbrace(underbrace((A dot B), in space R^(m,l))^top, in space R^(l,m)) = underbrace(underbrace(B^top, in space R^(m,l)) dot underbrace(A^top, in space R^(n,m)), in space R^(l,m))$
 ]
 
 #italic[Beweis:] Nachrechnen.
@@ -2726,7 +2726,7 @@ $
 $
 Zur Dimension: $A in R^(m,n)$ kann dargestellt werden durch
 $
-a_(1 1) dot mat(1, 0, ..., 0; dots.v, dots.v, dots.v, dots.v; 0, 0, ..., 0) + a_(1 2) dot mat(0, 1, ..., 0; dots.v, dots.v, dots.v, dots.v; 0, 0, ..., 0) \
+a_(1 1) dot mat(1, 0, ..., 0; dots.v, dots.v, dots.v, dots.v; 0, 0, ..., 0) + a_(1 2) dot mat(0, 1, ..., 0; dots.v, dots.v, dots.v, dots.v; 0, 0, ..., 0) + ... + a_(m n) dot mat(0, 0, ..., 0; dots.v, dots.v, dots.v, dots.v; 0, 0, ..., 1) \
 ==> "Erzeugendensystem + linear unabhägnig" ==> "Basis" 
 $
 #endproof
@@ -2757,7 +2757,7 @@ Invertierbarkeit bezüglich der Multiplikation!
 #bolditalic[Frage:] Gibt es für jede Matrix $A in R^(n,n)$ eine Matrix $A^(-1)$, so dass $A dot A^(-1) = I_n = A^(-1) dot A$? Wenn dies gilt, dann müsste $A^(-1)$ existieren, so dass für 
 $
 A = mat(0,0;1,0) space "gilt" space A dot A^(-1) = I = A^(-1) dot A \
-A dot A^(-1) = mat(0,0;1,0) dot mat(a,b;c,d) = mat(1,0;0,1)
+A dot A^(-1) = mat(0,0;1,0) dot mat(a,b;c,d) =^! mat(1,0;0,1)
 $
 Für das erste Element der Matrix folgt 
 $
@@ -2794,7 +2794,7 @@ Ist $A in QQ^(2,2)$, dann ist $A$ invertierbar. Also: Invertierbarkeit hängt vo
 
 2. Aussage: Regel 4 aus Lemma 5.10:
 $
-(A^(-1))^top dot A^top = (A dot A^(-1))^top = (I_n)^top = I_n = (I_n)^top = (A^(-1) dot A)^top = A^top dot (A^(-1))^top
+(A^(-1))^top dot A^top = (A dot A^(-1))^top = (I_n)^top = I_n = (A^top)^(-1) dot A^top
 $
 #endproof
 
@@ -2844,7 +2844,7 @@ $
 
 Was gilt für allgemeine Basen?
 
-#bolditalic[Satz 5.18:] Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ und $f: V -> W$ eine lineare Abbildung. Dann gibt es eine eindueitg bestimmte Matrix $A_f^(B, C) = (a_(i j)) in K^(m, n)$ so, dass 
+#bolditalic[Satz 5.18:] Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ und $f: V -> W$ eine lineare Abbildung. Dann gibt es eine eindeutig bestimmte Matrix $A_f^(B, C) = (a_(i j)) in K^(m, n)$ so, dass 
 $
 W in.rev f(v_j) = sum_(i = 1)^m a_(i j) w_i wide j = 1, ..., n
 $
@@ -2862,7 +2862,7 @@ $
 Für $lambda, mu in K$ gilt 
 $
 (lambda f + mu g)(v_j) &= lambda f(v_j) + mu g(v_j) = lambda sum_(i = 1)^m a_(i j) w_i + mu sum_(i = 1)^m b_(i j) w_i \
-&= sum_(i = 1)^m underbrace((lambda a_(i j) + mu b_(i j)), "Matrix für" lambda + mu g) w_i
+&= sum_(i = 1)^m underbrace((lambda a_(i j) + mu b_(i j)), "Matrix für" lambda f + mu g) w_i
 $
 Also ist
 $
@@ -2870,13 +2870,7 @@ F(lambda f + mu g) = lambda F(f) + mu F(g)
 $
 $==> F$ linear
 
-#bolditalic[Satz 5.18:] $V, W$ sind $K$-Vektorräume, $B = {v_1, ..., v_n}$ ist Basis von $V$, $C = {w_1, ..., w_m}$ ist Basis von $W$für $f in L(V, W)$ gilt 
-$
-exists ! A_f^(B,C) in K^(m,n): space f(v_j) = sum_(i = 1)^m a_j w_i space j = 1, ..., n \
-$
-und $F: L(V, W) -> K^(m,n), space F(f) = A_f^(B,C)$ ist ein Isomorphismus.
-
-#italic[Beweis:] zu zeigen: $F$ ist bijektiv
+noch zu zeigen: $F$ ist bijektiv
 
 Sei $f in "ker"(F)$, dann $F(f) = 0 in K^(m,n)$. Also ist $f(v_j) = 0$ for $j = 1, ..., n$. Da ${v_1, ..., v_n}$ eine Basis von $V$ ist, folgt für alle $v in V:$
 $
@@ -2908,11 +2902,11 @@ $
 
 #bolditalic[Bemerkungen:] 
 
-#boxedlist[Im letzten Satz kann man #bold[nicht] 
+#boxedlist[Im letzten Satz kann man #bold[nicht] $#sspace$
 $
-f(v_j) = w_j #sspace
+f(v_j) = w_j 
 $
-finden, da $n != m$ gelten kann.][
+fordern, da $n != m$ gelten kann.][
   Wir hatten schon: $V$ $K$-Vektorraum, $"dim"(V) = n in NN$
   $
   "dann" V isomorph K^n
@@ -3000,7 +2994,7 @@ Solche kommutativen Diagramme sind sehr wichtige Hilfsmittel! Man erhält daraus
 ][
   Mithilfe der inversen Abbildungen kann man auch andere Wege gehen, z.B:
   $
-  f = Phi_C circ A_f^(B,C) dot Phi_B
+  f = Phi_C^(-1) circ A_f^(B,C) dot Phi_B
   $
 ]
 
@@ -3052,7 +3046,7 @@ $V$ = Ebene die durch $RR^2$ beschrieben wird.
 
 #bolditalic[Lemma 5.27:] Der Basiswechsel zwischen zwei Basen $B$ und $C$ des $K$-Vektorraums $V$ mit $dim(V) = n in NN$ ist der Isomorphismus
 $
-Phi_(B C) = Phi^(-1)_C = Phi_B
+Phi_(B C) = Phi^(-1)_C circ Phi_B
 $
 
 #italic[Beweis:] Basierend auf dem Diagramm
@@ -3070,7 +3064,7 @@ siehe Satz 1.38.
 
 #bolditalic[Beobachtung:] Sei $V$ ein $K$-Vektorraum mit Basis $B = {v_1, ..., v_n}$ und $C = {e_1, ..., e_n}$ die Standardbasis. Dann ist
 
-#boxedlist[$Phi_C: K^n -> V$ die Identität, d.h. $A^(C,C)_(Phi_C) = I_n$ (siehe oben)][$Phi_(C,C) = Phi^(-1)_C circ Phi_B = Phi_B space ==> space Phi_(B,C) (e_i) = Phi_B (e_i) = v_i$]
+#boxedlist[$Phi_C: K^n -> V$ die Identität, d.h. $A^(C,C)_(Phi_C) = I_n$ (siehe oben)][$Phi_(B,C) = Phi^(-1)_C circ Phi_B = Phi_B space ==> space Phi_(B,C) (e_i) = Phi_B (e_i) = v_i$]
 
 Die zum Basiswechsel gehörende Matrix $A_(Phi_(B,C))^(B,C)$ von einer gegebenen Basis $B = {v_1, ..., v_n}$ zur Standardbasis ist die Matrix, deren Spalten den Basisvektorenvon $B$ entsprechen, d.h.
 $
@@ -3086,18 +3080,18 @@ $
 $
 Man erhält z.B.:
 $
-Phi_(B,C) (vec(1/2,1/2)) = mat(1,1,0,1) vec(1/2, 1/2) = (1,1/2)
+Phi_(B,C) (vec(1/2,1/2)) = mat(1,1;0,1) vec(1/2, 1/2) = vec(1,1/2)
 $
 
 Jetzt für lineare Abbildungen:
 
 #bolditalic[Lemma 5.29:] Seien $V$ und $W$ $K$-Vektorräume mit $dim(V) = n, dim(W) = m$ sowie $f in L(V, W)$. Weiter seien $B, tilde(B)$ zwei Basen von $V$ und $C, tilde(C)$ zwei Basen von $W$. Dann gilt für die Darstellungsmatrizen, dass
 $
-A_f^(tilde(B), tilde(C)) = Phi_(C,tilde(C)) wide A_f^(B,C) Phi_(B, tilde(B))^(-1) 
+A_f^(tilde(B), tilde(C)) = Phi_(C,tilde(C)) dot A_f^(B,C) dot Phi_(B, tilde(B))^(-1) 
 $
 bzw.
 $
-A_f^(B, C) = Phi_(C, tilde(C))^(-1) wide A_f^(tilde(B),tilde(C)) Phi_(B, tilde(B))^(-1)
+A_f^(B, C) = Phi_(C, tilde(C))^(-1) dot A_f^(tilde(B),tilde(C)) dot Phi_(B, tilde(B))^(-1)
 $
 #italic[Beweis:] Dies folgt aus dem kommutativen Diagramm.
 
@@ -3105,7 +3099,7 @@ $
   image("bilder/529.jpg", width: 80%)
 ))
 
-#bolditalic[Beispiel:] Sei die Darstellungsmatrix der linearen Abbildung $f: V -> W$ mit $V = RR^3$ und $W = RR^2$ bezüglich der Standardabasen gegeben durch 
+#bolditalic[Beispiel:] Sei die Darstellungsmatrix der linearen Abbildung $f: V -> W$ mit $V = RR^3$ und $W = RR^2$ bezüglich der Standardbasen gegeben durch 
 $
 A_f^(B,C)  mat(1,1,-2;-6,3,3)
 $
