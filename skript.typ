@@ -2844,7 +2844,7 @@ $
 
 Was gilt für allgemeine Basen?
 
-#bolditalic[Satz 5.18:] Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ und $f: V -> W$ eine lineare Abbildung. Dann gibt es eine eindeutig bestimmte Matrix $A_f^(B, C) = (a_(i j)) in K^(m, n)$ so, dass 
+#bolditalic[Satz 5.18:] Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ und $f: V -> W$ eine lineare Abbildung. Dann gibt es eine eindeutig bestimmte Matrix $A_f^(B, C) = (a_(i j)) in K^(m, n)$, so dass
 $
 W in.rev f(v_j) = sum_(i = 1)^m a_(i j) w_i wide j = 1, ..., n
 $
