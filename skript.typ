@@ -2947,12 +2947,12 @@ für $S = {e_1, e_2, e_3}$. Beispeil 4.18: $"rg"(f) = dim(im(f))$.
 
 #bolditalic[Satz 5.23:] Seien $V, W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ sowie $f in L(V, W)$ mit der Darstellungsmatrix $A_f^(B, C) = (a_(i j))_(i=1,....,m)^(j = 1, ... n) in K^(m,n)$. Dann gilt die Gleichheit 
 $
-rg(f) = rg_S(A_f^(B,C))
+rg(f) = rg_S (A_f^(B,C))
 $
 
 #italic[Beweis:] Es gilt 
 $
-f(v_j)  sum_(i = 1)^m a_(i j) w_i space j = 1, ..., n 
+f(v_j) = sum_(i = 1)^m a_(i j) w_i space j = 1, ..., n 
 $
 Damit sind die Spaltenvektoren
 $
@@ -2989,7 +2989,7 @@ Solche kommutativen Diagramme sind sehr wichtige Hilfsmittel! Man erhält daraus
   $
   D.h.:
   $
-  Phi_C(f(v)) = A_f^(B,C) dot Phi_B(v) space forall v in V
+  Phi_C (f(v)) = A_f^(B,C) dot Phi_B (v) space forall v in V
   $
 ][
   Mithilfe der inversen Abbildungen kann man auch andere Wege gehen, z.B:
@@ -3024,11 +3024,11 @@ gilt $A_(g circ f)^(B, D) = A_f^(C, D) dot A_f^(B, C)$.
 
 == Basiswechsel
 
-Seiene $V$ und $W$ zwei $K$-Vektorräume mit $dim(V) = n in NN$ und $dim(W) = m in NN$ mit $B = {v_1, ..., v_n}$ als Basis von $V$. Nach dem Struktursatz für Vektorräume Satz 4.8 gilt 
+Seien $V$ und $W$ zwei $K$-Vektorräume mit $dim(V) = n in NN$ und $dim(W) = m in NN$ mit $B = {v_1, ..., v_n}$ als Basis von $V$. Nach dem Struktursatz für Vektorräume Satz 4.8 gilt 
 $
 Phi_B: K^n -> V, space (v_1, ..., v_n) arrow.bar sum_(i = 1)^n x_i v_i
 $
-Die Kunst der linearen Algebra besteht darin, zu einem gegebenen Problem, welches durch eine lineare Abbildung beschreiben werden kann, geschicket Basen zu wählen, so dass die Darsetllung möglichst einfach ist.
+Die Kunst der linearen Algebra besteht darin, zu einem gegebenen Problem, welches durch eine lineare Abbildung beschreiben werden kann, geschicket Basen zu wählen, so dass die Darstellung möglichst einfach ist.
 
 #bolditalic[Beispiel 5.26:] Sei $V = RR^2$. Für die Standardbasis $C = {e_1, e_2}$ erhält man 
 $
@@ -3042,7 +3042,7 @@ Phi_B: RR^2 -> V, space (x_1,x_2) arrow.bar sum_(i = 1)^2 x_i v_i \
 $
 $V$ = Ebene die durch $RR^2$ beschrieben wird.
 
-#bold[Frage:] Darstellung von $F$ in den unterschielichen Basen.
+#bold[Frage:] Darstellung von $F$ in den unterschiedlichen Basen.
 
 #bolditalic[Lemma 5.27:] Der Basiswechsel zwischen zwei Basen $B$ und $C$ des $K$-Vektorraums $V$ mit $dim(V) = n in NN$ ist der Isomorphismus
 $
@@ -3068,7 +3068,7 @@ siehe Satz 1.38.
 
 Die zum Basiswechsel gehörende Matrix $A_(Phi_(B,C))^(B,C)$ von einer gegebenen Basis $B = {v_1, ..., v_n}$ zur Standardbasis ist die Matrix, deren Spalten den Basisvektorenvon $B$ entsprechen, d.h.
 $
-A_(Phi_(B,C))^(B,C) = mat(v_1, v_2, ..., v_n) space #italic[$v_i$ ist immer ein Spaltenvektor]
+A_(Phi_(B,C))^(B,C) = mat(v_1, v_2, ..., v_n) wide #italic[$v_i$ ist immer ein Spaltenvektor]
 $
 
 #bolditalic[Beispiel 5.28:] Sei $V = RR^2$ und $B = {e_1, e_1+ e_2}$ sowie $C = {e_1,e_2}$. Damit ist 
@@ -3123,3 +3123,158 @@ beschrieben.
 $
 A_f^(B,C) = mat(I_r, 0_(r times b); 0_(a times r), 0_(a times b)) space "z.B. Mehrmann Satz 10.24"
 $
+
+== Elementarumformumg von Matrizen
+
+Für eine gegebene Matrix $A = (a_(i j))_(j = 1, ..., m)^(j = 1, ..., n) in K^(m, n)$ bezeichnen wir die Spaltenvektoren mit 
+$
+a_j = vec(a_(1 j), a_(2, j), dots.v, a_(m j)) space "mit" space j = 1, ... n space ==> space a_j in K^(m, 1) isomorph K^m
+$
+und die Zeilenvektoren mit 
+$
+a^i = (a_(i 1), a_(i 2), ..., a_(i n)) space "mit" space i = 1, ..., m space ==> space a_i in K^(1, n)
+$
+Die drei elementaren Spaltenumformungen sind gegeben durch 
+
+#box(width: 100%, inset: (left: 0.5cm))[
+#bolditalic[(S1)] Vertauschen zweier verschiedener Spalten $a_j$ und $a_k$ für $j,k in {1, ..., n}$, $j != k$
+
+#bolditalic[(S2)] Multiplikation einer Spalte $a_j, j in {1, ..., n}$ mit Skalar $lambda in K, lambda != 0$
+
+#bolditalic[(S3)] Addition einer Spalte $a_j$ zu einer anderen Spalte $a_k$ für $j, k in {1, ..., n}$, $n != k$
+]
+
+Die drei elementaren Zeilenumformungen sind gegeben durch.
+
+#box(width: 100%, inset: (left: 0.5cm))[
+#bolditalic[(Z1)] Vertauschen zweier Zeilen $a^i$ und $a^k$ für $i, k in {1, ..., m}$, $i != k$
+
+#bolditalic[(Z2)] Multiplikation einer Zeile $a^i$, $i in {1, ..., m}$ mit einem Skalar $lambda in K$, $lambda != 0$
+
+#bolditalic[(Z3)] Addition einer Zeile $a^i$ zu einer anderen Zeile $a^k$ für $i, k in {1, ..., m}$, $i != k$
+]
+
+#bolditalic[Lemma 5.31:] Es bezeichne $A = (a_(i j))_(j = 1, ..., m)^(i = 1, ..., n) in K^(m,n)$. Dann ändern sich der Spaltenrang $rg_S (A)$ und der Zeilenrang $rg_Z (A)$ von $A$ bei elementaren Umformungen (S1) - (S3) bzw. (Z1) - (Z3) nicht.
+
+#italic[Beweis:] Hier: Spaltenrang
+
+Nach Definition gilt:
+$
+rg_S (A) = dim("Span"(a_1, ..., a_m)) 
+$
+Dann folgt aus 
+
+(S1)
+$
+"Span"(a_1, ..., a_j, ...., a_k, ..., a_n) = "Span"(a_1, ..., a_k, ..., a_j, ..., a_n) \
+j, k in {1, ..., n}, j != k, "o.B.d.A" j<k
+$
+(S2)
+$
+"Span"(a_1, ..., a_j, ..., a_n) = "Span"(a_1, ..., lambda a_j, ..., a_n) \
+  j in {1, ..., n}, lambda != 0
+$
+(S3)
+$
+"Span"(a_1, ..., a_j, ..., a_k, ..., a_n) = "Span"(a_1, ..., a_j, ..., a_k + a_j, ..., a_n) \
+  j,k in {1, ..., n}, j != k, "o.B.d.A." j<k
+$
+die Invarianz von $rg_S (A)$ für (S1) - (S3)
+
+2. Zeilenumformungen
+
+Wir betrachten die Koordinaten der Spaltenvektoren $a_1, ..., a_n$ bezüglich der Standardbasis $B = {e_1, ..., e_m}$ bezüglich der Abbildung in den $K^m$  welche durch $A$ gegeben ist. Durch Vertauschen der Einheitsvektoren $e_i, e_k$, $i,k in {1, ..., n}$, $i != k$ erhalten wir eine neue Basis $tilde(B) = {e_1, ..., e_k, ..., e_i, ..., e_m}$, o.B.d.A. $i<k$ für den $K^m$ und die neuen Koordinaten
+$
+tilde(a)_1 = vec(a_(1 1), dots.v, a_(k 1), dots.v, a_(i 1), dots.v, a_(m 1)), space ... space, tilde(a)_n = vec(a_(1 n), dots.v, a_(k n), dots.v, a_(i n), dots.v, a_(m n))
+$
+aus den ursprünglichen Koordinaten für $B$ 
+$
+a_1 = vec(a_(1 1), dots.v, a_(i 1), dots.v, a_(k 1), dots.v, a_(m 1)), space ... space, a_n = vec(a_(1 n), dots.v, a_(i n), dots.v, a_(k n), dots.v, a_(m n))
+$
+Dies entspricht (Z1), damit folgt 
+$
+rg_S (A) = dim("Span"(a_1, ..., a_n)) = dim("Span"(tilde(a)_1, ..., tilde(a)_n))
+$
+Jetzt (Z2). Dies entspricht der Multiplikation des $i$-ten Einheitsvektor mit $lambda^(-1)$. D.h. man erhält die neue Basis $hat(B) = {e_1, ..., lambda^(-1) e_i, ..., e_m}$ und die zugehörigen Koordinaten
+$
+hat(a)_1 = vec(a_(1 1), dots.v, lambda a_(i 1), dots.v, a_(m 1)), space ... space, hat(a)_n = vec(a_(1 n), dots.v, lambda a_(1 n), dots.v a_(m n))
+$
+Es folgt
+$
+rg_S (A) = dim("Span"(a_1, ..., a_n)) = dim("Span"(hat(a)_1, ... hat(a)_n))
+$
+(Z3)
+
+Ersetzt man den $k$-ten Einheitsvektor durch $e_k - e_i$, $i, k in{1, ..., m}$, $i < k$ o.B.d.A. Man erhält die neue Basis $caron(B) = {e_1, ..., e_i, ..., e_k - e_i, ..., e_m}$ sowie die neuen Koordinaten
+$
+caron(a)_1 = vec(a_(1 1), dots.v, a_(i 1), dots.v, a_(k 1), dots.v, a_(m 1)), space ... space, caron(a)_n = vec(a_(1 n), dots.v, a_(i n), dots.v, a_(k n) + a_(i n), dots.v, a_(m n))
+$
+Es folgt daraus wider, dass 
+$
+rg_S (A) = dim("Span"(a_1, ..., a_m)) = dim("Span"(caron(a)_1, ..., caron(a)_n))
+$
+#endproof
+
+#bolditalic[Beispiel 5.32:] $K = RR$ und
+$
+A = mat(1,1,1,1;1,2,3,4;2,3,4,5) --> A^((1)) = mat(1,1,1,1;0,1,2,3;0,1,2,3)
+$
+mit (Z1): $i = 1, lambda = -1$, (Z3): $k = 2, i = 1$, (Z1): $i = 1, lambda = -1$
+$
+--> A^((2)) = mat(1,1,1,1;0,1,2,3;0,0,0,0)
+$
+$
+==> rg_S (A^((2))) = 2 space "und" space rg_Z (A^((2))) = 2
+$
+
+#pagebreak()
+
+= Lineare Gleichungssysteme
+
+Ein System von Gleichungen der Form 
+
+$
+a_(1 1) x_1 + a_(1 2) x_2 + ... + a_(1 n) x_n = b_1 \
+a_(1 2) x_1 + a_(2 2) x_2 + ... + a_(2 n) x_n = b_2 \
+dots.v \ 
+a_(m 1) x_1 + a_(m 2) x_2 + ... + a_(m n) x_n = b_m
+$
+$
+<==> A x = b
+$
+für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und einem unbekannten Vektor $x in K^n$ heißt #bolditalic[lineares Gleichungssystem (LGS)]. Die Lösung von linearen Gleichungssystemen ist ein zentrales Problem der linearen Algebra. Wichtige Fragen:
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. #[
+    Existens einer Lösung? Unter welchen Bedingungen besitzt (LGS) überhaupt Lösungen?
+  ]
+  2. #[
+    Lösungsmannigfaltigkeiten: Wann (LGS) mindestens eine Lösungs besitzt: Unter welchen Bedingungen gibt es genau eine Lösung? Wenn es mehrere Lösungen gibt: Wie ist die Struktur der Lösungsmenge?
+  ]
+  3. #[
+    Lösungsverfahren: Wie kann man Lösungen von (LGS) praktisch berechnen? 
+    ]
+]
+ 
+#bolditalic[Hier:] Fragen 1) + 2), etwas zu 3). Beantwortung von 3): Numerischer Linearen Algebra
+
+== Existens von Lösungen und Lösungsmengen
+
+#definition("6.1", "Lineares Gleichungssystem")[
+  Für das lineare Gleichungssystem 
+  $
+  A x = b space "mit" A in K^(m, n), b in K^m
+  $
+  nennt man $A$ die #bolditalic[Koeffizientenmatrix] und $b$ die #bolditalic[rechte Seite]. Die Matrix
+  $
+  A_("erw") = (A b) in K^(m, n+1)
+  $
+  nennt man #bolditalic[erweiterte Koeffizientenmatrix].
+
+  Ist $b = 0 in K^m$, so heißt (LGS) #bolditalic[homogen], ansonsten #bolditalic[inhomogen]. Gilt für $overline(x) in K^n$, dass $A overline(x) = b$, so nennt man $overline(x)$ eine #bolditalic[Lösung] von (LGS). Die Menge aller Lösungen heißt #bolditalic[Lösungsmenge] und wird mit 
+  $
+  cal(L)(A, b)
+  $
+  bezeichnet.
+]
+
