@@ -3026,7 +3026,7 @@ gilt $A_(g circ f)^(B, D) = A_f^(C, D) dot A_f^(B, C)$.
 
 Seien $V$ und $W$ zwei $K$-Vektorräume mit $dim(V) = n in NN$ und $dim(W) = m in NN$ mit $B = {v_1, ..., v_n}$ als Basis von $V$. Nach dem Struktursatz für Vektorräume Satz 4.8 gilt 
 $
-Phi_B: K^n -> V, space (v_1, ..., v_n) arrow.bar sum_(i = 1)^n x_i v_i
+Phi_B: K^n -> V, space (x_1, ..., x_n) arrow.bar sum_(i = 1)^n x_i v_i
 $
 Die Kunst der linearen Algebra besteht darin, zu einem gegebenen Problem, welches durch eine lineare Abbildung beschreiben werden kann, geschicket Basen zu wählen, so dass die Darstellung möglichst einfach ist.
 
@@ -3046,7 +3046,7 @@ $V$ = Ebene die durch $RR^2$ beschrieben wird.
 
 #bolditalic[Lemma 5.27:] Der Basiswechsel zwischen zwei Basen $B$ und $C$ des $K$-Vektorraums $V$ mit $dim(V) = n in NN$ ist der Isomorphismus
 $
-Phi_(B C) = Phi^(-1)_C circ Phi_B
+Phi_(B, C) = Phi^(-1)_C circ Phi_B
 $
 
 #italic[Beweis:] Basierend auf dem Diagramm
@@ -3099,7 +3099,7 @@ $
   image("bilder/529.jpg", width: 80%)
 ))
 
-#bolditalic[Beispiel 3.30:] Sei die Darstellungsmatrix der linearen Abbildung $f: V -> W$ mit $V = RR^3$ und $W = RR^2$ bezüglich der Standardbasen gegeben durch 
+#bolditalic[Beispiel 5.30:] Sei die Darstellungsmatrix der linearen Abbildung $f: V -> W$ mit $V = RR^3$ und $W = RR^2$ bezüglich der Standardbasen gegeben durch 
 $
 A_f^(B,C) = mat(1,1,-2;-6,3,3)
 $
@@ -3277,4 +3277,3 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
   $
   bezeichnet.
 ]
-
