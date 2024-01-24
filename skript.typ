@@ -1854,7 +1854,7 @@ Dann gilt $u in U_i$ und insbesondere $u in U_1 + ... + U_(i-1) + U_(i+1) + ... 
   $
 ]
 
-#bolditalic[Beispiel:] Seien $V, U_1, U_2$ wie im Beispeil 3.34. Dann gilt $V = U_1 + U_2$, aber nicht $U_1 oplus U_2$. Sei weiter $U_3 := "Span"{(0, 0, 1)}$. Dann gilt $V = U_1 + U_3$ und $U_1 oplus U_3$.
+#bolditalic[Beispiel 3.37:] Seien $V, U_1, U_2$ wie im Beispeil 3.34. Dann gilt $V = U_1 + U_2$, aber nicht $U_1 oplus U_2$. Sei weiter $U_3 := "Span"{(0, 0, 1)}$. Dann gilt $V = U_1 + U_3$ und $U_1 oplus U_3$.
 
 #bolditalic[Lemma] (ohne Nummer)
 
@@ -3091,7 +3091,7 @@ A_f^(tilde(B), tilde(C)) = Phi_(C,tilde(C)) dot A_f^(B,C) dot Phi_(B, tilde(B))^
 $
 bzw.
 $
-A_f^(B, C) = Phi_(C, tilde(C))^(-1) dot A_f^(tilde(B),tilde(C)) dot Phi_(B, tilde(B))^(-1)
+A_f^(B, C) = Phi_(C, tilde(C))^(-1) dot A_f^(tilde(B),tilde(C)) dot Phi_(B, tilde(B))
 $
 #italic[Beweis:] Dies folgt aus dem kommutativen Diagramm.
 
@@ -3099,9 +3099,9 @@ $
   image("bilder/529.jpg", width: 80%)
 ))
 
-#bolditalic[Beispiel:] Sei die Darstellungsmatrix der linearen Abbildung $f: V -> W$ mit $V = RR^3$ und $W = RR^2$ bezüglich der Standardbasen gegeben durch 
+#bolditalic[Beispiel 3.30:] Sei die Darstellungsmatrix der linearen Abbildung $f: V -> W$ mit $V = RR^3$ und $W = RR^2$ bezüglich der Standardbasen gegeben durch 
 $
-A_f^(B,C)  mat(1,1,-2;-6,3,3)
+A_f^(B,C) = mat(1,1,-2;-6,3,3)
 $
 Wir suchen jetzt die Darstellung bezüglich der Basen 
 $
@@ -3109,7 +3109,7 @@ tilde(B) = {vec(0,0,-1),vec(0,1,0),vec(1,1,1)} wide tilde(C) = {vec(2,-3), vec(1
 $
 Mit $v_1 = -1 dot e_3, space v_2 = e_2, space v_3 = e_1 + e_2 + e_3$ folgt aus der Linearität von $f$, dass
 $
-f(v_1) = f(-1 dot e_1) = -f(e_3) = w_1 \
+f(v_1) = f(-1 dot e_3) = -f(e_3) = w_1 \
 f(v_2) = f(e_2) = w_2 \
 f(v_3) = f(e_1) + f(e_2) + f(e_3) = 0
 $
@@ -3124,7 +3124,7 @@ $
 A_f^(B,C) = mat(I_r, 0_(r times b); 0_(a times r), 0_(a times b)) space "z.B. Mehrmann Satz 10.24"
 $
 
-== Elementarumformumg von Matrizen
+== Elementarumformung von Matrizen
 
 Für eine gegebene Matrix $A = (a_(i j))_(j = 1, ..., m)^(j = 1, ..., n) in K^(m, n)$ bezeichnen wir die Spaltenvektoren mit 
 $
@@ -3246,7 +3246,7 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. #[
-    Existens einer Lösung? Unter welchen Bedingungen besitzt (LGS) überhaupt Lösungen?
+    Existenz einer Lösung? Unter welchen Bedingungen besitzt (LGS) überhaupt Lösungen?
   ]
   2. #[
     Lösungsmannigfaltigkeiten: Wann (LGS) mindestens eine Lösungs besitzt: Unter welchen Bedingungen gibt es genau eine Lösung? Wenn es mehrere Lösungen gibt: Wie ist die Struktur der Lösungsmenge?
@@ -3256,7 +3256,7 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
     ]
 ]
  
-#bolditalic[Hier:] Fragen 1) + 2), etwas zu 3). Beantwortung von 3): Numerischer Linearen Algebra
+#bolditalic[Hier:] Fragen 1 + 2), etwas zu 3). Beantwortung von 3): Numerischer Linearen Algebra
 
 == Existens von Lösungen und Lösungsmengen
 
