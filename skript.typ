@@ -2977,7 +2977,7 @@ Graphische Darstellung der Ergebnisse: $V, W$ sind $K$-Vektorräume, $B = {v_1, 
 Mit Satz 5.18 und dem Struktursatz 4.8 können die Ergebnisse mit folgenden #bold[kommutativen Diagramme] zusammengefaßt werden:
 $
 space V space -->^f space W \
-Phi_B arrow.b space wide space arrow.b Phi_C \
+Phi_B arrow.t space wide space arrow.t Phi_C \
 space K^n -->_(A_f^(B,C)) K^m \
 $
 Solche kommutativen Diagramme sind sehr wichtige Hilfsmittel! Man erhält daraus folgenden Aussagen:
@@ -3277,3 +3277,136 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
   $
   bezeichnet.
 ]
+
+#align(center, italic[großes loch])
+
+#bolditalic[Bemerkung:] Im normalen Fall, d.h. sei $b = 0 in K^m$ gilt offensichtlich immer $rg_S (A) = rg_S (A_"erw")$. (Später: $rg(A) = rg(A_"erw"))$. Außerdem existiert im homogenen Fall immer eine Lösung, nähmlich $x* = 0 in K^n$. Denn es gilt $A x* = A 0_m = 0 = b$.
+
+Beantwortung Frage 1:
+
+#bolditalic[Satz 6.2:] Das LGS ist genau dann lösbar, d.h. $cal(L)(A, b) != emptyset$, wenn
+$
+rg_S (A) = rg_S (A_"erw")
+$
+gilt.
+
+#italic[Beweis:] Seien $a_i$, $1 <= i <= n$, die Spalten von $A$ und $f: K^n -> K^m$ die zu $A$ gehörende lineare Abbildung. Dann gilt 
+$
+"LGS lösbar" <==> exists x in K^n: A x = b <==> exists x in K^n: f(x) = b <==> b in im(f)
+$
+$
+&<==> b in "Span"{f(e_1), ..., f(e_n)} \
+&<==> b in "Span"{a_1, ..., a_n} \
+&<==> "Span"{a_1, ..., a_n} = "Span"{a_1, ..., a_n, b} \
+&<==> rg_S (A) = rg_S (A_"erw")
+$
+#endproof
+
+#bolditalic[Satz 6.3:] Sei $L_0 = cal(L)(A, 0)$, d.h. die Menge aller Lösungen des homegenen linearen Gleichungssystems (LGS). Dann ist $L_0 subset.eq K^n$ ein Unterraum der Dimension
+$
+dim L_0 = n - underbrace(rg_S (A), <=n) >= 0
+$
+
+#italic[Beweis:] Die Matrix $A in K^(m,n)$ definiert eine lineare Abbildung $f: K^n -> K^m$, $f(x) = A x$. Also gilt 
+$
+L_0 = {x in K^n | A x = 0 } = {x in K^n | f(x) = 0 } = ker(f)
+$
+Lemma 4.13: $L_0$ ist Unterraum von $K^n$. 
+
+Dimensionssatz Satz 4.16: Satz 5.23.
+$
+dim L_0 = dim(ker(f)) =^"4.16" dim(K^n) - rg(f) =^"5.23" n - rg_S (A)
+$
+#endproof
+
+#bolditalic[Folgerungen:]
+
+#boxedlist[
+  Ist $m>=n$ und gilt $rg_S (A) = n$, so besitzt (LGS) für $b = 0$ nur die triviale $x* = 0$, denn aus dem letzen Satz folgt
+  $
+  dim L_0 = n - rg_S (A) = n - n = 0 ==> L_0 = {0}
+  $
+][
+  Besitzt umgekehrt (LGS) für $b = 0$ nur $x* = 0 in K^n$ als Lösung, d.h. 
+  $
+  L_0 = {0} ==> 0 = n - rg_S (A) ==> rg_S (A) = n
+  $
+][
+  Im Fall $m = n$, dann gilt für das homogene Gleichungssystem $A x = b$
+  $
+  L_0 = {0} <==> A "invertierbar, d.h." A in "GL"_n (K)
+  $
+  Alternativer Beweis:
+
+  $A in "GL"_n (K) <==>$ Es existiert die inverse Matrix $A^(-1) in "GL"_n (K)$
+  $
+  A x = 0 \
+  A^(-1) A x = A^(-1) 0 \
+  x = 0
+  $
+]
+
+Lösungsmenge für den allgemeinen Fall:
+
+#bolditalic[Satz 6.4:]  Es gelte für die Lösungsmenge von (LGS), dass
+$
+cal(L)(A,b) != emptyset
+$
+D.h. die Menge aller Lösungen von (LGS) ist nicht leer. Dann gilt: Es gibt $x* in cal(L)(A, b)$ und 
+$
+cal(L)_0 (A,b) = {x in K^n | x = x* + y }
+$
+D.h. die Menge aller Lösungen von (LGS) erhält man aus einer speziellen Lösung des inhomogenen linearen Gleichungssystems und Addition sämtlicher Lösungen des zugehörigen homogenen LGS.
+
+#italic[Beweis:] Nach Vorraussetzung gilt $A x* = b$. Damit folgt für $y in cal(L)(A, 0)$, d.h. $A y = 0$, dass 
+$
+A(x* + y) = A x* + A y = b + 0 = b \
+==> {x in K^n | x = x* + y, y in cal(L)(A, 0)} subset.eq cal(L)(A, b)
+$
+Sei $x in cal(L)(A, b)$. Dann erhält man für $y = x* - x$, dass 
+$
+A y = A(x*-x) = A x* - A x = b - b = 0 ==> y in cal(L)(A, 0) \
+==> A y = 0 ==> - A y = 0 ==> A(-y) = 0 ==> -y in cal(L)(A, 0)
+$
+$
+cal(L)(A, b) subset.eq {x in x in K^n | x = x* + y, y in cal(L)(A, 0)}
+$
+#endproof
+
+Was ist die "Größe" des Lösungsraumes?
+
+Problem: $cal(L)(A, b)$ ist ja keine Unterraum, da für $b != 0, x = 0 in.not cal(L)(A, b)$ gilt. Deswegen: Übertragung des Dimensionsbegriffs auf Mengen dieser Struktur.
+
+#definition("6.5", "Affiner Unterraum")[
+  Sei $V$ ein $K$-Vektorraum. Eine Teilmenge $U subset V$ heißt #bolditalic[affiner Unterraum] falls es ein $v in V$ und eines Unterrvektorraum $W$ gibt, so dass
+  $
+  U = v + W := {u in V | "es gibt ein" w in W "mit" u = v + w}
+  $
+  Die leere Menge bildet ebenfalls einen affinen Unterraum.
+]
+Affine Unterräume kann man als "Parallelverschiebung" eines Unterraums interpretieren.
+
+#bolditalic[Frage:] 
+$
+{x in K^n | x = x* + y, y in cal(L)(A, 0)} = {x in K^n | x = tilde(x)* + y, y in cal(L)(A,0)} \ "für" x*, tilde(x)* in cal(L)(A, b)"?"
+$
+#bolditalic[Satz 6.6:] Sei $V$ ein $K$-Vektorraum und $U subset V$ ein affiner Untervektorraum. Der Aufhängepunkt $v in V$ kann beliebig gewählt werden. D.h. für beliebiges $tilde(v) in U$ ist $U = tilde(v) + W$. Weiter ist zu jedem affinen Unterraum $U = v + W$ der Untervektorraum $W$ eindeutig bestimmt. D.h. ist $tilde(v) in V$ und $tilde(W) subset.eq V$ ein Unterraum mit 
+$
+v + W = tilde(v) + tilde(W)
+$
+so folgt $W = tilde(W)$ und $tilde(v) - v in W$
+
+#italic[Beweis:] Wegen $tilde(v) in tilde(v) + tilde(W) = U$ existiert ein $overline(w) in W$ mit $tilde(v) = v + overline(w)$
+$
+U = tilde(v) + tilde(W) = v + W ==> \
+u in U ==> u = v + w "mit" w in W \
+= v + w - overline(w) ==> u in tilde(v) + W
+==> U subset.eq tilde(v) + W
+$
+z.z. $tilde(v) + W subset.eq U$
+
+$
+u = tilde(v) + w "mit" w in W \
+==> u = v + w + overline(w) in v + W \
+==> U = v + W = tilde(v) + W
+$
