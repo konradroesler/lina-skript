@@ -3278,9 +3278,7 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
   bezeichnet.
 ]
 
-#align(center, italic[großes loch])
-
-#bolditalic[Bemerkung:] Im normalen Fall, d.h. sei $b = 0 in K^m$ gilt offensichtlich immer $rg_S (A) = rg_S (A_"erw")$. (Später: $rg(A) = rg(A_"erw"))$. Außerdem existiert im homogenen Fall immer eine Lösung, nähmlich $x* = 0 in K^n$. Denn es gilt $A x* = A 0_m = 0 = b$.
+#bolditalic[Bemerkung:] Im normalen Fall, d.h. sei $b = 0 in K^m$ gilt offensichtlich immer $rg_S (A) = rg_S (A_"erw")$. (Später: $rg(A) = rg(A_"erw"))$. Außerdem existiert im homogenen Fall immer eine Lösung, nähmlich $x^* = 0 in K^n$. Denn es gilt $A x^* = A 0_m = 0 = b$.
 
 Beantwortung Frage 1:
 
@@ -3322,12 +3320,12 @@ $
 #bolditalic[Folgerungen:]
 
 #boxedlist[
-  Ist $m>=n$ und gilt $rg_S (A) = n$, so besitzt (LGS) für $b = 0$ nur die triviale $x* = 0$, denn aus dem letzen Satz folgt
+  Ist $m>=n$ und gilt $rg_S (A) = n$, so besitzt (LGS) für $b = 0$ nur die triviale $x^* = 0$, denn aus dem letzen Satz folgt
   $
   dim L_0 = n - rg_S (A) = n - n = 0 ==> L_0 = {0}
   $
 ][
-  Besitzt umgekehrt (LGS) für $b = 0$ nur $x* = 0 in K^n$ als Lösung, d.h. 
+  Besitzt umgekehrt (LGS) für $b = 0$ nur $x^* = 0 in K^n$ als Lösung, d.h. 
   $
   L_0 = {0} ==> 0 = n - rg_S (A) ==> rg_S (A) = n
   $
@@ -3352,24 +3350,24 @@ Lösungsmenge für den allgemeinen Fall:
 $
 cal(L)(A,b) != emptyset
 $
-D.h. die Menge aller Lösungen von (LGS) ist nicht leer. Dann gilt: Es gibt $x* in cal(L)(A, b)$ und 
+D.h. die Menge aller Lösungen von (LGS) ist nicht leer. Dann gilt: Es gibt $x^* in cal(L)(A, b)$ und 
 $
-cal(L)_0 (A,b) = {x in K^n | x = x* + y }
+cal(L)_0 (A,b) = {x in K^n | x = x^* + y }
 $
 D.h. die Menge aller Lösungen von (LGS) erhält man aus einer speziellen Lösung des inhomogenen linearen Gleichungssystems und Addition sämtlicher Lösungen des zugehörigen homogenen LGS.
 
-#italic[Beweis:] Nach Vorraussetzung gilt $A x* = b$. Damit folgt für $y in cal(L)(A, 0)$, d.h. $A y = 0$, dass 
+#italic[Beweis:] Nach Vorraussetzung gilt $A x^* = b$. Damit folgt für $y in cal(L)(A, 0)$, d.h. $A y = 0$, dass 
 $
-A(x* + y) = A x* + A y = b + 0 = b \
-==> {x in K^n | x = x* + y, y in cal(L)(A, 0)} subset.eq cal(L)(A, b)
+A(x^* + y) = A x^* + A y = b + 0 = b \
+==> {x in K^n | x = x^* + y, y in cal(L)(A, 0)} subset.eq cal(L)(A, b)
 $
-Sei $x in cal(L)(A, b)$. Dann erhält man für $y = x* - x$, dass 
+Sei $x in cal(L)(A, b)$. Dann erhält man für $y = x^* - x$, dass 
 $
-A y = A(x*-x) = A x* - A x = b - b = 0 ==> y in cal(L)(A, 0) \
+A y = A(x^*-x) = A x^* - A x = b - b = 0 ==> y in cal(L)(A, 0) \
 ==> A y = 0 ==> - A y = 0 ==> A(-y) = 0 ==> -y in cal(L)(A, 0)
 $
 $
-cal(L)(A, b) subset.eq {x in x in K^n | x = x* + y, y in cal(L)(A, 0)}
+cal(L)(A, b) subset.eq {x in x in K^n | x = x^* + y, y in cal(L)(A, 0)}
 $
 #endproof
 
@@ -3388,7 +3386,7 @@ Affine Unterräume kann man als "Parallelverschiebung" eines Unterraums interpre
 
 #bolditalic[Frage:] 
 $
-{x in K^n | x = x* + y, y in cal(L)(A, 0)} = {x in K^n | x = tilde(x)* + y, y in cal(L)(A,0)} \ "für" x*, tilde(x)* in cal(L)(A, b)"?"
+{x in K^n | x = x^* + y, y in cal(L)(A, 0)} = {x in K^n | x = tilde(x)^* + y, y in cal(L)(A,0)} \ "für" x^*, tilde(x)^* in cal(L)(A, b)"?"
 $
 #bolditalic[Satz 6.6:] Sei $V$ ein $K$-Vektorraum und $U subset V$ ein affiner Untervektorraum. Der Aufhängepunkt $v in V$ kann beliebig gewählt werden. D.h. für beliebiges $tilde(v) in U$ ist $U = tilde(v) + W$. Weiter ist zu jedem affinen Unterraum $U = v + W$ der Untervektorraum $W$ eindeutig bestimmt. D.h. ist $tilde(v) in V$ und $tilde(W) subset.eq V$ ein Unterraum mit 
 $
