@@ -3428,7 +3428,7 @@ $
   $
   die Dimension von $U$. Dies ist wegen Satz 6.6 eine sinnvolle Definition. Satz 6.4 + Satz 6.3 liefern, dass 
   $
-  dim cal(L)(A, b) = dim cal(L)(A, 0) = n rg_S (A)
+  dim cal(L)(A, b) = dim cal(L)(A, 0) = n - rg_S (A)
   $
 ]
 
