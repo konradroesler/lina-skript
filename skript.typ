@@ -3559,4 +3559,4 @@ hier: $A in K^(m,n)$, $K$ Körper
 
   Das Produkt $space G_(i j) (lambda) dot A space$ bewirkt, dass das $lambda$-fache der $j$-ten Zeile zur $i$-ten Zeile von $A$ addiert wird.
 ]
-
+test
