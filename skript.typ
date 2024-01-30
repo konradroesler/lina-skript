@@ -530,7 +530,7 @@ $
 
 2. #[Für jedes $x_1, x_2 in X$ folgt aus $g$ injektiv: $g(f(x_1)) = g(f(x_2)) ==> f(x_1) = f(x_2)$. Aus $f$ injektiv folgt widerum: $f(x_1) = f(x_2) ==> x_1 = x_2$. Also gilt $g(f(x_1)) = g(f(x_2)) ==>$ $x_1 = x_2$. Somit ist $g compose f$ injektiv.
   
-Für jedes $z in Z$ folgt aus $g$ surjektiv: $exists space.sixth y in Y: f(y) = z$. Für jedes $y in Y$ folgt aus $f$ surjektiv widerium: $exists space.sixth x in X: f(x) = y$. Also folgt $forall space.sixth z in Z space.sixth exists space.sixth x in X: g(f(x)) = z$. Somit ist $g compose f$ surjektiv. 
+Für jedes $z in Z$ folgt aus $g$ surjektiv: $exists space.sixth y in Y: f(y) = z$. Für jedes $y in Y$ folgt aus $f$ surjektiv widerum: $exists space.sixth x in X: f(x) = y$. Also folgt $forall space.sixth z in Z space.sixth exists space.sixth x in X: g(f(x)) = z$. Somit ist $g compose f$ surjektiv. 
 
 Sind $f$ und $g$ bijektiv, folgt aus den obigen Beweisen, dass $g compose  f$ injektiv und surjektiv ist. Somit ist $g compose f$ auch bijektiv.
 ]
@@ -2310,7 +2310,7 @@ $
 $==>$ es existieren eindeutige Koeffizienten $mu_i in K, 1 <= i <= r$
 $
 sum_(i = r+1)^n lambda_i v_i = sum_(i = 1)^n mu_i v_i
-==> sum_(i = r+1)1n lambda_i v_i - sum_(i = 1)^n mu_i v_i = 0
+==> sum_(i = r+1)^n lambda_i v_i - sum_(i = 1)^n mu_i v_i = 0
 $
 ${v_1, ..., v_n}$ sind Basis von $V$. $==>$ $mu_i = ... = mu_r = lambda_(r+1) = ... = lambda_n = 0$. $==>$ $f(v_(n+1)), ..., f(v_n)$ sind linear unabhängig $==>$ $C$ ist Basis von $im(f)$ 
 $
@@ -3258,7 +3258,7 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
  
 #bolditalic[Hier:] Fragen 1 + 2), etwas zu 3). Beantwortung von 3): Numerischer Linearen Algebra
 
-== Existens von Lösungen und Lösungsmengen
+== Existenz von Lösungen und Lösungsmengen
 
 #definition("6.1", "Lineares Gleichungssystem")[
   Für das lineare Gleichungssystem 
@@ -3394,17 +3394,169 @@ v + W = tilde(v) + tilde(W)
 $
 so folgt $W = tilde(W)$ und $tilde(v) - v in W$
 
-#italic[Beweis:] Wegen $tilde(v) in tilde(v) + tilde(W) = U$ existiert ein $overline(w) in W$ mit $tilde(v) = v + overline(w)$
-$
-U = tilde(v) + tilde(W) = v + W ==> \
-u in U ==> u = v + w "mit" w in W \
-= v + w - overline(w) ==> u in tilde(v) + W
-==> U subset.eq tilde(v) + W
-$
-z.z. $tilde(v) + W subset.eq U$
+#italic[Beweis:] $U = v + W$, $tilde(v) in U ==>$ $exists overline(w) in W: tilde(v) = v + overline(w) ==>$ $v = tilde(v) - overline(w)$
+
+1) $U subset.eq tilde(v) + W$
 
 $
-u = tilde(v) + w "mit" w in W \
-==> u = v + w + overline(w) in v + W \
-==> U = v + W = tilde(v) + W
+u in U ==> u = v + w "mit" w in W \
+==> u = tilde(v) + underbrace(w - overline(w), in W)
 $
+$==> U subset.eq tilde(v) + W$
+
+2) $tilde(v) + W subset.eq U$
+
+$
+U = tilde(v) + W =^"*" v + underbrace(overline(w) + w, in W) in U 
+$
+$==> U = tilde(v) + W$
+
+Sei nun $U = v + W = tilde(v) + tilde(W)$. Mit $U - U = {u - tilde(u) | u, tilde(u) in U}$ als Menge der Differenzen folgt, dass $U - U =^"(1)" W$ und $U - U =^"(2)" tilde(W)$. 
+$
+==> W - tilde(W)
+$
+wir wissen: $ v + W = tilde(v) + W$
+$
+==> exists w in W: tilde(v) = u + w ==> tilde(v) - v = w in W
+$
+#endproof
+
+#definition("6.7", "Dimension affiner Unterräume")[
+  Sei $V$ ein $K$-Vektorraum und $U = v + W subset V$ ein affiner Unterraum. Dann ist
+  $
+  dim U = dim W
+  $
+  die Dimension von $U$. Dies ist wegen Satz 6.6 eine sinnvolle Definition. Satz 6.4 + Satz 6.3 liefern, dass 
+  $
+  dim cal(L)(A, b) = dim cal(L)(A, 0) = n rg_S (A)
+  $
+]
+
+Damit folgt
+
+#bolditalic[Korollar 6.8:] Für $A in K^(n,n)$ und $b in K^n$ sind folgende Bedingungen äquivalent:
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  #sspace
+  1. #[
+    Das LGS $A x = b$ ist eindeutig lösbar  
+
+    Überlegung: 
+    $
+    cal(L)(A, b) = x* + underbrace(cal(L)(A, 0), in {0})
+    $
+  ]
+
+
+  2. $rg_S (A) = rg_S (A_"erw") = n$ 
+]
+
+#bolditalic[Lemma 6.9:] Sind $A in K^(m, n)$, $b in K^m$ und $S in K^(m,m)$, so gilt 
+$
+cal(L)(A, b) subset.eq cal(L)(S A, S b)
+$
+Ist $S$ invertierbar, so gilt sogar 
+$
+cal(L)(A, b) = cal(L)(S A, S b)
+$
+
+#italic[Beweis:] Übungsaufgabe 
+#endproof
+
+== Der Gauß-Algorithmus
+
+#bolditalic[Bemerkung:]
+#boxedlist[benannt nach Carl-Friedrich-Gauß (1777 - 1855)][
+  Ein ähnliches Verfahren findet man in 
+  #v(-6pt)
+  #align(center, "'Neun Bücher zu arithmetische Technik' (ca. 200 v. Chr. in China)")
+][
+  siehe LR-(bzw LK) Zerlegung in der numerichen linearen Algebra
+]
+Wann ist ein LGS einfach lösbar?
+wenn 
+
+#figure(
+  image("bilder/62_.png", width: 80%)
+  )
+
+Diese Gestalt der Matrix $A$ heißt #bolditalic[Treppennormalform] (wird auch als Echelon-Form oder normierte Zeilenstufenform bezeichnet).
+
+Warum einfach?
+
+Spaltenvertauschungen ändern den Rang nicht und können aus Multiplikation mit einer invertierbaren Matrix interpretiert werden.
+
+$==>$ Lösungsraum bleibt gleich
+
+Dies liefert 
+#figure(
+  image("bilder/62_1.png", width: 80%)
+)
+
+1. #[
+  Es existiert genau eine Lösung, wenn
+  $
+  rg_S (A) = rg_S (A_"erw") space <==> b_(r+1) = ... = b_m = 0
+  $
+]
+2. #[
+  Mit $rg_S (A) = rg_S (A_"erw")$, dann ist eine spezielle Lösung gegeben durch 
+  $
+  &x^* in K^n space "mit" \
+  &x^*_1 b_1, ..., x_r^* = b_r, space x^*_(r+1) = ... = x_1^* = 0
+  $
+]
+3. #[
+  Für $b = 0 in K^m$ erhält man das zugehörige homogene Gleichungssystem
+  $
+  cal(L)(A, b) = x^* + cal(L)(A, 0)
+  $
+  Basis von $cal(L)(A, 0)$? $space dim cal(L)(A, 0) = n - r = n - rg_S (A)$
+
+  $
+  "Basisvektoren der Form:" wide vec(-a_(1 r + i), -a_(2 r + i), dots.v , -a_(r + r i), 0, 1, 0, dots.v, 0), wide i = 1, .., n-r, wide 1 "bei der" r+i"-ten Zeile"
+  $
+]
+#bolditalic[Deswegen:] Gegeben ist ein (LGS)
+
+#bolditalic[Ziel:] Umformung von (LGS), sodass die resultierende Matrix normalisierte Treppenstufen hat und sich die Lösungsmenge nicht ändert.
+
+Dazu: Elementarmatrizen (geht auch für $R =$ kommutativer Ring mit $1$)
+
+hier: $A in K^(m,n)$, $K$ Körper
+
+#boxedlist[
+  $m in NN$, $i,j in {1, ..., m}$, $I_m in K^(m,m)$ als Einheitsmatrix 
+
+  $e_i corres$ $i$-ter Einheitsvektore
+
+  $==> I_m = (e_1, e_2, ..., e_m)$
+][
+  $E_(i j) = ( e_i e_j )^top = mat(0_m, ..., 0_m, e_i, 0_m, ..., 0_m) in K^(m,m)$
+
+  D.h. der Eintrag $(i, j)$ der Matrix $E_(i j)$ ist $1$, alle anderen Einträge sind $0$.
+][
+  für $m >= 2$, $i, j in {1, ..., m}$ und $i < j$ die Matrizen 
+  $
+  P_(i j) = mat(e_1, ..., e_(i - 1), e_j, e_(i + 1), ..., e_(j -1), e_i, e_(j + 1), ..., e_m) in K^(m,m)
+  $
+  Die Matrix $P_(i j)$ ist eine Permutationsmatrix. D.h. multipliziert man $A in K^(m,n)$ mit $P_(i j)$, so werden die Zeilen $i$ und $j$ von $A$ vertauscht.
+
+  ohne Beweis, dafür ein Beispiel:
+  $
+  A = mat(1,2,3,4;5,6,7,8;9,10,11,12) space P_(1 2) = mat(0,1,0;1,0,0;0,0,1) ==> P_(1 2) dot A = mat(5,6,7,8;1,2,3,4;9,10,11,12)
+  $
+  $corres$ Zeilenumformung (Z1). $P_(i j) in "GL"_m (K)$
+
+  Analog: $tilde(e_i) in K^n$ Einheitsvektoren aus $K^n$
+
+  $tilde(P)_(i j) in K^(n,n)$ $corres$ Spaltenumformung (S1). $tilde(P)_(i j) in "GL"_n (K)$
+][
+  für $m>=2, i, j in {1, ..., m}$ und $i  <j$ sind die Matrizen 
+  $
+  G_(i j) (lambda) = I_m + lambda E_(i j) = mat(e_1, ..., e_(i - 1), e_i + lambda e_j, e_(i+1), ..., e_m) in K^(m, m)
+  $
+  D.h. die $j$-te Spalte von $G_(i j) (lambda)$ ist $e_j + lambda e_i$. Multipliziert man $A in K^(m,n)$, so wird das $lambda$-fache der $i$-ten Zeile von $A$ zur $j$-ten Zeile von $A$ addiert. 
+
+  Das Produkt $space G_(i j) (lambda) dot A space$ bewirkt, dass das $lambda$-fache der $j$-ten Zeile zur $i$-ten Zeile von $A$ addiert wird.
+]
+
