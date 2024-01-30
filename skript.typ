@@ -364,7 +364,7 @@ eine Äquivalenzrelation auf $ZZ$, denn
 Für $a$ wird die Äquivalenzklasse $[a]$ auch die Restklasse von $a #italic[modulo] n$ genannt.
 
 $
-[a] = a + n dot z = {a + n z | z in ZZ}
+[a] = a + n dot z := {a + n z | z in ZZ}
 $
 
 Die Äquivalenzrelation $R_n$ definiert auch eine Zerlegung der Menge $ZZ$ in disjunkte Teilmengen, nähmlich 
