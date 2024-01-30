@@ -3352,7 +3352,7 @@ cal(L)(A,b) != emptyset
 $
 D.h. die Menge aller Lösungen von (LGS) ist nicht leer. Dann gilt: Es gibt $x^* in cal(L)(A, b)$ und 
 $
-cal(L)_0 (A,b) = {x in K^n | x = x^* + y }
+cal(L) (A,b) = {x in K^n | x = x^* + y }
 $
 D.h. die Menge aller Lösungen von (LGS) erhält man aus einer speziellen Lösung des inhomogenen linearen Gleichungssystems und Addition sämtlicher Lösungen des zugehörigen homogenen LGS.
 
@@ -3376,7 +3376,7 @@ Was ist die "Größe" des Lösungsraumes?
 Problem: $cal(L)(A, b)$ ist ja keine Unterraum, da für $b != 0, x = 0 in.not cal(L)(A, b)$ gilt. Deswegen: Übertragung des Dimensionsbegriffs auf Mengen dieser Struktur.
 
 #definition("6.5", "Affiner Unterraum")[
-  Sei $V$ ein $K$-Vektorraum. Eine Teilmenge $U subset V$ heißt #bolditalic[affiner Unterraum] falls es ein $v in V$ und eines Unterrvektorraum $W$ gibt, so dass
+  Sei $V$ ein $K$-Vektorraum. Eine Teilmenge $U subset V$ heißt #bolditalic[affiner Unterraum] falls es ein $v in V$ und einen Unterrvektorraum $W$ gibt, so dass
   $
   U = v + W := {u in V | "es gibt ein" w in W "mit" u = v + w}
   $
