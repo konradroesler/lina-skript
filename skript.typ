@@ -91,7 +91,7 @@ D.h. die Elemente dieser Menge $M$ sind die natürlichen, ganzen, rationalen und
 #definition("1.6", "Mengenoperationen")[
   Seien $M,N$ Mengen.
 
-  1. Man bezeichnet dei Menge der Elemente, die sowhol  in $M$ als auch in $N$ enthalten sind, als #bolditalic[Durchschnitt] von $M$ und $N$
+  1. Man bezeichnet die Menge der Elemente, die sowhol  in $M$ als auch in $N$ enthalten sind, als #bolditalic[Durchschnitt] von $M$ und $N$
   $
   M sect N = {x | (x in M) and (x in N)}
   $
