@@ -3476,7 +3476,7 @@ Wann ist ein LGS einfach lösbar?
 wenn 
 
 #figure(
-  image("bilder/62_.png", width: 80%)
+  image("bilder/62_.jpeg", width: 80%)
   )
 
 Diese Gestalt der Matrix $A$ heißt #bolditalic[Treppennormalform] (wird auch als Echelon-Form oder normierte Zeilenstufenform bezeichnet).
@@ -3489,7 +3489,7 @@ $==>$ Lösungsraum bleibt gleich
 
 Dies liefert 
 #figure(
-  image("bilder/62_1.png", width: 80%)
+  image("bilder/62_1.jpeg", width: 80%)
 )
 
 1. #[
