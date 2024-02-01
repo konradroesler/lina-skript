@@ -132,7 +132,7 @@ Für $M := {4, 6, 8}$ und $N := {8, 10}$ gilt:
 
 #boxedlist([$M union N = {4, 6, 8, 10}$], [$M sect N = {8}$], [$M backslash N = {4, 6}$], [$N backslash M = {10}$])
 
-#bolditalic[Satz 1.8:] Für zwei Mengen $M, N$ gelte $M subset.eq N$. Dann sind folgende Aussagen Äquivalent: 
+#bolditalic[Satz 1.8:] Für zwei Mengen $M, N$ gelte $M subset.eq N$. Dann sind folgende Aussagen äquivalent: 
 
 #align(center, box(width: 80%, height: auto, table(
   columns: (1fr, 1fr), 
@@ -154,7 +154,7 @@ $2) ==> 1)$: Es gilt $N backslash M != emptyset$. Dann existiert ein $x in N$ mi
 
 #endproof
 
-#bolditalic[Satz 1.9:] Seien $M, N, L$ Mengen. Dann gelten Folgende Aussagen:
+#bolditalic[Satz 1.9:] Seien $M, N, L$ Mengen. Dann gelten folgende Aussagen:
 
 1. $M sect N subset.eq M #[und] M subset.eq M union N$
 2. $M backslash N subset.eq M$
@@ -367,7 +367,7 @@ $
 [a] = a + n dot z := {a + n z | z in ZZ}
 $
 
-Die Äquivalenzrelation $R_n$ definiert auch eine Zerlegung der Menge $ZZ$ in disjunkte Teilmengen, nähmlich 
+Die Äquivalenzrelation $R_n$ definiert auch eine Zerlegung der Menge $ZZ$ in disjunkte Teilmengen, nämlich 
 
 $
 [0] union [1] union ... union [n-1] = union.big_(a = 0)^(n-1) [a] = ZZ
@@ -528,9 +528,9 @@ $
 
 1. $h compose (g compose f)(x) = h((g compose f)(x)) = h(g(f(x))) = (h compose g)(f(x)) = ((h compose g) compose f)(x)$
 
-2. #[Für jedes $x_1, x_2 in X$ folgt aus $g$ injektiv: $g(f(x_1)) = g(f(x_2)) ==> f(x_1) = f(x_2)$. Aus $f$ injektiv folgt widerum: $f(x_1) = f(x_2) ==> x_1 = x_2$. Also gilt $g(f(x_1)) = g(f(x_2)) ==>$ $x_1 = x_2$. Somit ist $g compose f$ injektiv.
+2. #[Für jedes $x_1, x_2 in X$ folgt aus $g$ injektiv: $g(f(x_1)) = g(f(x_2)) ==> f(x_1) = f(x_2)$. Aus $f$ injektiv folgt wiederum: $f(x_1) = f(x_2) ==> x_1 = x_2$. Also gilt $g(f(x_1)) = g(f(x_2)) ==>$ $x_1 = x_2$. Somit ist $g compose f$ injektiv.
   
-Für jedes $z in Z$ folgt aus $g$ surjektiv: $exists space.sixth y in Y: f(y) = z$. Für jedes $y in Y$ folgt aus $f$ surjektiv widerum: $exists space.sixth x in X: f(x) = y$. Also folgt $forall space.sixth z in Z space.sixth exists space.sixth x in X: g(f(x)) = z$. Somit ist $g compose f$ surjektiv. 
+Für jedes $z in Z$ folgt aus $g$ surjektiv: $exists space.sixth y in Y: f(y) = z$. Für jedes $y in Y$ folgt aus $f$ surjektiv wiederum: $exists space.sixth x in X: f(x) = y$. Also folgt $forall space.sixth z in Z space.sixth exists space.sixth x in X: g(f(x)) = z$. Somit ist $g compose f$ surjektiv. 
 
 Sind $f$ und $g$ bijektiv, folgt aus den obigen Beweisen, dass $g compose  f$ injektiv und surjektiv ist. Somit ist $g compose f$ auch bijektiv.
 ]
@@ -992,7 +992,7 @@ $
 dot &: CC times CC arrow CC, space (a, b) dot (c, d) = (a dot c - b dot d, a dot d + b dot c)
 $
 
-Wir verwenden impliziet die Operationen auf den reellen Zahlen, $+, -, dot$. Dann sieht man:
+Wir verwenden implizit die Operationen auf den reellen Zahlen, $+, -, dot$. Dann sieht man:
 
 #boxedlist[Das neutrale Element in $CC$ bezüglich $+$ ist die $0_CC = (0,0)$][Das neutrale Element in $CC$ bezüglich $dot$ ist die $1_CC = (1, 0)$]
 
@@ -1019,7 +1019,7 @@ kann man jedes Element der reellen Zahlen mit einem Element der Menge $M$ mit de
 $
 RR arrow M, space x arrow.bar (x, 0)
 $
-identifizieren. Mit $0_RR arrow.bar (0, 0) = 0_CC$, $1_RR arrow.bar (1, 0) = 1_CC$ kann man $M$ als Teilkörper von $CC$ auffassen. Es gilt jedoch auch $RR subset.eq.not CC$ (zummindest in LinA).
+identifizieren. Mit $0_RR arrow.bar (0, 0) = 0_CC$, $1_RR arrow.bar (1, 0) = 1_CC$ kann man $M$ als Teilkörper von $CC$ auffassen. Es gilt jedoch auch $RR subset.eq.not CC$ (zumindest in LinA).
 
 Eine besondere komplexe zahl ist die imaginäre Einheit $(0, 1)$, für die gilt:
 $
@@ -1125,7 +1125,7 @@ Solch eine algebraische Sturktur wollen wir beschreiben:
 
 #bolditalic[Beobachtung:] Für einen Vektorraum sind die Operatinen $+$ und die skalare Multiplikation $dot$ abeschlossen.
 
-#bolditalic[Beispiel 2.27:] Für einen Körper $K$ ist der Standartvektorraum gegeben durch die Menge $V = K^n$ für ein $n in NN$. Die n-Tupel werden geschrieben als 
+#bolditalic[Beispiel 2.27:] Für einen Körper $K$ ist der Standardvektorraum gegeben durch die Menge $V = K^n$ für ein $n in NN$. Die n-Tupel werden geschrieben als 
 $
 v = vec(v_1, v_2, dots.v, v_n) "mit" v_1, v_2, ..., v_n in K
 $
@@ -1501,7 +1501,7 @@ Also ist $B$ ein Erzeugendensystem und somit eine Basis.
 #endproof
 
 #definition("3.15", "endlichdimensional, unendlichdimensional")[
-  Sei $(V, +, dot)$ ein $K$-Vektorraum für dein eine endliche Menge $M = {v_1, ..., v_n} subset V$ existiert, so dass $"Span" M = V$. Dann nennt man $V$ #bolditalic[endlich erzeugt] und sagt $V$ ist #bolditalic[endlichdimensional]. Ist $V$ nicht von endlich vielen Vektoren erzeugt, nennt man $V$ #bolditalic[unendlichdimensional].   
+  Sei $(V, +, dot)$ ein $K$-Vektorraum für den eine endliche Menge $M = {v_1, ..., v_n} subset V$ existiert, so dass $"Span" M = V$. Dann nennt man $V$ #bolditalic[endlich erzeugt] und sagt $V$ ist #bolditalic[endlichdimensional]. Ist $V$ nicht von endlich vielen Vektoren erzeugt, nennt man $V$ #bolditalic[unendlichdimensional].   
 ]
 
 #bolditalic[Beispiel 3.16:]
@@ -1540,7 +1540,7 @@ Ein $K$-Vektorraum $(V, +, dot)$ ist genau dann endlich, erzeugt, wenn er eine e
 
 "$<==$": endliche Basis $==>$ endliches Erzeugendensystem $==>$ endlich erzeugt
 
-"$==>$": Sei $V$ endlich erzeugt $==> exists v_1, ..., v_n: "Span"{v_1, ..., v_n} = V$. Ist dieses Erzuegendensystem nicht minimial, d.h. linear abhängig, dann folgt mit Satz 3.5, dass ein $v_i, 1 <= i <= n$, als Linearkombation der anderen $v_j, i != j$ dargestellt werden kann. Entfernen des $v_i$ liefert ein kleineres Erzeugendensystem. Wiederhole $n-1$-Mal, bis die verbleibende Menge linear unabhängig ist. Soimt enthält jedes endliche Erzeugendensystem ein minimales Erzeugendensystem und somit eine Basis.
+"$==>$": Sei $V$ endlich erzeugt $==> exists v_1, ..., v_n: "Span"{v_1, ..., v_n} = V$. Ist dieses Erzeugendensystem nicht minimial, d.h. linear abhängig, dann folgt mit Satz 3.5, dass ein $v_i, 1 <= i <= n$, als Linearkombation der anderen $v_j, i != j$ dargestellt werden kann. Entfernen des $v_i$ liefert ein kleineres Erzeugendensystem. Wiederhole $n-1$-Mal, bis die verbleibende Menge linear unabhängig ist. Somit enthält jedes endliche Erzeugendensystem ein minimales Erzeugendensystem und somit eine Basis.
 #endproof
 
 Für den unendlichdimensionalen Fall ist mehr Arbeit nötig:
@@ -1570,7 +1570,7 @@ Nach Lemma 1.26 über endliche Teilmengen von Ketten gibt es einen Index $tilde(
 
 Man kann eine Basis als Koordinatensystem in einem Vektorraum auffassen. Wichtig ist, dass Basen nicht eindeutig sind (vergleiche Beispiel 3.12). Eine sehr wichtige Frage der linearen Algebra ist: Welche Basis wählt man?
 
-#bolditalic[Beispiel 3.19:] Um aus einer im Verhältnis $1:1$ in Wasser gelösten System eine Lösung im Mischungsverhältnis $a:b$ zu bekommen, verdünnt man $y$ Teile der Lösung mit $x$ Teilen Wasser, so dass
+#bolditalic[Beispiel 3.19:] Um aus einer im Verhältnis $1:1$ in Wasser gelösten Substanz eine Lösung im Mischungsverhältnis $a:b$ zu bekommen, verdünnt man $y$ Teile der Lösung mit $x$ Teilen Wasser, so dass
 $
 x dot vec(1,1) + y dot vec(1,0) = vec(a, b) wide x"-Koordinate ist Wasser," y"-Koordinate ist Substanz"
 $
@@ -1634,7 +1634,7 @@ $
 
 #italic[Beweis:] Aus dem Basisergänzungssatz folgt, dass man das linear unabhängig System $u_1, ..., u_m$ zu einer Basis $u_1, ..., u_m, v_j_1, ..., v_j_k_0$ für ein $k_0 >= 0$ und geeignete Indizes $j_1, ..., j_k_0 in {1, ..., n}$ erweitern kann.
 
-Die Menge ${u_1, ..., u_(m-1), v_j_1, ..., v_j_k_0}$ ist immer noch linear unabhängig aber kein Basis. Aus dem Basisergänzungssatz folgt wieder, dass man diese Menge zu einer Basis ${u_1, ..., u_(m-1), v_j_1, ..., v_j_k_0, v_j_(k_0 + 1), ..., v_j_k_1}$ für ein $k_1 > k_0$ und weitere Indizes $j_(k_0 + 1), ..., v_k_1 in {1, ..., n}$. Setzt man dieses Verfahren induktiv $v$-mal fort, erhält man im $r$-ten Schritt eine Basis ${u_1, ..., u_(m - r), v_j_1, v_j_2, ..., v_j_k_(r - 1), v_j_(k_(r-1)+1), ...., v_j_k_r}$ für ein $k_r > k_(r-1)$ und weitere Indizes $j_(k_(r-1)+1), ..., j_k_r in {1, ..., n}$. Nach $m$ Schritten sind alle $u_i, 1 <= i <= m$ ersetzt. 
+Die Menge ${u_1, ..., u_(m-1), v_j_1, ..., v_j_k_0}$ ist immer noch linear unabhängig aber keine Basis. Aus dem Basisergänzungssatz folgt wieder, dass man diese Menge zu einer Basis ${u_1, ..., u_(m-1), v_j_1, ..., v_j_k_0, v_j_(k_0 + 1), ..., v_j_k_1}$ für ein $k_1 > k_0$ und weitere Indizes $j_(k_0 + 1), ..., v_k_1 in {1, ..., n}$. Setzt man dieses Verfahren induktiv $v$-mal fort, erhält man im $r$-ten Schritt eine Basis ${u_1, ..., u_(m - r), v_j_1, v_j_2, ..., v_j_k_(r - 1), v_j_(k_(r-1)+1), ...., v_j_k_r}$ für ein $k_r > k_(r-1)$ und weitere Indizes $j_(k_(r-1)+1), ..., j_k_r in {1, ..., n}$. Nach $m$ Schritten sind alle $u_i, 1 <= i <= m$ ersetzt. 
 
 Als neue Basis erhält man
 $
@@ -1712,7 +1712,7 @@ $
 $
 v_1 = vec(2, -1, 0) space v_2 = vec(-2, 3, 0) space v_3 = vec(-5, 0, 2)
 $
-gegeben. Sind diese liear unabhängig?
+gegeben. Sind diese linear unabhängig?
 $
 lambda_1 vec(2, -1, 0) + lambda_2 vec(-2, 3, 0) + lambda_3 vec(-5, 0, 2) attach(=, t: !) vec(0,0,0)
 $
@@ -1946,7 +1946,7 @@ $
 dim U_1 = dim U + dim W_1 \
 dim U_2 = dim U + dim W_2
 $
-durch einsetzen erhält man 
+durch Einsetzen erhält man 
 $
 dim U + dim(U_1 + U_2) = dim U_1 + dim U_2
 $
@@ -1979,7 +1979,7 @@ Nun behandeln wir Abbildungen, die zur Vektorstruktur "passen". Diese heißen li
   $
   V isomorph W
   $
-  Eine lineare Abbildung $f: V -> V$ heißt #bolditalic[Endomorphismus] und ein bijektiver Endomorphismus heißt #bolditalic[Automorhpismus].
+  Eine lineare Abbildung $f: V -> V$ heißt #bolditalic[Endomorphismus] und ein bijektiver Endomorphismus heißt #bolditalic[Automorphismus].
 ]
 
 #bolditalic[Bemerkung:] Als Übungsaufgabe: 
@@ -1994,7 +1994,7 @@ $
 &f(x + y) = a(x + y) + b \
 &f(x) + f(y) = a(x) + b + a(y) + b = a(x+y) + 2b
 $
-$f$ ist also nur eine lineare Abbildung, wenn $b = 0$ gilt. Streng genommen sind geraden der Form $f(x) = m x + n$ keine linearen Abbildung. Korrekt ist, sie als affine Abbildungen zu bezeichnen.
+$f$ ist also nur eine lineare Abbildung, wenn $b = 0$ gilt. Streng genommen sind Geraden der Form $f(x) = m x + n$ keine linearen Abbildung. Korrekt ist, sie als affine Abbildungen zu bezeichnen.
 
 #bolditalic[Beispiel 4.3:] Für $a, b, c, d in RR$ ist $f: RR^2 -> RR^2$
 $
@@ -2022,7 +2022,7 @@ $
 f(vec(1,0)) = (cos(45°), sin(45°)) = vec(1/sqrt(2), 1/sqrt(2))
 $
 
-#bolditalic[Beispiel 4.4:] Sei $V = C^infinity(RR)$ der reelle Vektorraum aller unendlichen oft differenzierbaren Funktionen $g: RR -> RR$ mit punktweisen Addition und skalaren Multiplikation. Dann ist 
+#bolditalic[Beispiel 4.4:] Sei $V = C^infinity(RR)$ der reelle Vektorraum aller unendlich oft differenzierbaren Funktionen $g: RR -> RR$ mit punktweisen Addition und skalaren Multiplikation. Dann ist 
 $
 d/(d x): V -> V, f arrow.bar f' = d/(d x) f
 $
@@ -2417,7 +2417,7 @@ $
 $
 dim(im(f)) = dim(im(tilde(g))) + dim(ker(tilde(g)))
 $
-Des weiteren gilt: $im(tilde(g)) := {g(v) in X | v in im(f)} = im(g circ f)$
+Des Weiteren gilt: $im(tilde(g)) := {g(v) in X | v in im(f)} = im(g circ f)$
 $
 ker(tilde(g)) = {v in im(f) | tilde(g)(v) = 0} = im(f) sect ker(g)
 $
@@ -2546,7 +2546,7 @@ ist $a_(2 3) = 6$, $(1, -2, 3) in ZZ^(1,3)$ die erste Zeile von $A$ und $b_(2 2)
 $
 vec(0,1,-1) in ZZ^(3,1)
 $
-die zweite Spalte von $B$. Keine dieser Matrizen inst quadratisch.
+die zweite Spalte von $B$. Keine dieser Matrizen ist quadratisch.
 
 #definition("5.3", "Addition von Matrizen")[
   Seien $A, B in R^(m, n)$ zwei Matrizen. Dann ist $C = A + B in R^(m,n)$ definiert durch
@@ -2660,7 +2660,7 @@ $
   $
   A = mat(a_(1 1), ..., a_(1 n); dots.v, dots.down, dots.v; a_(m 1), ..., a_(m n)) in R^(m times n)
   $
-  eine Matrix. Dann ist die zu $A$ #bolditalic[Transponierte] Matrix $A^top$ definert durch 
+  eine Matrix. Dann ist die zu $A$ #bolditalic[transponierte] Matrix $A^top$ definiert durch 
   $
   A^top := mat(a_(1 1), ..., a_(m 1); dots.v, dots.down, dots.v; a_(1 n), ..., a_(m n)) in R^(n times m)
   $
@@ -2670,7 +2670,7 @@ $
 $
 A = mat(1,-2,3;-4,5,6) in ZZ^(2,3)
 $
-tranponierte Matrix ist
+transponierte Matrix ist
 $
 A^top = mat(1, -4; -2, 5; 3, 6) in ZZ^(3,2)
 $
@@ -2718,7 +2718,7 @@ $
 
 #italic[Beweis:] 
 
-1) Folgt durch Nachrechnen unter Ausnutzung der Eigenschaften von $R$.
+1) Folgt durch nachrechnen unter Ausnutzung der Eigenschaften von $R$.
 
 2) Aufgrund der Rechenregeln ist $R^(m,n)$ abgeschlossen bezüglich der 
 $
@@ -2727,7 +2727,7 @@ $
 Zur Dimension: $A in R^(m,n)$ kann dargestellt werden durch
 $
 a_(1 1) dot mat(1, 0, ..., 0; dots.v, dots.v, dots.v, dots.v; 0, 0, ..., 0) + a_(1 2) dot mat(0, 1, ..., 0; dots.v, dots.v, dots.v, dots.v; 0, 0, ..., 0) + ... + a_(m n) dot mat(0, 0, ..., 0; dots.v, dots.v, dots.v, dots.v; 0, 0, ..., 1) \
-==> "Erzeugendensystem + linear unabhägnig" ==> "Basis" 
+==> "Erzeugendensystem + linear unabhängig" ==> "Basis" 
 $
 #endproof
 
@@ -2936,7 +2936,7 @@ bestimmt.
 $
 A_f^(3,3) = mat(1,-1,2;1,1,2;0,3,0) space -> space "rg(A)" = 2
 $
-für $S = {e_1, e_2, e_3}$. Beispeil 4.18: $"rg"(f) = dim(im(f))$.
+für $S = {e_1, e_2, e_3}$. Beispiel 4.18: $"rg"(f) = dim(im(f))$.
 
 #definition("5.22", "Spaltenrang, Zeilenrang")[
   Sei $A in K^(m,n)$, $K$ ein Körper, gegeben. Die Maximalzahl linear unabhängiger Spaltenvektoren von $A$ heißt #bolditalic[Spaltenrang] von $A$ und wird mit $"rg"_S (A)$ bezeichnet. Die Maximalzahl der linear unabhängigen Zeilenvektoren von $A$ heißt #bolditalic[Zeilenrang] von $A$ und wird mit $rg_Z (A)$ bezeichnet. 
@@ -2974,7 +2974,7 @@ gilt $rg(f) = 2 = rg_S (A_f^(S, S))$.
 
 Graphische Darstellung der Ergebnisse: $V, W$ sind $K$-Vektorräume, $B = {v_1, ..., v_n}$ ist Basis von $V$, $C = {w_1, ..., w_m}$ ist Basis von $W$. Für $f in L(V, W)$ gilt 
 
-Mit Satz 5.18 und dem Struktursatz 4.8 können die Ergebnisse mit folgenden #bold[kommutativen Diagramme] zusammengefaßt werden:
+Mit Satz 5.18 und dem Struktursatz 4.8 können die Ergebnisse mit folgenden #bold[kommutativen Diagramme] zusammengefasst werden:
 $
 space V space -->^f space W \
 Phi_B arrow.t space wide space arrow.t Phi_C \
@@ -3028,7 +3028,7 @@ Seien $V$ und $W$ zwei $K$-Vektorräume mit $dim(V) = n in NN$ und $dim(W) = m i
 $
 Phi_B: K^n -> V, space (x_1, ..., x_n) arrow.bar sum_(i = 1)^n x_i v_i
 $
-Die Kunst der linearen Algebra besteht darin, zu einem gegebenen Problem, welches durch eine lineare Abbildung beschreiben werden kann, geschicket Basen zu wählen, so dass die Darstellung möglichst einfach ist.
+Die Kunst der linearen Algebra besteht darin, zu einem gegebenen Problem, welches durch eine lineare Abbildung beschreiben werden kann, geschickt Basen zu wählen, so dass die Darstellung möglichst einfach ist.
 
 #bolditalic[Beispiel 5.26:] Sei $V = RR^2$. Für die Standardbasis $C = {e_1, e_2}$ erhält man 
 $
@@ -3209,7 +3209,7 @@ Ersetzt man den $k$-ten Einheitsvektor durch $e_k - e_i$, $i, k in{1, ..., m}$, 
 $
 caron(a)_1 = vec(a_(1 1), dots.v, a_(i 1), dots.v, a_(k 1), dots.v, a_(m 1)), space ... space, caron(a)_n = vec(a_(1 n), dots.v, a_(i n), dots.v, a_(k n) + a_(i n), dots.v, a_(m n))
 $
-Es folgt daraus wider, dass 
+Es folgt daraus wieder, dass 
 $
 rg_S (A) = dim("Span"(a_1, ..., a_m)) = dim("Span"(caron(a)_1, ..., caron(a)_n))
 $
@@ -3300,7 +3300,7 @@ $
 $
 #endproof
 
-#bolditalic[Satz 6.3:] Sei $L_0 = cal(L)(A, 0)$, d.h. die Menge aller Lösungen des homegenen linearen Gleichungssystems (LGS). Dann ist $L_0 subset.eq K^n$ ein Unterraum der Dimension
+#bolditalic[Satz 6.3:] Sei $L_0 = cal(L)(A, 0)$, d.h. die Menge aller Lösungen des homogenen linearen Gleichungssystems (LGS). Dann ist $L_0 subset.eq K^n$ ein Unterraum der Dimension
 $
 dim L_0 = n - underbrace(rg_S (A), <=n) >= 0
 $
@@ -3470,7 +3470,7 @@ $
   #v(-6pt)
   #align(center, "'Neun Bücher zu arithmetische Technik' (ca. 200 v. Chr. in China)")
 ][
-  siehe LR-(bzw LK) Zerlegung in der numerichen linearen Algebra
+  siehe LR-(bzw LK) Zerlegung in der numerischen linearen Algebra
 ]
 Wann ist ein LGS einfach lösbar?
 wenn 
@@ -3527,7 +3527,7 @@ hier: $A in K^(m,n)$, $K$ Körper
 #boxedlist[
   $m in NN$, $i,j in {1, ..., m}$, $I_m in K^(m,m)$ als Einheitsmatrix 
   #h(-2pt)
-  $e_i corres$ $i$-ter Einheitsvektore
+  $e_i corres$ $i$-ter Einheitsvektor
   #h(-2pt)
   $==> I_m = (e_1, e_2, ..., e_m)$
   ][
@@ -3625,7 +3625,7 @@ Für $A != 0$ sei $j_1$ der Index der ersten Spalte von
 $
 A^((1)) = (a^((1))_(i j)) := A
 $
-die nicht aus lauter Nullstellen besteht. 
+die nicht aus lauter Nullen besteht. 
 #v(-5mm)
 #figure(
   image("bilder/610_2.jpeg", width: 40%)
@@ -3643,7 +3643,7 @@ Jetzt: Vertauschen der Zeilen $1$ und $i_1$ falls $i_1 > 1$ und normieren der er
   image("bilder/610_4.jpg", width: 60%)
 )
 
-Anschließend werden alle Einträge unterhalb des Eintrags $(1, j_1)$ mit Wert $1$ elminiert und man erhält  
+Anschließend werden alle Einträge unterhalb des Eintrags $(1, j_1)$ mit Wert $1$ eliminiert und man erhält  
 
 #figure(
   image("bilder/610_56.jpeg", width: 100%)
