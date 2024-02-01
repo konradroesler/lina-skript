@@ -2600,7 +2600,7 @@ Oder Zeile "mal" Spalte. ("mal" $corres$ Skalarprodukt)
 
 #bolditalic[Beispiel 5.6:] Für die Matrizen
 $
-A = mat(1, -2, 3; -4, 5, 6) in ZZ^(2,3), space B = mat(-1, 0; 0, 1; 1, -1) in ZZ^(3,2) space "und" space C = mat(1, 3, 5; 2, 4, 6) in ZZ^(3, 2) 
+A = mat(1, -2, 3; -4, 5, 6) in ZZ^(2,3), space B = mat(-1, 0; 0, 1; 1, -1) in ZZ^(3,2) space "und" space C = mat(1, 2; 3, 4; 5, 6) in ZZ^(3, 2) 
 $
 gilt:
 
@@ -3348,7 +3348,7 @@ cal(L)(A,b) != emptyset
 $
 D.h. die Menge aller Lösungen von (LGS) ist nicht leer. Dann gilt: Es gibt $x^* in cal(L)(A, b)$ und 
 $
-cal(L) (A,b) = {x in K^n | x = x^* + y }
+cal(L) (A,b) = {x in K^n | x = x^* + y , $y in cal(L)(A,0) }
 $
 D.h. die Menge aller Lösungen von (LGS) erhält man aus einer speziellen Lösung des inhomogenen linearen Gleichungssystems und Addition sämtlicher Lösungen des zugehörigen homogenen LGS.
 
