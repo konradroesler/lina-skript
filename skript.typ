@@ -418,13 +418,9 @@ Aus Satz 1.22 2) folgt, dass die Äquivalenzklassen eine disjunkte Zerlegung der
 
 #bolditalic[Beispiel 1.24:] Sei $cal(S) = P({2, 4, 6, 8, 10})$
 
-Dann ist 
-$
-cal(K) = {emptyset, {2}, {2, 6}, {2, 6, 10}} subset.eq cal(S)
-$
-Die Menge $K = {2, 6, 10}$, das maximale Element von $cal(S)$ ist $hat(S) = {2, 4, 6, 8, 10}$.
-
-#align(center, [Gibt es immer ein maximales Element?])
+Dann ist $cal(K) = {emptyset, {2}, {2, 6}, {2, 6, 10}} subset.eq cal(S)$ eine Kette.\
+Die Menge $K = {2, 6, 10}$ ist die obere Schranke von $cal(K)$,\
+das maximale Element von $cal(S)$ ist $hat(S) = {2, 4, 6, 8, 10}$.
 
 #bolditalic[Lemma 1.25: Zornsche Lemma]
 
@@ -629,7 +625,7 @@ Algebraische Strukturen erlauben es uns, abstrakte Konzepte aus konkreten Beispi
 
 == Gruppen
 
-#definition("2.1", "innere Verknüpfung, Halbgruppe")[Sei $M$ eine nichtleere Menge. Eine Abbildung $circ: M times M arrow M, space (a, b) arrow.bar a circ b$ heißt #bolditalic[(innere) Verknüpfung] auf $M$. Gilt: $(a circ b) circ c =  a circ (b circ c)$, dann heißt die Verknüpfung #bolditalic[assoziativ] und $(M, circ)$ eise #bolditalic[Halbgruppe]. Gilt für eine Halbgruppe, dass $a circ b = b circ a$, so heißt die Halbgruppe #bolditalic[abelsch] oder #bolditalic[kommutativ].]
+#definition("2.1", "innere Verknüpfung, Halbgruppe")[Sei $M$ eine nichtleere Menge. Eine Abbildung $circ: M times M arrow M, space (a, b) arrow.bar a circ b$ heißt #bolditalic[(innere) Verknüpfung] auf $M$. Gilt: $(a circ b) circ c =  a circ (b circ c)$, dann heißt die Verknüpfung #bolditalic[assoziativ] und $(M, circ)$ eine #bolditalic[Halbgruppe]. Gilt für eine Halbgruppe, dass $a circ b = b circ a$, so heißt die Halbgruppe #bolditalic[abelsch] oder #bolditalic[kommutativ].]
 
 Je nach Kontext kann die Notation einer Verknüpfung variieren. ($a circ b$, $a dot b$, $a b$)
 
@@ -756,7 +752,7 @@ Anhand der Verknüpfungstabellen erkennt man, dass $(FF_2, +)$ mit dem neutralen
 2. #[
   Annahme: Seien $b in M$ und $tilde(b) in M$ inverse Elemente zu $a in M$. 
 
-  zu zeigen: $z = tilde(z)$
+  zu zeigen: $b = tilde(b)$
 
   Dann gilt: 
   $
@@ -1021,7 +1017,7 @@ RR arrow M, space x arrow.bar (x, 0)
 $
 identifizieren. Mit $0_RR arrow.bar (0, 0) = 0_CC$, $1_RR arrow.bar (1, 0) = 1_CC$ kann man $M$ als Teilkörper von $CC$ auffassen. Es gilt jedoch auch $RR subset.eq.not CC$ (zumindest in LinA).
 
-Eine besondere komplexe zahl ist die imaginäre Einheit $(0, 1)$, für die gilt:
+Eine besondere komplexe Zahl ist die imaginäre Einheit $(0, 1)$, für die gilt:
 $
 (0, 1) dot (0, 1) = (-1, 0) corres -1
 $
@@ -1063,7 +1059,7 @@ $
 
 Gegeben sind reelle Zahlen $a, b, c in RR$. Gesucht ist ein Polynom zweiten Grades $p(t) in P[t]$ mit 
 $
-p(1) = a wide p(2) = b) wide p(3) = c
+p(1) = a wide p(2) = b wide p(3) = c
 $
 für ein $p(t) = a_0 + a_1 t + a_2 t^2$. D.h. es muss gelten:
 $
@@ -1146,7 +1142,7 @@ Da $K$ ein Körper ist, ist die so definierte skalare Multiplikation assoziativ,
 
 #bolditalic[Beispiel 2.28:] Polynome 
 
-Die Menge $P[t]$ aller Polynome über einen Körper $K$ mit der Unbekannten $t$ bilden einen $K$-Vektorraum, wenn die Addition von Polynomen wie in Beispiel 2.17 definiert ist nd die skalare Multiplikation für ein $p(t) = a_0 + a_1 t + ... a_n t^n in P[t]$ definiert ist durch:
+Die Menge $P[t]$ aller Polynome über einen Körper $K$ mit der Unbekannten $t$ bilden einen $K$-Vektorraum, wenn die Addition von Polynomen wie in Beispiel 2.17 definiert ist und die skalare Multiplikation für ein $p(t) = a_0 + a_1 t + ... a_n t^n in P[t]$ definiert ist durch:
 $
 dot: K times P[t] arrow P[t] \
 \
@@ -1220,7 +1216,7 @@ Ist $U$ nicht abgeschlossen bezüglich der Addition und der skalaren Multiplikat
 
 #bolditalic[Beispiel 2.33:] 
 
-#boxedlist[Jeder Vektorraum $(V, +, dot)$ hat die Vektorräume $(U = V, + dot)$ und $(U = {0_V}, +, dot)$][Für jedes $u in NN_0$ ist die Menge aller Polynome mit dem Grad kleiner gleich $n$, d.h. die Menge $P[t]_(<=n) = {p(t) in P[t] | "Grad"(p) <= n}$ ist mit den Verknüpfungen aus Beispiel 2.28 ein Unterraum von $(P[t], +, dot)$]
+#boxedlist[Jeder Vektorraum $(V, +, dot)$ hat die Vektorräume $(U = V, + dot)$ und $(U = {0_V}, +, dot)$][Für jedes $u in NN_0$ ist die Menge aller Polynome mit dem Grad kleiner gleich $n$, d.h. die Menge $P[t]_(<=n) = {p(t) in P[t] | "Grad"(p) <= n}$ mit den Verknüpfungen aus Beispiel 2.28 ein Unterraum von $(P[t], +, dot)$]
 
 #definition("2.34", "Linearkombination")[
   Seien $(V, +, dot)$ ein $K$-Vektorraum, $n in NN$ und $v_1, ..., v_n in V$. Ein Vektor der Form 
@@ -1312,7 +1308,7 @@ Hier: $==>$ linear abhängig
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. Ein einzelner Vektor ist genau dann linear unabhängig, wenn $v != 0_V$ gilt
   2. Sind $v_1, ..., v_n in V$ linear unabhängig und ist ${u_1, ..., u_m} subset.eq {v_1, ..., v_n}$, dann ist auch die Menge $u_1, ..., u_m$ linear unabhängig
-  3. Sind $v_1, ..., v_n in V$ linear abhängig und $u_1, ..., u_m in V$. Dann ist auch $v_1, ..., v_n, u_, ..., u_m$ linear abhängig 
+  3. Sind $v_1, ..., v_n in V$ linear abhängig und $u_1, ..., u_m in V$. Dann ist auch $v_1, ..., v_n, u_1, ..., u_m$ linear abhängig 
 ]
 
 #italic[Beweis:]
@@ -1361,7 +1357,7 @@ Dies ist ein Widerspruch dazu, dass man $v$ nicht als Linearkombination darstell
   "Span"{v_m}_(m in M) := {#box(width: auto, height: 0.7cm, [
     $ 
     v in V | exists space.sixth n in NN "und endliche Teilmenge" J subset M, \
-    abs(j) = n "mit" v in "Span"{v_j}_(j in J) 
+    abs(J) = n "mit" v in "Span"{v_j}_(j in J) 
     $
   ])}
   $
@@ -1399,7 +1395,7 @@ Angenommen ${v_m}_(m in M)$ wäre linear unabhängig. Dann existiert ein endlich
 
 Sei $v in "Span"{v_m}_(m in M)$, d.h. es existiert ein endliches $I subset.eq M$ mit $mu_k in K$ für alle $k in I$ mit 
 $
-v = sum_(k in I) mu_k v_k ==> v + 0 = lambda_(k in I) mu_k v_n + sum_(k in J) lambda_k v_k = sum_(k in I union J) (mu_k + lambda_k) v_k
+v = sum_(k in I) mu_k v_k ==> v + 0 = sum_(k in I) mu_k v_n + sum_(k in J) lambda_k v_k = sum_(k in I union J) (mu_k + lambda_k) v_k
 $
 Es gilt wieder $mu_k = 0$ für $k in J backslash I$ und $lambda_k = 0$ für $k in I backslash J$. Da für mindestens ein $k in J union I$, $(mu_k + lambda_k) != lambda_k$, ist dies eine zweite Darstellung von $v$.
 #endproof
