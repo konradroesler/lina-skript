@@ -3483,7 +3483,7 @@ Diese Gestalt der Matrix $A$ heißt #bolditalic[Treppennormalform] (wird auch al
 
 Warum einfach?
 
-Spaltenvertauschungen ändern den Rang nicht und können aus Multiplikation mit einer invertierbaren Matrix interpretiert werden.
+Spaltenvertauschungen ändern den Rang nicht und können als Multiplikation mit einer invertierbaren Matrix interpretiert werden.
 
 $==>$ Lösungsraum bleibt gleich
 
