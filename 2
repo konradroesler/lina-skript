@@ -3600,9 +3600,7 @@ I_n = C = underbrace(S_t dots.h.c S_1 A, =: A^(-1))
 $
 
 "$==>$": $A$ invertierbar und $S_1, ..., S_t$ invertierbar. Das Produkt von invertierbaren Matrizen ist invertierbar $==>$ $C$ invertierbar $==>$ $C$ kann keine Nullzeilen bzw. Spalten enthalten $==>$ $C = I_n$
-]
-
-#boxedlist[
+][
   Da Spaltenvertauschungen den Spaltenrang einer Matrix nicht ändern (Lemma 5.31) ist nun folgende Definition sinnvoll:
 
   Der #bolditalic[Rang einer Matrix] $rg(A)$ einer Matrix $A in K^(m,n)$ ist definiert als 
@@ -3646,23 +3644,26 @@ Jetzt: Vertauschen der Zeilen $1$ und $i_1$ falls $i_1 > 1$ und normieren der er
 Anschließend werden alle Einträge unterhalb des Eintrags $(1, j_1)$ mit Wert $1$ elminiert und man erhält  
 
 #figure(
-  image("bilder/610_56.jpeg", width: 100%)
+  image("bilder/610_56.jpeg", width: 80%)
 )
 
-mit $A^((2)) in K^(m-1, n-j_1)$. Ist $A^((2)) = ()$, d.h. $m-1 = 0, n-j_1 = 0$ oder $A^((2)) = 0$ $in K^(m-1, n -j_1)$, sind wir fertig, da $C := S_1 A$ in Treppenform ist und $t = 1$.
+#figure(
+  image("bilder/610_78.jpeg", width: 80%)
+)
+
+mit $A^((2)) in K^(m-1, n-j_1)$. Ist $A^((2)) = ()$, d.h. $m-1 = 0, n-j_1 = 0$ oder $A^((2)) = 0 in K^(m-1, n -j_1)$, sind wir fertig, da $C := S_1 A$ in Treppenform ist und $t = 1$.
 
 Ist mindestens ein Eintrag von $A_((2))$ ungleich Null, so führt man die obigen Schritte für die Matrix $A^((2))$ aus.
 
 Für $k = 2, 3, ...$ werden die Matrizen $S_k$ rekursiv durch
-
-#figure(
-  image("bilder/610_78.jpeg", width: 40%)
-)
-
-wobei die Matrix $tilde(S)_k$ analog zu $S_1$ konstruiert wird. 
-
+$
+S_k = (I_(k -1), 0; 0, tilde(S)_k) "und" \
+tilde(S)_k A^((k)) = #figure(image("bilder/610_9.jpg", width: 80%))
+$
+wobei die Matrix $tilde(S)_k$ analog zu $S_1$ konstruiert wird. D.h., es gilt 
+$
+tilde(S)_k = G_(m k) (-tilde(a)^((k))_(m j_k)) dots.h.c G_("loch") M_k ((a^((k))_(i_k j_k))^(-1)) P_(k i_k)
+$
 $S_k$ ist wieder ein Produkt von Elementarmatrizen. Dieses Verfahren bricht nach $r <= min{m,n}$ Schritten ab. Wenn entweder $A^((r+1)) = 0$ oder $A^((r+1)) = ()$. $==>$ Nach $r$ Schritten erhält man damit die Zeilenstufenform.
 
-#figure(
-  image("bilder/610_9.jpg", width: 60%)
-)
+#align(center, italic[große Matrix])
