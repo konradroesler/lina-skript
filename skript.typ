@@ -3325,7 +3325,9 @@ $
   $
   L_0 = {0} ==> 0 = n - rg_S (A) ==> rg_S (A) = n
   $
-][
+]
+
+#boxedlist[
   Im Fall $m = n$, dann gilt für das homogene Gleichungssystem $A x = b$
   $
   L_0 = {0} <==> A "invertierbar, d.h." A in "GL"_n (K)
