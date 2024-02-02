@@ -3348,7 +3348,7 @@ cal(L)(A,b) != emptyset
 $
 D.h. die Menge aller Lösungen von (LGS) ist nicht leer. Dann gilt: Es gibt $x^* in cal(L)(A, b)$ und 
 $
-cal(L) (A,b) = {x in K^n | x = x^* + y , $y in cal(L)(A,0)$ }
+cal(L) (A,b) = {x in K^n | x = x^* + y , y in cal(L)(A,0) }
 $
 D.h. die Menge aller Lösungen von (LGS) erhält man aus einer speziellen Lösung des inhomogenen linearen Gleichungssystems und Addition sämtlicher Lösungen des zugehörigen homogenen LGS.
 
