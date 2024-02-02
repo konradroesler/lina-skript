@@ -3662,3 +3662,4 @@ $S_k$ ist wieder ein Produkt von Elementarmatrizen. Dieses Verfahren bricht nach
 #figure(
   image("bilder/610_9.jpg", width: 60%)
 )
+
