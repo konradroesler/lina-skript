@@ -2107,7 +2107,7 @@ die inverse Koordinatenabbildung.
 
 Um eine lineare Abbildung zu definieren, reicht es ihre Werte auf einer beliebigen Basis anzugeben.
 
-#bolditalic[Lemma 4.10:] Sei $V$ ein endlichdimensionaler Vektorraum über $K$ mit einer Basis $B := {v_1, .., v_n}$, $W$ ein beliebiger $K$-Vektorraum und $C = {w_1, ..., w_n}$ einer Familie von Vektoren in $W$. Dann gibt es genau eine lineare Abbildung $f$ von $V$ nach $W$ mit 
+#bolditalic[Lemma 4.10:] Sei $V$ ein endlichdimensionaler Vektorraum über $K$ mit einer Basis $B := {v_1, .., v_n}$, $W$ ein beliebiger $K$-Vektorraum und $C = {w_1, ..., w_n}$ eine Familie von Vektoren in $W$. Dann gibt es genau eine lineare Abbildung $f$ von $V$ nach $W$ mit 
 $
 f(v_i) = w_i "für" 1 <= i <=n
 $
@@ -2202,7 +2202,7 @@ Kern und Bild wurden bereits im Kapitel 2 behandelt. Hier behandeln wir die Konz
 
 #italic[Beweis:]
 
-zu 1) $0_V in ker(f) ==> ker(f) != emptyset$. Weitherhin ist $ker(f)$ abgeschlossen bezüglich Addition und Multiplikation, denn sei $x, tilde(x) in ker(f), lambda, mu in K$.
+zu 1) $0_V in ker(f) ==> ker(f) != emptyset$. Weitherhin ist $ker(f)$ abgeschlossen bezüglich der Addition und Multiplikation, denn sei $x, tilde(x) in ker(f), lambda, mu in K$.
 
 Zu zeigen: $lambda x + mu tilde(x) in ker(f)$
 $
@@ -2429,7 +2429,7 @@ mit Koeffizienten $a_(i j) in K$ für $1 <= i <= m$ und $1 <= j <= n$.
 
 "$==>$": Sei $f in L(K^n, K^m)$. Zu zeigen: $f$ ist in angegebener Form darzustellen. 
 
-#bolditalic[Beobachtung:] Wenn $f$ so darstellbar ist, haben alle Bilder der Standardbasis $e_1, ..., e_n$:
+#bolditalic[Beobachtung:] Wenn $f$ so darstellbar ist, haben alle Bilder der Standardbasis $e_1, ..., e_n$ folgende Form:
 $
 f(e_i) = vec(a_(1 i), dots.v, a_(m i)) in K^m
 $
@@ -2452,7 +2452,7 @@ Dieses Resultat motiviert das nächste Kapitel:
 
 = Matrizen
 
-James Sylvester (brit. Mathematiker, 1814 - 1897) erfand den Begriff der Matrix im Jahr 1850. Die im folgenden definierte Matrixoperationen führte Arthur Cayley (brit. Mathematiker, 1821 - 1895) im Jahr 1858 ein.
+James Sylvester (brit. Mathematiker, 1814 - 1897) erfand den Begriff der Matrix im Jahr 1850. Die im Folgenden definierte Matrixoperationen führte Arthur Cayley (brit. Mathematiker, 1821 - 1895) im Jahr 1858 ein.
 
 == Definitionen und Basisoperationen
 
@@ -2561,7 +2561,7 @@ die zweite Spalte von $B$. Keine dieser Matrizen ist quadratisch.
           a_(m 1) + b_(m 1), ..., a_(m n) + b_(m n);
         )
   $
-  Die Addition in $R^(m,n)$ erfolgt also komponentenweise basieren auf der Addition auf $R$.
+  Die Addition in $R^(m,n)$ erfolgt also komponentenweise basierend auf der Addition in $R$.
 ]
 
 #bolditalic[Achtung:] Die Addition ist nur für Matrizen gleicher Größe / Dimension definiert.
@@ -2868,7 +2868,7 @@ $==> F$ linear
 
 noch zu zeigen: $F$ ist bijektiv
 
-Sei $f in "ker"(F)$, dann $F(f) = 0 in K^(m,n)$. Also ist $f(v_j) = 0$ for $j = 1, ..., n$. Da ${v_1, ..., v_n}$ eine Basis von $V$ ist, folgt für alle $v in V:$
+Sei $f in "ker"(F)$, dann $F(f) = 0 in K^(m,n)$. Also ist $f(v_j) = 0$ für $j = 1, ..., n$. Da ${v_1, ..., v_n}$ eine Basis von $V$ ist, folgt für alle $v in V:$
 $
 f(v) = f(sum_(j = 1)^n lambda_j v_j) attach(=, t: f "linear") sum_(j = 1)^n lambda_j underbrace(f(v_j), 0 in W) = 0 in W \
 ==> f = 0 in L(V, W) ==> "ker"(F) = {0} ==>^"Lemma 4.15" F "injektiv"
@@ -2919,7 +2919,7 @@ fordern, da $n != m$ gelten kann.][
     ]
 
 #definition("5.19", "Matrixdarstellung")[
-  Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ sowie $f in L(V, W)$. Die durch Satz 5.18 eindeutig bestimmte Matrix $A_f^(B,C) in K^(m, n)$ heißt #bolditalic[Matrixdarstellung] oder die #bolditalic[darstellende Matrix] von $f in L(V, W)$ bezüglich der Basen $B$ und $C$
+  Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ sowie $f in L(V, W)$. Die durch Satz 5.18 eindeutig bestimmte Matrix $A_f^(B,C) in K^(m, n)$ heißt #bolditalic[Matrixdarstellung] oder die #bolditalic[darstellende Matrix] von $f in L(V, W)$ bezüglich der Basen $B$ und $C$.
   ]
 
 #bolditalic[Beispiel 5.20:] Fortsetzung von Beispiel 4.3. Die lineare Abbildung $f: RR^2 -> RR^2$ einer Drehung im $RR^2$ für einen gegebenen Winkel $phi in RR$ bezüglich der Standardbasis $S = {e_1, e_2}$ ist eindeutig durch die Darstellungsmatrix
@@ -3062,7 +3062,7 @@ siehe Satz 1.38.
 
 #boxedlist[$Phi_C: K^n -> V$ die Identität, d.h. $A^(C,C)_(Phi_C) = I_n$ (siehe oben)][$Phi_(B,C) = Phi^(-1)_C circ Phi_B = Phi_B space ==> space Phi_(B,C) (e_i) = Phi_B (e_i) = v_i$]
 
-Die zum Basiswechsel gehörende Matrix $A_(Phi_(B,C))^(B,C)$ von einer gegebenen Basis $B = {v_1, ..., v_n}$ zur Standardbasis ist die Matrix, deren Spalten den Basisvektorenvon $B$ entsprechen, d.h.
+Die zum Basiswechsel gehörende Matrix $A_(Phi_(B,C))^(B,C)$ von einer gegebenen Basis $B = {v_1, ..., v_n}$ zur Standardbasis ist die Matrix, deren Spalten den Basisvektoren von $B$ entsprechen, d.h.
 $
 A_(Phi_(B,C))^(B,C) = mat(v_1, v_2, ..., v_n) wide #italic[$v_i$ ist immer ein Spaltenvektor]
 $
@@ -3245,14 +3245,14 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
     Existenz einer Lösung? Unter welchen Bedingungen besitzt (LGS) überhaupt Lösungen?
   ]
   2. #[
-    Lösungsmannigfaltigkeiten: Wann (LGS) mindestens eine Lösungs besitzt: Unter welchen Bedingungen gibt es genau eine Lösung? Wenn es mehrere Lösungen gibt: Wie ist die Struktur der Lösungsmenge?
+    Lösungsmannigfaltigkeiten: Wann (LGS) mindestens eine Lösung besitzt: Unter welchen Bedingungen gibt es genau eine Lösung? Wenn es mehrere Lösungen gibt: Wie ist die Struktur der Lösungsmenge?
   ]
   3. #[
     Lösungsverfahren: Wie kann man Lösungen von (LGS) praktisch berechnen? 
     ]
 ]
  
-#bolditalic[Hier:] Fragen 1 + 2), etwas zu 3). Beantwortung von 3): Numerischer Linearen Algebra
+#bolditalic[Hier:] Fragen 1 + 2), etwas zu 3). Beantwortung von 3): Numerische Lineare Algebra
 
 == Existenz von Lösungen und Lösungsmengen
 
@@ -3316,7 +3316,7 @@ $
 #bolditalic[Folgerungen:]
 
 #boxedlist[
-  Ist $m>=n$ und gilt $rg_S (A) = n$, so besitzt (LGS) für $b = 0$ nur die triviale $x^* = 0$, denn aus dem letzen Satz folgt
+  Ist $m>=n$ und gilt $rg_S (A) = n$, so besitzt (LGS) für $b = 0$ nur die triviale Lösung $x^* = 0$, denn aus dem letzen Satz folgt
   $
   dim L_0 = n - rg_S (A) = n - n = 0 ==> L_0 = {0}
   $
@@ -3348,7 +3348,7 @@ cal(L)(A,b) != emptyset
 $
 D.h. die Menge aller Lösungen von (LGS) ist nicht leer. Dann gilt: Es gibt $x^* in cal(L)(A, b)$ und 
 $
-cal(L) (A,b) = {x in K^n | x = x^* + y , $y in cal(L)(A,0) }
+cal(L) (A,b) = {x in K^n | x = x^* + y , $y in cal(L)(A,0)$ }
 $
 D.h. die Menge aller Lösungen von (LGS) erhält man aus einer speziellen Lösung des inhomogenen linearen Gleichungssystems und Addition sämtlicher Lösungen des zugehörigen homogenen LGS.
 
@@ -3369,7 +3369,7 @@ $
 
 Was ist die "Größe" des Lösungsraumes?
 
-Problem: $cal(L)(A, b)$ ist ja keine Unterraum, da für $b != 0, x = 0 in.not cal(L)(A, b)$ gilt. Deswegen: Übertragung des Dimensionsbegriffs auf Mengen dieser Struktur.
+Problem: $cal(L)(A, b)$ ist ja kein Unterraum, da für $b != 0, x = 0 in.not cal(L)(A, b)$ gilt. Deswegen: Übertragung des Dimensionsbegriffs auf Mengen dieser Struktur.
 
 #definition("6.5", "Affiner Unterraum")[
   Sei $V$ ein $K$-Vektorraum. Eine Teilmenge $U subset V$ heißt #bolditalic[affiner Unterraum] falls es ein $v in V$ und einen Unterrvektorraum $W$ gibt, so dass
