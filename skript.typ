@@ -3296,6 +3296,13 @@ $
 $
 #endproof
 
+#bolditalic[Folgerung:] Ist $m<=n$ und gilt, dass $rg_S (A) = m$, so besitzt (LGS) mindestens eine Lösung. 
+
+Denn: Wegen $m<=n$ spannen die Spaltenvektoren $a_1, ..., a_m, a_(m+1), ..., a_n$ $in K^m$ von $A$ des $K^m$ auf.
+$
+==> rg_S (A) = m = rg_S(A_"erw")
+$
+
 #bolditalic[Satz 6.3:] Sei $L_0 = cal(L)(A, 0)$, d.h. die Menge aller Lösungen des homogenen linearen Gleichungssystems (LGS). Dann ist $L_0 subset.eq K^n$ ein Unterraum der Dimension
 $
 dim L_0 = n - underbrace(rg_S (A), <=n) >= 0
@@ -3394,7 +3401,7 @@ so folgt $W = tilde(W)$ und $tilde(v) - v in W$
 
 #italic[Beweis:] $U = v + W$, $tilde(v) in U ==>$ $exists overline(w) in W: tilde(v) = v + overline(w) ==>$ $v = tilde(v) - overline(w)$
 
-1) $U subset.eq tilde(v) + W$
+1 $U subset.eq tilde(v) + W$
 
 $
 u in U ==> u = v + w "mit" w in W \
@@ -3556,7 +3563,7 @@ G_(i j) (lambda) = I_m + lambda E_(i j) = mat(e_1, ..., e_(i - 1), e_i + lambda 
 $
 D.h. die $j$-te Spalte von $G_(i j) (lambda)$ ist $e_j + lambda e_i$. Multipliziert man $A in K^(m,n)$, so wird das $lambda$-fache der $i$-ten Zeile von $A$ zur $j$-ten Zeile von $A$ addiert. 
 
-Das Produkt $space G_(i j) (lambda) dot A space$ bewirkt, dass das $lambda$-fache der $j$-ten Zeile zur $i$-ten Zeile von $A$ addiert wird.
+Das Produkt $space G_(i j) (lambda)^T dot A space$ bewirkt, dass das $lambda$-fache der $j$-ten Zeile zur $i$-ten Zeile von $A$ addiert wird.
 ]
 
 #boxedlist[
