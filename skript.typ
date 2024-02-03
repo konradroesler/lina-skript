@@ -1599,7 +1599,7 @@ B := {w_k}_(k in I union tilde(J)) "mit" w_k := cases(u_i"," space &k = i in I, 
 $
 eine Basis von $V$ bildet.
 
-#italic[Beweis:] Sei $tilde(J) subset.eq J$ eine bezüglich $subset.eq$ maximal gewählte Teilmenge mit der Eigenschaft, dass $B$ wie im Satz definiert, ein linear unabhängiges System ist. Für endliche Mengen $J$ ist das klar (siehe Lemma 3.17). Für Mengen mit unendlich vielen Elementen folgt aus dem zornschen Lemma (Satz 3.18). Damit: $B$ ist ein maximales linear unabhängiges System.
+#italic[Beweis:] Sei $tilde(J) subset.eq J$ eine bezüglich $subset.eq$ maximal gewählte Teilmenge mit der Eigenschaft, dass $B$ wie im Satz definiert, ein linear unabhängiges System ist. Für endliche Mengen $J$ ist das klar (siehe Lemma 3.17). Für Mengen mit unendlich vielen Elementen folgt dies aus dem zornschen Lemma (Satz 3.18). Damit: $B$ ist ein maximales linear unabhängiges System.
 
 Wegen der Maximalität ist für jeden Index $j in J backslash tilde(J)$ das System $B union {v_j}$ linear abhängig
 $==> exists lambda, lambda_i in K, i in I union tilde(J):$
@@ -1700,7 +1700,7 @@ $
 
 #bolditalic[Beispiel 3.28:] Sei $K$ ein Körper. Es gilt 
 
-#boxedlist[$dim_K (V) = n$ genau dann, wenn $V = {0}$][
+#boxedlist[$dim_K (V) = 0$ genau dann, wenn $V = {0}$][
   für $V = K^n$ folgt mit der Standardbasis, dass $dim_K (V) = n$][für die Dimension eines Vektorraums ist der jeweilige Grundkörper $K$ entscheident, z.B. $CC$ und $K = CC$ gilt $dim_CC V = 1$ für $K = RR$ aber $dim_RR V = 2$. 
 ][der $K$-Vektorraum $P[t]$ ist nicht endlich erzeugt, also $dim_K P[t] = infinity$]
 
