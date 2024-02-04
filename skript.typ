@@ -1795,7 +1795,7 @@ Also gilt: $U_1 + U_2 = V$, insbesondere gilt auch $dim(U_1 + U_2) = 3$, $dim U_
 $
 v_1 vec(1,0,0) in U_1 "und" v_2 vec(0, 1, 0) + v_3 vec(0, 0, 1) in U_2
 $
-Aslo ist die Darstellung von $v$ als Summe #bolditalic[nicht] eindeutig. Insbesondere ist $dim(U_1 sect U_2) = 1$.
+Also ist die Darstellung von $v$ als Summe #bolditalic[nicht] eindeutig. Insbesondere ist $dim(U_1 sect U_2) = 1$.
 
 #bolditalic[Lemma 3.35:] Sei $V$ ein $K$-VR und $r in NN$ und $U_1, ..., U_r$ Untervektorräume von $V$. Dann sind folgende Aussagen äquivalent.
 
@@ -1858,7 +1858,7 @@ Sei $V$ ein $K$-VR. Seien $U_1, U_2$ UVRs von $V$. Dann gilt
 $
 dim(U_1 + U_2) <= dim U_1 + dim U_2 space (ast)
 $
-Falls $U_1 oplus U_2$ gilt sogar Gleichheit.
+Falls $U_1 oplus U_2$, gilt sogar Gleichheit.
 
 Dabei sei $infinity + infinity = infinity, infinity + n = infinity, n <= infinity "für" n in NN$ und es gilt $infinity <= infinity$.
 
@@ -1887,7 +1887,7 @@ Da $U_1 oplus U_2$ folgt $v = 0 = w$. Da $u_i, i in {1, ..., m}$ eine Basis von 
 $==>$ $dim U_1 + dim U_2 = m + l <= dim(U_1 + U_2)$
 #endproof
 
-#bolditalic[Satz 3.38:] Sei $V$ ein $K$-VR und $U$ ein UVR von $V$. Dann existiert ein Untervektorraum $U^top subset.eq V$ mit $V = U oplus U^top$ (heißt $V = U + U^top$ und $U oplus U oplus U^top$). Insbesondere gilt dann 
+#bolditalic[Satz 3.38:] Sei $V$ ein $K$-VR und $U$ ein UVR von $V$. Dann existiert ein Untervektorraum $U^top subset.eq V$ mit $V = U oplus U^top$ (heißt $V = U + U^top$ und $U oplus U^top$). Insbesondere gilt dann 
 $
 dim V = dim U + dim U^top
 $
@@ -1907,7 +1907,7 @@ die Eindeutigkeit der $lambda_k, k in I union J$ garantiert die Eindeutigkeit vo
 
 Ein durch Satz 3.38 aus $U$ und $V$ erhaltener Untervektorraum $U^top$ heißt #bolditalic[Komplement] von $U$ in $V$.
 
-#bolditalic[Beispiel 3.39:] Seien $V, U_1$ und $U_3$ wie in Beispiel 3.37. Dann gilt $V = U_1 oplus U_3$ d.h. $U_3$ ist ein Komplement von $U_1$ in $V$. Sei weiter $tilde(U_3) := "Span"{(1, 0, 0)}$. Dann gilt auch $V = U_1 oplus tilde(U_3)$.
+#bolditalic[Beispiel 3.39:] Seien $V, U_1$ und $U_3$ wie in Beispiel 3.37. Dann gilt $V = U_1 oplus U_3$ d.h. $U_3$ ist ein Komplement von $U_1$ in $V$. Sei weiter $tilde(U_3) := "Span"{(1, 0, 1)}$. Dann gilt auch $V = U_1 oplus tilde(U_3)$.
 
 Insbesondere sind die Komplemente aus Satz 3.38 nicht eindeutig bestimmt.
 
@@ -2018,7 +2018,7 @@ $
 f(vec(1,0)) = (cos(45°), sin(45°)) = vec(1/sqrt(2), 1/sqrt(2))
 $
 
-#bolditalic[Beispiel 4.4:] Sei $V = C^infinity(RR)$ der reelle Vektorraum aller unendlich oft differenzierbaren Funktionen $g: RR -> RR$ mit punktweisen Addition und skalaren Multiplikation. Dann ist 
+#bolditalic[Beispiel 4.4:] Sei $V = C^infinity (RR)$ der reelle Vektorraum aller unendlich oft differenzierbaren Funktionen $g: RR -> RR$ mit punktweisen Addition und skalaren Multiplikation. Dann ist 
 $
 d/(d x): V -> V, f arrow.bar f' = d/(d x) f
 $
@@ -2186,7 +2186,7 @@ Kern und Bild wurden bereits im Kapitel 2 behandelt. Hier behandeln wir die Konz
     $ 
     gilt: 
     $
-    ker(f) = {vec(x_1, x_2) in RR^2 | x_1 = -(d x^2) / c}, \
+    ker(f) = {vec(x_1, x_2) in RR^2 | x_1 = -(d x_2) / c}, \
     im(f) = {vec(0, x) | x in RR} subset RR^2
     $
     weil $x = c x_1 + d x_2$ für jedes $x in RR$ lösbar ist $(c != 0)$.
@@ -2206,7 +2206,7 @@ zu 1) $0_V in ker(f) ==> ker(f) != emptyset$. Weitherhin ist $ker(f)$ abgeschlos
 
 Zu zeigen: $lambda x + mu tilde(x) in ker(f)$
 $
-f(lambda x + mu tilde(x)) = lambda f(x) + lambda f(tilde(x)) = 0_W \
+f(lambda x + mu tilde(x)) = lambda f(x) + mu f(tilde(x)) = 0_W \
 ==> "Abgeschlossenheit in" V
 $
 Daraus folgt auch mit $tilde(x) = 0_V$ die Abgeschlossenheit bezüglich der Multiplikation. 
@@ -2217,7 +2217,7 @@ zu 2) $f(0_V) = 0_W in im(f) != emptyset$
 
 zu zeigen: $im(f)$ abgeschlossen bezüglich $+$ und $dot$. Seien $y, tilde(y) in im(f), lambda, mu in K$
 
-$==> x, tilde(x) in V: f(x) = y and f(tilde(x) = tilde(y))$. Dann gilt für $lambda x + mu tilde(x)$, dass
+$==> x, tilde(x) in V: f(x) = y and f(tilde(x)) = tilde(y)$. Dann gilt für $lambda x + mu tilde(x)$, dass
 $
 f(lambda x+ mu tilde(x)) &= lambda f(x) + mu f(tilde(x)) = lambda y + mu tilde(y) \
 &==> lambda x + mu tilde(x) "ist das Urbild von" lambda y + mu tilde(y) \
@@ -2241,7 +2241,7 @@ $
 
 #italic[Beweis:] 
 
-zu 1) "$==>$": Sei $f$ surjektiv. Dann gilt $W = f(v) = im(f)$ und damit auch 
+zu 1) "$==>$": Sei $f$ surjektiv. Dann gilt $W = f(V) = im(f)$ und damit auch 
 $
 rg(f) = dim(im(f)) = dim W 
 $
@@ -2333,7 +2333,7 @@ zu 2)
 
     Es gilt 
     $
-    dim(ker(f)) = dim({vec(x_1, x_2) | s_1 = (d x_2)/c}) &= 1 \
+    dim(ker(f)) = dim({vec(x_1, x_2) | x_1 = (d x_2)/c}) &= 1 \
     dim(im(f)) = dim({vec(0, x) | x in RR}) &= 1 \
     dim(ker(f)) + dim(im(f)) = dim(RR^2) &= 2 
     $
@@ -2381,16 +2381,19 @@ Seien ${v_1, ..., v_n}$ und ${w_1, ..., w_n}$ Basen von $V$ bzw. $W$. Nach Lemma
 $
 f(v_i) = w_i, wide 1 <= i <= n
 $
-Ist $v = lambda_1 v_1 + lambda_2 v_2 + ... + lambda_n v_n in ker(f)$. Dann gilt $0 = f(v) = f(lambda_1 v_1 + ... + lambda_n v_n)$ $attach(=, t: f in L(V, W)) lambda_1 f(v_1) + ... + lambda_n f(v_n) =$ $lambda_1 w_1 + ... + lambda_n w_n$
-$w_1, ..., w_n$ linear unabhängig
-$==>$ $lambda_1 = lambda_2 = ... = lambda_n = 0 ==> v = 0 ==> ker(f) = {0_V} attach(==>, t: "4.15") f "injektiv"$
-Mit der Dimensionsformel folgt 
+Ist $v = lambda_1 v_1 + lambda_2 v_2 + ... + lambda_n v_n in ker(f)$. Dann gilt\
+$ 0 = f(v) &= f(lambda_1 v_1 + ... + lambda_n v_n)\ 
+& #h(-17pt) attach(=, t: f in L(V, W)) lambda_1 f(v_1) + ... + lambda_n f(v_n)\
+&= lambda_1 w_1 + ... + lambda_n w_n 
 $
-dim(V) &= 0 + dim(im(f)) \
-dim(W) &
+$w_1, ..., w_n$ linear unabhängig\
+$==>$ $lambda_1 = lambda_2 = ... = lambda_n = 0 ==> v = 0 ==> ker(f) = {0_V} attach(==>, t: "4.15") f "injektiv"$.\
+Mit der Dimensionsformel folgt: 
+$
+dim(W) = dim(V) &= 0 + dim(im(f))
 $
 $
-==> "mit" im(f) <= W ==> im(f) = W ==> f "surjektiv"
+==> "mit" im(f) subset.eq W ==> im(f) = W ==> f "surjektiv"
 $
 #endproof
 
@@ -2409,7 +2412,7 @@ $
 &= lambda (g circ f)(u) + mu (g circ f)(v) space checkmark
 $
 
-2) Betrachte $tilde(g) := g_(|im(f))$. Die Dimensionsformel liefert 
+2) Betrachte $tilde(g) = g_(|im(f))$. Die Dimensionsformel liefert 
 $
 dim(im(f)) = dim(im(tilde(g))) + dim(ker(tilde(g)))
 $
