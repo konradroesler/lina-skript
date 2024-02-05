@@ -2519,7 +2519,7 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
   $
   Diese sind selbst wieder Matrizen.
 ][
-  Sind $m_1, m_2, n_1, n_2 in NN_0$ und $A_(i j) in R^(m, n)$ für $i j = 1 2$ gegeben, definieren diese eine sogenannte #bolditalic[Blockmatrix] der Form 
+  Sind $m_1, m_2, n_1, n_2 in NN_0$ und $A_(i j) in R^(m, n)$ für $i,j = 1,2$ gegeben, definieren diese eine sogenannte #bolditalic[Blockmatrix] der Form 
   $
   A = mat(
     A_(1 1), A_(1 2);
@@ -2634,7 +2634,7 @@ $
 ][
   Distributivitätsgesetze , d.h.
   $
-  (A + tilde(A)) dot B &= A dot B + A dot B \
+  (A + tilde(A)) dot B &= A dot B + tilde(A) dot B \
   A dot (B + tilde(B)) &= A dot B + A dot tilde(B)\
   (lambda + mu) dot A &= lambda dot A + mu dot A \
   lambda dot (A + tilde(A)) &= lambda dot A + lambda dot tilde(A)\
@@ -2684,7 +2684,7 @@ $
 
   3. $(lambda dot A)^top = lambda dot A^top$
 
-  4. $underbrace(underbrace((A dot B), in space R^(m,l))^top, in space R^(l,m)) = underbrace(underbrace(B^top, in space R^(m,l)) dot underbrace(A^top, in space R^(n,m)), in space R^(l,m))$
+  4. $underbrace(underbrace((A dot B), in space R^(m,l))^top, in space R^(l,m)) = underbrace(underbrace(B^top, in space R^(l,n)) dot underbrace(A^top, in space R^(n,m)), in space R^(l,m))$
 ]
 
 #italic[Beweis:] Nachrechnen.
@@ -2719,7 +2719,7 @@ $
 
 1) Folgt durch nachrechnen unter Ausnutzung der Eigenschaften von $R$.
 
-2) Aufgrund der Rechenregeln ist $R^(m,n)$ abgeschlossen bezüglich der 
+2) Aufgrund der Rechenregeln ist $R^(m,n)$ abgeschlossen bezüglich 
 $
 +: R^(m, n) times R^(m, n) -> R^(m,n) space "und" space dot.op: R times R^(m,n) -> R^(m,n)
 $
@@ -2933,7 +2933,7 @@ bestimmt.
 
 #bolditalic[Beispiel 5.21:] Fortsetzung Beispiel 4.18. Die lineare Abbildung $f: RR^3 -> RR^3$ besitzt für die Standardbasis die Darstellungsmatrix 
 $
-A_f^(3,3) = mat(1,-1,2;1,1,2;0,3,0) space -> space "rg(A)" = 2
+A_f^(S,S) = mat(1,-1,2;1,1,2;0,3,0) space -> space "rg(A)" = 2
 $
 für $S = {e_1, e_2, e_3}$. Beispiel 4.18: $"rg"(f) = dim(im(f))$.
 
@@ -2999,7 +2999,7 @@ Solche kommutativen Diagramme sind sehr wichtige Hilfsmittel! Man erhält daraus
 
 Was passiert bei der Verknüpfung von linearen Abbildungen mit den Darstellungsmatrizen?
 
-#bolditalic[Satz 5.25:] Seien $V, W$ und $X$ drei dreiendlichdimensionale $K$-Vektorräume mit den Basen $B, C$ und $D$. Für gegebene $f in L(V, W) "und" g in L(W, X)$ gilt
+#bolditalic[Satz 5.25:] Seien $V, W$ und $X$ drei endlichdimensionale $K$-Vektorräume mit den Basen $B, C$ und $D$. Für gegebene $f in L(V, W) "und" g in L(W, X)$ gilt
 $
 A_(g circ f)^(B,D) = A_g^(C, D) dot A_f^(B,C)
 $
@@ -3054,7 +3054,7 @@ $
   image("bilder/527.jpg", width: 80%),
 ))
 
-Es fehlt noch die Isomorphieeigenschaft. Nach dem Struktursatz 4.8 gilt: $Phi_B, Phi_C$ sind Isomorphismen.Dann ist auch 
+Es fehlt noch die Isomorphieeigenschaft. Nach dem Struktursatz 4.8 gilt: $Phi_B, Phi_C$ sind Isomorphismen. Dann ist auch 
 
 #boxedlist[$Phi^(-1)_C$ ein Isomorphismus][$Phi^(-1)_C circ Phi_B$ ein Isomorphismus]
 
@@ -3072,7 +3072,7 @@ $
 
 #bolditalic[Beispiel 5.28:] Sei $V = RR^2$ und $B = {e_1, e_1+ e_2}$ sowie $C = {e_1,e_2}$. Damit ist 
 $
-A_(Phi_(B,C))^(B,C) = mat(1,1;0,1) = "Gl"_2 (RR) space "mit"
+A_(Phi_(B,C))^(B,C) = mat(1,1;0,1) subset.eq "Gl"_2 (RR) space "mit"
 $
 $
 (A_(Phi_(B,C))^(B,C))^(-1) = mat(1,-1;0,1)
@@ -3277,7 +3277,7 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
   bezeichnet.
 ]
 
-#bolditalic[Bemerkung:] Im normalen Fall, d.h. sei $b = 0 in K^m$ gilt offensichtlich immer $rg_S (A) = rg_S (A_"erw")$. (Später: $rg(A) = rg(A_"erw"))$. Außerdem existiert im homogenen Fall immer eine Lösung, nähmlich $x^* = 0 in K^n$. Denn es gilt $A x^* = A 0_m = 0 = b$.
+#bolditalic[Bemerkung:] Im normalen Fall, d.h. sei $b = 0 in K^m$ gilt offensichtlich immer $rg_S (A) = rg_S (A_"erw")$. (Später: $rg(A) = rg(A_"erw"))$. Außerdem existiert im homogenen Fall immer eine Lösung, nämlich $x^* = 0 in K^n$. Denn es gilt $A x^* = A 0_m = 0 = b$.
 
 Beantwortung Frage 1:
 
