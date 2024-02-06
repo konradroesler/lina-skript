@@ -3675,3 +3675,225 @@ $S_k$ ist wieder ein Produkt von Elementarmatrizen. Dieses Verfahren bricht nach
   image("bilder/610_9.jpg", width: 60%)
 )
 
+#figure(
+  image("bilder/610_10.jpg", width: 60%)
+)
+$
+S = S_t dots.h.c S_1
+$
+#italic[Beweis:]
+
+#figure(
+  image("bilder/610_11.jpg", width: 40%)
+)
+
+#figure(
+  image("bilder/610_12.jpg", width: 100%)
+)
+
+Nach $r$ Schritten
+
+#figure(
+  image("bilder/610_13.jpg", width: 60%)
+)
+
+Mit Einsen an Stellen $(1, j_1), (2, j_2), ..., (r, j_r)$. Gilt $r = 1$, so ist $S_1 A$ in normalisierter Treppenform. $checkmark$
+
+Jetzt $r > 1$
+$
+==> "Einträge über den Einsen müssen den Wert 0 bekommen"
+$
+Dazu berechnet man rekursiv für $k = 2, ..., r$
+$
+R^((k)) = S_(r+k-1) "mit" \
+S_(r+k-1) = G_(1, k) (-r^(k-1)_(1, j_k)) dot ... dot G_(k-1, k) (-r^(k-1)_(k-1, j_k)) 
+$
+$t = 2r-1$ ist dann die Matrix
+$
+C = S_t S_(t-1) dots.h.c S_1 A "in Treppennormalform"
+$
+#endproof
+
+Zur Lösung von lin. Gleichungssystemen.
+$
+A x = b
+S A x = S b
+$
+Auf dem Übungsblatt haben wir bewiesen
+$
+S in "GL"_m (K) ==> cal(L)(S A, S b) = cal(L)(A, b)
+$
+$==> A_"erw" = (A b)$. Dann wähle $S$, so dass $S A_"erw"$ die normalisierte Treppenform besitzt.
+
+#figure(
+  image("bilder/610_14.jpg", width: 60%)
+)
+$x_(j k) = tilde(b)_k wide k = 1, ..., r wide x_i = 0 "sonst"$
+
+Eine Lösung existiert, wenn $tilde(b)_(r+1) = ... = tilde(b)_m = 0$.
+
+#pagebreak()
+
+= Determinanten von Matrizen
+
+Sei $K$ ein Körper, $n in NN$. Die Determinante
+
+#boxedlist[
+  ist eine Abbildung, die jeder quadratischen Matrix $A in K^(n,n)$ ein Element aus $K$ zuorndet
+  $
+  det: K^(n,n) -> K 
+  $
+][
+  liefert notwendige Bedingungen dafür, dass eine Matrix $A in K^(n,n)$ invertierbar ist.
+][
+  bildet die Grundlage für die Definition des charakteristischen Polynoms einer Matrix $A in K^(n,n)$ (siehe LinA II)
+][
+  trägt in der analytischen Geometrie zur Berechnung von Volumen einfacher Mengen bei.
+][
+  spielt eine wichtige Rolle in Transformationsformeln von Integralen in der Analysis mehrerer Verändlicher.
+]
+
+Gottfried Wilhelm Leibnitz (1646 - 1716) gab 1690 eine Formel zur Berechnung vno Determinanten an. Karl Weierstraß (1815 - 1897) führte die Determinanten über axiomatische Eigenschaften ein. 
+
+== Definitionen und grundlegende Eigenschaften
+
+Zwei motivierende Beispiele: 
+
+Lösung linearer Gleichungssysteme
+
+#boxedlist[
+  Gegeben sei ein lineares Gleichungssystem
+  $
+  a_(1 1) x_1 + a_(1 2) x_2 = b_1 wide &"I" \
+  a_(2 1) x_1 + a_(2 2) x_2 = b_2 wide &"II"
+  $
+  Die Lösung für beliebige Werte der Koeffizienten?
+  $
+  a_(2 2) "I" - a_(1 2) "II" ==> \
+  (a_(1 1) a_(2 2) - a_(1 2) a_(2 1)) x_1 = a_(2 2) b_1 - a_(1 1) b_2
+  $
+  Als Ausdruck für $x_1$ und 
+  $
+  a_(1 1) "II" - a_(2 1) "I" ==> \
+  (a_(1 1) - a_(1 2) a_(2 1)) x_2 = a_(1 1) b_1 - a_(2 1) b_2
+  $
+]
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  Mit der Abbildung $det: K^(2,2) -> K$ 
+  $
+  det(mat(a, b;c, d)) = a d - b c
+  $
+  erhält man die Lösungsformeln 
+
+  $
+  x_1 = det mat(b_1, a_(1 2); b_2, a_(1 2)) dot (det mat(a_(1 1), a_(1 2); a_(2 1), a_(2 2)))^(-1) \
+  x_2 = det mat(a_(1 1), b_1; a_(2 1), b_2) dot (det mat(a_(1 1), a_(1 2); a_(2 1), a_(2 2)))^(-1)
+  $
+  Dies ist die sogenannte Cramersche Regel für $n = 2$. Sie kann für $n >= 2$ verallgemeinert werden.
+  ACHTUNG: Man sollte die Cramersche Regel wirklich nie zur Lösung von linearen Gleichungssystem verwenden!
+  $
+  x_1 = det mat(b_1, a_(1 2); b_2, a_(2 2)) dot (det (A))^(-1) wide x_2 = det (a_(1 1), b_1; a_(2 1), b_2) dot (det (A))^(-1)
+  $
+  Warum ist die Cramersche Regel trotzdem interessant?
+
+  $x_i$ berechenbar, wenn $det (A) != 0 in K$
+  $
+  det (A) = 0 <==> a_(1 1) a_(2 2) - a_(1 2) a_(2 1) = 0 \
+    <==> a_(2 2) vec(a_(1 1), a_(1 2)) - a_(1 2) vec(a_(2 1), a_(2 2)) = vec(0 ,0)
+  $
+  D.h. die Spalten von $A$ sind linear unabhängig $==> rg (A) < 2 ==>^"Korollar 6.8"$ es existiert keine eindeutige Lösung.
+]
+
+#boxedlist[
+  Fächenberechnung für Parallelogramme 
+
+  Die Fläche eines Dreiecks ist gegeben durch
+  $
+  1/2 dot "Grundfläche" dot "Höhe"
+  $
+  Beweis z.B. durch das Cavalierische Prinzip, wobei 
+  
+  #box(width: 100%, inset: (left: 0.5cm, right: 0.5cm))[
+    1. #[
+      das Dreieck zu einerm Parallelogramm ergänzt wird $#sspace$
+      
+      #figure(
+        image("bilder/71_1.jpeg", width: 20%)
+      )
+
+    ]
+    2. #[
+      "Verschieben" des Parallelogramms zu einem Rechteck
+
+      #figure(
+        image("bilder/71_2.jpeg", width: 20%)
+      )
+
+    ]
+  ]
+]
+
+#box(width: 100%, inset: (left: 1.5cm, right: 1.5cm))[
+    Zur Beschreibung dieser Fläche in der Ebene nehmen wir an, dass sie durch zwei Vektoren
+    $
+    v = vec(a, b) wide w = vec(c, d), wide v, w in RR^2
+    $
+    gegeben ist.
+
+    #figure(
+      image("bilder/71_3.jpg", width: 60%) 
+    )
+
+    $
+    v = rho v' = rho vec(cos beta, sin beta) wide w = sigma w' = sigma vec(cos alpha, sin alpha)
+    $
+    mit $rho, sigma > 0$. Bezeichnet $F$ bzw. $F'$ die Fläche des von $v$ und $w$ bzw. $v'$ und $w'$ aufgespannten Prallelogramms, so erhält man für $0 <= beta - alpha <= pi$, dass 
+    $
+    h' = sin(beta-alpha) = cos alpha sin beta - cos beta sin alpha \
+    = det mat(cos alpha, sin alpha; cos beta, sin beta)
+    $
+    und damit auch 
+    $
+    F = rho sigma F' = rho sigma h' = rho sigma det mat(cos alpha, sin alpha; cos beta, sin beta) >= 0
+    $
+    Im Fall $sin(beta - alpha) >= 0$ entspricht die Fläche des Parallelogramms damit der skalierten Determinante.
+]
+
+#bolditalic[Beobachtungen:]
+
+#box(width: 100%, inset:(left: 1cm, right: 1cm))[
+  1. #[
+
+    $#sspace$
+
+    #figure(
+      image("bilder/71_4.jpeg", width: 100%)
+    )
+  ]
+]
+
+#box(width: 100%, inset:(left: 1cm, right: 1cm))[
+  #box(width: 100%, inset:(left: 0.5cm, right: 0.5cm))[
+    Auswirkungen auf die Fläche
+
+    D.h. für $lambda, mu in RR$ sollte gelten
+    $
+    det vec(mu v, w) = mu det vec(v, w) space "sowie" space det vec(v, lambda w) = lambda vec(v,w)
+    $
+    mit $v = mat(a, b)$ und $w = mat(c, d)$.
+  ]
+  2. #[
+    Nach dem Cavalierischen Prinzip ist die Fläche unabhängig vom Scherungswinkel
+
+    #figure(
+      image("bilder/71_5.jpeg", width: 50%)
+    )
+
+    D.h. für $lambda in RR$ sollte gelen
+    $
+    det vec(v, w) = det vec(v, w + lambda v)
+    $
+    f+r $v = mat(a, b)$ und $w = mat(c, d)$.
+  ]
+]
