@@ -3753,7 +3753,7 @@ Sei $K$ ein Körper, $n in NN$. Die Determinante
   spielt eine wichtige Rolle in Transformationsformeln von Integralen in der Analysis mehrerer Verändlicher.
 ]
 
-Gottfried Wilhelm Leibnitz (1646 - 1716) gab 1690 eine Formel zur Berechnung vno Determinanten an. Karl Weierstraß (1815 - 1897) führte die Determinanten über axiomatische Eigenschaften ein. 
+Gottfried Wilhelm Leibnitz (1646 - 1716) gab 1690 eine Formel zur Berechnung von Determinanten an. Karl Weierstraß (1815 - 1897) führte die Determinanten über axiomatische Eigenschaften ein. 
 
 == Definitionen und grundlegende Eigenschaften
 
@@ -3816,7 +3816,7 @@ Lösung linearer Gleichungssysteme
   
   #box(width: 100%, inset: (left: 0.5cm, right: 0.5cm))[
     1. #[
-      das Dreieck zu einerm Parallelogramm ergänzt wird $#sspace$
+      das Dreieck zu einem Parallelogramm ergänzt wird $#sspace$
       
       #figure(
         image("bilder/71_1.jpeg", width: 20%)
@@ -3884,13 +3884,13 @@ Lösung linearer Gleichungssysteme
     mit $v = mat(a, b)$ und $w = mat(c, d)$.
   ]
   2. #[
-    Nach dem Cavalierischen Prinzip ist die Fläche unabhängig vom Scherungswinkel
+    Nach dem Cavalierischen Prinzip ist die Fläche unabhängig vom Scherungswinkel:
 
     #figure(
       image("bilder/71_5.jpeg", width: 50%)
     )
 
-    D.h. für $lambda in RR$ sollte gelen
+    D.h. für $lambda in RR$ sollte gelten
     $
     det vec(v, w) = det vec(v, w + lambda v)
     $
