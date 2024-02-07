@@ -3793,7 +3793,7 @@ Lösung linearer Gleichungssysteme
   Dies ist die sogenannte Cramersche Regel für $n = 2$. Sie kann für $n >= 2$ verallgemeinert werden.
   ACHTUNG: Man sollte die Cramersche Regel wirklich nie zur Lösung von linearen Gleichungssystem verwenden!
   $
-  x_1 = det mat(b_1, a_(1 2); b_2, a_(2 2)) dot (det (A))^(-1) wide x_2 = det (a_(1 1), b_1; a_(2 1), b_2) dot (det (A))^(-1)
+  x_1 = det mat(b_1, a_(1 2); b_2, a_(2 2)) dot (det (A))^(-1) wide x_2 = det mat(a_(1 1), b_1; a_(2 1), b_2) dot (det (A))^(-1)
   $
   Warum ist die Cramersche Regel trotzdem interessant?
 
