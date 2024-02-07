@@ -3802,11 +3802,11 @@ Lösung linearer Gleichungssysteme
   det (A) = 0 <==> a_(1 1) a_(2 2) - a_(1 2) a_(2 1) = 0 \
     <==> a_(2 2) vec(a_(1 1), a_(1 2)) - a_(1 2) vec(a_(2 1), a_(2 2)) = vec(0 ,0)
   $
-  D.h. die Spalten von $A$ sind linear unabhängig $==> rg (A) < 2 ==>^"Korollar 6.8"$ es existiert keine eindeutige Lösung.
+  D.h. die Spalten von $A$ sind linear abhängig $==> rg (A) < 2 ==>^"Korollar 6.8"$ es existiert keine eindeutige Lösung.
 ]
 
 #boxedlist[
-  Fächenberechnung für Parallelogramme 
+  Flächenberechnung für Parallelogramme: 
 
   Die Fläche eines Dreiecks ist gegeben durch
   $
