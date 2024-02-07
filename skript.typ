@@ -3879,7 +3879,7 @@ Lösung linearer Gleichungssysteme
 
     D.h. für $lambda, mu in RR$ sollte gelten
     $
-    det vec(mu v, w) = mu det vec(v, w) space "sowie" space det vec(v, lambda w) = lambda vec(v,w)
+    det vec(mu v, w) = mu det vec(v, w) space "sowie" space det vec(v, lambda w) = lambda det vec(v,w)
     $
     mit $v = mat(a, b)$ und $w = mat(c, d)$.
   ]
