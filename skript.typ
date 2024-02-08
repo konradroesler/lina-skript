@@ -3887,13 +3887,161 @@ Lösung linearer Gleichungssysteme
     Nach dem Cavalierischen Prinzip ist die Fläche unabhängig vom Scherungswinkel:
 
     #figure(
-      image("bilder/71_5.jpeg", width: 50%)
+      image("bilder/71_5.jpg", width: 50%)
     )
 
     D.h. für $lambda in RR$ sollte gelten
     $
     det vec(v, w) = det vec(v, w + lambda v)
     $
-    f+r $v = mat(a, b)$ und $w = mat(c, d)$.
+    für $v = mat(a, b)$ und $w = mat(c, d)$.
+  ]
+  3. #[
+    #v(5pt)
+    #figure(
+      image("bilder/71_6.jpg", width: 20%)
+    )
+    #v(-5pt)
+
+    Fläche $1 ==>$
+    $
+    det vec(e_1^top, e_2^top) = det mat(1,0;0,1) = det I_2 = 1
+    $
+  ]
+  4. #[
+    $-->^w -->^v "oder" <--^w -->^v space ==> det vec(v,w) = 0$
   ]
 ]
+
+Basierend auf diesen Beobachtungen:
+
+#definition("7.1", "Determinante")[
+  Eine Abbildung
+  $
+  det: K^(n,n) -> K, space A arrow.bar det (A)
+  $
+  heißt #bolditalic[Determinante] falls gilt:
+
+  #bolditalic[D1.] $det$ ist linear in jeder Zeile, d.h. für jeden Index $i in {1, ..., n}$ gilt
+
+  1. #[
+    Ist $a_i = a_i^' + a_i^('')$ so ist $#sspace$
+    $
+    det vec(dots.v, a_i, dots.v) = det vec(dots.v, a_i^', dots.v) + det vec(dots.v, a_i^'', dots.v)
+    $
+  ]
+  2. #[
+    Ist $a_i = lambda a_i^'$ für $lambda in K$, so ist
+    $
+    det vec(dots.v, a_i, dots.v) = lambda det vec(dots.v, a_i^', dots.v)
+    $
+  ]
+
+  #bolditalic[D2.] $det$ ist #bolditalic[alternierend], d.h. hat $A$ zwei gleiche Zeilen, so gilt $det (A) = 0$
+
+  #bolditalic[D3.] $det$ ist normiert, d.h. $det (I_n) = 1$
+]
+
+#bolditalic[Bemerkung:] 
+
+#boxedlist[
+  Definition ist sehr einfach, aber sehr mächtig, siehe D4 - D13
+][
+  Existenz und Eindeutigkeit einer solchen Abbildung sind noch zu zeigen.
+]
+
+#bolditalic[Satz 7.2:] Eine Determinante
+$
+det: K^(n,n) |-> K 
+$
+hat die folgenden weiteren Eigenschaften:
+
+#bolditalic[D4.] Für jedes $lambda in K$ gilt $det (lambda A) = lambda^n det (A)$
+
+#bolditalic[D5.] Ist eine Zeile von $A$ gleich 0, so gilt $det (A) = 0$
+
+#bolditalic[D6.] Ist $B$ eine Matrix die aus $A$ durch Zeilenvertauschungen entsteht (Z1), so gilt $det (B) = - det (A)$
+
+#bolditalic[D7.] Ist $lambda in K$ und entsteht $B$ aus $A$ durch Addition der $lambda$-fachen $j$-ten Zeile zur $i$-ten Zeile  ($i!=j$) (Z2+Z3) so ist $det B = det A$
+
+#bolditalic[D8.] Ist $A$ eine obere Dreiecksmatrix
+$
+A = mat(lambda_1,ast,ast;0,dots.down,ast;0,0,lambda)
+$
+so ist $det A = lambda_1 dot ... dot lambda_n$ #text(fill: red, size:24pt)[!]
+
+#bolditalic[D9.] Ist $n >= 2$ und $A in K^(n,n)$ von der Gestalt 
+$
+A = mat(A_1, B; 0, A_2)
+$
+wobei $A_1$ und $A_2$ quadratisch sind, d.h. $A_1 in K^(n_1, n_1)$ und $A_2 in K^(n_2,n_2)$ mit $n_1 + n_2 = n$, so gilt $det A = det A_1 dot det A_2$
+
+#bolditalic[D10.] $det A = 0$ ist äquivalent zu $rg A < n$
+
+#bolditalic[D11.] Für Matrizen $A, B in K^(n,n)$ gilt der Determinanten-Multiplikationssatz, d.h.
+$
+det (A dot B) = det A dot det B
+$
+Insbesondere gilt damit für $A in "GL"_n (K)$, dass $det A^(-1) = (det A)^(-1)$.
+
+#bolditalic[D12.] $det A^top = det A$. D.h. die obigen Aussagen für Zeilen gelten analog für Spalten.
+
+#bolditalic[D13.] #bold[Achtung:] Für Matrizen $A, B in K^(n,n)$ ist im Allgemeinen $det (A+B) != det A + det B$
+
+#italic[Beweis:] D4 und D5 folgen direkt aus D1.
+
+#bolditalic[D6.] O.B.d.A $i<j$. Dann gilt wegen D1.1 und D2
+$
+det A + det B = det vec(dots.v, a_i, dots.v, a_j, dots.v) + det vec(dots.v, a_j, dots.v, a_i, dots.v) = \
+underbrace(det vec(dots.v, a_i dots.v, a_i, dots.v), = 0) + det vec(dots.v, a_i, dots.v, a_j, dots.v) - det vec(dots.v, a_j, dots.v, a_i, dots.v) - underbrace(det vec(dots.v, a_j, dots.v, a_j, dots.v), = 0) =^"D1.1" \
+= det vec(dots.v, a_i, dots.v, a_i + a_j, dots.v) + det vec(dots.v, a_j, dots.v, a_i + a_j, dots.v) =^"D1.1" = det vec(dots.v, a_i + a_j, dots.v, a_i + a_j, dots.v) =^"D2" 0
+$
+
+#bolditalic[D7.] O.B.d.A $i<j$. Wegen D1 und D2 gilt 
+$
+det B = det vec(dots.v, a_i + lambda a_j, dots.v, a_j, dots.v) =^"D1.1" det vec(dots.v, a_i, dots.v, a_j, dots.v) + det vec(dots.v, lambda a_j, dots.v, a_j, dots.v) = det A + lambda underbrace(det vec(dots.v, a_j, dots.v, a_j, dots.v), = 0) =^"D2" det A
+$
+
+#bolditalic[D8.] Sind alle $lambda_i != 0$, so folgt durch wiederholte Anwendung von D7, dass
+$
+det A = det mat(lambda_1, 0, 0; 0, dots.down, 0;0,0,lambda_n) =^"D1.2" lambda_1 dot ... dot lambda_n dot underbrace(det I_n, = 1 "(D3)")
+$
+Gibt es ein $lambda_i = 0$, so wählen wir $i$ maximal, d.h. $lambda_(i + 1) != 0, ..., lambda_n != 0$. Dann kann der Rest der $i$-ten Zeile, also $a_(i i + 1), ..., a_(i n )$ auf den Wert Null gebracht werden. Mit D7 folgt, dass dies die Determinante nicht ändert. Damit erhalten wir eine Nullzeile und aus D5 folgt dann $det A=0$
+
+#bolditalic[D9.] $A_1 in K^(n_1, n_1)$. Mit den Zeilenumformungen (Z1), (Z2), (Z3) kann $A_1$ zu einer oberen Dreiecksmatrix $C_1$ umgeformt werden. Es gilt mit D6 und D7 dass $det A_1 = (-1)^k det C_1$
+$
+mat(A_1, B;0, A_2) --> mat(C_1, tilde(B);0, A_2) 
+$
+Also ist $A_2$ unverändert.
+
+Dann erzeugt man wieder mit (Z1), (Z2), (Z3) aus $A_2$ eine obere Dreieckmatrix $C_2$, dabei bleiben $C_1$ und $tilde(B)$ unverändert und es gilt
+$
+det A_2 = (-1)^l det det C_2 
+$
+Für 
+
+#figure(
+  image("bilder/72_1.jpg", width: 60%)
+)
+
+mit $C_1, C_2$ obere Dreieckmatrizen gilt
+$
+det C = det C_1 dot det C_2 \
+det A = (-1)^(k + l) det C = (-1)^(k+l) det (C_1) dot (C_2) \
+= (-1)^(k+l) (-1)^k det (A_1) (-1)^l det (A_2) = det (A_1) dot det (A_2)
+$
+
+#bolditalic[D10.] Durch Zeilenumformungen (Z1), (Z2), (Z3) bringen wir $A$ auf Zeilenstufenform
+$
+B = mat(lambda_1, ast, ast;0, dots.down, ast;0,0,lambda_n)
+$
+Wegen D6+D7 gilt $det (A) = plus.minus det (B)$. Weiter ist $rg (A) = rg (B)$ (Lemma 5.31). Aus D8
+$
+rg (B) = n <==> det (B) = lambda_1 dot ... dot lambda_n != 0
+$
+
+#bolditalic[D11.] Ist $rg (A) < n$, so ist $rg (A dot B) < n$ (siehe Übungsaufgabe). Damit erhält man aus D10 
+$
+0 = 0
+$
+Ist $rg (A) = n ==> A in "GL"_n (K)$. Dann gibt es nach Satz 6.10 invertierbare Matrizen
