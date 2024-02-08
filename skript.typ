@@ -23,7 +23,7 @@ Wozu braucht man das?
 Der Mengenbegriff wurde von Georg Cantor (dt. Mathematiker, 1845-1918) eingeführt.
 
 #definition("1.1", "Mengen")[
-    Unter einer #bolditalic[Menge] verstehen wir jede Zusammenfassung $M$ von bestimmten, wohlunterschiedenen Objekten $x$ unsere Anschauung order unseres Denkens, welche #bolditalic[Elemente] von $M$ genannt werden, zu einem Ganzen.
+    Unter einer #bold[Menge] verstehen wir jede Zusammenfassung $M$ von bestimmten, wohlunterschiedenen Objekten $x$ unsere Anschauung order unseres Denkens, welche #bold[Elemente] von $M$ genannt werden, zu einem Ganzen.
 ]
 
 #underline("Bemerkungen"):
@@ -36,18 +36,18 @@ $
 
 #pagebreak()
 
-#bolditalic[Beispiel 1.2:] Beispiel für Mengen
+#bold[Beispiel 1.2:] Beispiel für Mengen
 
 #boxedlist([{rot, gelb, grün}], [{1, 2, 3, 4}], [$NN = {1, 2, 3, ...}, NN_0 = {0, 1, 2, 3, ...}$], [$ZZ = {..., -1, 0, 1, ...}$], [$QQ = {x | x = a/b #[mit] a in ZZ #[und] b in NN}$], [$RR = {x | x #[ist reelle Zahl]}$], [$emptyset #[bzw.] {} corres #[leere Menge]$])
 
 #definition("1.3", "Teilmenge")[
   Seien $M, N$ Mengen. \
 
-  1. $M$ heißt #bolditalic[Teilmenge] von $N$, wenn jedes Element von $M$ auch Element von $N$ ist. \ Notation: $M subset.eq N$
+  1. $M$ heißt #bold[Teilmenge] von $N$, wenn jedes Element von $M$ auch Element von $N$ ist. \ Notation: $M subset.eq N$
 
   2. $M$ und $N$ heißen gleich, wenn $M subset.eq N$ und $N subset.eq M$ gilt. \ Notation $M = N$ \ Falls das nicht gilt, schreiben wir $M != N$
 
- $M$ heißt #bolditalic[echte Teilmenge] von $N$, wenn $M subset.eq N$ und $M != N$ gilt. \ Notation: $M subset N$
+ $M$ heißt #bold[echte Teilmenge] von $N$, wenn $M subset.eq N$ und $M != N$ gilt. \ Notation: $M subset N$
 ]
 
 Nutzt man die Aussagenlogik, kann man diese Definitionen Umformulieren zu: 
@@ -58,7 +58,7 @@ Nutzt man die Aussagenlogik, kann man diese Definitionen Umformulieren zu:
 
 #boxedlist([$<==>$ heißt "genau dann, wenn"], [$forall$ heißt "für alle"], [$and$ heißt "und"], [$:$ heißt "mit der Eigenschaft"])
 
-#bolditalic[Satz 1.4:] Für jede Menge $M$ gilt:
+#bold[Satz 1.4:] Für jede Menge $M$ gilt:
 
 #align(center, box(width: 80%, height: auto, table(
   columns: (1fr, 1fr, 1fr), 
@@ -82,7 +82,7 @@ zu 2) Widerspruchsbeweis \ Beweis der Aussage durch Annahme des Gegenteils und H
 zu 3) Nach 2. $emptyset subset.eq M$, wir wissen $M subset.eq emptyset$. Nach Def. 1.3, 2 $==> M = emptyset$
 #endproof
 
-#bolditalic[Beispiel 1.5:] Ob ein Objekt ein Element oder eine Teilmenge einer Mengen ist, ist vom Kontext abhängig. Betrachten wir folgende Menge:
+#bold[Beispiel 1.5:] Ob ein Objekt ein Element oder eine Teilmenge einer Mengen ist, ist vom Kontext abhängig. Betrachten wir folgende Menge:
 $
 M := {NN, ZZ ,QQ, RR}
 $
@@ -91,24 +91,24 @@ D.h. die Elemente dieser Menge $M$ sind die natürlichen, ganzen, rationalen und
 #definition("1.6", "Mengenoperationen")[
   Seien $M,N$ Mengen.
 
-  1. Man bezeichnet die Menge der Elemente, die sowhol  in $M$ als auch in $N$ enthalten sind, als #bolditalic[Durchschnitt] von $M$ und $N$
+  1. Man bezeichnet die Menge der Elemente, die sowhol  in $M$ als auch in $N$ enthalten sind, als #bold[Durchschnitt] von $M$ und $N$
   $
   M sect N = {x | (x in M) and (x in N)}
   $
 
-  2. Man bezeichnet die Menge der Elemente, die entweder in $M$ oder in $N$ enthalten sind oder in beiden enthalten sind, als #bolditalic[Vereinigung] von $M$ und $N$
+  2. Man bezeichnet die Menge der Elemente, die entweder in $M$ oder in $N$ enthalten sind oder in beiden enthalten sind, als #bold[Vereinigung] von $M$ und $N$
   $
   M union N = {x | (x in M) or (x in N)}
   $
 
-  3. Man bezeichnet die Menge der Elemente, die in $M$ aber nicht in $N$ enthalten sind, als #bolditalic[Differenz] von $M$ und $N$
+  3. Man bezeichnet die Menge der Elemente, die in $M$ aber nicht in $N$ enthalten sind, als #bold[Differenz] von $M$ und $N$
   $
   M backslash N &= {x | (x in M) and (x in.not N)} \
   &= {x in M | x in.not N}
   $
 ]
 
-#bolditalic[Beispiel 1.7:]
+#bold[Beispiel 1.7:]
 
 Für $-NN := {-n | n in NN}$ gilt: 
 
@@ -132,7 +132,7 @@ Für $M := {4, 6, 8}$ und $N := {8, 10}$ gilt:
 
 #boxedlist([$M union N = {4, 6, 8, 10}$], [$M sect N = {8}$], [$M backslash N = {4, 6}$], [$N backslash M = {10}$])
 
-#bolditalic[Satz 1.8:] Für zwei Mengen $M, N$ gelte $M subset.eq N$. Dann sind folgende Aussagen äquivalent: 
+#bold[Satz 1.8:] Für zwei Mengen $M, N$ gelte $M subset.eq N$. Dann sind folgende Aussagen äquivalent: 
 
 #align(center, box(width: 80%, height: auto, table(
   columns: (1fr, 1fr), 
@@ -154,7 +154,7 @@ $2) ==> 1)$: Es gilt $N backslash M != emptyset$. Dann existiert ein $x in N$ mi
 
 #endproof
 
-#bolditalic[Satz 1.9:] Seien $M, N, L$ Mengen. Dann gelten folgende Aussagen:
+#bold[Satz 1.9:] Seien $M, N, L$ Mengen. Dann gelten folgende Aussagen:
 
 1. $M sect N subset.eq M #[und] M subset.eq M union N$
 2. $M backslash N subset.eq M$
@@ -206,7 +206,7 @@ union.big_(i in I) M_i := {x | exists i in I #[mit] x in M_i} \
 \
 sect.big_(i in I) M_i := {x | forall i in I #[mit] x in M_i}
 $
-Die Menge I heißt auch #bolditalic[Indexmenge]. Für $I = {1, ..., n}$ verwendet man auch die Notation
+Die Menge I heißt auch #bold[Indexmenge]. Für $I = {1, ..., n}$ verwendet man auch die Notation
 $
 union.big_(i = 1)^n M_i := {x | exists i in I #[mit] x in M_i} \
 \
@@ -216,16 +216,16 @@ $
 #definition("1.10", "Kardinalität, Potenzmenge")[
   Sei $M$ eine endliche Menge, d.h. $M$ enthält endlich viele Elemente.
 
-  Die #bolditalic[Mächtigkeit] oder #bolditalic[Kardinalität] von $M$, bezeichnet mit $|M| #[oder] \#M$ ist die Anzahl von Elementen in $M$. 
+  Die #bold[Mächtigkeit] oder #bold[Kardinalität] von $M$, bezeichnet mit $|M| #[oder] \#M$ ist die Anzahl von Elementen in $M$. 
 
-  Die #bolditalic[Potenzmenge] von $M$, bezeichnet mit $cal(P)(M)$ ist die Menge aller Teilmengen von $M$.
+  Die #bold[Potenzmenge] von $M$, bezeichnet mit $cal(P)(M)$ ist die Menge aller Teilmengen von $M$.
   D.h. 
   $
   cal(P)(M) := {N | N subset.eq M}
   $
 ]
 
-#bolditalic[Beispiel 1.11:]
+#bold[Beispiel 1.11:]
 
 Die leere Menge $emptyset$ hat die Kardinalität Null. Es gilt $cal(P)(emptyset) = {emptyset}, abs(cal(P)(emptyset)) = 1$.
 
@@ -240,7 +240,7 @@ Man kann zeigen: $abs(cal(P)(M)) = 2^(abs(M))$. Deswegen wird auch die Notation 
   $
   M times N := {(x, y) | x in M and y in N}
   $
-  das #bolditalic[kartesische Produkt] von $M$ und $N$.
+  das #bold[kartesische Produkt] von $M$ und $N$.
 
   Sind $n$ Mengen $M_1, ..., M_n$ gegeben, so ist deren kartesisches Produkt gegeben druch:
   $
@@ -251,12 +251,12 @@ Man kann zeigen: $abs(cal(P)(M)) = 2^(abs(M))$. Deswegen wird auch die Notation 
   M^n := M times ... times M := {(x_1, ..., x_n) | x_i in M #[für] i = 1, ..., n}
   $
 
-  Ein Element $(x, y) in M times N$ heißt geordnetes Paar und eine Element $(x_1, ..., x_n) in M_1 times ... times M_n$ heißt #bolditalic[(geordnetes) n-Tupel].
+  Ein Element $(x, y) in M times N$ heißt geordnetes Paar und eine Element $(x_1, ..., x_n) in M_1 times ... times M_n$ heißt #bold[(geordnetes) n-Tupel].
 ]
  
 Ist mindestens eine der auftretenden Mengen leer, so ist auch das resultierende kartesische Produkt leer, d.h. die leere Menge. Das kartesische Produkt wurde nach Rene Decartes benannt. Rene Decartes war ein französische Mathematiker (1596-1650) und ein Begründer der analytischen Geometrie.
 
-#bolditalic[Beispiel 1.13:] Das kartesische Produkt zweier Intervalle.
+#bold[Beispiel 1.13:] Das kartesische Produkt zweier Intervalle.
 
 Seien $[a, b] subset RR$ und $[c, d] subset RR$ zwei abgeschlossene Intervalle von reellen Zahlen. Dann ist das kartesische Produkt beider Intervalle gegeben durch:
 $
@@ -265,10 +265,10 @@ $
 Das kartesische Produkt ist nicht kommutativ. Beweis durch Gegenbeispiel.
 
 #definition("1.14", "Relationen", [
-  Seien $M$ und $N$ nichtleere Mengen. Eine Menge $R subset.eq M times N$ heißt #bolditalic[Relation] zwischen $M$ und $N$. Ist $M = N$, so nennt man $R$ #bolditalic[Relation auf $M$]. Für $(x, y) in R$ schreibt man $x attach(tilde, br: R) y$ oder $x tilde y$, wenn die Relation aus dem Kontext klar ist. Ist mindestens eine der beiden Mengen leer, dann ist auch jede Relation zwischen den beiden Mengen die leere Menge.
+  Seien $M$ und $N$ nichtleere Mengen. Eine Menge $R subset.eq M times N$ heißt #bold[Relation] zwischen $M$ und $N$. Ist $M = N$, so nennt man $R$ #bold[Relation auf $M$]. Für $(x, y) in R$ schreibt man $x attach(tilde, br: R) y$ oder $x tilde y$, wenn die Relation aus dem Kontext klar ist. Ist mindestens eine der beiden Mengen leer, dann ist auch jede Relation zwischen den beiden Mengen die leere Menge.
 ])
 
-#bolditalic[Beispiel 1.15:] Sei $M = NN$ und $N = ZZ$. Dann ist 
+#bold[Beispiel 1.15:] Sei $M = NN$ und $N = ZZ$. Dann ist 
 $
 R := {(x, y) in M times N | x + y = 1}
 $
@@ -281,22 +281,22 @@ $
   Es sei $M$ eine nicht leere Menge. Eine Relation auf $M$ heißt:
 
   #box(width: 100%, inset: (top:2.5mm, right: 0.5cm, left: 0.5cm), [
-  #bolditalic[1. reflexiv:] 
+  #bold[1. reflexiv:] 
   #v(-2mm)
   $
   forall x in M: x tilde x
   $
-  #bolditalic[2. symmetrisch:] 
+  #bold[2. symmetrisch:] 
   #v(-2mm)
   $
   forall x,y in M: x tilde y ==> y tilde x
   $
-  #bolditalic[3. antisymmetrisch:] 
+  #bold[3. antisymmetrisch:] 
   #v(-2mm)
   $
   forall x,y in M: x tilde y and y tilde x ==> x = y
   $
-  #bolditalic[4. transitiv:] 
+  #bold[4. transitiv:] 
   #v(-2mm)
   $
   forall x,y,z in M: x tilde y and y tilde z ==> x tilde z
@@ -304,15 +304,15 @@ $
   ])
 ])
 
-Falls die Relation $R$ reflexiv, transitiv und symmetrisch ist, so nennt man $R$ eine #bolditalic[Äquivalenzrelation] auf $M$. Ist $R$ reflexiv, transitiv und antisymmetrisch, so nennt man $R$ eine #bolditalic[partielle Ordnung] auf $M$. 
+Falls die Relation $R$ reflexiv, transitiv und symmetrisch ist, so nennt man $R$ eine #bold[Äquivalenzrelation] auf $M$. Ist $R$ reflexiv, transitiv und antisymmetrisch, so nennt man $R$ eine #bold[partielle Ordnung] auf $M$. 
 
-#bolditalic[Beispiel 1.17:] $M = RR$
+#bold[Beispiel 1.17:] $M = RR$
 
 #boxedlist([Die Relation $<$ auf $M = RR$ ist transitiv, aber weder reflexiv noch symmetrisch und auch nicht antisymmetrisch.],[Die Relation $<=$ auf $M = RR$ ist reflexiv, antisymmetrisch und transitiv. Sie ist nicht symmetrisch. $<=$ ist somit eine partielle Ordnung.],[Die Relation $=$ auf $RR$ ist reflexiv, symmetrisch und transitiv. Also ist $=$ eine Äquivalenzrelation. (Äquivalenzrelationen können auch antisymmetrisch sein)])
 
 
 
-#bolditalic[Beispiel 1.18:] Interpretiert man "Pfeile" als Objekte mit gleicher Orientierung und Länge, erhält man die Äquivalenzrelation 
+#bold[Beispiel 1.18:] Interpretiert man "Pfeile" als Objekte mit gleicher Orientierung und Länge, erhält man die Äquivalenzrelation 
 $
 x tilde y :<==> #[$x$ und $y$ haben die gleiche Länge und Orientierung]
 $
@@ -327,18 +327,18 @@ Als Formalisierung erhält man:
   $
   Ist die Relation nicht aus dem Kontext klar, schreibt man $[overline(a)]_tilde$.
 
-  Elemente einer Äquivalenzklasse werden als #bolditalic[Vertreter] oder #bolditalic[Repräsentanten] der Äquivalenzklasse bezeichnet. Die Menge aller Äquivalenzklassen einer Äquivalenzrelation $tilde$ in einer Menge $M$, d.h. 
+  Elemente einer Äquivalenzklasse werden als #bold[Vertreter] oder #bold[Repräsentanten] der Äquivalenzklasse bezeichnet. Die Menge aller Äquivalenzklassen einer Äquivalenzrelation $tilde$ in einer Menge $M$, d.h. 
   $
   M \/ tilde #h(1.5mm) := {[a]_tilde | a in M}
   $
-  wird als #bolditalic[Faktormenge] oder #bolditalic[Quotientenmenge] bezeichnet.
+  wird als #bold[Faktormenge] oder #bold[Quotientenmenge] bezeichnet.
   ])
 
-#bolditalic[Beispiel 1.20:] #italic[(Fortsetzung von Beispiel 1.18)]
+#bold[Beispiel 1.20:] #italic[(Fortsetzung von Beispiel 1.18)]
 
 Die Menge aller Pfeile gleicher Länge und Orientierung bilden eine solche Äquivalenzklasse, welche durch den Vektor $x = (x_1, x_2) in RR^2$ repräsentiert wird. Die Menge der Vektoren $x = (x_1, x_2) in RR^2$ bilden die Quotientenklasse.
 
-#bolditalic[Beispiel 1.21:] Für eine gegebene Zahl $x in NN$ ist die Menge: 
+#bold[Beispiel 1.21:] Für eine gegebene Zahl $x in NN$ ist die Menge: 
 
 $
 R_n := {(a, b) in ZZ^2 | a - b #[ist ohne Rest durch $n$ teilbar]}
@@ -390,7 +390,7 @@ Es gilt allgemein: Ist $tilde$ eine Äquivalenzrelation auf $M$, so ist $M$ die 
 ])
 #endproof
 
-#bolditalic[Satz 1.22:] Ist $R$ eine Äquivalenzrelation auf der Menge $M$ und sind $a, b in M$, dann sind folgende Aussagen äquivalent:
+#bold[Satz 1.22:] Ist $R$ eine Äquivalenzrelation auf der Menge $M$ und sind $a, b in M$, dann sind folgende Aussagen äquivalent:
 
 #align(center, grid(columns: (auto, auto, auto), gutter: 2cm, [1) $[a] = [b]$], [2) $[a] sect [b] != emptyset$], [3) $a tilde b$]))
 
@@ -414,15 +414,15 @@ $3 ==> 1$:
 
 Aus Satz 1.22 2) folgt, dass die Äquivalenzklassen eine disjunkte Zerlegung der Menge $M$ darstellen.
 
-#definition("1.23", "")[Sei $M$ eine Menge und sei für jedes Element $m in M$ eine weitere Menge $S_m$ gegeben. Für $cal(S) := {S_m | m in M}$ ist die Teilmengenrelation $subset.eq$ eine partielle Ordnung. Die Menge $cal(S)$ heißt dann #bolditalic[partiell geordnet]. Eine Menge $hat(S) in cal(S)$ heißt #bolditalic[maximales Element] von $cal(S)$ (bezüglich $subset.eq$), wenn aus $S in cal(S)$ und $hat(S) in cal(S)$ folgt, dass $S = hat(S)$ ist. Eine nichtleere Teilmenge $cal(K) subset.eq cal(S)$ heißt #bolditalic[Kette] (bezüglich $subset.eq$), wenn für alle $K_1, K_2 in cal(K)$ gilt, dass $K_1 subset.eq K_2$ oder $K_2 subset.eq K_1$. Ein Element $hat(K) in cal(S)$ heißt #bolditalic[obere Schranke] der Kette $cal(K)$, wenn $K subset.eq hat(K)$ für alle $K in cal(K)$ gilt.]
+#definition("1.23", "")[Sei $M$ eine Menge und sei für jedes Element $m in M$ eine weitere Menge $S_m$ gegeben. Für $cal(S) := {S_m | m in M}$ ist die Teilmengenrelation $subset.eq$ eine partielle Ordnung. Die Menge $cal(S)$ heißt dann #bold[partiell geordnet]. Eine Menge $hat(S) in cal(S)$ heißt #bold[maximales Element] von $cal(S)$ (bezüglich $subset.eq$), wenn aus $S in cal(S)$ und $hat(S) in cal(S)$ folgt, dass $S = hat(S)$ ist. Eine nichtleere Teilmenge $cal(K) subset.eq cal(S)$ heißt #bold[Kette] (bezüglich $subset.eq$), wenn für alle $K_1, K_2 in cal(K)$ gilt, dass $K_1 subset.eq K_2$ oder $K_2 subset.eq K_1$. Ein Element $hat(K) in cal(S)$ heißt #bold[obere Schranke] der Kette $cal(K)$, wenn $K subset.eq hat(K)$ für alle $K in cal(K)$ gilt.]
 
-#bolditalic[Beispiel 1.24:] Sei $cal(S) = P({2, 4, 6, 8, 10})$
+#bold[Beispiel 1.24:] Sei $cal(S) = P({2, 4, 6, 8, 10})$
 
 Dann ist $cal(K) = {emptyset, {2}, {2, 6}, {2, 6, 10}} subset.eq cal(S)$ eine Kette.\
 Die Menge $K = {2, 6, 10}$ ist die obere Schranke von $cal(K)$,\
 das maximale Element von $cal(S)$ ist $hat(S) = {2, 4, 6, 8, 10}$.
 
-#bolditalic[Lemma 1.25: Zornsche Lemma]
+#bold[Lemma 1.25: Zornsche Lemma]
 
 Sei $M$ eine Menge und sei $cal(S) subset.eq cal(P)(M)$ eine nichtleere Menge mit der Eigenschaft, dass für jede Kette $cal(K) subset.eq cal(S)$ auch ihre Vereinigunsmenge in $cal(S)$ liegt, d.h.
 $
@@ -433,7 +433,7 @@ Dann besitzt $cal(S)$ ein maximales Element.
 #italic[Beweis:] Das Zornsche Lemma ist ein fundamentales Resultat aus der Mengenlehre, hier ohne Beweis
 #endproof
 
-#bolditalic[Lemma 1.26:] Sei $M$ eine Menge und $cal(K) subset.eq cal(P)(M)$ eine Kette. Dann gibt es zu je endlich vielen $A_1, ..., A_n in cal(K)$ ein $hat(dotless.i) in {1, ..., n}$ mit $A_i subset.eq A_(hat(dotless.i))$ für alle $i in {1, ..., n}$. 
+#bold[Lemma 1.26:] Sei $M$ eine Menge und $cal(K) subset.eq cal(P)(M)$ eine Kette. Dann gibt es zu je endlich vielen $A_1, ..., A_n in cal(K)$ ein $hat(dotless.i) in {1, ..., n}$ mit $A_i subset.eq A_(hat(dotless.i))$ für alle $i in {1, ..., n}$. 
 
 #italic[Beweis:] Durch vollständige Induktion über $n$.
 
@@ -452,66 +452,66 @@ folgt die Behautpung.
 
 == Abbildungen
 
-#definition("1.27", "Abbildungen")[Es Seien $X$ und $Y$ beliebig, nichtleere Mengen. Eine #bolditalic[Abbildung] von $X$ nach $Y$ ist eine Vorschrift $f$, die jedem Element $x in X$ genau ein Element $f(x) in Y$ zuordnet. Man schreibt
+#definition("1.27", "Abbildungen")[Es Seien $X$ und $Y$ beliebig, nichtleere Mengen. Eine #bold[Abbildung] von $X$ nach $Y$ ist eine Vorschrift $f$, die jedem Element $x in X$ genau ein Element $f(x) in Y$ zuordnet. Man schreibt
 $
 f: X arrow Y, space x arrow.bar y = f(x)
 $
-Die Menge $X$ heißt #bolditalic[Definitionsbereich] von $f$, die Menge $Y$ heißt #bolditalic[Wertebereich] von $f$
+Die Menge $X$ heißt #bold[Definitionsbereich] von $f$, die Menge $Y$ heißt #bold[Wertebereich] von $f$
 
 #underline[Achtung:] Jede Abbildung besteht aus drei "Teilen". Angabe des Definitionsbereichs, Angabe des Wertebereichs, Angabe der Zuordnungsvorschrift.]
 
-#bolditalic[Beispiel 1.28:] Sei $M$ eine nichtleere Menge. Dann ist 
+#bold[Beispiel 1.28:] Sei $M$ eine nichtleere Menge. Dann ist 
 $
 f: M arrow N, space x arrow.bar x = f(x)
 $
-eine Abbildung $f$ #bolditalic[Identität] von $M$ mit der Notation $I_m \/ "Id"_m$. 
+eine Abbildung $f$ #bold[Identität] von $M$ mit der Notation $I_m \/ "Id"_m$. 
 
 Sei $X = Y = RR$, dann ist $f: RR arrow RR, space x arrow.bar f(x) := 7x + 2$ eine Abbildung.
 
 #definition("1.29", "Bild, Urbild")[Seien $X, Y$ beliebige nichtleere Mengen und $f: X arrow Y$. Es gelte $M subset.eq X$ und $N subset.eq Y$. Dann heißen die Mengen:
 $
-f(M) &:= {f(x) in Y | x in M} subset.eq Y #[das #bolditalic[Bild] von $M$ unter $f$.] \
-f^(-1)(N) &:= {x in X | f(x) in N} subset.eq X #[das #bolditalic[Urbild] von $N$ under $f$.] 
+f(M) &:= {f(x) in Y | x in M} subset.eq Y #[das #bold[Bild] von $M$ unter $f$.] \
+f^(-1)(N) &:= {x in X | f(x) in N} subset.eq X #[das #bold[Urbild] von $N$ under $f$.] 
 $
-Ist $emptyset != M subset.eq X$, dann heißt $f_(|M): M arrow Y, space x arrow.bar f(x)$, die #bolditalic[Einschränkung] von $f$ auf $M$.
+Ist $emptyset != M subset.eq X$, dann heißt $f_(|M): M arrow Y, space x arrow.bar f(x)$, die #bold[Einschränkung] von $f$ auf $M$.
 ]
 
-#bolditalic[Beispiel 1.30:] Sei $X = Y = RR$ und $x arrow.bar f(x) = x^4$. Dann ist $RR$ Definitions- und Wertebereich von $f$.
+#bold[Beispiel 1.30:] Sei $X = Y = RR$ und $x arrow.bar f(x) = x^4$. Dann ist $RR$ Definitions- und Wertebereich von $f$.
 
 #boxedlist([$f(RR) = RR_+ := [0, infinity[$ das Bild von $f$ #v(2mm)], [$f([0,2]) = [0, 16]$ #v(2mm)], [$f^(-1)([16, 81]) = [-3, -2] union [2, 3]$ das Urbild des Intervalls $[16, 81]$ unter $f$. #v(2mm)])
 
 #definition("1.31", "injektiv, surjektiv, bijektiv")[Seien $X, Y$ zwei beliebige, nichtleere Mengen und $f : X arrow Y$ eine Abbildung. Dann heißt $f$:
 
-#boxedlist([#bolditalic[injektiv:] falls für alle $x, tilde(x) in X$ gilt: $#sspace$
+#boxedlist([#bold[injektiv:] falls für alle $x, tilde(x) in X$ gilt: $#sspace$
 #v(-1mm)
 $
 f(x) = f(tilde(x)) ==> x = tilde(x)
 $
 #v(1mm)
 ],[
-  #bolditalic[surjektiv:] falls für jedes $y in Y$ gilt:
+  #bold[surjektiv:] falls für jedes $y in Y$ gilt:
 #v(-1mm)
 $
 exists space.sixth x in X: f(x) = y
 $
 #v(1mm)
 ],[
-  #bolditalic[bijektiv:] falls $f$ injektiv und surjektiv ist
+  #bold[bijektiv:] falls $f$ injektiv und surjektiv ist
 ])]
 
 Man kann sich anhand der Definition leicht überlegen, dass eine Abbildung $f: X arrow Y$ genau dann bijektiv ist, wenn es für jedes $y in Y$ #underline[genau] ein $x in X$ gibt, sodass $f(x) = y$ gilt.
 
-#bolditalic[Beispiel 1.32:] Betrachte die Funktion $f: RR arrow RR, space x arrow.bar max(0, x)$
+#bold[Beispiel 1.32:] Betrachte die Funktion $f: RR arrow RR, space x arrow.bar max(0, x)$
 
 #boxedlist[$f: RR arrow RR$, $f$ ist weder injektiv noch surjektiv][$f: RR arrow RR_+$, $f$ ist surjektiv, aber nicht injektiv][$f: RR_+ arrow RR_+$, $f$ ist injektiv aber nicht surjektiv][$f: RR_+ arrow RR_+$, $f$ ist bijektiv]
 
-#definition("1.33", "Komposition")[Seien $X, Y, Z$ nichtleere Mengen und die Abbildungen $f: X arrow Y, space x arrow.bar f(x)$ sowie $g: Y arrow Z, space y arrow.bar g(y)$ gegeben. Dann ist die #bolditalic[Komposition] oder #bolditalic[Hintereinanderausführung] von $f$ und $g$ die Abbildung 
+#definition("1.33", "Komposition")[Seien $X, Y, Z$ nichtleere Mengen und die Abbildungen $f: X arrow Y, space x arrow.bar f(x)$ sowie $g: Y arrow Z, space y arrow.bar g(y)$ gegeben. Dann ist die #bold[Komposition] oder #bold[Hintereinanderausführung] von $f$ und $g$ die Abbildung 
 $
 g compose f: X arrow Z, space x arrow.bar g(f(x)) in Z
 $
 ]
 
-#bolditalic[Satz 1.34:] Seien $W, X, Y$ und $Z$ nichtleere Mengen, und die Abbildungen $f: W arrow X$, $g: X arrow Y$, $h: Y arrow Z$ gegeben. Dann gilt:
+#bold[Satz 1.34:] Seien $W, X, Y$ und $Z$ nichtleere Mengen, und die Abbildungen $f: W arrow X$, $g: X arrow Y$, $h: Y arrow Z$ gegeben. Dann gilt:
 
 #box(width: 100%, inset: (right: 1cm, left: 1cm), [
   1. $h compose (g compose f) = (h compose g) compose f$, d.h. die Komposition von Abbildungen ist Assoziativ
@@ -536,7 +536,7 @@ Sind $f$ und $g$ bijektiv, folgt aus den obigen Beweisen, dass $g compose  f$ in
 4. Ist $g$ nicht surjektiv, dann existiert ein $z in Z$ für das kein $y in Y$ mit $g(y) = z$ existiert. Wegen $g compose f$ surjektiv gilt $forall space.sixth z in Z space.sixth exists space.sixth x in X: g(f(x)) = z$. Dann gilt auch $g(f(x)) = g(y) = z, space y in Y$, also existiert ein $y in Y$ mit $g(y) = z$. Dies ist ein Widerspruch $arrow.zigzag$. Also ist $g$ surjektiv. 
 #endproof
 
-#bolditalic[Satz 1.35:] Seien $X, Y$ nichtleere Mengen und $f: X arrow Y$ eine Abbildung. Die Abbildung ist genau dann bijektiv, wenn es eine Abbildung $g: Y arrow X$ existiert, so dass $g compose f = "Id"_X$ und $f compose g = "Id"_Y$ gilt.
+#bold[Satz 1.35:] Seien $X, Y$ nichtleere Mengen und $f: X arrow Y$ eine Abbildung. Die Abbildung ist genau dann bijektiv, wenn es eine Abbildung $g: Y arrow X$ existiert, so dass $g compose f = "Id"_X$ und $f compose g = "Id"_Y$ gilt.
 
 #italic[Beweis:] 
 
@@ -558,29 +558,29 @@ $
 
 Es gilt: $g compose f = "Id"_X$, $"Id"_X$ ist injektiv. Wegen Satz 1.34, 3) ist dann auch $f$ injektiv. Des weiteren gilt $f compose g = "Id"_Y$ ist surjektiv. Wegen 1.34, 4) ist dann auch $f$ surjektiv $==>$ $f$ ist bijektiv
 
-#bolditalic[Frage:] Gibt es eine weitere Abbildung, $tilde(g): Y arrow X$ mit den gleichen Eigenschaften wie im letzten Satz? Wegen Satz 1.34, 1) gilt:
+#bold[Frage:] Gibt es eine weitere Abbildung, $tilde(g): Y arrow X$ mit den gleichen Eigenschaften wie im letzten Satz? Wegen Satz 1.34, 1) gilt:
 $
 tilde(g) = "Id"_X compose tilde(g) = (g compose f) compose tilde(g) = g compose (f compose tilde(g)) = g compose "Id"_Y = g
 $
 
 #definition("1.36", "inverse Abbildung / Umkehrabbildung")[
-  Seien $X, Y$ zwei nichtleere Mengen und $f: X arrow Y$ eine Abbildung. Ist $f$ bijektiv, dann heißt die in Satz 1.35 definierte, eindeutige Abbildung $g: Y arrow X$ #bolditalic[inverse Abbildung] oder #bolditalic[Umkehrabbildung] von $f$ und wird $f^(-1)$ bezeichnet.
+  Seien $X, Y$ zwei nichtleere Mengen und $f: X arrow Y$ eine Abbildung. Ist $f$ bijektiv, dann heißt die in Satz 1.35 definierte, eindeutige Abbildung $g: Y arrow X$ #bold[inverse Abbildung] oder #bold[Umkehrabbildung] von $f$ und wird $f^(-1)$ bezeichnet.
 ]
 
-#bolditalic[Beispiel 1.37:] Die Abbildung $f: RR arrow RR, space f(x) = 3x - 5$ ist bijektiv. Die zu $f$ inverse Abbildung erhält man durch Umformung.
+#bold[Beispiel 1.37:] Die Abbildung $f: RR arrow RR, space f(x) = 3x - 5$ ist bijektiv. Die zu $f$ inverse Abbildung erhält man durch Umformung.
 $
 y = 3x - 5 <==> y + 5 = 3x <==> x = 1/3(y+5)
 $
 Also $f^(-1): RR arrow RR, space y arrow.bar 1/3(y+5)$
 
-#bolditalic[Achtung:] $f: RR arrow RR, f(x) = x^2$ ist nicht bijektiv.
+#bold[Achtung:] $f: RR arrow RR, f(x) = x^2$ ist nicht bijektiv.
 $
 tilde(f): RR arrow RR_+, space tilde(f)(x) = x^2 wide wide tilde(f)^(-1)(y) = sqrt(y)
 $
 
-#bolditalic[Achtung:] Die Notation $f^(-1)$ ist doppelt Belegt! Zum einen für die Notation der Umkehrabbildung und zum Anderen für die Notation des Urbilds.
+#bold[Achtung:] Die Notation $f^(-1)$ ist doppelt Belegt! Zum einen für die Notation der Umkehrabbildung und zum Anderen für die Notation des Urbilds.
 
-#bolditalic[Satz 1.38:] Seien $X, Y$ und $Z$ nichtleere Mengen und die Abbildungen $f: X arrow Y$ sowie $g: Y arrow Z$ bijektiv. 
+#bold[Satz 1.38:] Seien $X, Y$ und $Z$ nichtleere Mengen und die Abbildungen $f: X arrow Y$ sowie $g: Y arrow Z$ bijektiv. 
 
 Dann gilt:
 
@@ -625,11 +625,11 @@ Algebraische Strukturen erlauben es uns, abstrakte Konzepte aus konkreten Beispi
 
 == Gruppen
 
-#definition("2.1", "innere Verknüpfung, Halbgruppe")[Sei $M$ eine nichtleere Menge. Eine Abbildung $circ: M times M arrow M, space (a, b) arrow.bar a circ b$ heißt #bolditalic[(innere) Verknüpfung] auf $M$. Gilt: $(a circ b) circ c =  a circ (b circ c)$, dann heißt die Verknüpfung #bolditalic[assoziativ] und $(M, circ)$ eine #bolditalic[Halbgruppe]. Gilt für eine Halbgruppe, dass $a circ b = b circ a$, so heißt die Halbgruppe #bolditalic[abelsch] oder #bolditalic[kommutativ].]
+#definition("2.1", "innere Verknüpfung, Halbgruppe")[Sei $M$ eine nichtleere Menge. Eine Abbildung $circ: M times M arrow M, space (a, b) arrow.bar a circ b$ heißt #bold[(innere) Verknüpfung] auf $M$. Gilt: $(a circ b) circ c =  a circ (b circ c)$, dann heißt die Verknüpfung #bold[assoziativ] und $(M, circ)$ eine #bold[Halbgruppe]. Gilt für eine Halbgruppe, dass $a circ b = b circ a$, so heißt die Halbgruppe #bold[abelsch] oder #bold[kommutativ].]
 
 Je nach Kontext kann die Notation einer Verknüpfung variieren. ($a circ b$, $a dot b$, $a b$)
 
-#bolditalic[Beispiel 2.2:] 
+#bold[Beispiel 2.2:] 
 
 #boxedlist[$(NN, +)$ und $(NN, ast)$ sind kommutative Halbgruppen][Sei $X$ eine nichtleere Menge. Dann ist $M := "Abb"(X, X)$ $= {"Abbildungen" f: X arrow X}$ eine Halbgruppe mit der Verknüpfung $compose$ als Komposition von Abbildungen (Def. 1.33). Diese Halbgruppe ist nicht abelsch.
 
@@ -654,12 +654,12 @@ Die Halbgruppe ist ein relativ "schwaches" Konzept. Deswegen braucht man weitere
   $
   a circ e = e circ a = a wide forall space.sixth a in M
   $
-  so heißt $e$ #bolditalic[neutrales Element] für die Verknüpfung $circ$. 
+  so heißt $e$ #bold[neutrales Element] für die Verknüpfung $circ$. 
 
-  Eine Halbgruppe, die ein neutrales Element besitzt heißt #bolditalic[Monoid].
+  Eine Halbgruppe, die ein neutrales Element besitzt heißt #bold[Monoid].
 ]
 
-#bolditalic[Beispiel 2.24:] Kein Monoid
+#bold[Beispiel 2.24:] Kein Monoid
 
 Gegeben sei die Menge $M = {a, b}$ und die folgende Verknüfung 
 
@@ -675,9 +675,9 @@ Gegeben sei die Menge $M = {a, b}$ und die folgende Verknüfung
 
 Man kann nachrechenen, dass $(M, circ)$ eine Halbgruppe ist. Man kann auch prüfen, dass $a$ linksneutral aber nicht rechtsneutral ist, sowie dass $b$ rechtsneutral aber nicht linksneutral ist. Somit besitzt die Halbgruppe kein neutrales Element, $(M, circ)$ ist also kein Monoid.
 
-#bolditalic[Bemerkung:] In der Definition eines Monoids wird nur die Existenz aber nicht die Eindeutigkeit des neutralen Elements gefordert. Ist dies sinnvoll?
+#bold[Bemerkung:] In der Definition eines Monoids wird nur die Existenz aber nicht die Eindeutigkeit des neutralen Elements gefordert. Ist dies sinnvoll?
 
-#bolditalic[Lemma 2.5:] Sei $(M, circ)$ ein Monoid und $e_1, e_2 in M$ neutrale Elemente, dann gilt
+#bold[Lemma 2.5:] Sei $(M, circ)$ ein Monoid und $e_1, e_2 in M$ neutrale Elemente, dann gilt
 $
 e_1 = e_2
 $
@@ -688,20 +688,20 @@ e_1 &= e_1 circ e_2 \
 $
 #endproof
 
-#bolditalic[Beispiel 2.6:]
+#bold[Beispiel 2.6:]
 
 #boxedlist[$(NN, +)$ ist kein Monoid, da kein neutrales Element existiert ($0 in.not NN$ in LinA)][$(NN, dot)$ ist ein Monoid mit dem neutralen Element $e = 1$][Für $NN_0 = NN union {0}$ ist $(NN_0, +)$ ein Monoid mit dem neutralen Element $e = 0$]
 
-#definition("2.7", "Gruppen")[Ein Monoid $(M, circ)$ ist eine #bolditalic[Gruppe], wenn für jedes $a in M$ ein $b in M$ existiert, so dass 
+#definition("2.7", "Gruppen")[Ein Monoid $(M, circ)$ ist eine #bold[Gruppe], wenn für jedes $a in M$ ein $b in M$ existiert, so dass 
 $
 a circ b = b circ a = e
 $
-wobei $e$ das neutrale Element des Monoids ist. Wir nennen $b$ das #bolditalic[inverse Element] zu dem gegebenen Element $a$ und bezeichnen es mit $a^(-1) = b$.
+wobei $e$ das neutrale Element des Monoids ist. Wir nennen $b$ das #bold[inverse Element] zu dem gegebenen Element $a$ und bezeichnen es mit $a^(-1) = b$.
 ]
 
-#bolditalic[Bemerkung:] Für $circ = +$, d.h. additiv geschriebene Gruppen schreibt man auch $-a := b$.
+#bold[Bemerkung:] Für $circ = +$, d.h. additiv geschriebene Gruppen schreibt man auch $-a := b$.
 
-#bolditalic[Beispiel 2.8:]
+#bold[Beispiel 2.8:]
 
 #boxedlist[$(ZZ, +)$, $(QQ, +)$ und $(RR, +)$ sind kommutative Gruppen][$(NN, +)$ ist keine Gruppe, da kein neutrales Element und keine inversen Elemente existieren][Rechnen mit binären Zahlen
 
@@ -736,11 +736,11 @@ Betrachtet wird $FF_2 = {0, 1}$ und die Verknüpfungen
 Anhand der Verknüpfungstabellen erkennt man, dass $(FF_2, +)$ mit dem neutralen Element $e = 0$ eine abelsche Gruppe ist. Jedoch ist $(FF_2, dot)$ keine Gruppe, da zwar ein neutrales Element $e = 1$, aber das Element $0$ kein inverses Element besitzt.
 ]
 
-#bolditalic[Satz 2.9:] Sei $(M, circ)$ eine Gruppe, dann gilt:
+#bold[Satz 2.9:] Sei $(M, circ)$ eine Gruppe, dann gilt:
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm), [
-  1. Es gibt #bolditalic[genau ein] neutrales Element in $M$.
-  2. Jedes Element der Menge $M$ besitzt #bolditalic[genau ein] inverses Element.
+  1. Es gibt #bold[genau ein] neutrales Element in $M$.
+  2. Jedes Element der Menge $M$ besitzt #bold[genau ein] inverses Element.
   3. Jedes linksinverse Element ist gleichzeitig auch rechtsinvers.
   4. Jedes linksneutrale Element ist gleichzeitig auch rechtsneutral.
   ]
@@ -780,7 +780,7 @@ Anhand der Verknüpfungstabellen erkennt man, dass $(FF_2, +)$ mit dem neutralen
   Dann gilt: $(a circ b) circ a = a circ (b circ a) = a circ e = a wide checkmark$
 ]
 
-#bolditalic[Lemma 2.10:] Sei $(M, circ)$ eine Gruppe. Gilt für ein $a in M$, dass $c circ a = a$ für ein $c in M$; dann ist $c$ das neutrale Element der Gruppe.
+#bold[Lemma 2.10:] Sei $(M, circ)$ eine Gruppe. Gilt für ein $a in M$, dass $c circ a = a$ für ein $c in M$; dann ist $c$ das neutrale Element der Gruppe.
 
 #italic[Beweis:] Sei $e$ das neutrale Element (es gibt genau 1) der Gruppe $(M, circ)$ und für $a, c in M$ gelte: $c circ a = a$. Sei $b$ das inverse Element zu $a$.
 $
@@ -795,19 +795,19 @@ $
 Besonders wichtig in der linearen Algebra sind Abbildungen zwischen Gruppen, die bezüglich der Verknüpfung "kompatibel" sind.
 
 #definition("2.11", "Homomorphismus")[
-  Seien $(M, circ)$ und $(N, oplus)$ Gruppen. Eine Abbildung $f: M arrow N$ heißt #bolditalic[Homomorphismus] (oder #bolditalic[Gruppenhomomorphismus]) falls:
+  Seien $(M, circ)$ und $(N, oplus)$ Gruppen. Eine Abbildung $f: M arrow N$ heißt #bold[Homomorphismus] (oder #bold[Gruppenhomomorphismus]) falls:
   $
   f(x circ y) = f(x) oplus f(y) wide forall space.sixth x, y in M
   $
-  Ein Homomorphismus heißt #bolditalic[Isomorphismus], wenn er bijektiv ist.
+  Ein Homomorphismus heißt #bold[Isomorphismus], wenn er bijektiv ist.
 ]
 
-#bolditalic[Beispiel 2.12:] Die Abbildung $f: RR arrow RR_(>0)$ mit $f(x) = e^(2x)$ ist ein Homomorphismus zwischen $(RR, +)$ und $(RR_(>0), dot)$ mit $RR_(>0) = {x in RR | x > 0}$ denn 
+#bold[Beispiel 2.12:] Die Abbildung $f: RR arrow RR_(>0)$ mit $f(x) = e^(2x)$ ist ein Homomorphismus zwischen $(RR, +)$ und $(RR_(>0), dot)$ mit $RR_(>0) = {x in RR | x > 0}$ denn 
 $
 f(x + y) = e^(2(x+y)) = e^(2x) dot e^(2y) = f(x) dot f(y)
 $
 
-#bolditalic[Satz 2.13:] Sei $f: M arrow N$ für die Gruppen $(M, circ)$ und $(N, oplus)$ ein Homomorphismus sowie $e_M$ und $e_N$ jeweils die neutralen Elemente. Dann gilt $f(e_M) = e_N$.
+#bold[Satz 2.13:] Sei $f: M arrow N$ für die Gruppen $(M, circ)$ und $(N, oplus)$ ein Homomorphismus sowie $e_M$ und $e_N$ jeweils die neutralen Elemente. Dann gilt $f(e_M) = e_N$.
 
 #italic[Beweis:] Sei $a in M$ beliebig gewählt, dann folgt 
 $
@@ -823,7 +823,7 @@ Homomorphismen bilden das neutrale Element im Definitionsbereich immer auf das n
   $
   ker(f) := {a in M | f(a) = e_N}
   $ 
-  den #bolditalic[Kern] von $f$.
+  den #bold[Kern] von $f$.
 ]
 
 == Ringe
@@ -831,7 +831,7 @@ Homomorphismen bilden das neutrale Element im Definitionsbereich immer auf das n
 Ringe sind eine Erweiterung der algebraischen Strukturen von einer auf zwei Verknüpfungen. 
 
 #definition("2.15", "Ring")[
-  Seien $R$ eine Menge und "$+$" sowie "$dot$" zwei Verknüpfungen auf $R$. Das Tripel $(R, +, dot)$ heißt #bolditalic[Ring], falls gilt:
+  Seien $R$ eine Menge und "$+$" sowie "$dot$" zwei Verknüpfungen auf $R$. Das Tripel $(R, +, dot)$ heißt #bold[Ring], falls gilt:
 
   #box(width: 100%, inset: (left: 0.5cm, right: 0.5cm), [
     1. $(R, +)$ ist eine kommutative Gruppe, deren neutrales Element wir mit $0$ bezeichnen.
@@ -843,13 +843,13 @@ Ringe sind eine Erweiterung der algebraischen Strukturen von einer auf zwei Verk
       (a + b) dot c = a dot c + b dot c
       $
     ]
-    Ein Ring heißt kommutativ, wenn $dot$ kommutativ ist. D.h. $a dot b = b dot a, space forall space.sixth a, b in R$. Ein Element $1 in R$ heißt #bolditalic[Einselement], wenn es das neutrale Element bezüglich der Multiplikation ist. Das heißt wenn für alle $a in R$ gilt: $1 dot a = a dot 1 = a$.
+    Ein Ring heißt kommutativ, wenn $dot$ kommutativ ist. D.h. $a dot b = b dot a, space forall space.sixth a, b in R$. Ein Element $1 in R$ heißt #bold[Einselement], wenn es das neutrale Element bezüglich der Multiplikation ist. Das heißt wenn für alle $a in R$ gilt: $1 dot a = a dot 1 = a$.
   ])
 ]
 
-#bolditalic[Achtung:] Die Formulierung der Distributivitätsgesetze impliziert, dass die Multiplikation stärker bindet als die Addition ("Punkt vor Strich").
+#bold[Achtung:] Die Formulierung der Distributivitätsgesetze impliziert, dass die Multiplikation stärker bindet als die Addition ("Punkt vor Strich").
 
-#bolditalic[Beispiel 2.16:]
+#bold[Beispiel 2.16:]
 
 #boxedlist[$(NN, +, dot)$ ist kein Ring][$(ZZ, +, dot)$ ist ein kommutativer Ring mit Einselement]
 
@@ -879,13 +879,13 @@ a + (-1) dot a &= 1 dot a + (-1) dot a = (1 + (-1)) dot a = 0 dot a = 0
 $
 analog zeigt man $a dot 0 = 0$ und $a dot (-1) = -a$
 
-#bolditalic[Bemerkung:] Wenn in einem Ring die Gleichung $1 = 0$ gilt, folgt
+#bold[Bemerkung:] Wenn in einem Ring die Gleichung $1 = 0$ gilt, folgt
 $
 a = a dot 1 = a dot 0 = 0
 $
 Somit muss $R$ der Nullring sein, $R = {0}$.
 
-#bolditalic[Beispiel 2.17:] Ring der Polynome 
+#bold[Beispiel 2.17:] Ring der Polynome 
 
 Sei $(R, +, dot)$ ein kommutativer Ring mit Eins. Ein Polynom mit Koeffizienten in $R$ und der Unbekannten $t in R$ (kurz Polynom über $R$) ist gegeben durch
 $
@@ -913,14 +913,14 @@ $
 Mit dem Nullpolynom definiert wie oben und dem Einspolynom definiert als $p(t) := 1$ kann man nachrechnen, dass $(P[t], +, dot)$ ein kommutativer Ring ist.
 
 #definition("2.18", "invertierbar")[
-  Es sei $(R, +, dot)$ ein Ring mit Eins und $a in R$ gegeben. Ein Element $b in R$ heißt #bolditalic[invers] (bezüglich $dot$) zu $a$, wenn gilt:
+  Es sei $(R, +, dot)$ ein Ring mit Eins und $a in R$ gegeben. Ein Element $b in R$ heißt #bold[invers] (bezüglich $dot$) zu $a$, wenn gilt:
   $
   a dot b = b dot a = 1
   $
-  Existiert zu $a in R$ ein inverses Element, so heißt $a$ #bolditalic[invertierbar].
+  Existiert zu $a in R$ ein inverses Element, so heißt $a$ #bold[invertierbar].
 ]
 
-#bolditalic[Satz 2.19:] Es sei $(R, +, dot)$ ein Ring mit Eins. Dann gilt:
+#bold[Satz 2.19:] Es sei $(R, +, dot)$ ein Ring mit Eins. Dann gilt:
 
 #box(width: 100%, inset: (right: 1cm, left: 1cm), [
   1. Existiert zu $a in R$ ein inverses Element bezüglich $dot$, so ist dies eindeutig bestimmt. Dies wird mit $a^(-1)$ gekennzeichnet.
@@ -948,7 +948,7 @@ Es folgt eine äquivalente und formalere Definition:
   +: K times K arrow K, space (a, b) arrow.bar a + b wide wide "Addition" \
   dot: K times K arrow K, space (a, b) arrow.bar a dot b wide space "Multiplikation"
   $
-  heißt #bolditalic[Körper], wenn gilt:
+  heißt #bold[Körper], wenn gilt:
 
   #boxedlist[$(K, +)$ ist eine kommutative Gruppe #sspace][$(K backslash {0}, dot)$ ist auch eine kommutative Gruppe][
     Es gelten die Distributivgesetze
@@ -959,7 +959,7 @@ Es folgt eine äquivalente und formalere Definition:
   ]
 ])
 
-#bolditalic[Lemma 2.21:] Sei $(K, +, dot)$ ein Körper. Gilt für $a, b in K$, dass $a dot b = 0$, so ist mindestens eins davon die $0$.
+#bold[Lemma 2.21:] Sei $(K, +, dot)$ ein Körper. Gilt für $a, b in K$, dass $a dot b = 0$, so ist mindestens eins davon die $0$.
 
 #italic[Beweis:] 
 
@@ -972,11 +972,11 @@ $
 #endproof
 Diese Eigenschaft nennt man Nullteilerfreiheit.
 
-#bolditalic[Beispiel 2.22:]
+#bold[Beispiel 2.22:]
 
 #boxedlist[$(RR, +, dot)$ ist ein Körper][$(ZZ, +, dot)$ ist kein Körper, da die multiplikativ inversen Elemente in $QQ$, aber nicht immer in $ZZ$ liegen]
 
-#bolditalic[Beispiel 2.23:] komplexe Zahlen
+#bold[Beispiel 2.23:] komplexe Zahlen
 
 Die Menge der komplexen Zahlen ist definiert als:
 $
@@ -1030,9 +1030,9 @@ $
 z = (x, y) &= (x, 0) + (0, y) = (x, 0) + (0, 1) dot (y, 0) \
 &= x + i y 
 $
-Man schreibt $"Re"(z) = x$ als #bolditalic[Realanteil] von $z$ und $"Im"(z) = y$ als #bolditalic[Imaginäranteil] von $z$.
+Man schreibt $"Re"(z) = x$ als #bold[Realanteil] von $z$ und $"Im"(z) = y$ als #bold[Imaginäranteil] von $z$.
 
-Man definiert zu $(x, y) in CC$ die #bolditalic[konjugiert komplexe Zahl] durch 
+Man definiert zu $(x, y) in CC$ die #bold[konjugiert komplexe Zahl] durch 
 $
 overline(z) = (x, -y) in CC
 $
@@ -1045,7 +1045,7 @@ $
 
 == Vektorräume
 
-#bolditalic[Beispiel 2.24:] Kräfeparallelogramm 
+#bold[Beispiel 2.24:] Kräfeparallelogramm 
 
 Betrachten wir einige Gesetze aus der Mechanik:
 
@@ -1055,7 +1055,7 @@ F = F_1 + F_2 wide "die Kräfte können als Vektoren betrachtet werden"
 $
 #boxedlist[Ein Vektor hat eine Länge und eine Richtung][Vektoren kann man addieren][Vektoren können mit einer reellen Zahl multipliziert werden]
 
-#bolditalic[Beispiel 2.25:] Interpolationsproblem
+#bold[Beispiel 2.25:] Interpolationsproblem
 
 Gegeben sind reelle Zahlen $a, b, c in RR$. Gesucht ist ein Polynom zweiten Grades $p(t) in P[t]$ mit 
 $
@@ -1083,7 +1083,7 @@ Dann ist $p(t)$ gegeben durch:
 $
 p(t) = a p_1(t) + b p_2(t) + c p_3(t)
 $
-#bolditalic[Beobachtung:] Die additive Verknüpfung zweier Elemente gleicher Art und Multiplikation mit einer reellen Zahl ($corres$ Skalar).
+#bold[Beobachtung:] Die additive Verknüpfung zweier Elemente gleicher Art und Multiplikation mit einer reellen Zahl ($corres$ Skalar).
 
 Solch eine algebraische Sturktur wollen wir beschreiben:
 
@@ -1116,12 +1116,12 @@ Solch eine algebraische Sturktur wollen wir beschreiben:
     ])
   ]
 
-  Ein Element $v in V$ nennen wir #bolditalic[Vektor], ein $mu in K$ nenn wir einen #bolditalic[Skalar].
+  Ein Element $v in V$ nennen wir #bold[Vektor], ein $mu in K$ nenn wir einen #bold[Skalar].
 ]
 
-#bolditalic[Beobachtung:] Für einen Vektorraum sind die Operatinen $+$ und die skalare Multiplikation $dot$ abeschlossen.
+#bold[Beobachtung:] Für einen Vektorraum sind die Operatinen $+$ und die skalare Multiplikation $dot$ abeschlossen.
 
-#bolditalic[Beispiel 2.27:] Für einen Körper $K$ ist der Standardvektorraum gegeben durch die Menge $V = K^n$ für ein $n in NN$. Die n-Tupel werden geschrieben als 
+#bold[Beispiel 2.27:] Für einen Körper $K$ ist der Standardvektorraum gegeben durch die Menge $V = K^n$ für ein $n in NN$. Die n-Tupel werden geschrieben als 
 $
 v = vec(v_1, v_2, dots.v, v_n) "mit" v_1, v_2, ..., v_n in K
 $
@@ -1140,7 +1140,7 @@ $
 $
 Da $K$ ein Körper ist, ist die so definierte skalare Multiplikation assoziativ, distributiv und mit $1 in K$ kompatibel ($1 dot v = v$).
 
-#bolditalic[Beispiel 2.28:] Polynome 
+#bold[Beispiel 2.28:] Polynome 
 
 Die Menge $P[t]$ aller Polynome über einen Körper $K$ mit der Unbekannten $t$ bilden einen $K$-Vektorraum, wenn die Addition von Polynomen wie in Beispiel 2.17 definiert ist und die skalare Multiplikation für ein $p(t) = a_0 + a_1 t + ... a_n t^n in P[t]$ definiert ist durch:
 $
@@ -1149,7 +1149,7 @@ dot: K times P[t] arrow P[t] \
 lambda dot p(t) = (lambda a_0) + (lambda a_1) t + ... + (lambda a_n) t^n 
 $
 
-#bolditalic[Beispiel 2.29:] Abbildungen
+#bold[Beispiel 2.29:] Abbildungen
 
 Die Menge $V = "Abb"(RR, RR)$ der Abbildungen $f: RR arrow RR$ bilden einen Vektorraum über den Körper $RR$ mit den Verknüpfungen
 $
@@ -1165,7 +1165,7 @@ V &:= {"stetige Abbildungen" f: RR arrow RR} \
 V &:= {"differenzierbare Abbildungen" f: RR arrow RR}
 $
 
-#bolditalic[Lemma 2.30:] Für den $K$-Vektorraum $(V, +, dot)$ mit dem Nullement $0_K$ des Körpers und $0_V$ des Vektorraums. Dann gilt
+#bold[Lemma 2.30:] Für den $K$-Vektorraum $(V, +, dot)$ mit dem Nullement $0_K$ des Körpers und $0_V$ des Vektorraums. Dann gilt
 
 #box(width: 100%, inset: (right: 1cm, left: 1cm))[
   1. $0_K dot v = 0_V$
@@ -1199,10 +1199,10 @@ $
 #endproof
 
 #definition("2.31", "Untervektorraum")[
-  Sei $(V, +, dot)$ ein $K$-Vektorraum und sei $U subset.eq V$. Dann ist $(U, + dot)$ ein #bolditalic[Untervektorraum], kurz #bolditalic[Unterraum] von $(V, +, dot)$.
+  Sei $(V, +, dot)$ ein $K$-Vektorraum und sei $U subset.eq V$. Dann ist $(U, + dot)$ ein #bold[Untervektorraum], kurz #bold[Unterraum] von $(V, +, dot)$.
 ]
 
-#bolditalic[Lemma 2.32:] Sei $(V, +, dot)$ ein $K$-Vektorraum und $U subset.eq V$. Dann ist $(U, +, dot)$ genau dann ein Unterraum von $V$, wenn gilt:
+#bold[Lemma 2.32:] Sei $(V, +, dot)$ ein $K$-Vektorraum und $U subset.eq V$. Dann ist $(U, +, dot)$ genau dann ein Unterraum von $V$, wenn gilt:
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. $u + w in U wide forall space.sixth u, w in U$
@@ -1214,7 +1214,7 @@ $
 Ist $U$ nicht abgeschlossen bezüglich der Addition und der skalaren Multiplikation, dann ist $(U, +)$ keine kommutative Gruppe und $(U, dot)$ keine Halbgruppe. In beiden Fällen ist $(U, +, dot)$ dann kein Vektorraum und somit auch kein Untervektorraum von $(V, +, dot)$.
 #endproof
 
-#bolditalic[Beispiel 2.33:] 
+#bold[Beispiel 2.33:] 
 
 #boxedlist[Jeder Vektorraum $(V, +, dot)$ hat die Vektorräume $(U = V, + dot)$ und $(U = {0_V}, +, dot)$][Für jedes $u in NN_0$ ist die Menge aller Polynome mit dem Grad kleiner gleich $n$, d.h. die Menge $P[t]_(<=n) = {p(t) in P[t] | "Grad"(p) <= n}$ mit den Verknüpfungen aus Beispiel 2.28 ein Unterraum von $(P[t], +, dot)$]
 
@@ -1223,18 +1223,18 @@ Ist $U$ nicht abgeschlossen bezüglich der Addition und der skalaren Multiplikat
   $
   lambda_1 v_1 + lambda_2 v_2 + ... + lambda_n v_n = sum_(i = 1)^n lambda_i v_i = v in V
   $
-  heißt #bolditalic[Linearkombination] von $v_1, ..., v_n in V$ mit den Koeffizienten $lambda_1, ..., lambda_n in K$. Die #bolditalic[lineare Hülle] / Der #bolditalic[Spann] von $v_1, ..., v_n in V$ ist die Menge 
+  heißt #bold[Linearkombination] von $v_1, ..., v_n in V$ mit den Koeffizienten $lambda_1, ..., lambda_n in K$. Die #bold[lineare Hülle] / Der #bold[Spann] von $v_1, ..., v_n in V$ ist die Menge 
   $
   "Span"{v_1, ..., v_n} := {sum_(i=1)^n lambda_i v_i | lambda_1, ..., lambda_n in K}
   $
 ]
 
-#bolditalic[Lemma 2.35:] Sei $(V, +, dot)$ ein $K$-Vektorraum und $v_1, ..., v_n in V$, dann ist $("Span"{v_1, ..., v_n}, +, dot)$ ein Unterraum von $(V, +, dot)$.
+#bold[Lemma 2.35:] Sei $(V, +, dot)$ ein $K$-Vektorraum und $v_1, ..., v_n in V$, dann ist $("Span"{v_1, ..., v_n}, +, dot)$ ein Unterraum von $(V, +, dot)$.
 
 #italic[Beweis:] Es gilt $"Span"{v_1, ..., v_n} subset.eq V$. Wegen Lemma 2.32 reicht es zu zeigen, dass $U := "Span"{v_1, ..., v_n}$ bezüglich $+$ und $dot$ abgeschlossen ist. Dies gilt nach der Definition der linearen Hülle.
 #endproof
 
-#bolditalic[Beispiel 2.36:] Für $V = RR^3, K = RR$. Betrachte
+#bold[Beispiel 2.36:] Für $V = RR^3, K = RR$. Betrachte
 $
 M = {vec(3, 0, 1), vec(9, 0, 3)}, "ist" vec(12, 0, 4) in "Span"(M) "?"
 $
@@ -1271,7 +1271,7 @@ Dieses Kapitel motiviert unter anderem die Frage, wie man Vektorräume effizient
 == Lineare Unabhängigkeit
 
 #definition("3.1", "lineare Unabhängigkeit")[
-  Sei $V$ ein $K$-Vektorraum. Die Vektoren $v_1, ..., v_n in V$ heißten #bolditalic[linear unabhängig], wenn aus 
+  Sei $V$ ein $K$-Vektorraum. Die Vektoren $v_1, ..., v_n in V$ heißten #bold[linear unabhängig], wenn aus 
   $
   sum_(i = 1)^n lambda_i v_i = 0 wide "mit" lambda_1, ..., lambda_n in K 
   $
@@ -1279,14 +1279,14 @@ Dieses Kapitel motiviert unter anderem die Frage, wie man Vektorräume effizient
   $
   sum_(i = 1)^n lambda_i v_i = 0 wide "mit" lambda_1, ..., lambda_n in K
   $
-  die nicht alle gleich $0$ sind, so heißten $v_1, ..., v_n$ #bolditalic[linear abhängig].
+  die nicht alle gleich $0$ sind, so heißten $v_1, ..., v_n$ #bold[linear abhängig].
 
   #boxedlist[Die leere Menge ist linear unabhängig.][Ist $M != emptyset$ eine Menge und für jedes $m in M$ ein Vektor $v_m in V$ gegeben, so nennt man die Menge ${v_m}_(m in M)$ linear unabhängig, wenn endlich viele Vektoren immer linear unabhängig sind. Gilt dies nicht, so ist die Menge ${v_m}_(m in M)$ linear abhängig.]
 ]
 
-#bolditalic[Bemerkung:] Nach Definition sind die Vektoren $v_1, ..., v_n$ genau dann linear unabhängig, wenn sich der Nullvektor aus ihnen nur in der Form $0 = 0 dot v_1 + ... + 0 dot v_n$ mit endlich vielen Vektoren darstellen lässt
+#bold[Bemerkung:] Nach Definition sind die Vektoren $v_1, ..., v_n$ genau dann linear unabhängig, wenn sich der Nullvektor aus ihnen nur in der Form $0 = 0 dot v_1 + ... + 0 dot v_n$ mit endlich vielen Vektoren darstellen lässt
 
-#bolditalic[Beispiel 3.2:] Fortsetzung von Beispiel 2.36
+#bold[Beispiel 3.2:] Fortsetzung von Beispiel 2.36
 
 Die Vektoren aus $M = {(3,0,1), (9,0,3)}$ sind linear abhängig, da 
 $
@@ -1297,13 +1297,13 @@ $
 0 dot vec(3, 0, 1) = vec(0, 0, 0) wide "mit" lambda_1 = 0
 $
 
-#bolditalic[Beispiel 3.3:] $V = RR^3, K = RR$
+#bold[Beispiel 3.3:] $V = RR^3, K = RR$
 
 Betrachte $M = {(3, 0, 1), (9, 0, 3), (0, 1, 1)}$. Sind diese Vektoren linear unabhängig? Die allgemeine Vorgehensweise ist hier, ein lineares Gleichungssystem aufzustellen und zu lösen. Hat das Gleichungssystem eine Lösung $!= 0$, dann sind die Vektoren linear abhängig.
 
 Hier: $==>$ linear abhängig
 
-#bolditalic[Lemma 3.4:] Sei $V$ ein $K$-Vektorraum. Dann gilt:
+#bold[Lemma 3.4:] Sei $V$ ein $K$-Vektorraum. Dann gilt:
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. Ein einzelner Vektor ist genau dann linear unabhängig, wenn $v != 0_V$ gilt
@@ -1333,7 +1333,7 @@ $==> lambda_1 v_1 + ... + lambda_n v_n + mu_1 u_1 + ... + mu_m u_m = 0$ $==> mu_
 
 Eine alternative Definition der linearen Unabhängigkeit motiviert Satz 3.5:
 
-#bolditalic[Satz 3.5:] Sei $V$ ein $K$-Vektorraum. Eine Menge $M subset.eq V$ ist genau dann linear unabhängig, wenn kein Vektor $v in V$ als Linearkombination dargestellt werden kann.
+#bold[Satz 3.5:] Sei $V$ ein $K$-Vektorraum. Eine Menge $M subset.eq V$ ist genau dann linear unabhängig, wenn kein Vektor $v in V$ als Linearkombination dargestellt werden kann.
 
 #italic[Beweis:] 
 
@@ -1363,9 +1363,9 @@ Dies ist ein Widerspruch dazu, dass man $v$ nicht als Linearkombination darstell
   $
 ]
 
-#bolditalic[Beispiel 3.7:] $M = NN$, $v_m := t^m$, $t in K$, $"Span"{v_m}_(m in M) = P[t]$
+#bold[Beispiel 3.7:] $M = NN$, $v_m := t^m$, $t in K$, $"Span"{v_m}_(m in M) = P[t]$
 
-#bolditalic[Satz 3.8:] Sei $K$ ein Körper, $V$ ein $K$-Vektorraum und $M$ eine Menge. Dann sind folgende Aussagen äquivalent:
+#bold[Satz 3.8:] Sei $K$ ein Körper, $V$ ein $K$-Vektorraum und $M$ eine Menge. Dann sind folgende Aussagen äquivalent:
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. ${v_m}_(m in M)$ ist linear unabhängig
@@ -1401,13 +1401,13 @@ Es gilt wieder $mu_k = 0$ für $k in J backslash I$ und $lambda_k = 0$ für $k i
 #endproof
 
 #definition("3.9", "Erzeugendensystem")[
-  Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, $M$ eine Menge und $v_m$ für $m in M$ Vektoren in $V$. Die Menge ${v_m}_(m in M)$ heißt #bolditalic[Erzeugendensystem] von $V$, falls 
+  Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, $M$ eine Menge und $v_m$ für $m in M$ Vektoren in $V$. Die Menge ${v_m}_(m in M)$ heißt #bold[Erzeugendensystem] von $V$, falls 
   $
   "Span"{v_m}_(m in M) = V
   $
 ]
 
-#bolditalic[Beispiel 3.10:] Sei $K$ ein Körper, $V$ ein Vektorraum mit $V = K^n$, $n in NN$
+#bold[Beispiel 3.10:] Sei $K$ ein Körper, $V$ ein Vektorraum mit $V = K^n$, $n in NN$
 
 Dann ist mit 
 $
@@ -1416,20 +1416,20 @@ $
 die Menge ${e_i}_(in in {1, ..., n})$ ein Erzeugendensystem von $K^n$.
 
 #definition("3.11", "Basis")[
-  Sei $K$ ein Körper, $V$ ein Vektorraum, $M$ eine Menge und $v_m$ für $m in M$ Vektoren in von $V$. Dann heißt ${v_m}_(m in M)$ #bolditalic[Basis] von $V$, falls sie linear unabhängig und ein Erzeugendensystem von $V$ ist.
+  Sei $K$ ein Körper, $V$ ein Vektorraum, $M$ eine Menge und $v_m$ für $m in M$ Vektoren in von $V$. Dann heißt ${v_m}_(m in M)$ #bold[Basis] von $V$, falls sie linear unabhängig und ein Erzeugendensystem von $V$ ist.
 ]
 
-#bolditalic[Beispiel 3.12:] Das Erzeugendensystem aus 3.10 ist eine Basis. Anmerkung: Basen sind nicht eindeutig. Für $K^3$ gilt etwa
+#bold[Beispiel 3.12:] Das Erzeugendensystem aus 3.10 ist eine Basis. Anmerkung: Basen sind nicht eindeutig. Für $K^3$ gilt etwa
 $
 v_1 = vec(1,1,0) space v_2 = vec(1,0,1) space v_3 = vec(0, 1, 1) 
 $ 
 ist ebenfalls eine Basis.
 
-#bolditalic[Beispiel 3.13:] Die Familie ${t^i}_(i in NN)$ ist ein Erzeugendensystem von $P[t]$, denn es gilt $"Span"{t^i}_(i in NN) = P[t]$. Um zu prüfen, ob die Familie auch Basis von $P[t]$ muss die lineare Unabhängigkeit gerpüft werden. Sei $n in NN_0$, $a_0, a_1, ..., a_n in K$ und betrachte $p(t) = a_0 + a_1 t + ... + a_n t^n$ mit $p(t) = 0$.
+#bold[Beispiel 3.13:] Die Familie ${t^i}_(i in NN)$ ist ein Erzeugendensystem von $P[t]$, denn es gilt $"Span"{t^i}_(i in NN) = P[t]$. Um zu prüfen, ob die Familie auch Basis von $P[t]$ muss die lineare Unabhängigkeit gerpüft werden. Sei $n in NN_0$, $a_0, a_1, ..., a_n in K$ und betrachte $p(t) = a_0 + a_1 t + ... + a_n t^n$ mit $p(t) = 0$.
 
 Falls $a_k != 0$ für ein $k in {0, ..., n}$ gilt, so hat $p(t)$ höchstens $n$ Nullstellen in $K$. $0 in P[t]$ hat aber unendlich viele Nullstellen. D.h. es existiert ein $t in K$ mit $p(t) != 0 space arrow.zigzag$. Es folgt, dass die Familie ${t^i}_(i in NN)$ linear unabhängig ist. Somit ist ${t^i}_(i in NN)$ eine Basis von $P[t]$.
 
-#bolditalic[Satz 3.14:] Sei $K$ ein Körper, $V$ ein Vektorraum und $B := {v_1, ..., v_n} subset.eq V$ eine Basis von $V$. Dann ist äquivalent
+#bold[Satz 3.14:] Sei $K$ ein Körper, $V$ ein Vektorraum und $B := {v_1, ..., v_n} subset.eq V$ eine Basis von $V$. Dann ist äquivalent
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. $B$ ist eine Basis #h(1fr)
@@ -1497,10 +1497,10 @@ Also ist $B$ ein Erzeugendensystem und somit eine Basis.
 #endproof
 
 #definition("3.15", "endlichdimensional, unendlichdimensional")[
-  Sei $(V, +, dot)$ ein $K$-Vektorraum für den eine endliche Menge $M = {v_1, ..., v_n} subset V$ existiert, so dass $"Span" M = V$. Dann nennt man $V$ #bolditalic[endlich erzeugt] und sagt $V$ ist #bolditalic[endlichdimensional]. Ist $V$ nicht von endlich vielen Vektoren erzeugt, nennt man $V$ #bolditalic[unendlichdimensional].   
+  Sei $(V, +, dot)$ ein $K$-Vektorraum für den eine endliche Menge $M = {v_1, ..., v_n} subset V$ existiert, so dass $"Span" M = V$. Dann nennt man $V$ #bold[endlich erzeugt] und sagt $V$ ist #bold[endlichdimensional]. Ist $V$ nicht von endlich vielen Vektoren erzeugt, nennt man $V$ #bold[unendlichdimensional].   
 ]
 
-#bolditalic[Beispiel 3.16:]
+#bold[Beispiel 3.16:]
 
 #boxedlist[
   Die Einheitsvektoren aus Beispiel 3.10 sind eine Basis des $K^n$ für einen Körper $K$. Damit ist $K^n$ endlich erzeugt.
@@ -1524,11 +1524,11 @@ Also ist $B$ ein Erzeugendensystem und somit eine Basis.
   nur erfüllt, wenn $lambda_i = 0$ für alle $1 <= i <= k$. Damit sind die $f_n$ linear unabhängig. Also ist $V$ unendlichdimensional.
 ]
 
-#bolditalic[Frage:] Hat jeder Vektorraum eine Basis?
+#bold[Frage:] Hat jeder Vektorraum eine Basis?
 
 Diese Frage ist relativ einfach im endlichdimensionalen Fall:
 
-#bolditalic[Lemma 3.17:] Basisauswahlsatz 
+#bold[Lemma 3.17:] Basisauswahlsatz 
 
 Ein $K$-Vektorraum $(V, +, dot)$ ist genau dann endlich, erzeugt, wenn er eine endliche Basis besitzt.
 
@@ -1541,7 +1541,7 @@ Ein $K$-Vektorraum $(V, +, dot)$ ist genau dann endlich, erzeugt, wenn er eine e
 
 Für den unendlichdimensionalen Fall ist mehr Arbeit nötig:
 
-#bolditalic[Satz 3.18:] Jeder $K$-Vektorraum $(V, +, dot)$ besitzt eine Basis (ein minimales Erzeugendensystem).
+#bold[Satz 3.18:] Jeder $K$-Vektorraum $(V, +, dot)$ besitzt eine Basis (ein minimales Erzeugendensystem).
 
 #italic[Beweis:] 
 
@@ -1566,7 +1566,7 @@ Nach Lemma 1.26 über endliche Teilmengen von Ketten gibt es einen Index $tilde(
 
 Man kann eine Basis als Koordinatensystem in einem Vektorraum auffassen. Wichtig ist, dass Basen nicht eindeutig sind (vergleiche Beispiel 3.12). Eine sehr wichtige Frage der linearen Algebra ist: Welche Basis wählt man?
 
-#bolditalic[Beispiel 3.19:] Um aus einer im Verhältnis $1:1$ in Wasser gelösten Substanz eine Lösung im Mischungsverhältnis $a:b$ zu bekommen, verdünnt man $y$ Teile der Lösung mit $x$ Teilen Wasser, so dass
+#bold[Beispiel 3.19:] Um aus einer im Verhältnis $1:1$ in Wasser gelösten Substanz eine Lösung im Mischungsverhältnis $a:b$ zu bekommen, verdünnt man $y$ Teile der Lösung mit $x$ Teilen Wasser, so dass
 $
 x dot vec(1,1) + y dot vec(1,0) = vec(a, b) wide x"-Koordinate ist Wasser," y"-Koordinate ist Substanz"
 $
@@ -1579,15 +1579,15 @@ Man sieht:
 
 #boxedlist[$1$ Parameter in $RR^1$][$2$ Parameter in $RR^2$][$3$ Parameter in $RR^3$]
 
-#bolditalic[Ziel:] Alle Basen eines endlich erzeugten Vektorraums haben gleich viele Elemente.
+#bold[Ziel:] Alle Basen eines endlich erzeugten Vektorraums haben gleich viele Elemente.
 
-#align(center, [Das ist durchaus nicht offensichtlich#bolditalic[!!!]])
+#align(center, [Das ist durchaus nicht offensichtlich#bold[!!!]])
 
-#bolditalic[Beispiel 3.20:] Es gibt eine bijektive Abbildung $f: NN -> NN times NN$. Dafür kann man z.B. das Diagonalargument von Georg Cantor verwenden.
+#bold[Beispiel 3.20:] Es gibt eine bijektive Abbildung $f: NN -> NN times NN$. Dafür kann man z.B. das Diagonalargument von Georg Cantor verwenden.
 
 Zum Beweis der Aussage sind noch Vorarbeiten notwendig.
 
-#bolditalic[Satz 3.21:] Basisergänzungssatz 
+#bold[Satz 3.21:] Basisergänzungssatz 
 
 Sei $(V, +, dot)$ eine $K$-Vektorraum,
 
@@ -1613,9 +1613,9 @@ $
 Dies gilt für alle $j in J backslash tilde(J) ==> v_j in "Span" B space forall j in J ==> B "Basis"$
 #endproof
 
-#bolditalic[Beispiel 3.22:] In $V = RR^3$ bilden die Vektoren ${e_1, e_2, e_3}$ die Standardbasis. Des Weiteren sind die Vektoren $u_1= (3, 1, 0) "und" u_2 = (1, 3, 0)$ linear unabhängig. Satz 3.21 liefert, dass ${u_1, u_2, e_3}$ eine Basis ist. 
+#bold[Beispiel 3.22:] In $V = RR^3$ bilden die Vektoren ${e_1, e_2, e_3}$ die Standardbasis. Des Weiteren sind die Vektoren $u_1= (3, 1, 0) "und" u_2 = (1, 3, 0)$ linear unabhängig. Satz 3.21 liefert, dass ${u_1, u_2, e_3}$ eine Basis ist. 
 
-#bolditalic[Satz 3.23:] Austauschsatz von Steinitz 
+#bold[Satz 3.23:] Austauschsatz von Steinitz 
 
 (Ernst Steinitz, deutscher Mathematiker, 1871 - 1928)
 
@@ -1649,18 +1649,18 @@ $
 Dann folgt die zweite Aussage aus dem Basisergänzungssatz.
 #endproof
 
-#bolditalic[Lemma 3.24:] Ist $(V, +, dot)$ ein von endlich vielen Vektoren erzeugter $K$-Vektorraum, so besitzt $V$ eine Basis und je zwei Basen von $V$ haben gleich viele Elemente. 
+#bold[Lemma 3.24:] Ist $(V, +, dot)$ ein von endlich vielen Vektoren erzeugter $K$-Vektorraum, so besitzt $V$ eine Basis und je zwei Basen von $V$ haben gleich viele Elemente. 
 
 #italic[Beweis:] Sei $V = "Span"{v_1, ..., v_n}$ mit $v_1 != 0$. Nach Satz 3.21 kann ${v_1}$ durch Hinzunahme von geeigneten Elementen aus ${v_2, ..., v_n}$ zu einer Basis von $V$ ergänzen. Also besitzt $V$ eine Basis mit endlich vielen Elementen.
 
 Seien $U = {u_1, ..., u_l} "und" W = {w_1, ..., w_k}$ zwei solche Basen. Dann folgt aus dem Satz 3.23 aus Symmetrie, dass $k = l$. 
 #endproof
 
-#bolditalic[Ausblick:] Man kann mit Konzepten der Mengenlehre auch zeigen, dass es für unendlich erzeugte Vektorräume $V$ gilt: Für je zwei Basen ${u_i}_(i in I)$ und ${w_j}_(i in J)$ von $V$ existiert eine bijektive Abbildung $f: I -> J$.
+#bold[Ausblick:] Man kann mit Konzepten der Mengenlehre auch zeigen, dass es für unendlich erzeugte Vektorräume $V$ gilt: Für je zwei Basen ${u_i}_(i in I)$ und ${w_j}_(i in J)$ von $V$ existiert eine bijektive Abbildung $f: I -> J$.
 
 Folgerung aus Satz 3.8 in Zusammenhang mit Lemma 3.24: Da für eine Basis $B := {v_1, ..., v_n}$ eines $K$-Vektorraums $V$ gilt, dass $"Span" B = V$, sind für $v in V$ die Koeffizienten (= Koordinaten) $lambda_1, ..., lambda_n$ zur Darstellung von $v$ eindeutig. 
 
-#bolditalic[Beispiel 3.25:] für $V = RR^3$ sind 
+#bold[Beispiel 3.25:] für $V = RR^3$ sind 
 $
 B_1 := {vec(1, 0, 0), vec(0, 1, 0), vec(0, 0, 1)} "und" B_2 := {vec(-2, -1, 0), vec(-2, 3, 0), vec(-5, 0, 2)}
 $
@@ -1674,7 +1674,7 @@ vec(2a - 2b - 5c, -a + 3b + 0c, 0a + 0b + 2c) = vec(-15, 11, 2)
 $
 Berechnung der $a, b, c$ über ein lineares Gleichungssystem ergibt $a = 2, b = 3, c = 1$.
 
-#bolditalic[Beispiel 3.26:] Für den $RR$-Vektorraum $P_(<= 2)[t]$ der reellen Polynome vom Grad $<= 2$ sind:
+#bold[Beispiel 3.26:] Für den $RR$-Vektorraum $P_(<= 2)[t]$ der reellen Polynome vom Grad $<= 2$ sind:
 $
 B_1 := {1, t, t^2} "und" B_2 := {-t, t^2 - 2, t^2 + 2}
 $
@@ -1698,13 +1698,13 @@ $
   Wenn der Kontext klar ist schreibt man $dim V$.
 ]
 
-#bolditalic[Beispiel 3.28:] Sei $K$ ein Körper. Es gilt 
+#bold[Beispiel 3.28:] Sei $K$ ein Körper. Es gilt 
 
 #boxedlist[$dim_K (V) = 0$ genau dann, wenn $V = {0}$][
   für $V = K^n$ folgt mit der Standardbasis, dass $dim_K (V) = n$][für die Dimension eines Vektorraums ist der jeweilige Grundkörper $K$ entscheident, z.B. $CC$ und $K = CC$ gilt $dim_CC V = 1$ für $K = RR$ aber $dim_RR V = 2$. 
 ][der $K$-Vektorraum $P[t]$ ist nicht endlich erzeugt, also $dim_K P[t] = infinity$]
 
-#bolditalic[Beispiel 3.29:] Sei $V = K^n$ für einen Körper $K$. Um zu prüfen, dass $n$ Vektoren aus $V$ eine Basis werden, muss nur deren lineare Unabhängigkeit geprüft werden. Seien z.B. $B$ in $V = RR^3$ die Vektoren
+#bold[Beispiel 3.29:] Sei $V = K^n$ für einen Körper $K$. Um zu prüfen, dass $n$ Vektoren aus $V$ eine Basis werden, muss nur deren lineare Unabhängigkeit geprüft werden. Seien z.B. $B$ in $V = RR^3$ die Vektoren
 $
 v_1 = vec(2, -1, 0) space v_2 = vec(-2, 3, 0) space v_3 = vec(-5, 0, 2)
 $
@@ -1720,7 +1720,7 @@ $==> a = 0, b = 0, c = 0$.
 
 Somit sind die Vektoren linear unabhängig.
 
-#bolditalic[Lemma 3.30:] Sei $(V, +, dot)$ ein $K$-Vekorraum mit $n := dim_K V < infinity$ und $B = {v_1, ..., v_n} subset V$ eine Familie von genau $n$ Vektoren. Dann sind folgende Aussagen äquivalent:
+#bold[Lemma 3.30:] Sei $(V, +, dot)$ ein $K$-Vekorraum mit $n := dim_K V < infinity$ und $B = {v_1, ..., v_n} subset V$ eine Familie von genau $n$ Vektoren. Dann sind folgende Aussagen äquivalent:
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. $B$ ist eine Basis
@@ -1745,7 +1745,7 @@ $
 Dann hat $B'$ mit Sicherheit weniger als $n$ Elemente. Dies ist ein Widerspruch dazu, dass die Dimension des Vektorraums $n$ ist. Die Annahme muss also falsch sein. $==>$ $B$ ist eine Basis von $V$.
 #endproof
 
-#bolditalic[Lemma 3.31:] Sei $(V, +, dot)$ ein endlich erzeugter $K$-Vektorraum. Jeder Untervektorraum $W subset.eq V$ ist dann ebenfalls endlichdimensional und es gilt:
+#bold[Lemma 3.31:] Sei $(V, +, dot)$ ein endlich erzeugter $K$-Vektorraum. Jeder Untervektorraum $W subset.eq V$ ist dann ebenfalls endlichdimensional und es gilt:
 $
 dim W <= dim V 
 $
@@ -1754,7 +1754,7 @@ mit Gleichheit genau dann, wenn $W = V$.
 #italic[Beweis:] jede linear unabhängige Familie in $W$ ist auch linear unabhängig in $V$. Damit besteht sie nach dem Austauschsatz von Steinitz aus höchstens $dim_K V$ Elementen. Daraus folgt, dass $W$ endlich erzeugt ist mit $dim_K W <= dim_K V$. Im Fall von $dim_K W = dim_K V$ folgt mit Lemma 3.30, dass jede Basis von $W$ auch eine Basis von $V$ ist. $==>$ $V = W$
 #endproof
 
-#bolditalic[Achtung:] Die letzte Aussage (d.h. $V = W$) gilt nicht für unendlich erzeugte Vektorräume. Denn der $K$-Vektorraum $P[t]$ aller Polynome hat die Basis der Monome ${t^n}_(n in NN_0)$. Die Menge aller Polynome aus $P[t]$ mit $a_0 = 0$ ist ein Unterraum mit der Basis ${t^n}_(n in NN)$ und wird mit $W$ bezeichnet. Dann gilt 
+#bold[Achtung:] Die letzte Aussage (d.h. $V = W$) gilt nicht für unendlich erzeugte Vektorräume. Denn der $K$-Vektorraum $P[t]$ aller Polynome hat die Basis der Monome ${t^n}_(n in NN_0)$. Die Menge aller Polynome aus $P[t]$ mit $a_0 = 0$ ist ein Unterraum mit der Basis ${t^n}_(n in NN)$ und wird mit $W$ bezeichnet. Dann gilt 
 $
 dim_K P[t] = infinity = dim_K W, "aber" P[t] != W
 $
@@ -1775,7 +1775,7 @@ $
 
 Für den Durchschnitt und die Summe von Untervektorräumen gelten folgende Regeln:
 
-#bolditalic[Lemma 3.33:] Sind $U_1, U_2, U_3$ Unterräume des $K$-Vektorraums $(V, +, dot)$, dann gilt:
+#bold[Lemma 3.33:] Sind $U_1, U_2, U_3$ Unterräume des $K$-Vektorraums $(V, +, dot)$, dann gilt:
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. $U_1 sect U_2$ und $U_1 + U_2$ sind Unterräume von $V$
@@ -1787,7 +1787,7 @@ Für den Durchschnitt und die Summe von Untervektorräumen gelten folgende Regel
 #italic[Beweis:] (Übungsaufgabe)
 #endproof
 
-#bolditalic[Beispiel 3.34:] Sei $V := RR^3, U_1 := "Span"{(1, 0, 0), (0, 1, 0)}, U_2 := {(0, 1, 0), (0, 0, 1)}$. Dann gilt für $v in V, v = (v_1, v_2, v_3)$
+#bold[Beispiel 3.34:] Sei $V := RR^3, U_1 := "Span"{(1, 0, 0), (0, 1, 0)}, U_2 := {(0, 1, 0), (0, 0, 1)}$. Dann gilt für $v in V, v = (v_1, v_2, v_3)$
 $
 v = v_1 vec(1,0,0) + v_2 vec(0,1,0) + v_3 vec(0,0,1)
 $
@@ -1795,9 +1795,9 @@ Also gilt: $U_1 + U_2 = V$, insbesondere gilt auch $dim(U_1 + U_2) = 3$, $dim U_
 $
 v_1 vec(1,0,0) in U_1 "und" v_2 vec(0, 1, 0) + v_3 vec(0, 0, 1) in U_2
 $
-Also ist die Darstellung von $v$ als Summe #bolditalic[nicht] eindeutig. Insbesondere ist $dim(U_1 sect U_2) = 1$.
+Also ist die Darstellung von $v$ als Summe #bold[nicht] eindeutig. Insbesondere ist $dim(U_1 sect U_2) = 1$.
 
-#bolditalic[Lemma 3.35:] Sei $V$ ein $K$-VR und $r in NN$ und $U_1, ..., U_r$ Untervektorräume von $V$. Dann sind folgende Aussagen äquivalent.
+#bold[Lemma 3.35:] Sei $V$ ein $K$-VR und $r in NN$ und $U_1, ..., U_r$ Untervektorräume von $V$. Dann sind folgende Aussagen äquivalent.
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. Für $u in sum_(i = 1)^r U_i$ existieren eindeutige $u_i in U_i$, $i in {1, ..., r}$ mit $u = sum_(i = 1)^r u_i$
@@ -1842,7 +1842,7 @@ Dann gilt $u in U_i$ und insbesondere $u in U_1 + ... + U_(i-1) + U_(i+1) + ... 
 #endproof
 
 #definition("3.36", "Direkte Summe")[
-  Sei $V$ ein $K$-VR und $r in NN, U_1, ..., U_r$ Untervektorräume von $V$. Dann heißt die Summe $sum U_i$ #bolditalic[direkt], falls eine der Bedingungen aus Lemma 3.35 zutrifft.
+  Sei $V$ ein $K$-VR und $r in NN, U_1, ..., U_r$ Untervektorräume von $V$. Dann heißt die Summe $sum U_i$ #bold[direkt], falls eine der Bedingungen aus Lemma 3.35 zutrifft.
   
   Wir schreiben dann 
   $
@@ -1850,9 +1850,9 @@ Dann gilt $u in U_i$ und insbesondere $u in U_1 + ... + U_(i-1) + U_(i+1) + ... 
   $
 ]
 
-#bolditalic[Beispiel 3.37:] Seien $V, U_1, U_2$ wie im Beispeil 3.34. Dann gilt $V = U_1 + U_2$, aber nicht $U_1 oplus U_2$. Sei weiter $U_3 := "Span"{(0, 0, 1)}$. Dann gilt $V = U_1 + U_3$ und $U_1 oplus U_3$.
+#bold[Beispiel 3.37:] Seien $V, U_1, U_2$ wie im Beispeil 3.34. Dann gilt $V = U_1 + U_2$, aber nicht $U_1 oplus U_2$. Sei weiter $U_3 := "Span"{(0, 0, 1)}$. Dann gilt $V = U_1 + U_3$ und $U_1 oplus U_3$.
 
-#bolditalic[Lemma] (ohne Nummer)
+#bold[Lemma] (ohne Nummer)
 
 Sei $V$ ein $K$-VR. Seien $U_1, U_2$ UVRs von $V$. Dann gilt
 $
@@ -1864,7 +1864,7 @@ Dabei sei $infinity + infinity = infinity, infinity + n = infinity, n <= infinit
 
 #italic[Beweis:] 
 
-#bolditalic[Fall 1:] $dim U_1 = infinity$ oder $dim U_2 = infinity$. Dann gilt $(ast)$ nach den Rechenregeln der erweiterten Arithmetik.
+#bold[Fall 1:] $dim U_1 = infinity$ oder $dim U_2 = infinity$. Dann gilt $(ast)$ nach den Rechenregeln der erweiterten Arithmetik.
 
 Andernfalls existieren $m, l in NN$ mit $dim U_1 = m "und" dim U_2 = l$.
 
@@ -1887,7 +1887,7 @@ Da $U_1 oplus U_2$ folgt $v = 0 = w$. Da $u_i, i in {1, ..., m}$ eine Basis von 
 $==>$ $dim U_1 + dim U_2 = m + l <= dim(U_1 + U_2)$
 #endproof
 
-#bolditalic[Satz 3.38:] Sei $V$ ein $K$-VR und $U$ ein UVR von $V$. Dann existiert ein Untervektorraum $U^top subset.eq V$ mit $V = U oplus U^top$ (heißt $V = U + U^top$ und $U oplus U^top$). Insbesondere gilt dann 
+#bold[Satz 3.38:] Sei $V$ ein $K$-VR und $U$ ein UVR von $V$. Dann existiert ein Untervektorraum $U^top subset.eq V$ mit $V = U oplus U^top$ (heißt $V = U + U^top$ und $U oplus U^top$). Insbesondere gilt dann 
 $
 dim V = dim U + dim U^top
 $
@@ -1905,13 +1905,13 @@ $
 die Eindeutigkeit der $lambda_k, k in I union J$ garantiert die Eindeutigkeit von $u$ und $w$. Also $U oplus U^top$.
 #endproof
 
-Ein durch Satz 3.38 aus $U$ und $V$ erhaltener Untervektorraum $U^top$ heißt #bolditalic[Komplement] von $U$ in $V$.
+Ein durch Satz 3.38 aus $U$ und $V$ erhaltener Untervektorraum $U^top$ heißt #bold[Komplement] von $U$ in $V$.
 
-#bolditalic[Beispiel 3.39:] Seien $V, U_1$ und $U_3$ wie in Beispiel 3.37. Dann gilt $V = U_1 oplus U_3$ d.h. $U_3$ ist ein Komplement von $U_1$ in $V$. Sei weiter $tilde(U_3) := "Span"{(1, 0, 1)}$. Dann gilt auch $V = U_1 oplus tilde(U_3)$.
+#bold[Beispiel 3.39:] Seien $V, U_1$ und $U_3$ wie in Beispiel 3.37. Dann gilt $V = U_1 oplus U_3$ d.h. $U_3$ ist ein Komplement von $U_1$ in $V$. Sei weiter $tilde(U_3) := "Span"{(1, 0, 1)}$. Dann gilt auch $V = U_1 oplus tilde(U_3)$.
 
 Insbesondere sind die Komplemente aus Satz 3.38 nicht eindeutig bestimmt.
 
-#bolditalic[Satz 3.40:] Sei $V$ ein endlich erzeugter $K$-VR. Seien $U_1, U_2$ UVRs von $V$. Dann gilt 
+#bold[Satz 3.40:] Sei $V$ ein endlich erzeugter $K$-VR. Seien $U_1, U_2$ UVRs von $V$. Dann gilt 
 $
 dim(U_1 sect U_2) + dim(U_1 + U_2) = dim U_1 + dim U_2
 $
@@ -1961,7 +1961,7 @@ Nun behandeln wir Abbildungen, die zur Vektorstruktur "passen". Diese heißen li
 == Definitionen und grundlegende Eigenschaften
 
 #definition("4.1", "Lineare Abbildung")[
-  Seien $V$ und $W$ zwei $K$-Vektorräume. Eine Abbildung $f: V -> W$ heißt #bolditalic[lineare Abbildung], wenn gilt 
+  Seien $V$ und $W$ zwei $K$-Vektorräume. Eine Abbildung $f: V -> W$ heißt #bold[lineare Abbildung], wenn gilt 
   
   #box(width: 100%, inset: (left: 0.5cm, right: 0.5cm))[
     1. $underbrace(f(lambda dot v), "Skalarmultiplikation in" V) = underbrace(lambda dot f(v), "Skalarmultiplikation in" W) wide forall space.sixth v in V, forall space.sixth lambda in K$
@@ -1969,21 +1969,21 @@ Nun behandeln wir Abbildungen, die zur Vektorstruktur "passen". Diese heißen li
     2. $underbrace(f(v + w), "Addition in" V) = underbrace(f(v) + f(w), "Addition in" W)$
     #h(5pt)
   ]
-  Die Menge aller linearen Abbildungen von $V$ nach $W$ bezeichnet man mit $L(V, W)$. Eine lineare Abbildung $f: V -> W$ wird auch #bolditalic[lineare Transformation] oder #bolditalic[(Vektorraum-) Homomorphismus] genannt.
+  Die Menge aller linearen Abbildungen von $V$ nach $W$ bezeichnet man mit $L(V, W)$. Eine lineare Abbildung $f: V -> W$ wird auch #bold[lineare Transformation] oder #bold[(Vektorraum-) Homomorphismus] genannt.
 
-  Eine bijektive lineare Abbildung nennt man #bolditalic[(Vektorraum-) Isomorphismus]. Gibt es für zwei $K$-Vektorräume $V$ und $W$ einen Isomorphismus, so heißen die Räume $V$ und $W$ isomorph, geschrieben
+  Eine bijektive lineare Abbildung nennt man #bold[(Vektorraum-) Isomorphismus]. Gibt es für zwei $K$-Vektorräume $V$ und $W$ einen Isomorphismus, so heißen die Räume $V$ und $W$ isomorph, geschrieben
   $
   V isomorph W
   $
-  Eine lineare Abbildung $f: V -> V$ heißt #bolditalic[Endomorphismus] und ein bijektiver Endomorphismus heißt #bolditalic[Automorphismus].
+  Eine lineare Abbildung $f: V -> V$ heißt #bold[Endomorphismus] und ein bijektiver Endomorphismus heißt #bold[Automorphismus].
 ]
 
-#bolditalic[Bemerkung:] Als Übungsaufgabe: 
+#bold[Bemerkung:] Als Übungsaufgabe: 
 $
 "Definition 4.1, 1) + 2)" <==> f(lambda v + mu w) = lambda f(v) + mu f(w) wide forall v, w in V, forall lambda, mu in K
 $
 
-#bolditalic[Beispiel 4.2:] Für $a in RR$ ist $f: RR -> RR, f(x) = a x$ eine lineare Abbildung. Ihr Graph ist eine Gerade durch den Ursprung.
+#bold[Beispiel 4.2:] Für $a in RR$ ist $f: RR -> RR, f(x) = a x$ eine lineare Abbildung. Ihr Graph ist eine Gerade durch den Ursprung.
 
 Betrachte eine Gerade $f(x) = a x + b$ und betrachte 
 $
@@ -1992,7 +1992,7 @@ $
 $
 $f$ ist also nur eine lineare Abbildung, wenn $b = 0$ gilt. Streng genommen sind Geraden der Form $f(x) = m x + n$ keine linearen Abbildung. Korrekt ist, sie als affine Abbildungen zu bezeichnen.
 
-#bolditalic[Beispiel 4.3:] Für $a, b, c, d in RR$ ist $f: RR^2 -> RR^2$
+#bold[Beispiel 4.3:] Für $a, b, c, d in RR$ ist $f: RR^2 -> RR^2$
 $
 f(vec(x_1, x_2)) = vec(a x_1 + b x_2, c x_1 + d x_2) in RR^2
 $
@@ -2018,7 +2018,7 @@ $
 f(vec(1,0)) = (cos(45°), sin(45°)) = vec(1/sqrt(2), 1/sqrt(2))
 $
 
-#bolditalic[Beispiel 4.4:] Sei $V = C^infinity (RR)$ der reelle Vektorraum aller unendlich oft differenzierbaren Funktionen $g: RR -> RR$ mit punktweisen Addition und skalaren Multiplikation. Dann ist 
+#bold[Beispiel 4.4:] Sei $V = C^infinity (RR)$ der reelle Vektorraum aller unendlich oft differenzierbaren Funktionen $g: RR -> RR$ mit punktweisen Addition und skalaren Multiplikation. Dann ist 
 $
 d/(d x): V -> V, f arrow.bar f' = d/(d x) f
 $
@@ -2028,7 +2028,7 @@ $
 (a dot f)'(x) = a f'(x) wide forall x in RR 
 $ 
 
-#bolditalic[Lemma 4.5:] Seien $V, W$ $K$-Vektorräume und $f: V -> W$ eine lineare Abbildung, $0_V$ der Nullvektor in $V$ und $0_W$ der Nullvektor in $W$. Dann gilt 
+#bold[Lemma 4.5:] Seien $V, W$ $K$-Vektorräume und $f: V -> W$ eine lineare Abbildung, $0_V$ der Nullvektor in $V$ und $0_W$ der Nullvektor in $W$. Dann gilt 
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. $f(0_V) = 0_W$
@@ -2042,7 +2042,7 @@ f(-x) = f((-1) dot x) = (-1) dot f(x) = -f(x)
 $
 #endproof
 
-#bolditalic[Lemma 4.6:] Seien $V, W$ $K$-Vektorräume. Für $f, g in L(V, W)$ und $lambda in K$ seien $f + g$ und $lambda dot f$ definiert durch
+#bold[Lemma 4.6:] Seien $V, W$ $K$-Vektorräume. Für $f, g in L(V, W)$ und $lambda in K$ seien $f + g$ und $lambda dot f$ definiert durch
 $
 (f + g)(v) = f(v) + g(v) wide forall v in V \
 (lambda dot f)(v) = lambda f(v) wide forall v in V, forall lambda in K
@@ -2052,7 +2052,7 @@ Dann ist $(L(V, W), +, dot)$ ein $K$-Vektorraum.
 #italic[Beweis:] (Übungsaufgabe)
 #endproof
 
-#bolditalic[Lemma 4.7:] Sei $V$ ein $K$-Vektorraum und $B := {v_1, ..., v_n} subset V$ eine endliche Familie von Vektoren. Dann ist:
+#bold[Lemma 4.7:] Sei $V$ ein $K$-Vektorraum und $B := {v_1, ..., v_n} subset V$ eine endliche Familie von Vektoren. Dann ist:
 $
 Phi_B: K^n -> V, (a_i)_(1 <= i <= n) arrow.bar sum_(i = 1)^n a_i v_i
 $
@@ -2069,11 +2069,11 @@ Phi_B (a + lambda b) &= Phi_B (a_i + lambda b_i)_(1 <= i <= n) = sum_(i = 1)^n u
 $
 #endproof
 
-#bolditalic[Wichtig:] $B = {v_1, ..., v_n}$ ist endlich! Für $B$ mit unendlich vielen Elementen bräuchte man eine äußere direkte Summe.
+#bold[Wichtig:] $B = {v_1, ..., v_n}$ ist endlich! Für $B$ mit unendlich vielen Elementen bräuchte man eine äußere direkte Summe.
 
 Aus abstrakter Sicht kennen wir jetzt endlichdimensionale Vektorräume, denn: Jeder endlichdimensionaler Vektorraum ist isomorph zu einer direkten Summe von Kopien des Grundkörpers.
 
-#bolditalic[Satz 4.8:] Struktursatz für Vektorräume 
+#bold[Satz 4.8:] Struktursatz für Vektorräume 
 
 Sei $V$ ein $K$-Vektorraum und $B = {v_1, ..., v_n} subset V$ eine Basis von $V$. Dann ist die Abbildung 
 $
@@ -2093,7 +2093,7 @@ $
 Phi "bijektiv" ==> exists Phi^(-1)_B "als inverse Abbildung"
 $
 
-#bolditalic[Beispiel 4.9:] Sei $K^(n+1) = RR^(n+1)$ und $P_(<=n)[t]$ der Raum der Polynome von Grad kleiner gleich $n$ für $n in NN$. Eine Basis von $P_(<=n)[t]$ ist gegeben durch $B = {1, t, t^2, ..., t^n}$, vergleiche Beispiel 3.13.
+#bold[Beispiel 4.9:] Sei $K^(n+1) = RR^(n+1)$ und $P_(<=n)[t]$ der Raum der Polynome von Grad kleiner gleich $n$ für $n in NN$. Eine Basis von $P_(<=n)[t]$ ist gegeben durch $B = {1, t, t^2, ..., t^n}$, vergleiche Beispiel 3.13.
 
 Dann ist: 
 $
@@ -2107,7 +2107,7 @@ die inverse Koordinatenabbildung.
 
 Um eine lineare Abbildung zu definieren, reicht es ihre Werte auf einer beliebigen Basis anzugeben.
 
-#bolditalic[Lemma 4.10:] Sei $V$ ein endlichdimensionaler Vektorraum über $K$ mit einer Basis $B := {v_1, .., v_n}$, $W$ ein beliebiger $K$-Vektorraum und $C = {w_1, ..., w_n}$ eine Familie von Vektoren in $W$. Dann gibt es genau eine lineare Abbildung $f$ von $V$ nach $W$ mit 
+#bold[Lemma 4.10:] Sei $V$ ein endlichdimensionaler Vektorraum über $K$ mit einer Basis $B := {v_1, .., v_n}$, $W$ ein beliebiger $K$-Vektorraum und $C = {w_1, ..., w_n}$ eine Familie von Vektoren in $W$. Dann gibt es genau eine lineare Abbildung $f$ von $V$ nach $W$ mit 
 $
 f(v_i) = w_i "für" 1 <= i <=n
 $
@@ -2155,16 +2155,16 @@ Kern und Bild wurden bereits im Kapitel 2 behandelt. Hier behandeln wir die Konz
   $
   ker(f) := {v in V | f(v) = 0}
   $
-  heißt #bolditalic[Kern] der linearen Abbildung $f$. 
+  heißt #bold[Kern] der linearen Abbildung $f$. 
 
   Die Menge 
   $
   im(f) := f(V) = {w in W | exists v in V: w = f(v)}
   $
-  heißt #bolditalic[Bild] der linearen Abbildung $f$.
+  heißt #bold[Bild] der linearen Abbildung $f$.
 ]
 
-#bolditalic[Beispiel 4.12:] 
+#bold[Beispiel 4.12:] 
 
 #box(width: 100%, inset: (right: 1cm, left: 1cm))[
   1. #[Für den Isomorphismus aus Beispiel 4.9 gilt:
@@ -2193,7 +2193,7 @@ Kern und Bild wurden bereits im Kapitel 2 behandelt. Hier behandeln wir die Konz
   ]
 ]
 
-#bolditalic[Lemma 4.13:] Es seien $V$ und $W$ zwei $K$-Vektorräume und $f: V -> W$ eine lineare Abbildung. Dann gilt :
+#bold[Lemma 4.13:] Es seien $V$ und $W$ zwei $K$-Vektorräume und $f: V -> W$ eine lineare Abbildung. Dann gilt :
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. $ker(f) subset.eq V$ ist ein Untervektorraum von $V$ 
@@ -2226,13 +2226,13 @@ $
 #endproof
 
 #definition("4.14", "Rang einer Abbildung")[
-  Es seien $V$ und $W$ zwei $K$-Vektoräume und $f: V -> W$ eine lineare Abbildung. Der #bolditalic[Rang] der linearen Abbildung $f$ ist definiert als
+  Es seien $V$ und $W$ zwei $K$-Vektoräume und $f: V -> W$ eine lineare Abbildung. Der #bold[Rang] der linearen Abbildung $f$ ist definiert als
   $
   rg(f) := dim_K (im(f))
   $
 ]
 
-#bolditalic[Lemma 4.15:] Es seien $V$ und $W$ zwei $K$-Vektorräume und $f in L(V, W)$, $W$ sei endlichdimensional. Dann gilt 
+#bold[Lemma 4.15:] Es seien $V$ und $W$ zwei $K$-Vektorräume und $f in L(V, W)$, $W$ sei endlichdimensional. Dann gilt 
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. $f$ surjektiv $<==>$ $rg(f) = dim W$
@@ -2262,7 +2262,7 @@ f(x) = f(tilde(x)) <==> f(x) - f(tilde(x)) = 0 <==> f(x - tilde(x)) = 0 in ker(f
 $
 #endproof
 
-#bolditalic[Satz 4.16:] Dimensionsformel
+#bold[Satz 4.16:] Dimensionsformel
 
 Seien $V$ und $W$ zwei endlichdimensionale $K$-Vektorräume und $f in L(V, W)$. Dann gilt 
 $
@@ -2314,7 +2314,7 @@ $
 $
 #endproof
 
-#bolditalic[Beispiel 4.17:] Fortsetzung von Beispiel 4.12.
+#bold[Beispiel 4.17:] Fortsetzung von Beispiel 4.12.
 
 zu 1) 
 
@@ -2339,7 +2339,7 @@ zu 2)
     $
 ]
 
-#bolditalic[Beispiel 4.18:] Sei $V = RR^3, W = RR^3$ und $f: V -> W$
+#bold[Beispiel 4.18:] Sei $V = RR^3, W = RR^3$ und $f: V -> W$
 $
 f(vec(x_1, x_2, x_3)) = vec(x_1 - x_2 + 2 x_3, x_1 + x_2 + x_3, 0x_1 + 3x_2 + 0x_3)
 $
@@ -2354,7 +2354,7 @@ dim(ker(f)) = dim(V) - dim(im(f)) = 3 - 2 = 1 \
 ==> {0_(RR^3)} subset ker(f)
 $
 
-#bolditalic[Lemma 4.19:] Zwei endlichdimensionale $K$-Vektorräume $V$ und $W$ sind genau dann isomorph, wenn
+#bold[Lemma 4.19:] Zwei endlichdimensionale $K$-Vektorräume $V$ und $W$ sind genau dann isomorph, wenn
 $
 dim(V) = dim(W)
 $
@@ -2399,7 +2399,7 @@ $
 
 Was passiert bei Verknüpfungen von linearen Abbildungen?
 
-#bolditalic[Satz 4.20:] Seien $V, W$ und $X$ drei endlichdimensionale $K$-Vektorräume sowie $f in L(V, W)$ und $g in L(W, X)$. Dann gilt 
+#bold[Satz 4.20:] Seien $V, W$ und $X$ drei endlichdimensionale $K$-Vektorräume sowie $f in L(V, W)$ und $g in L(W, X)$. Dann gilt 
 $
 g circ f in L(V, X) "und" \
 dim(im(g circ f)) = dim(im(f)) - dim(im(f) sect ker(g))
@@ -2422,7 +2422,7 @@ ker(tilde(g)) = {v in im(f) | tilde(g)(v) = 0} = im(f) sect ker(g)
 $
 #endproof
 
-#bolditalic[Lemma 4.21:] Sei $K$ ein Körper. Die linearen Abbildungen $f: K^n -> K^m$ sind genau die Abbildungen der Form:
+#bold[Lemma 4.21:] Sei $K$ ein Körper. Die linearen Abbildungen $f: K^n -> K^m$ sind genau die Abbildungen der Form:
 $
 vec(x_1, x_2, dots.v, x_n) -> vec(a_(1 1) x_1 + a_(1 2) x_2 + ... + a_(1 n) x_n, a_(2 1) x_1 + a_(2 2) x_2 + ... + a_(2 n) x_n, dots.v, a_(m 1) x_1 + a_(m 2) x_2 + ... + a_(m n) x_n)
 $
@@ -2432,7 +2432,7 @@ mit Koeffizienten $a_(i j) in K$ für $1 <= i <= m$ und $1 <= j <= n$.
 
 "$==>$": Sei $f in L(K^n, K^m)$. Zu zeigen: $f$ ist in angegebener Form darzustellen. 
 
-#bolditalic[Beobachtung:] Wenn $f$ so darstellbar ist, haben alle Bilder der Standardbasis $e_1, ..., e_n$ folgende Form:
+#bold[Beobachtung:] Wenn $f$ so darstellbar ist, haben alle Bilder der Standardbasis $e_1, ..., e_n$ folgende Form:
 $
 f(e_i) = vec(a_(1 i), dots.v, a_(m i)) in K^m
 $
@@ -2470,10 +2470,10 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
     a_(m 1), a_(m 2), ..., a_(m n);;
   )
   $
-  mit $a_(i j) in K$ für $1 <= i <= m$ und $1 <= j <= n$ heißt #bolditalic[(m $times$ n) Matrix] mit den Einträgen in $R$. Die Einträge nennt man auch Koeffizienten. Die Menge aller ($m times n$) Matrizen nennt man $R^(m times n)$.
+  mit $a_(i j) in K$ für $1 <= i <= m$ und $1 <= j <= n$ heißt #bold[(m $times$ n) Matrix] mit den Einträgen in $R$. Die Einträge nennt man auch Koeffizienten. Die Menge aller ($m times n$) Matrizen nennt man $R^(m times n)$.
 ]
 
-#bolditalic[Bemerkungen:] 
+#bold[Bemerkungen:] 
 
 #boxedlist[
   Rein formal erlaubt diese Definition $n = 0$ oder $m = 0$. Dann erhält man Matrizen der Form $0 times n$, $m times 0$ oder $0 times 0$.
@@ -2484,7 +2484,7 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
 ][
   Ist $m = n$, so nennt man $A in R^(m times n)$ quadratisch bzw. eine quadratische Matrix
 ][
-  Ist $A in R^(n times n)$ heißen die Einträge $a_(j j)$ für $1 <= j <= n$ #bolditalic[Diagonaleinträge] von 
+  Ist $A in R^(n times n)$ heißen die Einträge $a_(j j)$ für $1 <= j <= n$ #bold[Diagonaleinträge] von 
   $
   A = mat(
       a_(1 1), ..., ...;
@@ -2519,7 +2519,7 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
   $
   Diese sind selbst wieder Matrizen.
 ][
-  Sind $m_1, m_2, n_1, n_2 in NN_0$ und $A_(i j) in R^(m, n)$ für $i,j = 1,2$ gegeben, definieren diese eine sogenannte #bolditalic[Blockmatrix] der Form 
+  Sind $m_1, m_2, n_1, n_2 in NN_0$ und $A_(i j) in R^(m, n)$ für $i,j = 1,2$ gegeben, definieren diese eine sogenannte #bold[Blockmatrix] der Form 
   $
   A = mat(
     A_(1 1), A_(1 2);
@@ -2528,7 +2528,7 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
   $
 ]
 
-#bolditalic[Beispiel 5.2:] Für 
+#bold[Beispiel 5.2:] Für 
 $
 A = mat(
   1, -2, 3;
@@ -2567,7 +2567,7 @@ die zweite Spalte von $B$. Keine dieser Matrizen ist quadratisch.
   Die Addition in $R^(m,n)$ erfolgt also komponentenweise basierend auf der Addition in $R$.
 ]
 
-#bolditalic[Achtung:] Die Addition ist nur für Matrizen gleicher Größe / Dimension definiert.
+#bold[Achtung:] Die Addition ist nur für Matrizen gleicher Größe / Dimension definiert.
 
 #definition("5.4", "Multiplikation einer Matrix mit einem Skalar")[
   Sei $A in R^(m,n)$ eine Matrix und $lambda in R$. Dann ist $C = lambda dot A in R^(m,n)$ definiert durch
@@ -2593,15 +2593,15 @@ die zweite Spalte von $B$. Keine dieser Matrizen ist quadratisch.
   für $i = 1, ..., m$ und $j = 1, ..., l$
 ]
 
-#bolditalic[Bemerkung:] Um das Produkt $A dot B$ berechnen zu können #bold[muss] die Anzahl der Spalten von $A$ gleich der Anzahl von Zeilen in $B$ sein.
+#bold[Bemerkung:] Um das Produkt $A dot B$ berechnen zu können #bold[muss] die Anzahl der Spalten von $A$ gleich der Anzahl von Zeilen in $B$ sein.
 
-#bolditalic[Merkregel:] 
+#bold[Merkregel:] 
 $
 c_(i j) =  i"-te Zeile von" A "mal" j"-t Spalte von" B
 $
 Oder Zeile "mal" Spalte. ("mal" $corres$ Skalarprodukt)
 
-#bolditalic[Beispiel 5.6:] Für die Matrizen
+#bold[Beispiel 5.6:] Für die Matrizen
 $
 A = mat(1, -2, 3; -4, 5, 6) in ZZ^(2,3), space B = mat(-1, 0; 0, 1; 1, -1) in ZZ^(3,2) space "und" space C = mat(1, 2; 3, 4; 5, 6) in ZZ^(3, 2) 
 $
@@ -2624,7 +2624,7 @@ $
 D dot E = mat(-1, -2; 4, 5) space != space mat(-1, 2; -4, 5) = E dot D
 $
 
-#bolditalic[Lemma 5.7:] Für $A, tilde(A) in R^(m,m) space B, tilde(B) in R^(m,l), space C in R^(l,k) "sowie" lambda, mu in R$ gelten
+#bold[Lemma 5.7:] Für $A, tilde(A) in R^(m,m) space B, tilde(B) in R^(m,l), space C in R^(l,k) "sowie" lambda, mu in R$ gelten
 
 #boxedlist[
   Assoziativgesetze, d.h. #sspace
@@ -2659,13 +2659,13 @@ $
   $
   A = mat(a_(1 1), ..., a_(1 n); dots.v, dots.down, dots.v; a_(m 1), ..., a_(m n)) in R^(m times n)
   $
-  eine Matrix. Dann ist die zu $A$ #bolditalic[transponierte] Matrix $A^top$ definiert durch 
+  eine Matrix. Dann ist die zu $A$ #bold[transponierte] Matrix $A^top$ definiert durch 
   $
   A^top := mat(a_(1 1), ..., a_(m 1); dots.v, dots.down, dots.v; a_(1 n), ..., a_(m n)) in R^(n times m)
   $
 ]
 
-#bolditalic[Beispiel 5.9:] Die zu 
+#bold[Beispiel 5.9:] Die zu 
 $
 A = mat(1,-2,3;-4,5,6) in ZZ^(2,3)
 $
@@ -2674,7 +2674,7 @@ $
 A^top = mat(1, -4; -2, 5; 3, 6) in ZZ^(3,2)
 $
 
-#bolditalic[Lemma 5.10:] Für $A, tilde(A) in R^(m,n), space B in R^(n,l) "und" lambda in R$ gilt 
+#bold[Lemma 5.10:] Für $A, tilde(A) in R^(m,n), space B in R^(n,l) "und" lambda in R$ gilt 
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   #show par: set block(spacing: 0.65em)
@@ -2690,7 +2690,7 @@ $
 #italic[Beweis:] Nachrechnen.
 #endproof
 
-#bolditalic[Zur Notation:]
+#bold[Zur Notation:]
 $
 R^n, space v in R^n, space v = vec(v_1, dots.v, v_n) in R^(n,1)
 $
@@ -2700,11 +2700,11 @@ Für Zeilenvektor:
 $
 w in R^(1,n) "gilt" w^top in R^(n,1) isomorph R^n
 $
-#bolditalic[Beobachtung:] Alle Operationen, die wir für Matrizen definiert haben, sind konsistent mit den Vektoroperationen, wenn diese im obigen Sinn als Matrizen interpretiert werden.
+#bold[Beobachtung:] Alle Operationen, die wir für Matrizen definiert haben, sind konsistent mit den Vektoroperationen, wenn diese im obigen Sinn als Matrizen interpretiert werden.
 
 == Matrizengruppen und -ringe
 
-#bolditalic[Lemma 5.11:] Mit den angegebenen Rechenregeln gilt
+#bold[Lemma 5.11:] Mit den angegebenen Rechenregeln gilt
 
 #box(width: 100%, inset: (right: 1cm, left: 1cm))[
   1. #[
@@ -2732,7 +2732,7 @@ $
 
 Aufgrund der Eigenschaft 2 aus Lemma 5.10 ist die Transposition von Matrizen ein Homomorphismus (vlg. Definition 2.11) der Gruppen $(R^(m,n), +)$ und $(R^(n,m), +)$ 
 
-#bolditalic[Lemma 5.12:] Sei $n in NN$. Die Menge der quadratischen Matrizen $R^(n, n)$, d.h. $(R^(n,n), +, dot)$, ist ein Ring mit Eins, welche durch die Einheitsmatrix $I_n$ gegeben ist. Dieser Ring ist nur für $n = 1$ kommutativ.
+#bold[Lemma 5.12:] Sei $n in NN$. Die Menge der quadratischen Matrizen $R^(n, n)$, d.h. $(R^(n,n), +, dot)$, ist ein Ring mit Eins, welche durch die Einheitsmatrix $I_n$ gegeben ist. Dieser Ring ist nur für $n = 1$ kommutativ.
 
 #italic[Beweis:] Lemma 5.11: $(R^(n,n), +)$ ist eine kommutative Gruppe mit neutralem Element $0 in R^(n,n)$. Lemma 5.7: Assoziativität, Distributivitätsgesetze, Einselement $I_n$. $==>$ Ring mit $1$ $space.thin checkmark$
 
@@ -2753,7 +2753,7 @@ Weitere wichtige Eigenschaft:
 
 Invertierbarkeit bezüglich der Multiplikation!
 
-#bolditalic[Frage:] Gibt es für jede Matrix $A in R^(n,n)$ eine Matrix $A^(-1)$, so dass $A dot A^(-1) = I_n = A^(-1) dot A$? Wenn dies gilt, dann müsste $A^(-1)$ existieren, so dass für 
+#bold[Frage:] Gibt es für jede Matrix $A in R^(n,n)$ eine Matrix $A^(-1)$, so dass $A dot A^(-1) = I_n = A^(-1) dot A$? Wenn dies gilt, dann müsste $A^(-1)$ existieren, so dass für 
 $
 A = mat(0,0;1,0) space "gilt" space A dot A^(-1) = I = A^(-1) dot A \
 A dot A^(-1) = mat(0,0;1,0) dot mat(a,b;c,d) =^! mat(1,0;0,1)
@@ -2762,9 +2762,9 @@ Für das erste Element der Matrix folgt
 $
 0 dot a + 0 dot c = underbrace(0 != 1, "Ring mit" 0 != 1) space arrow.zigzag
 $
-#bolditalic[Folgerung:] Nicht alle quadratischen Matrizen sind invertierbar.
+#bold[Folgerung:] Nicht alle quadratischen Matrizen sind invertierbar.
 
-#bolditalic[Beispiel 5.13:] Die Matrix 
+#bold[Beispiel 5.13:] Die Matrix 
 $
 A = mat(1,0;2,3) in ZZ^(2,2)
 $
@@ -2776,7 +2776,7 @@ Ist $A in QQ^(2,2)$, dann ist $A$ invertierbar. Also: Invertierbarkeit hängt vo
 
 #sect_delim
 
-#bolditalic[Lemma 5.14:] Sind $A, B in R^(n,n)$ zwei invertierbare Matrizen. D.h. es existieren $A^(-1), B^(-1) in R^(n,n)$ mit $A dot A^(-1) = I = A^(-1) dot A$ und $B dot B^(-1) = I = B^(-1) dot B$, so gilt:
+#bold[Lemma 5.14:] Sind $A, B in R^(n,n)$ zwei invertierbare Matrizen. D.h. es existieren $A^(-1), B^(-1) in R^(n,n)$ mit $A dot A^(-1) = I = A^(-1) dot A$ und $B dot B^(-1) = I = B^(-1) dot B$, so gilt:
 
 #boxedlist[
   $A dot B$ ist invertierbar und es ist $#sspace$
@@ -2797,7 +2797,7 @@ $
 $
 #endproof
 
-#bolditalic[Lemma 5.15:] Die Menge $"GL"_n (R) := {A in R^(n,n) | A "invertierbar"}$ bilden mit der Matrixmultiplikation eine Gruppe.
+#bold[Lemma 5.15:] Die Menge $"GL"_n (R) := {A in R^(n,n) | A "invertierbar"}$ bilden mit der Matrixmultiplikation eine Gruppe.
 
 #italic[Beweis:] Lemma 5.14, 1. Aussage: Abgeschlossenheit bezüglich $dot$. Lemma 5.7: Assoziativität $+$ neutrale Element $I_n$. Mit $(A^(-1))^(-1) = A$ ist auch $A^(-1)$ invertierbar $==>$ $A^(-1) in "GL"_n (R)$.
 #endproof
@@ -2814,7 +2814,7 @@ Diese Beobachtung motiviert:
 
 == Matrizen und lineare Abbildungen
 
-#bolditalic[Beispiel 5.16:] Fortsetzung von Beispiel 4.3.
+#bold[Beispiel 5.16:] Fortsetzung von Beispiel 4.3.
 
 Die lineare Abbildung $f: RR^2 -> RR^2$,
 $
@@ -2826,7 +2826,7 @@ y = f(x) = underbrace(underbrace(mat(a, b; c, d), in space.thin R^(2,2)) dot und
 $
 Die Kombination mit Lemma 4.21 liefert:
 
-#bolditalic[Satz 5.17:] Sei $K$ ein Körper. Zu jeder linearen Abbildung $f: K^n -> K^m, space.thin y = f(x)$, existiert eine Matrix $A in K^(m,n)$, so dass gilt
+#bold[Satz 5.17:] Sei $K$ ein Körper. Zu jeder linearen Abbildung $f: K^n -> K^m, space.thin y = f(x)$, existiert eine Matrix $A in K^(m,n)$, so dass gilt
 $
 y = f(x) = A dot x
 $
@@ -2843,7 +2843,7 @@ $
 
 Was gilt für allgemeine Basen?
 
-#bolditalic[Satz 5.18:] Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ und $f: V -> W$ eine lineare Abbildung. Dann gibt es eine eindeutig bestimmte Matrix $A_f^(B, C) = (a_(i j)) in K^(m, n)$, so dass
+#bold[Satz 5.18:] Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ und $f: V -> W$ eine lineare Abbildung. Dann gibt es eine eindeutig bestimmte Matrix $A_f^(B, C) = (a_(i j)) in K^(m, n)$, so dass
 $
 W in.rev f(v_j) = sum_(i = 1)^m a_(i j) w_i wide j = 1, ..., n
 $
@@ -2899,7 +2899,7 @@ $
 $
 #endproof
 
-#bolditalic[Bemerkungen:] 
+#bold[Bemerkungen:] 
 
 #boxedlist[Im letzten Satz kann man #bold[nicht] $#sspace$
 $
@@ -2922,29 +2922,29 @@ fordern, da $n != m$ gelten kann.][
     ]
 
 #definition("5.19", "Matrixdarstellung")[
-  Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ sowie $f in L(V, W)$. Die durch Satz 5.18 eindeutig bestimmte Matrix $A_f^(B,C) in K^(m, n)$ heißt #bolditalic[Matrixdarstellung] oder die #bolditalic[darstellende Matrix] von $f in L(V, W)$ bezüglich der Basen $B$ und $C$.
+  Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ sowie $f in L(V, W)$. Die durch Satz 5.18 eindeutig bestimmte Matrix $A_f^(B,C) in K^(m, n)$ heißt #bold[Matrixdarstellung] oder die #bold[darstellende Matrix] von $f in L(V, W)$ bezüglich der Basen $B$ und $C$.
   ]
 
-#bolditalic[Beispiel 5.20:] Fortsetzung von Beispiel 4.3. Die lineare Abbildung $f: RR^2 -> RR^2$ einer Drehung im $RR^2$ für einen gegebenen Winkel $phi in RR$ bezüglich der Standardbasis $S = {e_1, e_2}$ ist eindeutig durch die Darstellungsmatrix
+#bold[Beispiel 5.20:] Fortsetzung von Beispiel 4.3. Die lineare Abbildung $f: RR^2 -> RR^2$ einer Drehung im $RR^2$ für einen gegebenen Winkel $phi in RR$ bezüglich der Standardbasis $S = {e_1, e_2}$ ist eindeutig durch die Darstellungsmatrix
 $
 A_f^(S, S) = mat(cos(phi), -sin(phi); sin(phi), cos(phi))
 $
 bestimmt.
 
-#bolditalic[Beispiel 5.21:] Fortsetzung Beispiel 4.18. Die lineare Abbildung $f: RR^3 -> RR^3$ besitzt für die Standardbasis die Darstellungsmatrix 
+#bold[Beispiel 5.21:] Fortsetzung Beispiel 4.18. Die lineare Abbildung $f: RR^3 -> RR^3$ besitzt für die Standardbasis die Darstellungsmatrix 
 $
 A_f^(S,S) = mat(1,-1,2;1,1,2;0,3,0) space -> space "rg(A)" = 2
 $
 für $S = {e_1, e_2, e_3}$. Beispiel 4.18: $"rg"(f) = dim(im(f))$.
 
 #definition("5.22", "Spaltenrang, Zeilenrang")[
-  Sei $A in K^(m,n)$, $K$ ein Körper, gegeben. Die Maximalzahl linear unabhängiger Spaltenvektoren von $A$ heißt #bolditalic[Spaltenrang] von $A$ und wird mit $"rg"_S (A)$ bezeichnet. Die Maximalzahl der linear unabhängigen Zeilenvektoren von $A$ heißt #bolditalic[Zeilenrang] von $A$ und wird mit $rg_Z (A)$ bezeichnet. 
+  Sei $A in K^(m,n)$, $K$ ein Körper, gegeben. Die Maximalzahl linear unabhängiger Spaltenvektoren von $A$ heißt #bold[Spaltenrang] von $A$ und wird mit $"rg"_S (A)$ bezeichnet. Die Maximalzahl der linear unabhängigen Zeilenvektoren von $A$ heißt #bold[Zeilenrang] von $A$ und wird mit $rg_Z (A)$ bezeichnet. 
   $
   ==> A_f^(S,S) = mat(1, -1, 2; 1, 1, 2; 0, 3, 0) wide rg_S (A) = 2
   $
 ]
 
-#bolditalic[Satz 5.23:] Seien $V, W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ sowie $f in L(V, W)$ mit der Darstellungsmatrix $A_f^(B, C) = (a_(i j))_(i=1,....,m)^(j = 1, ... n) in K^(m,n)$. Dann gilt die Gleichheit 
+#bold[Satz 5.23:] Seien $V, W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ sowie $f in L(V, W)$ mit der Darstellungsmatrix $A_f^(B, C) = (a_(i j))_(i=1,....,m)^(j = 1, ... n) in K^(m,n)$. Dann gilt die Gleichheit 
 $
 rg(f) = rg_S (A_f^(B,C))
 $
@@ -2963,7 +2963,7 @@ rg(f) = dim(im(f)) = dim("Span"(vec(a_(1 1), a_(2 1), dots.v, a_(m 1)), ..., vec
 $
 #endproof
 
-#bolditalic[Beispiel 5.24:] Fortsetzung von Beispiel 5.21
+#bold[Beispiel 5.24:] Fortsetzung von Beispiel 5.21
 
 Für die Darstellungsmatrix 
 $
@@ -2999,7 +2999,7 @@ Solche kommutativen Diagramme sind sehr wichtige Hilfsmittel! Man erhält daraus
 
 Was passiert bei der Verknüpfung von linearen Abbildungen mit den Darstellungsmatrizen?
 
-#bolditalic[Satz 5.25:] Seien $V, W$ und $X$ drei endlichdimensionale $K$-Vektorräume mit den Basen $B, C$ und $D$. Für gegebene $f in L(V, W) "und" g in L(W, X)$ gilt
+#bold[Satz 5.25:] Seien $V, W$ und $X$ drei endlichdimensionale $K$-Vektorräume mit den Basen $B, C$ und $D$. Für gegebene $f in L(V, W) "und" g in L(W, X)$ gilt
 $
 A_(g circ f)^(B,D) = A_g^(C, D) dot A_f^(B,C)
 $
@@ -3029,7 +3029,7 @@ Phi_B: K^n -> V, space (x_1, ..., x_n) arrow.bar sum_(i = 1)^n x_i v_i
 $
 Die Kunst der linearen Algebra besteht darin, zu einem gegebenen Problem, welches durch eine lineare Abbildung beschreiben werden kann, geschickt Basen zu wählen, so dass die Darstellung möglichst einfach ist.
 
-#bolditalic[Beispiel 5.26:] Sei $V = RR^2$. Für die Standardbasis $C = {e_1, e_2}$ erhält man 
+#bold[Beispiel 5.26:] Sei $V = RR^2$. Für die Standardbasis $C = {e_1, e_2}$ erhält man 
 $
 Phi_C = RR^2 -> V, space (x_1, x_2) arrow.bar sum_(i = 1)^2 x_i e_i \
 = x_1 vec(1,0) + x_2 vec(0,1) = vec(x_1, x_2) = mat(1, 0; 0, 1) vec(x_1, x_2)
@@ -3043,7 +3043,7 @@ $V$ = Ebene die durch $RR^2$ beschrieben wird.
 
 #bold[Frage:] Darstellung von $F$ in den unterschiedlichen Basen.
 
-#bolditalic[Lemma 5.27:] Der Basiswechsel zwischen zwei Basen $B$ und $C$ des $K$-Vektorraums $V$ mit $dim(V) = n in NN$ ist der Isomorphismus
+#bold[Lemma 5.27:] Der Basiswechsel zwischen zwei Basen $B$ und $C$ des $K$-Vektorraums $V$ mit $dim(V) = n in NN$ ist der Isomorphismus
 $
 Phi_(B, C) = Phi^(-1)_C circ Phi_B
 $
@@ -3061,7 +3061,7 @@ Es fehlt noch die Isomorphieeigenschaft. Nach dem Struktursatz 4.8 gilt: $Phi_B,
 siehe Satz 1.38.
 #endproof
 
-#bolditalic[Beobachtung:] Sei $V$ ein $K$-Vektorraum mit Basis $B = {v_1, ..., v_n}$ und $C = {e_1, ..., e_n}$ die Standardbasis. Dann ist
+#bold[Beobachtung:] Sei $V$ ein $K$-Vektorraum mit Basis $B = {v_1, ..., v_n}$ und $C = {e_1, ..., e_n}$ die Standardbasis. Dann ist
 
 #boxedlist[$Phi_C: K^n -> V$ die Identität, d.h. $A^(C,C)_(Phi_C) = I_n$ (siehe oben)][$Phi_(B,C) = Phi^(-1)_C circ Phi_B = Phi_B space ==> space Phi_(B,C) (e_i) = Phi_B (e_i) = v_i$]
 
@@ -3070,7 +3070,7 @@ $
 A_(Phi_(B,C))^(B,C) = mat(v_1, v_2, ..., v_n) wide #italic[$v_i$ ist immer ein Spaltenvektor]
 $
 
-#bolditalic[Beispiel 5.28:] Sei $V = RR^2$ und $B = {e_1, e_1+ e_2}$ sowie $C = {e_1,e_2}$. Damit ist 
+#bold[Beispiel 5.28:] Sei $V = RR^2$ und $B = {e_1, e_1+ e_2}$ sowie $C = {e_1,e_2}$. Damit ist 
 $
 A_(Phi_(B,C))^(B,C) = mat(1,1;0,1) subset.eq "Gl"_2 (RR) space "mit"
 $
@@ -3084,7 +3084,7 @@ $
 
 Jetzt für lineare Abbildungen:
 
-#bolditalic[Lemma 5.29:] Seien $V$ und $W$ $K$-Vektorräume mit $dim(V) = n, dim(W) = m$ sowie $f in L(V, W)$. Weiter seien $B, tilde(B)$ zwei Basen von $V$ und $C, tilde(C)$ zwei Basen von $W$. Dann gilt für die Darstellungsmatrizen, dass
+#bold[Lemma 5.29:] Seien $V$ und $W$ $K$-Vektorräume mit $dim(V) = n, dim(W) = m$ sowie $f in L(V, W)$. Weiter seien $B, tilde(B)$ zwei Basen von $V$ und $C, tilde(C)$ zwei Basen von $W$. Dann gilt für die Darstellungsmatrizen, dass
 $
 A_f^(tilde(B), tilde(C)) = Phi_(C,tilde(C)) dot A_f^(B,C) dot Phi_(B, tilde(B))^(-1) 
 $
@@ -3098,7 +3098,7 @@ $
   image("bilder/529.jpg", width: 80%)
 ))
 
-#bolditalic[Beispiel 5.30:] Sei die Darstellungsmatrix der linearen Abbildung $f: V -> W$ mit $V = RR^3$ und $W = RR^2$ bezüglich der Standardbasen gegeben durch 
+#bold[Beispiel 5.30:] Sei die Darstellungsmatrix der linearen Abbildung $f: V -> W$ mit $V = RR^3$ und $W = RR^2$ bezüglich der Standardbasen gegeben durch 
 $
 A_f^(B,C) = mat(1,1,-2;-6,3,3)
 $
@@ -3118,7 +3118,7 @@ A_f^(tilde(B), tilde(C)) = mat(1,0,0;0,1,0)
 $
 beschrieben.
 
-#bolditalic[Fazit:] Der richtige Basiswechsel bringt die Abbildung $f$ in sehr einfache Gestalt. Man kann zeigen: Für $V, W$ endlichdimensional und $f in L(V,W)$ mit $dim(im(f)) = r in NN$, $c = dim(V)-r$, $a = dim(W)-r$ existieren Basen $B$ von $V$ und $C$ von $W$, so dass 
+#bold[Fazit:] Der richtige Basiswechsel bringt die Abbildung $f$ in sehr einfache Gestalt. Man kann zeigen: Für $V, W$ endlichdimensional und $f in L(V,W)$ mit $dim(im(f)) = r in NN$, $c = dim(V)-r$, $a = dim(W)-r$ existieren Basen $B$ von $V$ und $C$ von $W$, so dass 
 $
 A_f^(B,C) = mat(I_r, 0_(r times b); 0_(a times r), 0_(a times b)) space "z.B. Mehrmann Satz 10.24"
 $
@@ -3136,24 +3136,24 @@ $
 Die drei elementaren Spaltenumformungen sind gegeben durch 
 
 #box(width: 100%, inset: (left: 0.5cm))[
-#bolditalic[(S1)] Vertauschen zweier verschiedener Spalten $a_j$ und $a_k$ für $j,k in {1, ..., n}$, $j != k$
+#bold[(S1)] Vertauschen zweier verschiedener Spalten $a_j$ und $a_k$ für $j,k in {1, ..., n}$, $j != k$
 
-#bolditalic[(S2)] Multiplikation einer Spalte $a_j, j in {1, ..., n}$ mit Skalar $lambda in K, lambda != 0$
+#bold[(S2)] Multiplikation einer Spalte $a_j, j in {1, ..., n}$ mit Skalar $lambda in K, lambda != 0$
 
-#bolditalic[(S3)] Addition einer Spalte $a_j$ zu einer anderen Spalte $a_k$ für $j, k in {1, ..., n}$, $n != k$
+#bold[(S3)] Addition einer Spalte $a_j$ zu einer anderen Spalte $a_k$ für $j, k in {1, ..., n}$, $n != k$
 ]
 
 Die drei elementaren Zeilenumformungen sind gegeben durch.
 
 #box(width: 100%, inset: (left: 0.5cm))[
-#bolditalic[(Z1)] Vertauschen zweier Zeilen $a^i$ und $a^k$ für $i, k in {1, ..., m}$, $i != k$
+#bold[(Z1)] Vertauschen zweier Zeilen $a^i$ und $a^k$ für $i, k in {1, ..., m}$, $i != k$
 
-#bolditalic[(Z2)] Multiplikation einer Zeile $a^i$, $i in {1, ..., m}$ mit einem Skalar $lambda in K$, $lambda != 0$
+#bold[(Z2)] Multiplikation einer Zeile $a^i$, $i in {1, ..., m}$ mit einem Skalar $lambda in K$, $lambda != 0$
 
-#bolditalic[(Z3)] Addition einer Zeile $a^i$ zu einer anderen Zeile $a^k$ für $i, k in {1, ..., m}$, $i != k$
+#bold[(Z3)] Addition einer Zeile $a^i$ zu einer anderen Zeile $a^k$ für $i, k in {1, ..., m}$, $i != k$
 ]
 
-#bolditalic[Lemma 5.31:] Es bezeichne $A = (a_(i j))_(j = 1, ..., m)^(i = 1, ..., n) in K^(m,n)$. Dann ändern sich der Spaltenrang $rg_S (A)$ und der Zeilenrang $rg_Z (A)$ von $A$ bei elementaren Umformungen (S1) - (S3) bzw. (Z1) - (Z3) nicht.
+#bold[Lemma 5.31:] Es bezeichne $A = (a_(i j))_(j = 1, ..., m)^(i = 1, ..., n) in K^(m,n)$. Dann ändern sich der Spaltenrang $rg_S (A)$ und der Zeilenrang $rg_Z (A)$ von $A$ bei elementaren Umformungen (S1) - (S3) bzw. (Z1) - (Z3) nicht.
 
 #italic[Beweis:] Hier: Spaltenrang
 
@@ -3214,7 +3214,7 @@ rg_S (A) = dim("Span"(a_1, ..., a_m)) = dim("Span"(caron(a)_1, ..., caron(a)_n))
 $
 #endproof
 
-#bolditalic[Beispiel 5.32:] $K = RR$ und
+#bold[Beispiel 5.32:] $K = RR$ und
 $
 A = mat(1,1,1,1;1,2,3,4;2,3,4,5) --> A^((1)) = mat(1,1,1,1;0,1,2,3;0,1,2,3)
 $
@@ -3241,7 +3241,7 @@ $
 $
 <==> A x = b
 $
-für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und einem unbekannten Vektor $x in K^n$ heißt #bolditalic[lineares Gleichungssystem (LGS)]. Die Lösung von linearen Gleichungssystemen ist ein zentrales Problem der linearen Algebra. Wichtige Fragen:
+für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und einem unbekannten Vektor $x in K^n$ heißt #bold[lineares Gleichungssystem (LGS)]. Die Lösung von linearen Gleichungssystemen ist ein zentrales Problem der linearen Algebra. Wichtige Fragen:
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. #[
@@ -3255,7 +3255,7 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
     ]
 ]
  
-#bolditalic[Hier:] Fragen 1 + 2), etwas zu 3). Beantwortung von 3): Numerische Lineare Algebra
+#bold[Hier:] Fragen 1 + 2), etwas zu 3). Beantwortung von 3): Numerische Lineare Algebra
 
 == Existenz von Lösungen und Lösungsmengen
 
@@ -3264,24 +3264,24 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
   $
   A x = b space "mit" A in K^(m, n), b in K^m
   $
-  nennt man $A$ die #bolditalic[Koeffizientenmatrix] und $b$ die #bolditalic[rechte Seite]. Die Matrix
+  nennt man $A$ die #bold[Koeffizientenmatrix] und $b$ die #bold[rechte Seite]. Die Matrix
   $
   A_("erw") = (A b) in K^(m, n+1)
   $
-  nennt man #bolditalic[erweiterte Koeffizientenmatrix].
+  nennt man #bold[erweiterte Koeffizientenmatrix].
 
-  Ist $b = 0 in K^m$, so heißt (LGS) #bolditalic[homogen], ansonsten #bolditalic[inhomogen]. Gilt für $overline(x) in K^n$, dass $A overline(x) = b$, so nennt man $overline(x)$ eine #bolditalic[Lösung] von (LGS). Die Menge aller Lösungen heißt #bolditalic[Lösungsmenge] und wird mit 
+  Ist $b = 0 in K^m$, so heißt (LGS) #bold[homogen], ansonsten #bold[inhomogen]. Gilt für $overline(x) in K^n$, dass $A overline(x) = b$, so nennt man $overline(x)$ eine #bold[Lösung] von (LGS). Die Menge aller Lösungen heißt #bold[Lösungsmenge] und wird mit 
   $
   cal(L)(A, b)
   $
   bezeichnet.
 ]
 
-#bolditalic[Bemerkung:] Im normalen Fall, d.h. sei $b = 0 in K^m$ gilt offensichtlich immer $rg_S (A) = rg_S (A_"erw")$. (Später: $rg(A) = rg(A_"erw"))$. Außerdem existiert im homogenen Fall immer eine Lösung, nämlich $x^* = 0 in K^n$. Denn es gilt $A x^* = A 0_m = 0 = b$.
+#bold[Bemerkung:] Im normalen Fall, d.h. sei $b = 0 in K^m$ gilt offensichtlich immer $rg_S (A) = rg_S (A_"erw")$. (Später: $rg(A) = rg(A_"erw"))$. Außerdem existiert im homogenen Fall immer eine Lösung, nämlich $x^* = 0 in K^n$. Denn es gilt $A x^* = A 0_m = 0 = b$.
 
 Beantwortung Frage 1:
 
-#bolditalic[Satz 6.2:] Das LGS ist genau dann lösbar, d.h. $cal(L)(A, b) != emptyset$, wenn
+#bold[Satz 6.2:] Das LGS ist genau dann lösbar, d.h. $cal(L)(A, b) != emptyset$, wenn
 $
 rg_S (A) = rg_S (A_"erw")
 $
@@ -3299,14 +3299,14 @@ $
 $
 #endproof
 
-#bolditalic[Folgerung:] Ist $m<=n$ und gilt, dass $rg_S (A) = m$, so besitzt (LGS) mindestens eine Lösung. 
+#bold[Folgerung:] Ist $m<=n$ und gilt, dass $rg_S (A) = m$, so besitzt (LGS) mindestens eine Lösung. 
 
 Denn: Wegen $m<=n$ spannen die Spaltenvektoren $a_1, ..., a_m, a_(m+1), ..., a_n$ $in K^m$ von $A$ des $K^m$ auf.
 $
 ==> rg_S (A) = m = rg_S(A_"erw")
 $
 
-#bolditalic[Satz 6.3:] Sei $L_0 = cal(L)(A, 0)$, d.h. die Menge aller Lösungen des homogenen linearen Gleichungssystems (LGS). Dann ist $L_0 subset.eq K^n$ ein Unterraum der Dimension
+#bold[Satz 6.3:] Sei $L_0 = cal(L)(A, 0)$, d.h. die Menge aller Lösungen des homogenen linearen Gleichungssystems (LGS). Dann ist $L_0 subset.eq K^n$ ein Unterraum der Dimension
 $
 dim L_0 = n - underbrace(rg_S (A), <=n) >= 0
 $
@@ -3323,7 +3323,7 @@ dim L_0 = dim(ker(f)) =^"4.16" dim(K^n) - rg(f) =^"5.23" n - rg_S (A)
 $
 #endproof
 
-#bolditalic[Folgerungen:]
+#bold[Folgerungen:]
 
 #boxedlist[
   Ist $m>=n$ und gilt $rg_S (A) = n$, so besitzt (LGS) für $b = 0$ nur die triviale Lösung $x^* = 0$, denn aus dem letzen Satz folgt
@@ -3354,7 +3354,7 @@ $
 
 Lösungsmenge für den allgemeinen Fall:
 
-#bolditalic[Satz 6.4:]  Es gelte für die Lösungsmenge von (LGS), dass
+#bold[Satz 6.4:]  Es gelte für die Lösungsmenge von (LGS), dass
 $
 cal(L)(A,b) != emptyset
 $
@@ -3384,7 +3384,7 @@ Was ist die "Größe" des Lösungsraumes?
 Problem: $cal(L)(A, b)$ ist ja kein Unterraum, da für $b != 0, x = 0 in.not cal(L)(A, b)$ gilt. Deswegen: Übertragung des Dimensionsbegriffs auf Mengen dieser Struktur.
 
 #definition("6.5", "Affiner Unterraum")[
-  Sei $V$ ein $K$-Vektorraum. Eine Teilmenge $U subset V$ heißt #bolditalic[affiner Unterraum] falls es ein $v in V$ und einen Unterrvektorraum $W$ gibt, so dass
+  Sei $V$ ein $K$-Vektorraum. Eine Teilmenge $U subset V$ heißt #bold[affiner Unterraum] falls es ein $v in V$ und einen Unterrvektorraum $W$ gibt, so dass
   $
   U = v + W := {u in V | "es gibt ein" w in W "mit" u = v + w}
   $
@@ -3392,11 +3392,11 @@ Problem: $cal(L)(A, b)$ ist ja kein Unterraum, da für $b != 0, x = 0 in.not cal
 ]
 Affine Unterräume kann man als "Parallelverschiebung" eines Unterraums interpretieren.
 
-#bolditalic[Frage:] 
+#bold[Frage:] 
 $
 {x in K^n | x = x^* + y, y in cal(L)(A, 0)} = {x in K^n | x = tilde(x)^* + y, y in cal(L)(A,0)} \ "für" x^*, tilde(x)^* in cal(L)(A, b)"?"
 $
-#bolditalic[Satz 6.6:] Sei $V$ ein $K$-Vektorraum und $U subset V$ ein affiner Untervektorraum. Der Aufhängepunkt $v in V$ kann beliebig gewählt werden. D.h. für beliebiges $tilde(v) in U$ ist $U = tilde(v) + W$. Weiter ist zu jedem affinen Unterraum $U = v + W$ der Untervektorraum $W$ eindeutig bestimmt. D.h. ist $tilde(v) in V$ und $tilde(W) subset.eq V$ ein Unterraum mit 
+#bold[Satz 6.6:] Sei $V$ ein $K$-Vektorraum und $U subset V$ ein affiner Untervektorraum. Der Aufhängepunkt $v in V$ kann beliebig gewählt werden. D.h. für beliebiges $tilde(v) in U$ ist $U = tilde(v) + W$. Weiter ist zu jedem affinen Unterraum $U = v + W$ der Untervektorraum $W$ eindeutig bestimmt. D.h. ist $tilde(v) in V$ und $tilde(W) subset.eq V$ ein Unterraum mit 
 $
 v + W = tilde(v) + tilde(W)
 $
@@ -3442,7 +3442,7 @@ $
 
 Damit folgt
 
-#bolditalic[Korollar 6.8:] Für $A in K^(n,n)$ und $b in K^n$ sind folgende Bedingungen äquivalent:
+#bold[Korollar 6.8:] Für $A in K^(n,n)$ und $b in K^n$ sind folgende Bedingungen äquivalent:
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   #sspace
   1. #[
@@ -3458,7 +3458,7 @@ Damit folgt
   2. $rg_S (A) = rg_S (A_"erw") = n$ 
 ]
 
-#bolditalic[Lemma 6.9:] Sind $A in K^(m, n)$, $b in K^m$ und $S in K^(m,m)$, so gilt 
+#bold[Lemma 6.9:] Sind $A in K^(m, n)$, $b in K^m$ und $S in K^(m,m)$, so gilt 
 $
 cal(L)(A, b) subset.eq cal(L)(S A, S b)
 $
@@ -3472,7 +3472,7 @@ $
 
 == Der Gauß-Algorithmus
 
-#bolditalic[Bemerkung:]
+#bold[Bemerkung:]
 #boxedlist[benannt nach Carl-Friedrich-Gauß (1777 - 1855)][
   Ein ähnliches Verfahren findet man in 
   #v(-6pt)
@@ -3487,7 +3487,7 @@ wenn
   image("bilder/62_.jpeg", width: 80%)
   )
 
-Diese Gestalt der Matrix $A$ heißt #bolditalic[Treppennormalform] (wird auch als Echelon-Form oder normierte Zeilenstufenform bezeichnet).
+Diese Gestalt der Matrix $A$ heißt #bold[Treppennormalform] (wird auch als Echelon-Form oder normierte Zeilenstufenform bezeichnet).
 
 Warum einfach?
 
@@ -3524,9 +3524,9 @@ Dies liefert
   "Basisvektoren der Form:" wide vec(-a_(1 r + i), -a_(2 r + i), dots.v , -a_(r + r i), 0, 1, 0, dots.v, 0), wide i = 1, .., n-r, wide 1 "bei der" r+i"-ten Zeile"
   $
 ]
-#bolditalic[Deswegen:] Gegeben ist ein (LGS)
+#bold[Deswegen:] Gegeben ist ein (LGS)
 
-#bolditalic[Ziel:] Umformung von (LGS), sodass die resultierende Matrix normalisierte Treppenstufen hat und sich die Lösungsmenge nicht ändert.
+#bold[Ziel:] Umformung von (LGS), sodass die resultierende Matrix normalisierte Treppenstufen hat und sich die Lösungsmenge nicht ändert.
 
 Dazu: Elementarmatrizen (geht auch für $R =$ kommutativer Ring mit $1$)
 
@@ -3573,15 +3573,15 @@ Das Produkt $space G_(i j) (lambda)^T dot A space$ bewirkt, dass das $lambda$-fa
   $lambda in K$, $i in {1, ..., m}$, $M_i (lambda) := (e_1, ..., e_(j-1), lambda e_i, e_(j + 1), ..., e_m) in K^(m,m)$
   $==>$ Multipliziert man $A$ von links mit $M_i (lambda)$, so wird die $i$-te Zeile von $A$ mit $lambda$ multipliziert $corres$ (Z2) für $lambda != 0$
 ]
-#bolditalic[Beobachtung:] $P_(i j), G_(i j) (lambda), M_i (lambda)$ sind für $lambda != 0$ invertierbar!
+#bold[Beobachtung:] $P_(i j), G_(i j) (lambda), M_i (lambda)$ sind für $lambda != 0$ invertierbar!
 
-Damit: Beweis, dass $A x = b$ in einfachere Form gebracht werden kann, #bolditalic[ohne] die Lösungsmenge zu ändern.
+Damit: Beweis, dass $A x = b$ in einfachere Form gebracht werden kann, #bold[ohne] die Lösungsmenge zu ändern.
 
-#bolditalic[Satz 6.10:] Sei $K$ ein Körper und $A in K^(m,n)$. Dann existieren invertierbare Matrizen $S_1, ..., S_t$ $in K^(m,m)$ als Produkte der oben eingeführten Elementarmatrizen, so dass 
+#bold[Satz 6.10:] Sei $K$ ein Körper und $A in K^(m,n)$. Dann existieren invertierbare Matrizen $S_1, ..., S_t$ $in K^(m,m)$ als Produkte der oben eingeführten Elementarmatrizen, so dass 
 $
 C := S_t dots.h.c S_2 S_1 A
 $
-in #bolditalic[Treppennormalform] ist, d.h.
+in #bold[Treppennormalform] ist, d.h.
 #figure(
   image("bilder/610_1.jpg", width: 100%)
 )
@@ -3597,7 +3597,7 @@ Genauer: $C = (c_(i j))$ ist entweder die Nullmatrix oder es gibt eine Folge von
         #text(fill: rgb("#7098DA"))[$square.filled$] $c_(l j_i) = 0 space "für" space 1<=l<j_i #h(12pt) 1 <=i <= r$ 
 ]
 
-#bolditalic[Bemerkungen:]
+#bold[Bemerkungen:]
 
 #boxedlist[
   Ist $n = m$, so ist $A in K^(n,n)$ genau dann invertierbar, wenn $C = I_n$, denn 
@@ -3613,7 +3613,7 @@ $
 #boxedlist[
   Da Spaltenvertauschungen den Spaltenrang einer Matrix nicht ändern (Lemma 5.31) ist nun folgende Definition sinnvoll:
 
-  Der #bolditalic[Rang einer Matrix] $rg(A)$ einer Matrix $A in K^(m,n)$ ist definiert als 
+  Der #bold[Rang einer Matrix] $rg(A)$ einer Matrix $A in K^(m,n)$ ist definiert als 
   $
   rg (A) = rg_S (A) =^"6.10" rg_Z (A) 
   $
@@ -3860,7 +3860,7 @@ Lösung linearer Gleichungssysteme
     Im Fall $sin(beta - alpha) >= 0$ entspricht die Fläche des Parallelogramms damit der skalierten Determinante.
 ]
 
-#bolditalic[Beobachtungen:]
+#bold[Beobachtungen:]
 
 #box(width: 100%, inset:(left: 1cm, right: 1cm))[
   1. #[
@@ -3920,9 +3920,9 @@ Basierend auf diesen Beobachtungen:
   $
   det: K^(n,n) -> K, space A arrow.bar det (A)
   $
-  heißt #bolditalic[Determinante] falls gilt:
+  heißt #bold[Determinante] falls gilt:
 
-  #bolditalic[D1.] $det$ ist linear in jeder Zeile, d.h. für jeden Index $i in {1, ..., n}$ gilt
+  #bold[D1.] $det$ ist linear in jeder Zeile, d.h. für jeden Index $i in {1, ..., n}$ gilt
 
   1. #[
     Ist $a_i = a_i^' + a_i^('')$ so ist $#sspace$
@@ -3937,12 +3937,12 @@ Basierend auf diesen Beobachtungen:
     $
   ]
 
-  #bolditalic[D2.] $det$ ist #bolditalic[alternierend], d.h. hat $A$ zwei gleiche Zeilen, so gilt $det (A) = 0$
+  #bold[D2.] $det$ ist #bold[alternierend], d.h. hat $A$ zwei gleiche Zeilen, so gilt $det (A) = 0$
 
-  #bolditalic[D3.] $det$ ist normiert, d.h. $det (I_n) = 1$
+  #bold[D3.] $det$ ist normiert, d.h. $det (I_n) = 1$
 ]
 
-#bolditalic[Bemerkung:] 
+#bold[Bemerkung:] 
 
 #boxedlist[
   Definition ist sehr einfach, aber sehr mächtig, siehe D4 - D13
@@ -3950,65 +3950,65 @@ Basierend auf diesen Beobachtungen:
   Existenz und Eindeutigkeit einer solchen Abbildung sind noch zu zeigen.
 ]
 
-#bolditalic[Satz 7.2:] Eine Determinante
+#bold[Satz 7.2:] Eine Determinante
 $
 det: K^(n,n) |-> K 
 $
 hat die folgenden weiteren Eigenschaften:
 
-#bolditalic[D4.] Für jedes $lambda in K$ gilt $det (lambda A) = lambda^n det (A)$
+#bold[D4.] Für jedes $lambda in K$ gilt $det (lambda A) = lambda^n det (A)$
 
-#bolditalic[D5.] Ist eine Zeile von $A$ gleich 0, so gilt $det (A) = 0$
+#bold[D5.] Ist eine Zeile von $A$ gleich 0, so gilt $det (A) = 0$
 
-#bolditalic[D6.] Ist $B$ eine Matrix die aus $A$ durch Zeilenvertauschungen entsteht (Z1), so gilt $det (B) = - det (A)$
+#bold[D6.] Ist $B$ eine Matrix die aus $A$ durch Zeilenvertauschungen entsteht (Z1), so gilt $det (B) = - det (A)$
 
-#bolditalic[D7.] Ist $lambda in K$ und entsteht $B$ aus $A$ durch Addition der $lambda$-fachen $j$-ten Zeile zur $i$-ten Zeile  ($i!=j$) (Z2+Z3) so ist $det B = det A$
+#bold[D7.] Ist $lambda in K$ und entsteht $B$ aus $A$ durch Addition der $lambda$-fachen $j$-ten Zeile zur $i$-ten Zeile  ($i!=j$) (Z2+Z3) so ist $det B = det A$
 
-#bolditalic[D8.] Ist $A$ eine obere Dreiecksmatrix
+#bold[D8.] Ist $A$ eine obere Dreiecksmatrix
 $
 A = mat(lambda_1,ast,ast;0,dots.down,ast;0,0,lambda)
 $
 so ist $det A = lambda_1 dot ... dot lambda_n$ #text(fill: red, size:24pt)[!]
 
-#bolditalic[D9.] Ist $n >= 2$ und $A in K^(n,n)$ von der Gestalt 
+#bold[D9.] Ist $n >= 2$ und $A in K^(n,n)$ von der Gestalt 
 $
 A = mat(A_1, B; 0, A_2)
 $
 wobei $A_1$ und $A_2$ quadratisch sind, d.h. $A_1 in K^(n_1, n_1)$ und $A_2 in K^(n_2,n_2)$ mit $n_1 + n_2 = n$, so gilt $det A = det A_1 dot det A_2$
 
-#bolditalic[D10.] $det A = 0$ ist äquivalent zu $rg A < n$
+#bold[D10.] $det A = 0$ ist äquivalent zu $rg A < n$
 
-#bolditalic[D11.] Für Matrizen $A, B in K^(n,n)$ gilt der Determinanten-Multiplikationssatz, d.h.
+#bold[D11.] Für Matrizen $A, B in K^(n,n)$ gilt der Determinanten-Multiplikationssatz, d.h.
 $
 det (A dot B) = det A dot det B
 $
 Insbesondere gilt damit für $A in "GL"_n (K)$, dass $det A^(-1) = (det A)^(-1)$.
 
-#bolditalic[D12.] $det A^top = det A$. D.h. die obigen Aussagen für Zeilen gelten analog für Spalten.
+#bold[D12.] $det A^top = det A$. D.h. die obigen Aussagen für Zeilen gelten analog für Spalten.
 
-#bolditalic[D13.] #bold[Achtung:] Für Matrizen $A, B in K^(n,n)$ ist im Allgemeinen $det (A+B) != det A + det B$
+#bold[D13.] #bold[Achtung:] Für Matrizen $A, B in K^(n,n)$ ist im Allgemeinen $det (A+B) != det A + det B$
 
 #italic[Beweis:] D4 und D5 folgen direkt aus D1.
 
-#bolditalic[D6.] O.B.d.A $i<j$. Dann gilt wegen D1.1 und D2
+#bold[D6.] O.B.d.A $i<j$. Dann gilt wegen D1.1 und D2
 $
 det A + det B = det vec(dots.v, a_i, dots.v, a_j, dots.v) + det vec(dots.v, a_j, dots.v, a_i, dots.v) = \
 underbrace(det vec(dots.v, a_i dots.v, a_i, dots.v), = 0) + det vec(dots.v, a_i, dots.v, a_j, dots.v) - det vec(dots.v, a_j, dots.v, a_i, dots.v) - underbrace(det vec(dots.v, a_j, dots.v, a_j, dots.v), = 0) =^"D1.1" \
 = det vec(dots.v, a_i, dots.v, a_i + a_j, dots.v) + det vec(dots.v, a_j, dots.v, a_i + a_j, dots.v) =^"D1.1" = det vec(dots.v, a_i + a_j, dots.v, a_i + a_j, dots.v) =^"D2" 0
 $
 
-#bolditalic[D7.] O.B.d.A $i<j$. Wegen D1 und D2 gilt 
+#bold[D7.] O.B.d.A $i<j$. Wegen D1 und D2 gilt 
 $
 det B = det vec(dots.v, a_i + lambda a_j, dots.v, a_j, dots.v) =^"D1.1" det vec(dots.v, a_i, dots.v, a_j, dots.v) + det vec(dots.v, lambda a_j, dots.v, a_j, dots.v) = det A + lambda underbrace(det vec(dots.v, a_j, dots.v, a_j, dots.v), = 0) =^"D2" det A
 $
 
-#bolditalic[D8.] Sind alle $lambda_i != 0$, so folgt durch wiederholte Anwendung von D7, dass
+#bold[D8.] Sind alle $lambda_i != 0$, so folgt durch wiederholte Anwendung von D7, dass
 $
 det A = det mat(lambda_1, 0, 0; 0, dots.down, 0;0,0,lambda_n) =^"D1.2" lambda_1 dot ... dot lambda_n dot underbrace(det I_n, = 1 "(D3)")
 $
 Gibt es ein $lambda_i = 0$, so wählen wir $i$ maximal, d.h. $lambda_(i + 1) != 0, ..., lambda_n != 0$. Dann kann der Rest der $i$-ten Zeile, also $a_(i i + 1), ..., a_(i n )$ auf den Wert Null gebracht werden. Mit D7 folgt, dass dies die Determinante nicht ändert. Damit erhalten wir eine Nullzeile und aus D5 folgt dann $det A=0$
 
-#bolditalic[D9.] $A_1 in K^(n_1, n_1)$. Mit den Zeilenumformungen (Z1), (Z2), (Z3) kann $A_1$ zu einer oberen Dreiecksmatrix $C_1$ umgeformt werden. Es gilt mit D6 und D7 dass $det A_1 = (-1)^k det C_1$
+#bold[D9.] $A_1 in K^(n_1, n_1)$. Mit den Zeilenumformungen (Z1), (Z2), (Z3) kann $A_1$ zu einer oberen Dreiecksmatrix $C_1$ umgeformt werden. Es gilt mit D6 und D7 dass $det A_1 = (-1)^k det C_1$
 $
 mat(A_1, B;0, A_2) --> mat(C_1, tilde(B);0, A_2) 
 $
@@ -4031,7 +4031,7 @@ det A = (-1)^(k + l) det C = (-1)^(k+l) det (C_1) dot (C_2) \
 = (-1)^(k+l) (-1)^k det (A_1) (-1)^l det (A_2) = det (A_1) dot det (A_2)
 $
 
-#bolditalic[D10.] Durch Zeilenumformungen (Z1), (Z2), (Z3) bringen wir $A$ auf Zeilenstufenform
+#bold[D10.] Durch Zeilenumformungen (Z1), (Z2), (Z3) bringen wir $A$ auf Zeilenstufenform
 $
 B = mat(lambda_1, ast, ast;0, dots.down, ast;0,0,lambda_n)
 $
@@ -4040,7 +4040,7 @@ $
 rg (B) = n <==> det (B) = lambda_1 dot ... dot lambda_n != 0
 $
 
-#bolditalic[D11.] Ist $rg (A) < n$, so ist $rg (A dot B) < n$ (siehe Übungsaufgabe). Damit erhält man aus D10 
+#bold[D11.] Ist $rg (A) < n$, so ist $rg (A dot B) < n$ (siehe Übungsaufgabe). Damit erhält man aus D10 
 $
 0 = 0
 $

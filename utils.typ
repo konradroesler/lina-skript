@@ -7,8 +7,8 @@
   }
 
 #let bolditalic(content) = {
-  text(font: "CMU Serif BoldItalic", weight: "bold")[#content]
-}
+  text(size: 50pt, fill: red)[AHHH]
+  }
 
 #let definition(number, name, content) = {
   box(
@@ -18,7 +18,7 @@
     radius: 10pt,
     inset: 0.5cm,
     [
-      #bolditalic[Definition #number: #name] \
+      #bold[Definition #number: #name] \
       #v(5pt)
       #set text(size: 11pt)
       #box(inset: (top: -3mm), content)
