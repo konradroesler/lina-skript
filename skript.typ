@@ -3301,7 +3301,7 @@ $
 
 #bold[Folgerung:] Ist $m<=n$ und gilt, dass $rg_S (A) = m$, so besitzt (LGS) mindestens eine Lösung. 
 
-Denn: Wegen $m<=n$ spannen die Spaltenvektoren $a_1, ..., a_m, a_(m+1), ..., a_n$ $in K^m$ von $A$ des $K^m$ auf.
+Denn: Wegen $m<=n$ spannen die Spaltenvektoren $a_1, ..., a_m, a_(m+1), ..., a_n$ $in K^m$ von $A$ den $K^m$ auf.
 $
 ==> rg_S (A) = m = rg_S(A_"erw")
 $
@@ -3450,7 +3450,7 @@ Damit folgt
 
     Überlegung: 
     $
-    cal(L)(A, b) = x* + underbrace(cal(L)(A, 0), in {0})
+    cal(L)(A, b) = x^* + underbrace(cal(L)(A, 0), = {0})
     $
   ]
 
@@ -3510,7 +3510,7 @@ Dies liefert
   Mit $rg_S (A) = rg_S (A_"erw")$, dann ist eine spezielle Lösung gegeben durch 
   $
   &x^* in K^n space "mit" \
-  &x^*_1 b_1, ..., x_r^* = b_r, space x^*_(r+1) = ... = x_1^* = 0
+  &x^*_1 = b_1, ..., x_r^* = b_r, space x^*_(r+1) = ... = x_1^* = 0
   $
 ]
 3. #[
@@ -3540,7 +3540,7 @@ hier: $A in K^(m,n)$, $K$ Körper
   $==> I_m = (e_1, e_2, ..., e_m)$
   ][
     #v(5pt)
-    $E_(i j) = ( e_i e_j )^top = mat(0_m, ..., 0_m, e_i, 0_m, ..., 0_m) in K^(m,m)$
+    $E_(i j) = e_i e_j^top = mat(0_m, ..., 0_m, e_i, 0_m, ..., 0_m) in K^(m,m)$
 
     D.h. der Eintrag $(i, j)$ der Matrix $E_(i j)$ ist $1$, alle anderen Einträge sind $0$.
     ][
@@ -3562,7 +3562,7 @@ $tilde(P)_(i j) in K^(n,n)$ $corres$ Spaltenumformung (S1). $tilde(P)_(i j) in "
 ][
   für $m>=2, i, j in {1, ..., m}$ und $i  <j$ sind die Matrizen 
   $
-G_(i j) (lambda) = I_m + lambda E_(i j) = mat(e_1, ..., e_(i - 1), e_i + lambda e_j, e_(i+1), ..., e_m) in K^(m, m)
+G_(i j) (lambda) = I_m + lambda E_(i j) = mat(e_1, ..., e_(i - 1), e_j + lambda e_i, e_(i+1), ..., e_m) in K^(m, m)
 $
 D.h. die $j$-te Spalte von $G_(i j) (lambda)$ ist $e_j + lambda e_i$. Multipliziert man $A in K^(m,n)$, so wird das $lambda$-fache der $i$-ten Zeile von $A$ zur $j$-ten Zeile von $A$ addiert. 
 
@@ -3992,9 +3992,9 @@ Insbesondere gilt damit für $A in "GL"_n (K)$, dass $det A^(-1) = (det A)^(-1)$
 
 #bold[D6.] O.B.d.A $i<j$. Dann gilt wegen D1.1 und D2
 $
-det A + det B = det vec(dots.v, a_i, dots.v, a_j, dots.v) + det vec(dots.v, a_j, dots.v, a_i, dots.v) = \
-underbrace(det vec(dots.v, a_i dots.v, a_i, dots.v), = 0) + det vec(dots.v, a_i, dots.v, a_j, dots.v) - det vec(dots.v, a_j, dots.v, a_i, dots.v) - underbrace(det vec(dots.v, a_j, dots.v, a_j, dots.v), = 0) =^"D1.1" \
-= det vec(dots.v, a_i, dots.v, a_i + a_j, dots.v) + det vec(dots.v, a_j, dots.v, a_i + a_j, dots.v) =^"D1.1" = det vec(dots.v, a_i + a_j, dots.v, a_i + a_j, dots.v) =^"D2" 0
+det A + det B = det vec(dots.v, a_i, dots.v, a_j, dots.v) + det vec(dots.v, a_j, dots.v, a_i, dots.v) \
+= underbrace(det vec(dots.v, a_i, dots.v, a_i, dots.v), = 0) + det vec(dots.v, a_i, dots.v, a_j, dots.v) - det vec(dots.v, a_j, dots.v, a_i, dots.v) - underbrace(det vec(dots.v, a_j, dots.v, a_j, dots.v), = 0) \
+=^"D1.1" det vec(dots.v, a_i, dots.v, a_i + a_j, dots.v) + det vec(dots.v, a_j, dots.v, a_i + a_j, dots.v) =^"D1.1" det vec(dots.v, a_i + a_j, dots.v, a_i + a_j, dots.v) =^"D2" 0
 $
 
 #bold[D7.] O.B.d.A $i<j$. Wegen D1 und D2 gilt 
@@ -4008,13 +4008,13 @@ det A = det mat(lambda_1, 0, 0; 0, dots.down, 0;0,0,lambda_n) =^"D1.2" lambda_1 
 $
 Gibt es ein $lambda_i = 0$, so wählen wir $i$ maximal, d.h. $lambda_(i + 1) != 0, ..., lambda_n != 0$. Dann kann der Rest der $i$-ten Zeile, also $a_(i i + 1), ..., a_(i n )$ auf den Wert Null gebracht werden. Mit D7 folgt, dass dies die Determinante nicht ändert. Damit erhalten wir eine Nullzeile und aus D5 folgt dann $det A=0$
 
-#bold[D9.] $A_1 in K^(n_1, n_1)$. Mit den Zeilenumformungen (Z1), (Z2), (Z3) kann $A_1$ zu einer oberen Dreiecksmatrix $C_1$ umgeformt werden. Es gilt mit D6 und D7 dass $det A_1 = (-1)^k det C_1$
+#bold[D9.] $A_1 in K^(n_1, n_1)$. Mit den Zeilenumformungen (Z1), (Z2)+(Z3) kann $A_1$ zu einer oberen Dreiecksmatrix $C_1$ umgeformt werden. Es gilt mit D6 und D7 dass $det A_1 = (-1)^k det C_1$
 $
 mat(A_1, B;0, A_2) --> mat(C_1, tilde(B);0, A_2) 
 $
 Also ist $A_2$ unverändert.
 
-Dann erzeugt man wieder mit (Z1), (Z2), (Z3) aus $A_2$ eine obere Dreieckmatrix $C_2$, dabei bleiben $C_1$ und $tilde(B)$ unverändert und es gilt
+Dann erzeugt man wieder mit (Z1), (Z2)+(Z3) aus $A_2$ eine obere Dreieckmatrix $C_2$, dabei bleiben $C_1$ und $tilde(B)$ unverändert und es gilt
 $
 det A_2 = (-1)^l det det C_2 
 $
@@ -4031,7 +4031,7 @@ det A = (-1)^(k + l) det C = (-1)^(k+l) det (C_1) dot (C_2) \
 = (-1)^(k+l) (-1)^k det (A_1) (-1)^l det (A_2) = det (A_1) dot det (A_2)
 $
 
-#bold[D10.] Durch Zeilenumformungen (Z1), (Z2), (Z3) bringen wir $A$ auf Zeilenstufenform
+#bold[D10.] Durch Zeilenumformungen (Z1), (Z2)+(Z3) bringen wir $A$ auf Zeilenstufenform
 $
 B = mat(lambda_1, ast, ast;0, dots.down, ast;0,0,lambda_n)
 $
