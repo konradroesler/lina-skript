@@ -108,11 +108,17 @@
 
   pagebreak()
 
+  {
+  show outline.entry.where(level: 1): it => {
+    strong(it)
+  }
+
   // Automatically generates outline 
   outline(
     title: [Inhaltsverzeichnis],
     indent: auto,
   )
+  }
   
   pagebreak()
 
