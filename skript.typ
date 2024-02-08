@@ -3562,7 +3562,7 @@ $tilde(P)_(i j) in K^(n,n)$ $corres$ Spaltenumformung (S1). $tilde(P)_(i j) in "
 ][
   für $m>=2, i, j in {1, ..., m}$ und $i  <j$ sind die Matrizen 
   $
-G_(i j) (lambda) = I_m + lambda E_(i j) = mat(e_1, ..., e_(i - 1), e_j + lambda e_i, e_(i+1), ..., e_m) in K^(m, m)
+G_(i j) (lambda) = I_m + lambda E_(i j) = mat(e_1, ..., e_(j - 1), e_j + lambda e_i, e_(j+1), ..., e_m) in K^(m, m)
 $
 D.h. die $j$-te Spalte von $G_(i j) (lambda)$ ist $e_j + lambda e_i$. Multipliziert man $A in K^(m,n)$, so wird das $lambda$-fache der $i$-ten Zeile von $A$ zur $j$-ten Zeile von $A$ addiert. 
 
