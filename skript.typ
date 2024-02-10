@@ -24,7 +24,7 @@ Der Mengenbegriff wurde von Georg Cantor (dt. Mathematiker, 1845-1918) eingefüh
 
 #definition("1.1", "Mengen")[
     Unter einer #bold[Menge] verstehen wir jede Zusammenfassung $M$ von bestimmten, wohlunterschiedenen Objekten $x$ unsere Anschauung order unseres Denkens, welche #bold[Elemente] von $M$ genannt werden, zu einem Ganzen.
-]
+] <def>
 
 #underline("Bemerkungen"):
 
@@ -48,7 +48,7 @@ $
   2. $M$ und $N$ heißen gleich, wenn $M subset.eq N$ und $N subset.eq M$ gilt. \ Notation $M = N$ \ Falls das nicht gilt, schreiben wir $M != N$
 
  $M$ heißt #bold[echte Teilmenge] von $N$, wenn $M subset.eq N$ und $M != N$ gilt. \ Notation: $M subset N$
-]
+] <def>
 
 Nutzt man die Aussagenlogik, kann man diese Definitionen Umformulieren zu: 
 
@@ -106,7 +106,7 @@ D.h. die Elemente dieser Menge $M$ sind die natürlichen, ganzen, rationalen und
   M backslash N &= {x | (x in M) and (x in.not N)} \
   &= {x in M | x in.not N}
   $
-]
+] <def>
 
 #bold[Beispiel 1.7:]
 
@@ -223,7 +223,7 @@ $
   $
   cal(P)(M) := {N | N subset.eq M}
   $
-]
+] <def>
 
 #bold[Beispiel 1.11:]
 
@@ -252,7 +252,7 @@ Man kann zeigen: $abs(cal(P)(M)) = 2^(abs(M))$. Deswegen wird auch die Notation 
   $
 
   Ein Element $(x, y) in M times N$ heißt geordnetes Paar und eine Element $(x_1, ..., x_n) in M_1 times ... times M_n$ heißt #bold[(geordnetes) n-Tupel].
-]
+] <def>
  
 Ist mindestens eine der auftretenden Mengen leer, so ist auch das resultierende kartesische Produkt leer, d.h. die leere Menge. Das kartesische Produkt wurde nach Rene Decartes benannt. Rene Decartes war ein französische Mathematiker (1596-1650) und ein Begründer der analytischen Geometrie.
 
@@ -264,9 +264,9 @@ $
 $
 Das kartesische Produkt ist nicht kommutativ. Beweis durch Gegenbeispiel.
 
-#definition("1.14", "Relationen", [
+#definition("1.14", "Relationen")[
   Seien $M$ und $N$ nichtleere Mengen. Eine Menge $R subset.eq M times N$ heißt #bold[Relation] zwischen $M$ und $N$. Ist $M = N$, so nennt man $R$ #bold[Relation auf $M$]. Für $(x, y) in R$ schreibt man $x attach(tilde, br: R) y$ oder $x tilde y$, wenn die Relation aus dem Kontext klar ist. Ist mindestens eine der beiden Mengen leer, dann ist auch jede Relation zwischen den beiden Mengen die leere Menge.
-])
+] <def>
 
 #bold[Beispiel 1.15:] Sei $M = NN$ und $N = ZZ$. Dann ist 
 $
@@ -277,7 +277,7 @@ $
 R = {(1,0),(2,-1),(3,-2),...} = {(n, -n + 1) | n in NN}
 $
 
-#definition("1.16", "reflexiv, symmetrisch, antisymmetrisch, transitiv", [
+#definition("1.16", "reflexiv, symmetrisch, antisymmetrisch, transitiv")[
   Es sei $M$ eine nicht leere Menge. Eine Relation auf $M$ heißt:
 
   #box(width: 100%, inset: (top:2.5mm, right: 0.5cm, left: 0.5cm), [
@@ -302,7 +302,7 @@ $
   forall x,y,z in M: x tilde y and y tilde z ==> x tilde z
   $
   ])
-])
+] <def>
 
 Falls die Relation $R$ reflexiv, transitiv und symmetrisch ist, so nennt man $R$ eine #bold[Äquivalenzrelation] auf $M$. Ist $R$ reflexiv, transitiv und antisymmetrisch, so nennt man $R$ eine #bold[partielle Ordnung] auf $M$. 
 
@@ -320,7 +320,7 @@ Auf Grund der Transitivität sind somit alle Pfeile einer vorgegebenen Orientier
 
 Als Formalisierung erhält man:
 
-#definition("1.19", "Äquivalenzklassen, Quotientenmenge", [
+#definition("1.19", "Äquivalenzklassen, Quotientenmenge")[
   Sei $tilde$ eine Äquivalenzrelation auf einer nichtleeren Menge $M$. Die Äquivalenzklasse eines Element $overline(a) in M$ ist definiert durch: 
   $
   [overline(a)] := {a in M | a tilde overline(a)}
@@ -332,7 +332,7 @@ Als Formalisierung erhält man:
   M \/ tilde #h(1.5mm) := {[a]_tilde | a in M}
   $
   wird als #bold[Faktormenge] oder #bold[Quotientenmenge] bezeichnet.
-  ])
+] <def>
 
 #bold[Beispiel 1.20:] #italic[(Fortsetzung von Beispiel 1.18)]
 
@@ -458,7 +458,7 @@ f: X arrow Y, space x arrow.bar y = f(x)
 $
 Die Menge $X$ heißt #bold[Definitionsbereich] von $f$, die Menge $Y$ heißt #bold[Wertebereich] von $f$
 
-#underline[Achtung:] Jede Abbildung besteht aus drei "Teilen". Angabe des Definitionsbereichs, Angabe des Wertebereichs, Angabe der Zuordnungsvorschrift.]
+#underline[Achtung:] Jede Abbildung besteht aus drei "Teilen". Angabe des Definitionsbereichs, Angabe des Wertebereichs, Angabe der Zuordnungsvorschrift.] <def>
 
 #bold[Beispiel 1.28:] Sei $M$ eine nichtleere Menge. Dann ist 
 $
@@ -474,7 +474,7 @@ f(M) &:= {f(x) in Y | x in M} subset.eq Y #[das #bold[Bild] von $M$ unter $f$.] 
 f^(-1)(N) &:= {x in X | f(x) in N} subset.eq X #[das #bold[Urbild] von $N$ under $f$.] 
 $
 Ist $emptyset != M subset.eq X$, dann heißt $f_(|M): M arrow Y, space x arrow.bar f(x)$, die #bold[Einschränkung] von $f$ auf $M$.
-]
+] <def>
 
 #bold[Beispiel 1.30:] Sei $X = Y = RR$ und $x arrow.bar f(x) = x^4$. Dann ist $RR$ Definitions- und Wertebereich von $f$.
 
@@ -497,7 +497,7 @@ $
 #v(1mm)
 ],[
   #bold[bijektiv:] falls $f$ injektiv und surjektiv ist
-])]
+])] <def>
 
 Man kann sich anhand der Definition leicht überlegen, dass eine Abbildung $f: X arrow Y$ genau dann bijektiv ist, wenn es für jedes $y in Y$ #underline[genau] ein $x in X$ gibt, sodass $f(x) = y$ gilt.
 
@@ -509,7 +509,7 @@ Man kann sich anhand der Definition leicht überlegen, dass eine Abbildung $f: X
 $
 g compose f: X arrow Z, space x arrow.bar g(f(x)) in Z
 $
-]
+] <def>
 
 #bold[Satz 1.34:] Seien $W, X, Y$ und $Z$ nichtleere Mengen, und die Abbildungen $f: W arrow X$, $g: X arrow Y$, $h: Y arrow Z$ gegeben. Dann gilt:
 
@@ -565,7 +565,7 @@ $
 
 #definition("1.36", "inverse Abbildung / Umkehrabbildung")[
   Seien $X, Y$ zwei nichtleere Mengen und $f: X arrow Y$ eine Abbildung. Ist $f$ bijektiv, dann heißt die in Satz 1.35 definierte, eindeutige Abbildung $g: Y arrow X$ #bold[inverse Abbildung] oder #bold[Umkehrabbildung] von $f$ und wird $f^(-1)$ bezeichnet.
-]
+] <def>
 
 #bold[Beispiel 1.37:] Die Abbildung $f: RR arrow RR, space f(x) = 3x - 5$ ist bijektiv. Die zu $f$ inverse Abbildung erhält man durch Umformung.
 $
@@ -625,7 +625,7 @@ Algebraische Strukturen erlauben es uns, abstrakte Konzepte aus konkreten Beispi
 
 == Gruppen
 
-#definition("2.1", "innere Verknüpfung, Halbgruppe")[Sei $M$ eine nichtleere Menge. Eine Abbildung $circ: M times M arrow M, space (a, b) arrow.bar a circ b$ heißt #bold[(innere) Verknüpfung] auf $M$. Gilt: $(a circ b) circ c =  a circ (b circ c)$, dann heißt die Verknüpfung #bold[assoziativ] und $(M, circ)$ eine #bold[Halbgruppe]. Gilt für eine Halbgruppe, dass $a circ b = b circ a$, so heißt die Halbgruppe #bold[abelsch] oder #bold[kommutativ].]
+#definition("2.1", "innere Verknüpfung, Halbgruppe")[Sei $M$ eine nichtleere Menge. Eine Abbildung $circ: M times M arrow M, space (a, b) arrow.bar a circ b$ heißt #bold[(innere) Verknüpfung] auf $M$. Gilt: $(a circ b) circ c =  a circ (b circ c)$, dann heißt die Verknüpfung #bold[assoziativ] und $(M, circ)$ eine #bold[Halbgruppe]. Gilt für eine Halbgruppe, dass $a circ b = b circ a$, so heißt die Halbgruppe #bold[abelsch] oder #bold[kommutativ].] <def>
 
 Je nach Kontext kann die Notation einer Verknüpfung variieren. ($a circ b$, $a dot b$, $a b$)
 
@@ -657,7 +657,7 @@ Die Halbgruppe ist ein relativ "schwaches" Konzept. Deswegen braucht man weitere
   so heißt $e$ #bold[neutrales Element] für die Verknüpfung $circ$. 
 
   Eine Halbgruppe, die ein neutrales Element besitzt heißt #bold[Monoid].
-]
+] <def>
 
 #bold[Beispiel 2.24:] Kein Monoid
 
@@ -697,7 +697,7 @@ $
 a circ b = b circ a = e
 $
 wobei $e$ das neutrale Element des Monoids ist. Wir nennen $b$ das #bold[inverse Element] zu dem gegebenen Element $a$ und bezeichnen es mit $a^(-1) = b$.
-]
+] <def>
 
 #bold[Bemerkung:] Für $circ = +$, d.h. additiv geschriebene Gruppen schreibt man auch $-a := b$.
 
@@ -800,7 +800,7 @@ Besonders wichtig in der linearen Algebra sind Abbildungen zwischen Gruppen, die
   f(x circ y) = f(x) oplus f(y) wide forall space.sixth x, y in M
   $
   Ein Homomorphismus heißt #bold[Isomorphismus], wenn er bijektiv ist.
-]
+] <def>
 
 #bold[Beispiel 2.12:] Die Abbildung $f: RR arrow RR_(>0)$ mit $f(x) = e^(2x)$ ist ein Homomorphismus zwischen $(RR, +)$ und $(RR_(>0), dot)$ mit $RR_(>0) = {x in RR | x > 0}$ denn 
 $
@@ -824,7 +824,7 @@ Homomorphismen bilden das neutrale Element im Definitionsbereich immer auf das n
   ker(f) := {a in M | f(a) = e_N}
   $ 
   den #bold[Kern] von $f$.
-]
+] <def>
 
 == Ringe
 
@@ -845,7 +845,7 @@ Ringe sind eine Erweiterung der algebraischen Strukturen von einer auf zwei Verk
     ]
     Ein Ring heißt kommutativ, wenn $dot$ kommutativ ist. D.h. $a dot b = b dot a, space forall space.sixth a, b in R$. Ein Element $1 in R$ heißt #bold[Einselement], wenn es das neutrale Element bezüglich der Multiplikation ist. Das heißt wenn für alle $a in R$ gilt: $1 dot a = a dot 1 = a$.
   ])
-]
+] <def>
 
 #bold[Achtung:] Die Formulierung der Distributivitätsgesetze impliziert, dass die Multiplikation stärker bindet als die Addition ("Punkt vor Strich").
 
@@ -918,7 +918,7 @@ Mit dem Nullpolynom definiert wie oben und dem Einspolynom definiert als $p(t) :
   a dot b = b dot a = 1
   $
   Existiert zu $a in R$ ein inverses Element, so heißt $a$ #bold[invertierbar].
-]
+] <def>
 
 #bold[Satz 2.19:] Es sei $(R, +, dot)$ ein Ring mit Eins. Dann gilt:
 
@@ -942,7 +942,7 @@ Ein kommutativer Ring mit Eins heißt Körper, falls $0 != 1$ gilt (der Nullring
 
 Es folgt eine äquivalente und formalere Definition:
 
-#definition("2.20", "Körper", [
+#definition("2.20", "Körper")[
   Eine Menge $K$ mit zwei Verknüpfungen
   $
   +: K times K arrow K, space (a, b) arrow.bar a + b wide wide "Addition" \
@@ -957,7 +957,7 @@ Es folgt eine äquivalente und formalere Definition:
     (a + b) dot c = a dot c + b dot c 
     $
   ]
-])
+] <def>
 
 #bold[Lemma 2.21:] Sei $(K, +, dot)$ ein Körper. Gilt für $a, b in K$, dass $a dot b = 0$, so ist mindestens eins davon die $0$.
 
@@ -1117,7 +1117,7 @@ Solch eine algebraische Sturktur wollen wir beschreiben:
   ]
 
   Ein Element $v in V$ nennen wir #bold[Vektor], ein $mu in K$ nenn wir einen #bold[Skalar].
-]
+] <def>
 
 #bold[Beobachtung:] Für einen Vektorraum sind die Operatinen $+$ und die skalare Multiplikation $dot$ abeschlossen.
 
@@ -1200,7 +1200,7 @@ $
 
 #definition("2.31", "Untervektorraum")[
   Sei $(V, +, dot)$ ein $K$-Vektorraum und sei $U subset.eq V$. Dann ist $(U, + dot)$ ein #bold[Untervektorraum], kurz #bold[Unterraum] von $(V, +, dot)$.
-]
+] <def>
 
 #bold[Lemma 2.32:] Sei $(V, +, dot)$ ein $K$-Vektorraum und $U subset.eq V$. Dann ist $(U, +, dot)$ genau dann ein Unterraum von $V$, wenn gilt:
 
@@ -1227,7 +1227,7 @@ Ist $U$ nicht abgeschlossen bezüglich der Addition und der skalaren Multiplikat
   $
   "Span"{v_1, ..., v_n} := {sum_(i=1)^n lambda_i v_i | lambda_1, ..., lambda_n in K}
   $
-]
+] <def>
 
 #bold[Lemma 2.35:] Sei $(V, +, dot)$ ein $K$-Vektorraum und $v_1, ..., v_n in V$, dann ist $("Span"{v_1, ..., v_n}, +, dot)$ ein Unterraum von $(V, +, dot)$.
 
@@ -1282,7 +1282,7 @@ Dieses Kapitel motiviert unter anderem die Frage, wie man Vektorräume effizient
   die nicht alle gleich $0$ sind, so heißten $v_1, ..., v_n$ #bold[linear abhängig].
 
   #boxedlist[Die leere Menge ist linear unabhängig.][Ist $M != emptyset$ eine Menge und für jedes $m in M$ ein Vektor $v_m in V$ gegeben, so nennt man die Menge ${v_m}_(m in M)$ linear unabhängig, wenn endlich viele Vektoren immer linear unabhängig sind. Gilt dies nicht, so ist die Menge ${v_m}_(m in M)$ linear abhängig.]
-]
+] <def>
 
 #bold[Bemerkung:] Nach Definition sind die Vektoren $v_1, ..., v_n$ genau dann linear unabhängig, wenn sich der Nullvektor aus ihnen nur in der Form $0 = 0 dot v_1 + ... + 0 dot v_n$ mit endlich vielen Vektoren darstellen lässt
 
@@ -1361,7 +1361,7 @@ Dies ist ein Widerspruch dazu, dass man $v$ nicht als Linearkombination darstell
     $
   ])}
   $
-]
+] <def>
 
 #bold[Beispiel 3.7:] $M = NN$, $v_m := t^m$, $t in K$, $"Span"{v_m}_(m in M) = P[t]$
 
@@ -1405,7 +1405,7 @@ Es gilt wieder $mu_k = 0$ für $k in J backslash I$ und $lambda_k = 0$ für $k i
   $
   "Span"{v_m}_(m in M) = V
   $
-]
+] <def>
 
 #bold[Beispiel 3.10:] Sei $K$ ein Körper, $V$ ein Vektorraum mit $V = K^n$, $n in NN$
 
@@ -1417,7 +1417,7 @@ die Menge ${e_i}_(in in {1, ..., n})$ ein Erzeugendensystem von $K^n$.
 
 #definition("3.11", "Basis")[
   Sei $K$ ein Körper, $V$ ein Vektorraum, $M$ eine Menge und $v_m$ für $m in M$ Vektoren in von $V$. Dann heißt ${v_m}_(m in M)$ #bold[Basis] von $V$, falls sie linear unabhängig und ein Erzeugendensystem von $V$ ist.
-]
+] <def>
 
 #bold[Beispiel 3.12:] Das Erzeugendensystem aus 3.10 ist eine Basis. Anmerkung: Basen sind nicht eindeutig. Für $K^3$ gilt etwa
 $
@@ -1498,7 +1498,7 @@ Also ist $B$ ein Erzeugendensystem und somit eine Basis.
 
 #definition("3.15", "endlichdimensional, unendlichdimensional")[
   Sei $(V, +, dot)$ ein $K$-Vektorraum für den eine endliche Menge $M = {v_1, ..., v_n} subset V$ existiert, so dass $"Span" M = V$. Dann nennt man $V$ #bold[endlich erzeugt] und sagt $V$ ist #bold[endlichdimensional]. Ist $V$ nicht von endlich vielen Vektoren erzeugt, nennt man $V$ #bold[unendlichdimensional].   
-]
+] <def>
 
 #bold[Beispiel 3.16:]
 
@@ -1696,7 +1696,7 @@ $
   dim_K (V) := cases(n &"falls" V "eine Basis der Länge" n "hat", infinity &"sonst")
   $
   Wenn der Kontext klar ist schreibt man $dim V$.
-]
+] <def>
 
 #bold[Beispiel 3.28:] Sei $K$ ein Körper. Es gilt 
 
@@ -1771,7 +1771,7 @@ $
   $
   U_1 + U_2 + ... + U_r := {u_1 + u_2 + ... + u_r | u_i in U_i "für" 1 <= i <= r} subset.eq V
   $
-]
+] <def>
 
 Für den Durchschnitt und die Summe von Untervektorräumen gelten folgende Regeln:
 
@@ -1848,7 +1848,7 @@ Dann gilt $u in U_i$ und insbesondere $u in U_1 + ... + U_(i-1) + U_(i+1) + ... 
   $
   U_1 oplus U_2 oplus ... oplus U_r
   $
-]
+] <def>
 
 #bold[Beispiel 3.37:] Seien $V, U_1, U_2$ wie im Beispeil 3.34. Dann gilt $V = U_1 + U_2$, aber nicht $U_1 oplus U_2$. Sei weiter $U_3 := "Span"{(0, 0, 1)}$. Dann gilt $V = U_1 + U_3$ und $U_1 oplus U_3$.
 
@@ -1976,7 +1976,7 @@ Nun behandeln wir Abbildungen, die zur Vektorstruktur "passen". Diese heißen li
   V isomorph W
   $
   Eine lineare Abbildung $f: V -> V$ heißt #bold[Endomorphismus] und ein bijektiver Endomorphismus heißt #bold[Automorphismus].
-]
+] <def>
 
 #bold[Bemerkung:] Als Übungsaufgabe: 
 $
@@ -2162,7 +2162,7 @@ Kern und Bild wurden bereits im Kapitel 2 behandelt. Hier behandeln wir die Konz
   im(f) := f(V) = {w in W | exists v in V: w = f(v)}
   $
   heißt #bold[Bild] der linearen Abbildung $f$.
-]
+] <def>
 
 #bold[Beispiel 4.12:] 
 
@@ -2230,7 +2230,7 @@ $
   $
   rg(f) := dim_K (im(f))
   $
-]
+] <def>
 
 #bold[Lemma 4.15:] Es seien $V$ und $W$ zwei $K$-Vektorräume und $f in L(V, W)$, $W$ sei endlichdimensional. Dann gilt 
 
@@ -2471,7 +2471,7 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
   )
   $
   mit $a_(i j) in K$ für $1 <= i <= m$ und $1 <= j <= n$ heißt #bold[(m $times$ n) Matrix] mit den Einträgen in $R$. Die Einträge nennt man auch Koeffizienten. Die Menge aller ($m times n$) Matrizen nennt man $R^(m times n)$.
-]
+] <def>
 
 #bold[Bemerkungen:] 
 
@@ -2565,7 +2565,7 @@ die zweite Spalte von $B$. Keine dieser Matrizen ist quadratisch.
         )
   $
   Die Addition in $R^(m,n)$ erfolgt also komponentenweise basierend auf der Addition in $R$.
-]
+] <def>
 
 #bold[Achtung:] Die Addition ist nur für Matrizen gleicher Größe / Dimension definiert.
 
@@ -2583,7 +2583,7 @@ die zweite Spalte von $B$. Keine dieser Matrizen ist quadratisch.
       )
   $
   Die Multiplikation einer Matrix mit einem Skalar aus $R$ erfolgt komponentenweise basierend auf der Multiplikation in $R$. 
-]
+] <def>
 
 #definition("5.5", "Multiplikation von Matrizen")[
   Seien $A in R^(m,n)$ und $B in R^(n, l)$ zwei Matrizen. Dann ist $C = A dot B in R^(m, l)$ definiert durch
@@ -2591,7 +2591,7 @@ die zweite Spalte von $B$. Keine dieser Matrizen ist quadratisch.
   C := A dot B = mat(c_(1 1), ..., c_(1 l); dots.v, dots.down, dots.v; c_(m 1), ..., c_(m l)) space "mit" space c_(i j) = sum_(k = 1)^n a_(i k) dot b_(k j)
   $
   für $i = 1, ..., m$ und $j = 1, ..., l$
-]
+] <def>
 
 #bold[Bemerkung:] Um das Produkt $A dot B$ berechnen zu können #bold[muss] die Anzahl der Spalten von $A$ gleich der Anzahl von Zeilen in $B$ sein.
 
@@ -2663,7 +2663,7 @@ $
   $
   A^top := mat(a_(1 1), ..., a_(m 1); dots.v, dots.down, dots.v; a_(1 n), ..., a_(m n)) in R^(n times m)
   $
-]
+] <def>
 
 #bold[Beispiel 5.9:] Die zu 
 $
@@ -2923,7 +2923,7 @@ fordern, da $n != m$ gelten kann.][
 
 #definition("5.19", "Matrixdarstellung")[
   Seien $V$ und $W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ sowie $f in L(V, W)$. Die durch Satz 5.18 eindeutig bestimmte Matrix $A_f^(B,C) in K^(m, n)$ heißt #bold[Matrixdarstellung] oder die #bold[darstellende Matrix] von $f in L(V, W)$ bezüglich der Basen $B$ und $C$.
-  ]
+] <def>
 
 #bold[Beispiel 5.20:] Fortsetzung von Beispiel 4.3. Die lineare Abbildung $f: RR^2 -> RR^2$ einer Drehung im $RR^2$ für einen gegebenen Winkel $phi in RR$ bezüglich der Standardbasis $S = {e_1, e_2}$ ist eindeutig durch die Darstellungsmatrix
 $
@@ -2942,7 +2942,7 @@ für $S = {e_1, e_2, e_3}$. Beispiel 4.18: $"rg"(f) = dim(im(f))$.
   $
   ==> A_f^(S,S) = mat(1, -1, 2; 1, 1, 2; 0, 3, 0) wide rg_S (A) = 2
   $
-]
+] <def>
 
 #bold[Satz 5.23:] Seien $V, W$ zwei $K$-Vektorräume mit den Basen $B = {v_1, ..., v_n}$ von $V$ und $C = {w_1, ..., w_m}$ von $W$ sowie $f in L(V, W)$ mit der Darstellungsmatrix $A_f^(B, C) = (a_(i j))_(i=1,....,m)^(j = 1, ... n) in K^(m,n)$. Dann gilt die Gleichheit 
 $
@@ -3275,7 +3275,7 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
   cal(L)(A, b)
   $
   bezeichnet.
-]
+] <def>
 
 #bold[Bemerkung:] Im normalen Fall, d.h. sei $b = 0 in K^m$ gilt offensichtlich immer $rg_S (A) = rg_S (A_"erw")$. (Später: $rg(A) = rg(A_"erw"))$. Außerdem existiert im homogenen Fall immer eine Lösung, nämlich $x^* = 0 in K^n$. Denn es gilt $A x^* = A 0_m = 0 = b$.
 
@@ -3389,7 +3389,7 @@ Problem: $cal(L)(A, b)$ ist ja kein Unterraum, da für $b != 0, x = 0 in.not cal
   U = v + W := {u in V | "es gibt ein" w in W "mit" u = v + w}
   $
   Die leere Menge bildet ebenfalls einen affinen Unterraum.
-]
+] <def>
 Affine Unterräume kann man als "Parallelverschiebung" eines Unterraums interpretieren.
 
 #bold[Frage:] 
@@ -3438,7 +3438,7 @@ $
   $
   dim cal(L)(A, b) = dim cal(L)(A, 0) = n - rg_S (A)
   $
-]
+] <def>
 
 Damit folgt
 
@@ -3940,7 +3940,7 @@ Basierend auf diesen Beobachtungen:
   #bold[D2.] $det$ ist #bold[alternierend], d.h. hat $A$ zwei gleiche Zeilen, so gilt $det (A) = 0$
 
   #bold[D3.] $det$ ist normiert, d.h. $det (I_n) = 1$
-]
+] <def>
 
 #bold[Bemerkung:] 
 

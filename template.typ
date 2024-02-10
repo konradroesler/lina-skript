@@ -116,10 +116,55 @@
   // Automatically generates outline 
   outline(
     title: [Inhaltsverzeichnis],
+    target: heading,
     indent: auto,
   )
   }
+
+  pagebreak()
+
+  [
+    #align(center, text(size: 1.75em)[Definitionen])
+  ]
   
+  let definitions = locate(loc => {
+    let elems = query(<def>, loc)
+    let table_content = ()
+    for e in elems {
+      let body = repr(e.body)
+
+      let number = body.find(regex("\d\.\d{1,2}"))
+      let pos_num = body.position(number)
+      let def_term = body.slice(pos_num).find(regex("([a-zA-Zäüö]{2,}[,\s]{0,2})+"))
+      
+      table_content.push([
+        #link(
+          e.location(),
+          [
+            #strong[#number:]
+          ],
+        )
+      ])
+      table_content.push([
+        #link(
+          e.location(),
+          [
+            #set par(justify: false)
+            #def_term
+          ],
+        )
+      ])
+    }
+    table(
+        columns: (40pt, 1fr, 40pt, 1fr),
+        inset: 5pt,
+        stroke: none,
+        ..table_content
+    )
+  })
+
+  definitions
+
   pagebreak()
 
   // Display the documents content
