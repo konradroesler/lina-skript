@@ -1803,7 +1803,7 @@ Also ist die Darstellung von $v$ als Summe #bold[nicht] eindeutig. Insbesondere 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. Für $u in sum_(i = 1)^r U_i$ existieren eindeutige $u_i in U_i$, $i in {1, ..., r}$ mit $u = sum_(i = 1)^r u_i$
   2. #[
-    Für $u_i in U_i$, $i in {1, ..., r}$ mit $0 = sum u_i$ gilt
+    Für $u_i in U_i$, $i in {1, ..., r}$ mit $0 = limits(sum_(i=1)^r) u_i$ gilt
     $
     u_i = 0 wide i in {1, ..., r}
     $
@@ -1811,7 +1811,7 @@ Also ist die Darstellung von $v$ als Summe #bold[nicht] eindeutig. Insbesondere 
   3. #[
     Für $i in {1, ..., r}$ gilt 
     $
-    U_i sect limits(sum_(j = 1)^r)_(j != i) u_i = {0_V}
+    U_i sect limits(sum_(j = 1)^r)_(j != i) U_j = {0_V}
     $
   ]
 ]
