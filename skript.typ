@@ -925,7 +925,7 @@ Mit dem Nullpolynom definiert wie oben und dem Einspolynom definiert als $p(t) :
 #box(width: 100%, inset: (right: 1cm, left: 1cm), [
   1. Existiert zu $a in R$ ein inverses Element bezüglich $dot$, so ist dies eindeutig bestimmt. Dies wird mit $a^(-1)$ gekennzeichnet.
 
-  2. Wenn $a b in R$ invertierbar sind, dann ist auch $a dot b$ invertierbar und es gilt:
+  2. Wenn $a, b in R$ invertierbar sind, dann ist auch $a dot b$ invertierbar und es gilt:
   $
   (a dot b)^(-1) = b^(-1) dot a^(-1)
   $
