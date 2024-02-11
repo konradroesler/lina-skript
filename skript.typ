@@ -1417,7 +1417,7 @@ $
 die Menge ${e_i}_(in in {1, ..., n})$ ein Erzeugendensystem von $K^n$.
 
 #definition("3.11", "Basis")[
-  Sei $K$ ein Körper, $V$ ein Vektorraum, $M$ eine Menge und $v_m$ für $m in M$ Vektoren in von $V$. Dann heißt ${v_m}_(m in M)$ #bold[Basis] von $V$, falls sie linear unabhängig und ein Erzeugendensystem von $V$ ist.
+  Sei $K$ ein Körper, $V$ ein $K$-Vektorraum, $M$ eine Menge und $v_m$ für $m in M$ Vektoren in von $V$. Dann heißt ${v_m}_(m in M)$ #bold[Basis] von $V$, falls sie linear unabhängig und ein Erzeugendensystem von $V$ ist.
 ] <def>
 
 #bold[Beispiel 3.12:] Das Erzeugendensystem aus 3.10 ist eine Basis. Anmerkung: Basen sind nicht eindeutig. Für $K^3$ gilt etwa
