@@ -1199,14 +1199,15 @@ $
 #endproof
 
 #definition("2.31", "Untervektorraum")[
-  Sei $(V, +, dot)$ ein $K$-Vektorraum und sei $U subset.eq V$. Dann ist $(U, + dot)$ ein #bold[Untervektorraum], kurz #bold[Unterraum] von $(V, +, dot)$.
+  Sei $(V, +, dot)$ ein $K$-Vektorraum und sei $U subset.eq V$. Ist $(U, +, dot)$ ein $K$-Vektorraum, so heißt $(U, +, dot)$ ein #bold[Untervektorraum], kurz #bold[Unterraum] von $(V, +, dot)$. \
+  Wichtig! Die Abgeschlossenheit muss erhalten bleiben.
 ] <def>
 
 #bold[Lemma 2.32:] Sei $(V, +, dot)$ ein $K$-Vektorraum und $U subset.eq V$. Dann ist $(U, +, dot)$ genau dann ein Unterraum von $V$, wenn gilt:
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. $u + w in U wide forall space.sixth u, w in U$
-  2. $lambda u in U wide forall space.sixth lambda in U, forall space.sixth u in U$
+  2. $lambda u in U wide forall space.sixth lambda in K, forall space.sixth u in U$
 ]
 
 #italic[Beweis:] (Übung)
