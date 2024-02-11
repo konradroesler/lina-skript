@@ -1967,7 +1967,7 @@ Nun behandeln wir Abbildungen, die zur Vektorstruktur "passen". Diese heißen li
   #box(width: 100%, inset: (left: 0.5cm, right: 0.5cm))[
     1. $underbrace(f(lambda dot v), "Skalarmultiplikation in" V) = underbrace(lambda dot f(v), "Skalarmultiplikation in" W) wide forall space.sixth v in V, forall space.sixth lambda in K$
     #h(5pt)
-    2. $underbrace(f(v + w), "Addition in" V) = underbrace(f(v) + f(w), "Addition in" W)$
+    2. $underbrace(f(v + w), "Addition in" V) = underbrace(f(v) + f(w), "Addition in" W) wide forall space.sixth v,w in V$
     #h(5pt)
   ]
   Die Menge aller linearen Abbildungen von $V$ nach $W$ bezeichnet man mit $L(V, W)$. Eine lineare Abbildung $f: V -> W$ wird auch #bold[lineare Transformation] oder #bold[(Vektorraum-) Homomorphismus] genannt.
