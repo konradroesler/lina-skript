@@ -1590,7 +1590,7 @@ Zum Beweis der Aussage sind noch Vorarbeiten notwendig.
 
 #bold[Satz 3.21:] Basisergänzungssatz 
 
-Sei $(V, +, dot)$ eine $K$-Vektorraum,
+Sei $(V, +, dot)$ ein $K$-Vektorraum,
 
 #boxedlist[${u_i}_(i in I) subset.eq V$ ein linear unabhängiges System][${v_j}_(j in J) subset.eq V$ ein Erzeugendensystem von $V$]
 
