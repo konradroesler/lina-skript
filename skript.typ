@@ -1334,7 +1334,7 @@ $==> lambda_1 v_1 + ... + lambda_n v_n + mu_1 u_1 + ... + mu_m u_m = 0$ $==> mu_
 
 Eine alternative Definition der linearen Unabhängigkeit motiviert Satz 3.5:
 
-#bold[Satz 3.5:] Sei $V$ ein $K$-Vektorraum. Eine Menge $M subset.eq V$ ist genau dann linear unabhängig, wenn kein Vektor $v in V$ als Linearkombination dargestellt werden kann.
+#bold[Satz 3.5:] Sei $V$ ein $K$-Vektorraum. Eine Menge $M subset.eq V$ ist genau dann linear unabhängig, wenn kein Vektor $v in M$ als Linearkombination der anderen Vektoren dargestellt werden kann.
 
 #italic[Beweis:] 
 
