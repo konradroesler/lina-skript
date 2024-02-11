@@ -764,7 +764,7 @@ Anhand der Verknüpfungstabellen erkennt man, dass $(FF_2, +)$ mit dem neutralen
   $
 ]  
 3. #[
-  Es sei $b in M$ ein linksinverses Element zu $a in M$. D.h. $b circ a = e$. Sei $tilde(b) in M$ ein linksneutrales Element zu $b in M$. D.h. $tilde(b) circ b = e$.
+  Es sei $b in M$ ein linksinverses Element zu $a in M$. D.h. $b circ a = e$. Sei $tilde(b) in M$ ein linksinverses Element zu $b in M$. D.h. $tilde(b) circ b = e$.
   $
   a circ b &= e circ (a circ b) \
   &= tilde(b) circ b circ (a circ b) \
