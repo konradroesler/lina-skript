@@ -4017,7 +4017,7 @@ Also ist $A_2$ unverändert.
 
 Dann erzeugt man wieder mit (Z1), (Z2)+(Z3) aus $A_2$ eine obere Dreieckmatrix $C_2$, dabei bleiben $C_1$ und $tilde(B)$ unverändert und es gilt
 $
-det A_2 = (-1)^l det det C_2 
+det A_2 = (-1)^l  det C_2 
 $
 Für 
 
@@ -4028,8 +4028,9 @@ Für
 mit $C_1, C_2$ obere Dreieckmatrizen gilt
 $
 det C = det C_1 dot det C_2 \
-det A = (-1)^(k + l) det C = (-1)^(k+l) det (C_1) dot (C_2) \
-= (-1)^(k+l) (-1)^k det (A_1) (-1)^l det (A_2) = det (A_1) dot det (A_2)
+det A = (-1)^(k + l) det C = (-1)^(k+l) det (C_1) dot det (C_2) \
+= (-1)^(k+l) (-1)^k det (A_1) (-1)^l det (A_2) = (-1)^(2k+2l) det (A_1) dot det (A_2) \ 
+= det (A_1) dot det (A_2)
 $
 
 #bold[D10.] Durch Zeilenumformungen (Z1), (Z2)+(Z3) bringen wir $A$ auf Zeilenstufenform
