@@ -124,12 +124,13 @@
   pagebreak()
 
   [
+    #v(1cm)
     #align(center, text(size: 1.75em)[Definitionen])
   ]
   
   let definitions = locate(loc => {
     let elems = query(<def>, loc)
-    let table_content = ()
+    let definition_array = ()
     for e in elems {
       let body = repr(e.body)
 
@@ -137,7 +138,7 @@
       let pos_num = body.position(number)
       let def_term = body.slice(pos_num).find(regex("([a-zA-Zäüö]{2,}[,\s]{0,2})+"))
       
-      table_content.push([
+      definition_array.push([
         #link(
           e.location(),
           [
@@ -145,7 +146,7 @@
           ],
         )
       ])
-      table_content.push([
+      definition_array.push([
         #link(
           e.location(),
           [
@@ -155,11 +156,40 @@
         )
       ])
     }
+
+    let chap_count = int(repr(definition_array.at(-2)).find(regex("\d\.\d{1,2}")).at(0))
+    let partitioned_def_array = ()
+    for i in range(chap_count) {
+      partitioned_def_array.push(())
+    }
+    
+    let x = 0
+    while x < definition_array.len() {
+      let chapter = int(repr(definition_array.at(x)).find(regex("\d\.\d{1,2}")).at(0))
+      partitioned_def_array.at(chapter -1).push(definition_array.at(x))
+      partitioned_def_array.at(chapter -1).push(definition_array.at(x+1))
+      x += 2
+    } 
+    let def_index = ()
+    for chapter in partitioned_def_array {
+      def_index.push(
+        [
+          #let chapter_num = int(repr(chapter.at(0)).find(regex("\d\.\d{1,2}")).at(0))
+          #align(center, strong(text(size: 1.5em)[#chapter_num .]))
+          #table(
+            columns: (40pt, 1fr),
+            inset: 5pt,
+            stroke: none,
+            ..partitioned_def_array.at(chapter_num -1)
+          )
+        ]
+      )
+    }
     table(
-        columns: (40pt, 1fr, 40pt, 1fr),
+        columns: (1fr, 1fr),
         inset: 5pt,
         stroke: none,
-        ..table_content
+        ..def_index
     )
   })
 
@@ -170,3 +200,4 @@
   // Display the documents content
   body
 }
+

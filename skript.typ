@@ -4047,3 +4047,193 @@ $
 0 = 0
 $
 Ist $rg (A) = n ==> A in "GL"_n (K)$. Dann gibt es nach Satz 6.10 invertierbare Matrizen
+
+Satz 6.10: $C = S_t dots.h.c S_1 A$ in Treppennormalform
+
+$==> C = I_n$
+
+$==> A = S_1^(-1) dots.h.c S_(t-1)^(-1) S_t^(-1) I_n wide (*)$
+
+$==>^"D3" det I_n = 1$
+
+$S_i$ $corres$ Produkt von $G_(i j) (lambda), M_i (lambda), P_(i j)$ $==>$ $S_i^(-1) corres$ Produkt von $G_(i j)^(-1) (lambda), M_i^(-1) (lambda), P_(i j)^(-1)$
+
+Sei $D in K^(n,n)$, dann gilt 
+$
+det (underbrace(G_(i j)^(-1) (lambda) D, *)) = space ?
+$
+$*$: Subtrahieren eines Vielfachen einer Zeile von einer anderen
+$
+det (G_(i j)^(-1) (lambda)) =^"D7" det I_n = 1 \
+tilde(D) = G_(i j)^(-1) (lambda) D ==> det (tilde(D)) =^"D7" det D \
+==> det (G_(i j)^(-1) (lambda) D) = det (G_(i j)^(-1) (lambda)) dot det (D) = det (D)
+$
+Analog folgt:
+$
+det (P_(i j)^(-1) (lambda) D) = underbrace(det (P_(i j)^(-1) (lambda)), -1) dot det (D) \
+det (M_i^(-1) (lambda) D) =^"D1.2" det (M_i^(-1) (lambda)) dot det (D)
+$
+induktiv folgt: $det (S_i^(-1) D) = det (S_i^(-1)) dot det (D) wide (star)$ 
+$
+==> det (A) = det (S_1^(-1)) dot dots.h.c dot det(S_t^(-1)) dot 1 \
+==> det (A dot B) =^((*)) det (S_1^(-1) dot dots.h.c dot S_t^(-1) B) \  
+=^((star)) det (S_1^(-1)) dot dots.h.c dot det (S_t^(-1)) dot det (B) \
+= det (A) dot det (B)
+$
+
+$A in "GL"_n (K) ==> exists A^(-1): A dot A^(-1) = I_n$
+$
+1 =^"D3" det (I_n) = det (A dot A^(-1)) = det (A) dot det (A^(-1)) \
+==> det (A^(-1)) = (det (A))^(-1)
+$
+
+#bold[D12.] $rg (A) < n$:
+
+Mit Lemma 5.31: $rg (A^top) < n$ (Zeilenrang = Spaltenrang)
+
+Mit D10 folgt: $det (A) = 0 = det (A^top)$
+
+Sei $rg (A) = n$ und sei $A$ wie in D11: 
+$
+A = S_1^(-1) dot dots.h.c dot S_t^(-1)
+$
+Dann gilt 
+$
+det (A^top) = det (S_t^(-top) dot S_(t-1)^(-top) dot dots.h.c dot S_1^(-1)) =^"D11" det (S_t^(-top)) dot det (S_(t-1)^(-top)) dot dots.h.c dot det (S_1^(-1))
+$
+induktiv und analog zu oben folgt:
+$
+det (S_t^(-top)) = det (S_t^(-1)) \
+==> det (A^t) = det 
+$
+
+#bold[D13.] Für $K = RR, A = I_2, B = I_2$
+
+d.h. $A, B in RR^(2,2)$. Dann gilt: 
+$
+det (A + B) = det (0_(2 times 2)) =^"D8" 0 \
+det (A) + det (B) = 1 + 1 = 2 space.thin arrow.zigzag
+$
+#endproof
+
+#bold[Beispiel 7.3:] Berechnung einer Determinante
+
+Für $A in RR^(n,n)$ kann man eine Determinante berechnen, indem man $A$ auf obere Dreiecksgestalt bringt.
+$
+A = mat(1,2,0;1,4,1;1,-2,2) --> A_1 = mat(1,2,0;0,2,1;0,-4,2) = G_(3 1) (-1) G_(2 1) A
+$
+($->$ von Zeile 3 wird Zeile 1 mit $-1$ abgezogen)
+$
+==> det (A_1) = ^"D8" underbrace(det (G_(3 1) (-1)), = 1) dot underbrace(det (G_(2 1) (-1)), = 1) dot det (A) \
+A_2 = mat(1,2,0;0,2,1;0,0,4) = G_(3 2) (2) dot A_1
+$
+$
+8 = det (A_2) = det (G_(3 2) (2)) dot det (A_1) = underbrace(det (G_(3 2) (2)), = 1) dot det (A)
+$
+
+== Existens und Eindeutigkeit
+
+#bold[Frage:] Ist die Berechung der Determinante eindeutig? Oder hängt sie von der Reihenfolge der Zeilenumformungen ab?
+
+#definition("7.4", "Permutation")[
+  Sei $n in NN$. Eine bijetkive Abbildung $#sspace$
+  $
+  sigma: {1, 2, ..., n} -> {1, 2, ..., n}, space j arrow.bar sigma(j)
+  $
+  heißt #bold[Permutation] der Zahlen ${1, ..., n}$. Die Menge aller dieser Abbildungen nennt man $S_n$ und man schreibt eine Permuatation $sigma in S_n$ in der Form 
+  $
+  [sigma(1) space space sigma(2) space space dots space space sigma(n)]
+  $
+] <def>
+
+#bold[Frage:] Gilt für ein gegebenes $sigma in S_n$ und 
+$
+I_sigma = vec(e^top_(sigma(1)), dots.v, e^top_(sigma(n)))
+$
+$det (I_sigma) = plus.minus 1 space.thin$?
+
+#definition("7.5", "Transposition")[
+  Seien $n in NN$, $n >= 2$. Eine Permutation $cal(T) in S_n$ heißt #bold[Transposition], wenn $cal(T)$ nur zwei Elemente aus ${1,2, ..., n}$ vertauscht und alle andere unverändert bleiben. D.h. es existieren $k, l in {1, ..., n}$ so, dass 
+  $
+  cal(T) (K) = C,   cal(T) (C) = K, cal(T) (i) = i wide i in {1, ..., n} without {k, l}
+  $
+] <def>
+
+#bold[Lemma 7.6:] Ist $n >= 2$, so existieren zu jedem $sigma in S_n$ Transpositionen $cal(T)_1, ..., cal(T)_k in S_n$ mit 
+$
+sigma = cal(T)_1 circ cal(T)_2 circ dots circ cal(T)_k
+$
+
+#italic[Beweis:] Ist $sigma = id$ und $cal(T)$ eine Transposition, dann gilt 
+$
+id = sigma = cal(T) circ cal(T)
+$
+Ist $sigma != id$, so existiert ein $i_1 in {1, ..., n}$ mit 
+$
+sigma(i) = i space "für" space i = 1, ..., i_1 - 1 space "und" space sigma(i_1) > i_1
+$
+Sei $cal(T)_1$ die Transposition, die $i_1$ mit $sigma(i_1)$ vertauscht und $sigma_1 := cal(T)_1 circ sigma$
+
+Dann gilt
+$
+sigma_1 (i) = i space "für" space i = 1, ..., i_1
+$
+Ist $sigma_1 = id$ so gilt $sigma = cal(T)_1^(-1) = cal(T)_1$, sonst existiert ein $i_2$ mit $i_2 > i_1$ und 
+$
+sigma_1 (i) = i space "für" space i = 1, ..., i_2 - 1 space "und" space sigma_1 (i_2) > i_2
+$
+induktiv erhält man $k <= n$ Transpositionen
+$
+&cal(T)_1, ..., cal(T)_k space "mit" \
+&sigma_k = cal(T)_k circ dots circ cal(T)_1 circ sigma = id \
+==> &sigma = cal(T)_1^(-1) circ dots circ cal(T)_k^(-1) = T_1 circ dots circ T_k 
+$
+#endproof
+
+Die Transpositionen sind nicht eindeutig bestimmt! Für die Entscheidung über das Vorzeichen 
+$
+det (I_sigma) = plus.minus 1
+$
+müssen wir zeigen, dass die Anzahl der Transpositionen immer gerade oder immer ungerade ist.
+
+#definition("7.7", "Fehlstand")[
+  Seien $n in NN$, $n >= 2$ und $sigma in S_n$. Ein Paar $(i, j) in N times N$ mit $1 <=i < j <=n$ und $sigma (i) > sigma (j)$ nennt man #bold[Fehlstand] von $sigma$. Ist $k$ die Anzahl der Fehlstände von $sigma$, so heißt $sgn (sigma)$ das #bold[Signum] oder Vorzeichen von $sigma$. Für $n = 1$ setzt man $sgn([1]) := 1 = (-1)^0$
+] <def>
+
+#bold[Beobachtung:] Für $sigma = [3 space space 2 space space 1]$ ($3 = sigma(1), 2 = sigma(2), 1 = sigma(3)$) gilt
+$
+product_(1 <= i < j <= n) (sigma(j) - sigma(i))/(j - i) = (2-3)/(2-1) dot (1-3)/(3-1) dot (1-2)/(3-2) = (-1)^3 = -1 = sgn (sigma)
+$
+
+Diese Eigenschaft kann man allgemein beweisen:
+
+#bold[Lemma 7.8:] Seien $n in NN$ und $sigma in S_n$. Dann gilt 
+$
+sgn (sigma) = product_(1 <= i < j <= n) (sigma(j)- sigma(i))/(j -i )
+$
+#italic[Beweis:]
+
+$n = 1:$ Wegen der Definition von $sgn$ und der Definition des leeren Produktes folgt $1 = 1$.
+
+$n > 1:$ Sei $sgn (sigma) = (-1)^k$, d.h. die Anzahl der Fehlstände ist $k$. Dann gilt
+$
+product_(1 <= i < j <= n) (sigma(j) - sigma(i)) = (-1)^k product_(1<= i < j <=n) (sigma(j) - sigma(i)) \
+= (-1)^k product_(1 <= i < j <= n) (j -1)
+$
+Bei diesen letzten Gleichungen verwendet man, dass die beiden Produkte bis auf die Reihenfolge die gleichen Faktoren enthalten.
+#endproof
+
+#bold[Satz 7.9:] Seien $n in NN$ und $cal(T), sigma in S_n$. Dann gilt
+$
+sgn (cal(T) circ sigma) = sgn (cal(T)) dot sgn (sigma)
+$
+#italic[Beweis:] Wegen Lemma 7.8 gilt:
+$
+sgn (cal(T) circ sigma) = product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(j - i) \
+= underbrace(product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)), = sgn (cal(T)) space ?) underbrace(product_(1 <= i < j <= n) (sigma(j) - sigma(i))/(j-i), = sgn (sigma)) \
+$ 
+zu zeigen: ? (s.o.)
+$
+product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= i < j <= n))_(sigma(i) > sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) \
+= limits(product_(1 <= i < j <= n))_(sigma(i)-sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= i < j <= n))_(sigma(i) < sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i))
+$
