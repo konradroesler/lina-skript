@@ -3776,7 +3776,7 @@ Lösung linearer Gleichungssysteme
   Als Ausdruck für $x_1$ und 
   $
   a_(1 1) "II" - a_(2 1) "I" ==> \
-  (a_(1 1) - a_(1 2) a_(2 1)) x_2 = a_(1 1) b_1 - a_(2 1) b_2
+  (a_(1 1) a_(2 2) - a_(1 2) a_(2 1)) x_2 = a_(1 1) b_2 - a_(2 1) b_1
   $
 ]
 
@@ -3849,7 +3849,7 @@ Lösung linearer Gleichungssysteme
     $
     v = rho v' = rho vec(cos beta, sin beta) wide w = sigma w' = sigma vec(cos alpha, sin alpha)
     $
-    mit $rho, sigma > 0$. Bezeichnet $F$ bzw. $F'$ die Fläche des von $v$ und $w$ bzw. $v'$ und $w'$ aufgespannten Prallelogramms, so erhält man für $0 <= beta - alpha <= pi$, dass 
+    mit $rho, sigma > 0$. Bezeichnet $F$ bzw. $F'$ die Fläche des von $v$ und $w$ bzw. $v'$ und $w'$ aufgespannten Parallelogramms, so erhält man für $0 <= beta - alpha <= pi$, dass 
     $
     h' = sin(beta-alpha) = cos alpha sin beta - cos beta sin alpha \
     = det mat(cos alpha, sin alpha; cos beta, sin beta)
