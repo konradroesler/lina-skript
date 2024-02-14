@@ -4237,3 +4237,4 @@ $
 product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= i < j <= n))_(sigma(i) > sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) \
 = limits(product_(1 <= i < j <= n))_(sigma(i)-sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= i < j <= n))_(sigma(i) < sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i))
 $
+
