@@ -4104,7 +4104,8 @@ $
 induktiv und analog zu oben folgt:
 $
 det (S_t^(-top)) = det (S_t^(-1)) \
-==> det (A^t) = det 
+==> det (A^t) = det (S_t^(-top)) dot dots.h.c dot det (S_1^(-1)) \
+=^"D11" det (S_t^(-1) dot dots.h.c dot S_1^(-1)) = det (A) 
 $
 
 #bold[D13.] Für $K = RR, A = I_2, B = I_2$
