@@ -65,3 +65,4 @@
 #let sect_delim = align(right, line(length: 5%, stroke: 0.5pt))
 
 #let sgn = $"sgn"$
+#let char = $"char"$

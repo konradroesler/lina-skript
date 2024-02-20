@@ -4233,8 +4233,185 @@ $
 sgn (cal(T) circ sigma) = product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(j - i) \
 = underbrace(product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)), = sgn (cal(T)) space ?) underbrace(product_(1 <= i < j <= n) (sigma(j) - sigma(i))/(j-i), = sgn (sigma)) \
 $ 
+
 zu zeigen: ? (s.o.)
+
 $
-product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= i < j <= n))_(sigma(i) > sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) \
-= limits(product_(1 <= i < j <= n))_(sigma(i)-sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= i < j <= n))_(sigma(i) < sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i))
+product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)>sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= i < j <= n))_(sigma(i) > sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) \
+= limits(product_(1 <= i < j <= n))_(sigma(i)-sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= j < i <= n))_(sigma(i) < sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) \
+=^(star) product_(1<=i<j<=n) (cal(T)(j) - cal(T)(i))/(j - i) =^"Lemma 7.8" sgn (cal(T))
 $
+
+$star$: $sigma$ ist bijektiv, damit enthält das letzte Produkt bis auf die Reihenfolge die gleichen Faktoren.
+
+#bold[Lemma 7.10:] Sei $n in NN$. Dann gilt 
+
+#box(width: 100%, inset: (left: 1cm, right: 1cm))[
+  1. Ist $cal(T) in S_n$ eine Tranposition, so gilt $sgn (cal(T)) = -1$
+  2. Ist $sigma in S_n$ mit $sigma = cal(T)_1 circ ... circ cal(T)_k$ mit Transpositionen $cal(T)_i in S_n$, so ist $sgn (sigma) = (-1)^k$
+]
+
+#italic[Beweis:] 
+
+zu 1): Sei $cal(T)$ die Transposition, die $k$ und $l$ mit $1<=k<l<=n$ vertauscht. Damit ist $l = k + j$ für ein $j >= 1$ und $cal(T)$ ist gegeben durch
+$
+cal(T) = [1 space space 2 space space k-1 space space overbrace(k+j, = l) space space k+1 space space ... space space overbrace(k+j-1, l-1) space space k space space overbrace(k+j+1, l+1) space space ... space space n]
+$
+Damit hat $cal(T)$ die Fehlstände
+$
+underbrace((k space.quad k+1)\, dots, (k space.quad k+j)\, j space.thin "Fehlstände"), underbrace((k+1 space.quad k+j)\, ...\, (k+j-1 space.quad k+j), j-1 space.thin "Fehlstände")
+$
+
+Insgesamt folgt: Anzahl der Fehlstände
+$
+j + j - 1 = 2 j - 1
+$
+$==> sgn (cal(T)) = (-1)^(2j-1) = -1$
+
+zu 2) Folgt aus Satz 7.9.
+#endproof
+ 
+Wir brauchen noch:
+
+#definition("7.11", "Charakteristik")[
+  Ist $R$ ein Ring mit $1 != 0$, so ist seine Charakteristik definiert durch
+  $
+  char (R) = cases(0"," space.quad "falls" n- 1 != 0 space.quad forall n in NN, min{n in NN | n - 1 = 0} space "sonst")
+  $
+] <def>
+
+Beispiel: $FF_2$ (vlg. Bsp. 2.8) gilt
+$
+&1+1 = 1 - 1 + 1 dot 1 =  underbrace((1+1),=0) dot 1 = 0 \
+&1 = -1 space corres space "inverses Element bzgl. Addition"
+$
+Allgemein: "Bei einem Ring mit Charakteristik 2 darf man Vorzeichen ignorieren."
+
+#bold[Korollar 7.12:] Sei $n in NN$. Für jede Permutation $sigma in S_n$ gilt
+$
+det (I_sigma) = det (e^top_(sigma(n)), dots.v, e^top_(sigma(n))) = cases(sgn (sigma) space.quad &"für" char (K) != 2, 1 &"für" char (K) = 2)
+$
+
+Insgesamt folgt: Anzahl der Fehlstände
+$
+j + j - 1 = 2 j - 1
+$
+$==> sgn (cal(T)) = (-1)^(2j-1) = -1$
+
+zu 2) Folgt aus Satz 7.9.
+#endproof
+
+#bold[Satz 7.13:] Leibniz-Formel
+
+Ist $K$ ein Körper und $n >= 1$, so gibt es genau eine Determinante $det: K^(n,n) -> K$. Dies ist für $A in K^(n,n)$ die Abbildung
+
+$
+det (A) = sum_(sigma in S_n) sgn (sigma) dot a_(1 sigma(1)) dot ... dot a_(n sigma(n)) wide (star)
+$
+
+Für $char (K) = 2$ sind die Faktoren $sgn (sigma)$ in den Summanden überflüssig.
+
+#italic[Beweis:]
+
+#bold[Eindeutigkeit:]
+
+Dazu: Beweis, dass $(star)$ aus Axiomen folgt. Dafür: Darstellung jedes Zeilenvektors $a_i$ von $A$ als
+$
+a_i = a_(i 1) e^top_1 + a_(i 2) e^top_2 + ... + a_(i n) e^top_n
+$
+Aus D1 folgt:
+$
+det (A) &= det vec(a_1, dots.v, a_n) = sum_(j_1 = 1)^n a_(1 j_1) det vec(e_(j_1)^top, a_2, dots.v, a_n) \
+&= sum_(j_1 = 1)^n a_(1 j_1) dot (sum_(j_2 = 1)^n a_(2 j_2) det vec(e_(j_1)^top, e_(j_2)^top, a_3, dots.v, a_n)) \
+&= ... \
+&= sum_(j_1 = 1)^n sum_(j_2 = 1)^n sum_(j_n = 1)^n a_(1 j_1) space a_(2 j_2) space a_(3 j_3) space ... space a_(n j_n) underbrace(det vec(e_(j_1)^top, e_(j_2)^top, dots.v, e_(j_n)^top), (1))
+$
+$(1)$: $sgn (sigma) = sgn ([j_1 space.quad j_2 space.quad ... space.quad j_n])$
+$
+det vec(e_(1 j_1)^top, dots.v, e^top_(n j_n)) = cases(0 space.quad &exists k,l in {1, ..., n} space j_k = j_l, sgn (sigma) &sigma = [j_1 space.quad ... space.quad j_n])
+$
+D1 + D2 sichern damit die Eindeutigkeit.
+
+#bold[Existenz:] zu zeigen, dass $(star)$ die Axiome D1-D3 aus Def 7.1 erfüllt.
+
+D1.1:
+$
+det vec(dots.v, a_i^' + a_i^'', dots.v) &= sum_(sigma in S_n) sgn (sigma) a_(1 sigma(1)) dots (a^'_(i sigma(i)) + a^''_(i sigma(i))) dots a_(n sigma(n)) \
+&= sum_(sigma in S_1) sgn (sigma) a_(1 sigma(1)) dots a_(i sigma(i))^' dots a_(n sigma(n)) + sum_(sigma in S_n) sgn (sigma) a_(1 sigma(1)) dots a_(i sigma(i))^'' dots a_(n sigma(n)) \
+&= det vec(dots.v, a_i^', dots.v) + det vec(dots.v, a_i^'', dots.v), "D1.2 kann man analog nachrechnen"
+$
+D2: 
+
+Angenommen in $A in K^(n,n)$ sind Zeilen $k$ und $l$ mit $k<l$ gleich. Ist $cal(T)$ die Transposition, die $K$ und $l$ vertauscht, so gilt $sgn (cal(T)) = -1$. Betrachte
+$
+A_n = {sigma in S_n | sgn (sigma) = 1}
+$
+Dann gilt für $sigma in S_n$ mit $sgn (sigma) = -1$ dass $sigma in A_n^C := {tilde(sigma) circ cal(T) | tilde(sigma) in S_n}$, denn
+$
+sgn (sigma circ cal(T)^(-1)) = 1 space "und" space sigma = underbrace(sigma circ cal(T)^(-1), in A_n) circ cal(T)
+$
+Dann ist
+$
+S_n = A_n union A_n^C space "und" space A_n sect A_n^C = emptyset
+$
+Daraus folgt:
+$
+det (A) &= sum_(sigma in A_n) a_(1 sigma(1)) op(dots) a_(n sigma(n)) - sum_(sigma in A_n^C) a_(1 sigma(1)) op(dots) a_(n sigma(n)) \
+&= sum_(sigma in A_n) a_(1 sigma(1)) op(dots) a_(n sigma(n)) - sum_(sigma in A_n) a_(1 sigma(cal(T)(1))) op(dots) a_(n sigma(cal(T)(n)))
+$
+$a_l = a_k ==>$
+$
+overbrace(a_(1 sigma(1)), sigma(cal(T)(1)) = sigma(1)) op(dots) a_(k sigma(cal(T)(k))) op(dots) a_(l sigma(cal(T)(l))) op(dots) overbrace(a_(n sigma(n)), sigma(n) = sigma(cal(T)(n))) \
+= a_(1 sigma(1)) op(dots) a_(k sigma(l)) op(dots) a_(l sigma(k)) op(dots) underbrace(a_(n sigma(cal(T)(n))), =a_(n sigma(n)))
+$
+Damit heben sich die Summanden in $(star)$ gegenseitig auf und es folgt $det (A) = 0$.
+
+D3: Für $sigma in S_n$ gilt
+$
+delta_(1 sigma(1)) dot delta_(2 sigma(2)) op(dots) delta_(n sigma(n)) = cases(0 space.quad &"für" sigma != id, 1 &"für" sigma = id)
+$
+Damit folgt
+$
+det (I_n) = det (delta_(i j)) = sum_(sigma in S_n) sgn (sigma) delta_(1 sigma(1)) op(dots) delta_(n sigma(n)) = 1^n
+$
+#endproof
+
+Berechnung von Determinanten?
+
+Man kann sich überlegen, dass die Leibniz-Formel $n!$ Summanden hat $-->$ Komplexität der Berechnung? $corres$ Rechenaufwand ?? (?)
+
+Beispiel: lösen von $A x = b$ mit $A in RR^(n,n)$, $n = 20$, $b in RR^n$ pro Operation ($corres$ Multiplikation, Addition, ...) 10^(-9) Sekunden
+
+#boxedlist[
+  Cramersche Regel: $#sspace$
+  $
+  x_j = (det (A_j))/(det (A))
+  $
+  d.h. ersetze in $A_j$ die $j$-te Spalte von $A$ durch $b$.
+  
+  Leibniz-Formel: $>= n dot n!$ Operationen
+
+  $n = 20$: $n dot n! approx 5 dot 10^19$ Operationen
+  
+  $==>$ Rechenzeit von 1500 Jahren
+][
+  Laplacescher Entwicklungssatz:
+  $
+  det (A) = sum (-1)^(i + j) a_(i j) det (A_(i j))
+  $
+  $A_(i j)$ $corres$ Streichen $i$-te Zeile, $j$-te Spalte
+
+  Operationen: $n dot 2^n$
+
+  $n = 20$: $n dot 2^n approx 21 000 000$
+
+  Rechenzeit: 0.021 Sekunden
+][
+  Gauß-Verfahren
+
+  etwa $n^3$ Operationen (siehe numerische lineare Algebra)
+
+  $n = 20$: 8000 Operationen
+  
+  Rechenzeit: 0.000008 Sekunden
+]
