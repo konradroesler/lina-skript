@@ -414,7 +414,7 @@ $3 ==> 1$:
 
 Aus Satz 1.22 2) folgt, dass die Äquivalenzklassen eine disjunkte Zerlegung der Menge $M$ darstellen.
 
-#definition("1.23", "")[Sei $M$ eine Menge und sei für jedes Element $m in M$ eine weitere Menge $S_m$ gegeben. Für $cal(S) := {S_m | m in M}$ ist die Teilmengenrelation $subset.eq$ eine partielle Ordnung. Die Menge $cal(S)$ heißt dann #bold[partiell geordnet]. Eine Menge $hat(S) in cal(S)$ heißt #bold[maximales Element] von $cal(S)$ (bezüglich $subset.eq$), wenn aus $S in cal(S)$ und $hat(S) subset.eq S$ folgt, dass $S = hat(S)$ ist. Eine nichtleere Teilmenge $cal(K) subset.eq cal(S)$ heißt #bold[Kette] (bezüglich $subset.eq$), wenn für alle $K_1, K_2 in cal(K)$ gilt, dass $K_1 subset.eq K_2$ oder $K_2 subset.eq K_1$. Ein Element $hat(K) in cal(S)$ heißt #bold[obere Schranke] der Kette $cal(K)$, wenn $K subset.eq hat(K)$ für alle $K in cal(K)$ gilt.]
+#definition("1.23", "maximales Element, obere Schranke")[Sei $M$ eine Menge und sei für jedes Element $m in M$ eine weitere Menge $S_m$ gegeben. Für $cal(S) := {S_m | m in M}$ ist die Teilmengenrelation $subset.eq$ eine partielle Ordnung. Die Menge $cal(S)$ heißt dann #bold[partiell geordnet]. Eine Menge $hat(S) in cal(S)$ heißt #bold[maximales Element] von $cal(S)$ (bezüglich $subset.eq$), wenn aus $S in cal(S)$ und $hat(S) subset.eq S$ folgt, dass $S = hat(S)$ ist. Eine nichtleere Teilmenge $cal(K) subset.eq cal(S)$ heißt #bold[Kette] (bezüglich $subset.eq$), wenn für alle $K_1, K_2 in cal(K)$ gilt, dass $K_1 subset.eq K_2$ oder $K_2 subset.eq K_1$. Ein Element $hat(K) in cal(S)$ heißt #bold[obere Schranke] der Kette $cal(K)$, wenn $K subset.eq hat(K)$ für alle $K in cal(K)$ gilt.] <def>
 
 #bold[Beispiel 1.24:] Sei $cal(S) = P({2, 4, 6, 8, 10})$
 
@@ -659,7 +659,7 @@ Die Halbgruppe ist ein relativ "schwaches" Konzept. Deswegen braucht man weitere
   Eine Halbgruppe, die ein neutrales Element besitzt heißt #bold[Monoid].
 ] <def>
 
-#bold[Beispiel 2.24:] Kein Monoid
+#bold[Beispiel 2.4:] Kein Monoid
 
 Gegeben sei die Menge $M = {a, b}$ und die folgende Verknüfung 
 
@@ -777,7 +777,7 @@ Anhand der Verknüpfungstabellen erkennt man, dass $(FF_2, +)$ mit dem neutralen
 4. #[
   Es gelte $e circ a = a$ und $b circ a = a circ b = e$
 
-  Dann gilt: $(a circ b) circ a = a circ (b circ a) = a circ e = a wide checkmark$
+  Dann gilt: $a circ e = a circ (b circ a) = (a circ b) circ a = a wide checkmark$
 ]
 
 #bold[Lemma 2.10:] Sei $(M, circ)$ eine Gruppe. Gilt für ein $a in M$, dass $c circ a = a$ für ein $c in M$; dann ist $c$ das neutrale Element der Gruppe.
@@ -819,7 +819,7 @@ $
 Homomorphismen bilden das neutrale Element im Definitionsbereich immer auf das neutrale Element des Wertebereichs ab. Später werden wir sehen, dass wenn der Homomorphismus nicht bijektiv ist, noch mehr Elemente auf das neutrale Element im Wertebereich $e_N$ abgebildet werden können. Dies motiviert folgende Definition:
 
 #definition("2.14", "Kern")[
-  Ist $f: (M, circ) arrow (N, oplus)$ ein Homomorphismus, so nennt man:
+  Ist $f: (M, circ) arrow (N, oplus)$ ein Homomorphismus, so nennt man: $#sspace$
   $
   ker(f) := {a in M | f(a) = e_N}
   $ 
@@ -856,7 +856,7 @@ Ringe sind eine Erweiterung der algebraischen Strukturen von einer auf zwei Verk
 #boxedlist[
   $(FF_2, +, dot)$ ist ein kommutativer Ring mit Einselement, denn
 
-  #boxedlist[das neutrale Element bezüglich der Addition ist die $0$, denn $0 + 0 = 0$, $0 + 1 = 1$, $1 + 0 = 0$][das additive inverse Element zu $0$ ist $0$ und zu $1$ die $1$, denn $1 + 1 = 0$][die Addition ist kommutativ][die Addition ist assoziativ, zeigt man durch nachrechnen für alle $8$ Möglichkeiten][das neutrale Element für die Multiplikation ist $1$, denn $0 dot 1 = 0$ und $1 dot 1 = 1$][die Multiplikation ist kommutativ][die Multiplikation ist assoziativ, zeigt man durch nachrechnen][die Distributivgesetze gelten, zeigt man durch nachrechnen]
+  #boxedlist[das neutrale Element bezüglich der Addition ist die $0$, denn $0 + 0 = 0$, $0 + 1 = 1$, $1 + 0 = 1$][das additive inverse Element zu $0$ ist $0$ und zu $1$ die $1$, denn $1 + 1 = 0$][die Addition ist kommutativ][die Addition ist assoziativ, zeigt man durch nachrechnen für alle $8$ Möglichkeiten][das neutrale Element für die Multiplikation ist $1$, denn $0 dot 1 = 0$ und $1 dot 1 = 1$][die Multiplikation ist kommutativ][die Multiplikation ist assoziativ, zeigt man durch nachrechnen][die Distributivgesetze gelten, zeigt man durch nachrechnen]
 ]
 
 In Ringen gelten die "üblichen" Rechenregeln, z.B.:
@@ -1320,11 +1320,11 @@ zu 2: $v_1, ..., v_n$ sind linear unabhängig und es gilt ${u_1, ..., u_m} subse
 
 Damit die Vektoren ${u_1, ..., u_m}$ linear unabhängig sind, muss gelten
 $
-lambda_1 u_1 + ... + lambda_m u_m = 0
+lambda_1 u_1 + ... + lambda_m u_m = 0 ==> u_1 = ... = u_m = 0
 $
 Wegen der linearen Unabhängigkeit von ${v_1, ..., v_n}$ gilt nach Umbennenung der Vektoren ${u_1, ..., u_m}$:
 $
-lambda_i_1 v_i_1 + ... + lambda_i_m + v_i_m + limits(sum_(j = 1)^n)_(j in.not {i_1, ..., i_m}) ==> lambda_i_1 = ... = lambda_i_m = 0
+lambda_i_1 v_i_1 + ... + lambda_i_m v_i_m + limits(sum_(j = 1)^n)_(j in.not {i_1, ..., i_m}) v_j = 0 ==> lambda_i_1 = ... = lambda_i_m = 0
 $
 
 zu 3: $v_1, ..., v_n$ sind linear abhängig $==> exists space.sixth lambda_i in K$, so dass nicht alle $lambda_i$ gleich Null sind und $lambda_1 v_1 + lambda_2 v_2 + ... + lambda_n v_n = 0$ gilt.
@@ -1387,12 +1387,12 @@ $
 $
 Da die Darstellung $v_I$ und $v_J$ von $v$ unterschiedlich sind, existiert ein $k in I union J$ mit $lambda_k - mu_k != 0$.
 $
-==> {v_m}_(m in M) "ist linear unabhängig"
+==> {v_m}_(m in M) "ist linear abhängig"
 $
 
 $2 ==> 1$: Beweis per Kontraposition
 
-Angenommen ${v_m}_(m in M)$ wäre linear unabhängig. Dann existiert ein endliches $J subset.eq M$ und $lambda_k in K$ für $k in J$ mit $0 = sum_(k in J) lambda_k v_k$ und mindestens ein $lambda_k != 0$.
+Angenommen ${v_m}_(m in M)$ wäre linear abhängig. Dann existiert ein endliches $J subset.eq M$ und $lambda_k in K$ für $k in J$ mit $0 = sum_(k in J) lambda_k v_k$ und mindestens ein $lambda_k != 0$.
 
 Sei $v in "Span"{v_m}_(m in M)$, d.h. es existiert ein endliches $I subset.eq M$ mit $mu_k in K$ für alle $k in I$ mit 
 $
@@ -1430,7 +1430,7 @@ ist ebenfalls eine Basis.
 
 Falls $a_k != 0$ für ein $k in {0, ..., n}$ gilt, so hat $p(t)$ höchstens $n$ Nullstellen in $K$. $0 in P[t]$ hat aber unendlich viele Nullstellen. D.h. es existiert ein $t in K$ mit $p(t) != 0 space arrow.zigzag$. Es folgt, dass die Familie ${t^i}_(i in NN)$ linear unabhängig ist. Somit ist ${t^i}_(i in NN)$ eine Basis von $P[t]$.
 
-#bold[Satz 3.14:] Sei $K$ ein Körper, $V$ ein Vektorraum und $B := {v_1, ..., v_n} subset.eq V$ eine Basis von $V$. Dann ist äquivalent
+#bold[Satz 3.14:] Sei $K$ ein Körper, $V$ ein Vektorraum und $B := {v_1, ..., v_n} subset.eq V$. Dann ist äquivalent
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. $B$ ist eine Basis #h(1fr)
@@ -1486,7 +1486,7 @@ Das heißt $B union {v}$ ist linear abhängig nach Satz 3.8.
 
 $4 ==> 1$:
 
-Sei $B$ unverlängerbar linear abhängig. Sei $v in V$. Dann ist $B union {u}$ linear abhängig. Also existiert $lambda_1, ..., lambda_n, lambda in K$ mit 
+Sei $B$ unverlängerbar linear abhängig. Sei $v in V without B$. Dann ist $B union {v}$ linear abhängig. Also existiert $lambda_1, ..., lambda_n, lambda in K$ mit 
 $
 0 = sum_(k = 1)^n lambda_k v_k + lambda v "wobei nicht alle" lambda_k, lambda = 0
 $
