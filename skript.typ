@@ -96,7 +96,7 @@ D.h. die Elemente dieser Menge $M$ sind die natürlichen, ganzen, rationalen und
   M sect N = {x | (x in M) and (x in N)}
   $
 
-  2. Man bezeichnet die Menge der Elemente, die entweder in $M$ oder in $N$ enthalten sind oder in beiden enthalten sind, als #bold[Vereinigung] von $M$ und $N$
+  2. Man bezeichnet die Menge der Elemente, die in $M$ oder in $N$ enthalten sind oder in beiden enthalten sind, als #bold[Vereinigung] von $M$ und $N$
   $
   M union N = {x | (x in M) or (x in N)}
   $
