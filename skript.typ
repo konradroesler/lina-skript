@@ -1442,9 +1442,11 @@ Falls $a_k != 0$ für ein $k in {0, ..., n}$ gilt, so hat $p(t)$ höchstens $n$ 
   4. $B$ ist unverlängerbar linear unabhängig. D.h. für alle $v in V$ ist $B union {v}$ linear abhängig
 ]
 
-#italic[Beweis:] Beweis durch Kontraposition
+#italic[Beweis:]
 
-$1 ==> 2$: Angenommen $B$ ist ein verkürzbares Erzeugendensystem. D.h. o.B.d.A $r = 1$, $B backslash {v_1}$ ist auch ein Erzeugendensystem von $V$. Also existieren $lambda_2, ..., lambda_n in K$ mit 
+$1 ==> 2$: Beweis durch Kontraposition 
+
+Angenommen $B$ ist ein verkürzbares Erzeugendensystem. D.h. o.B.d.A $r = 1$, $B backslash {v_1}$ ist auch ein Erzeugendensystem von $V$. Also existieren $lambda_2, ..., lambda_n in K$ mit 
 $
 v_1 = sum_(k = 2)^n lambda_k v_k
 $
@@ -1454,7 +1456,7 @@ $2 ==> 3$: Beweis durch Kontraposition
 
 Angenommen, es existiert $v in V$, $lambda_k, mu_k in K$ mit 
 $
-v = sum_(k = 1)^n lambda_K v_k "und" v = sum_(k = 1)^n mu_k v_k 
+v = sum_(k = 1)^n lambda_k v_k "und" v = sum_(k = 1)^n mu_k v_k 
 $
 o.B.d.A gilt $mu_1 != lambda_1$. Dann folgt $0 = sum_(k = 1)^n (lambda_k - mu_k) v_k$.
 
@@ -4415,3 +4417,4 @@ Beispiel: lösen von $A x = b$ mit $A in RR^(n,n)$, $n = 20$, $b in RR^n$ pro Op
   
   Rechenzeit: 0.000008 Sekunden
 ]
+
