@@ -23,7 +23,7 @@ Wozu braucht man das?
 Der Mengenbegriff wurde von Georg Cantor (dt. Mathematiker, 1845-1918) eingeführt.
 
 #definition("1.1", "Mengen")[
-    Unter einer #bold[Menge] verstehen wir jede Zusammenfassung $M$ von bestimmten, wohlunterschiedenen Objekten $x$ unserer Anschauung order unseres Denkens, welche #bold[Elemente] von $M$ genannt werden, zu einem Ganzen.
+    Unter einer #bold[Menge] verstehen wir jede Zusammenfassung $M$ von bestimmten, wohlunterschiedenen Objekten $x$ unserer Anschauung oder unseres Denkens, welche #bold[Elemente] von $M$ genannt werden, zu einem Ganzen.
 ] <def>
 
 #underline("Bemerkungen"):
