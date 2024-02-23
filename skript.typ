@@ -1624,7 +1624,7 @@ Dies gilt für alle $j in J backslash tilde(J) ==> v_j in "Span" B space forall 
 
 Sei $(V, +, dot)$ ein $K$-Vektorraum,
 
-#boxedlist[$B = {v_1, ..., v_n}$ eine (endliche Basis)][$C = {u_1, ..., u_m}$ eine linear unabhängige Familie]
+#boxedlist[$B = {v_1, ..., v_n}$ eine (endliche) Basis][$C = {u_1, ..., u_m}$ eine linear unabhängige Familie]
 
 Dann ist $m <= n$ und nach geeigneten umnummerieren der Vektoren in $B$ ist das durch austauschen der ersten $m$-Vektoren erhaltene System 
 $
