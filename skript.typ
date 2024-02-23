@@ -2272,7 +2272,7 @@ $
 dim(ker(f)) + dim(im(f)) = dim V
 $
 
-#italic[Bewei:] Mit $r := dim(ker(f)), n := dim V$ gilt 
+#italic[Beweis:] Mit $r := dim(ker(f)), n := dim V$ gilt 
 $
 v < infinity "und" r < infinity "sowie" r <= n
 $
