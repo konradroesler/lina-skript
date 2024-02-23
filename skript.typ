@@ -4158,7 +4158,7 @@ $det (I_sigma) = plus.minus 1 space.thin$?
 #definition("7.5", "Transposition")[
   Seien $n in NN$, $n >= 2$. Eine Permutation $cal(T) in S_n$ heißt #bold[Transposition], wenn $cal(T)$ nur zwei Elemente aus ${1,2, ..., n}$ vertauscht und alle andere unverändert bleiben. D.h. es existieren $k, l in {1, ..., n}$ so, dass 
   $
-  cal(T) (K) = C,   cal(T) (C) = K, cal(T) (i) = i wide i in {1, ..., n} without {k, l}
+  cal(T) (k) = l,   cal(T) (l) = k, cal(T) (i) = i wide i in {1, ..., n} without {k, l}
   $
 ] <def>
 
@@ -4221,7 +4221,7 @@ $n = 1:$ Wegen der Definition von $sgn$ und der Definition des leeren Produktes 
 $n > 1:$ Sei $sgn (sigma) = (-1)^k$, d.h. die Anzahl der Fehlstände ist $k$. Dann gilt
 $
 product_(1 <= i < j <= n) (sigma(j) - sigma(i)) = (-1)^k product_(1<= i < j <=n) (sigma(j) - sigma(i)) \
-= (-1)^k product_(1 <= i < j <= n) (j -1)
+= (-1)^k product_(1 <= i < j <= n) (j -i)
 $
 Bei diesen letzten Gleichungen verwendet man, dass die beiden Produkte bis auf die Reihenfolge die gleichen Faktoren enthalten.
 #endproof
@@ -4239,8 +4239,8 @@ $
 zu zeigen: ? (s.o.)
 
 $
-product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)>sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= i < j <= n))_(sigma(i) > sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) \
-= limits(product_(1 <= i < j <= n))_(sigma(i)-sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= j < i <= n))_(sigma(i) < sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) \
+product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= i < j <= n))_(sigma(i) > sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) \
+= limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= j < i <= n))_(sigma(i) < sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) \
 =^(star) product_(1<=i<j<=n) (cal(T)(j) - cal(T)(i))/(j - i) =^"Lemma 7.8" sgn (cal(T))
 $
 
@@ -4261,7 +4261,7 @@ cal(T) = [1 space space 2 space space k-1 space space overbrace(k+j, = l) space 
 $
 Damit hat $cal(T)$ die Fehlstände
 $
-underbrace((k space.quad k+1)\, dots, (k space.quad k+j)\, j space.thin "Fehlstände"), underbrace((k+1 space.quad k+j)\, ...\, (k+j-1 space.quad k+j), j-1 space.thin "Fehlstände")
+underbrace((k space.quad k+1)\, dots \, (k space.quad k+j) , j space.thin "Fehlstände"), underbrace((k+1 space.quad k+j)\, ...\, (k+j-1 space.quad k+j), j-1 space.thin "Fehlstände")
 $
 
 Insgesamt folgt: Anzahl der Fehlstände
@@ -4278,29 +4278,25 @@ Wir brauchen noch:
 #definition("7.11", "Charakteristik")[
   Ist $R$ ein Ring mit $1 != 0$, so ist seine Charakteristik definiert durch
   $
-  char (R) = cases(0"," space.quad "falls" n- 1 != 0 space.quad forall n in NN, min{n in NN | n - 1 = 0} space "sonst")
+  char (R) = cases(0"," space.quad "falls" n dot 1 != 0 space.quad forall n in NN, min{n in NN | n dot 1 = 0} space "sonst")
   $
 ] <def>
 
 Beispiel: $FF_2$ (vlg. Bsp. 2.8) gilt
 $
-&1+1 = 1 - 1 + 1 dot 1 =  underbrace((1+1),=0) dot 1 = 0 \
+&1+1 = 1 dot 1 + 1 dot 1 =  underbrace((1+1),=0) dot 1 = 0 \
 &1 = -1 space corres space "inverses Element bzgl. Addition"
 $
 Allgemein: "Bei einem Ring mit Charakteristik 2 darf man Vorzeichen ignorieren."
 
 #bold[Korollar 7.12:] Sei $n in NN$. Für jede Permutation $sigma in S_n$ gilt
 $
-det (I_sigma) = det (e^top_(sigma(n)), dots.v, e^top_(sigma(n))) = cases(sgn (sigma) space.quad &"für" char (K) != 2, 1 &"für" char (K) = 2)
+det (I_sigma) = det vec(e^top_(sigma(n)), dots.v, e^top_(sigma(n))) = cases(sgn (sigma) space.quad &"für" char (K) != 2, 1 &"für" char (K) = 2)
 $
 
-Insgesamt folgt: Anzahl der Fehlstände
-$
-j + j - 1 = 2 j - 1
-$
-$==> sgn (cal(T)) = (-1)^(2j-1) = -1$
+#italic[Beweis:]
 
-zu 2) Folgt aus Satz 7.9.
+Ist $sigma = cal(T)_1 circ dots circ cal(T)_k$, so kann man $I_sigma$ durch $k$ Zeilenvertauschungen aus $I_n$ erzeugen + D6. 
 #endproof
 
 #bold[Satz 7.13:] Leibniz-Formel
@@ -4330,7 +4326,7 @@ det (A) &= det vec(a_1, dots.v, a_n) = sum_(j_1 = 1)^n a_(1 j_1) det vec(e_(j_1)
 $
 $(1)$: $sgn (sigma) = sgn ([j_1 space.quad j_2 space.quad ... space.quad j_n])$
 $
-det vec(e_(1 j_1)^top, dots.v, e^top_(n j_n)) = cases(0 space.quad &exists k,l in {1, ..., n} space j_k = j_l, sgn (sigma) &sigma = [j_1 space.quad ... space.quad j_n])
+det vec(e_(1 j_1)^top, dots.v, e^top_(n j_n)) = cases(0 #h(3.5em) &exists k\,l in {1, ..., n} space j_k = j_l , sgn(sigma) &sigma = [j_1 space.quad ... space.quad j_n])
 $
 D1 + D2 sichern damit die Eindeutigkeit.
 
