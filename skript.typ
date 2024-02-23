@@ -4291,7 +4291,7 @@ Allgemein: "Bei einem Ring mit Charakteristik 2 darf man Vorzeichen ignorieren."
 
 #bold[Korollar 7.12:] Sei $n in NN$. Für jede Permutation $sigma in S_n$ gilt
 $
-det (I_sigma) = det vec(e^top_(sigma(n)), dots.v, e^top_(sigma(n))) = cases(sgn (sigma) space.quad &"für" char (K) != 2, 1 &"für" char (K) = 2)
+det (I_sigma) = det vec(e^top_(sigma(1)), dots.v, e^top_(sigma(n))) = cases(sgn (sigma) space.quad &"für" char (K) != 2, 1 &"für" char (K) = 2)
 $
 
 #italic[Beweis:]
@@ -4322,7 +4322,7 @@ $
 det (A) &= det vec(a_1, dots.v, a_n) = sum_(j_1 = 1)^n a_(1 j_1) det vec(e_(j_1)^top, a_2, dots.v, a_n) \
 &= sum_(j_1 = 1)^n a_(1 j_1) dot (sum_(j_2 = 1)^n a_(2 j_2) det vec(e_(j_1)^top, e_(j_2)^top, a_3, dots.v, a_n)) \
 &= ... \
-&= sum_(j_1 = 1)^n sum_(j_2 = 1)^n sum_(j_n = 1)^n a_(1 j_1) space a_(2 j_2) space a_(3 j_3) space ... space a_(n j_n) underbrace(det vec(e_(j_1)^top, e_(j_2)^top, dots.v, e_(j_n)^top), (1))
+&= sum_(j_1 = 1)^n sum_(j_2 = 1)^n dots sum_(j_n = 1)^n a_(1 j_1) space a_(2 j_2) space a_(3 j_3) space ... space a_(n j_n) underbrace(det vec(e_(j_1)^top, e_(j_2)^top, dots.v, e_(j_n)^top), (1))
 $
 $(1)$: $sgn (sigma) = sgn ([j_1 space.quad j_2 space.quad ... space.quad j_n])$
 $
