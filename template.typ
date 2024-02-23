@@ -143,6 +143,7 @@
           e.location(),
           [
             #strong[#number:]
+            #v(-2pt)
           ],
         )
       ])
@@ -152,6 +153,7 @@
           [
             #set par(justify: false)
             #def_term
+            #v(-2pt)
           ],
         )
       ])
@@ -176,6 +178,9 @@
         [
           #let chapter_num = int(repr(chapter.at(0)).find(regex("\d\.\d{1,2}")).at(0))
           #align(center, strong(text(size: 1.5em)[#chapter_num .]))
+          #v(-12pt)
+          #line(length: 100%, stroke: 1pt)
+          #v(-10pt)
           #table(
             columns: (40pt, 1fr),
             inset: 5pt,
@@ -185,12 +190,17 @@
         ]
       )
     }
-    table(
-        columns: (1fr, 1fr),
-        inset: 5pt,
-        stroke: none,
-        ..def_index
-    )
+
+    // Display the definition index in two column mode
+    [ 
+      #show: columns.with(2, gutter: 12pt)
+      #for chap in def_index {
+        [
+          #chap
+
+        ]
+      }
+    ]
   })
 
   definitions
