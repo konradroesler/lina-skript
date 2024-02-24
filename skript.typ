@@ -4413,4 +4413,3 @@ Beispiel: lösen von $A x = b$ mit $A in RR^(n,n)$, $n = 20$, $b in RR^n$ pro Op
   
   Rechenzeit: 0.000008 Sekunden
 ]
-

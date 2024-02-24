@@ -136,7 +136,7 @@
 
       let number = body.find(regex("\d\.\d{1,2}"))
       let pos_num = body.position(number)
-      let def_term = body.slice(pos_num).find(regex("([a-zA-Zäüö]{2,}[,\s]{0,2})+"))
+      let def_term = body.slice(pos_num).find(regex("([a-zA-ZäüöÄÜÖ]{2,}[,\s]{0,2})+"))
       
       definition_array.push([
         #link(
