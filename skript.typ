@@ -1869,7 +1869,7 @@ Dabei sei $infinity + infinity = infinity, infinity + n = infinity, n <= infinit
 
 #bold[Fall 1:] $dim U_1 = infinity$ oder $dim U_2 = infinity$. Dann gilt $(ast)$ nach den Rechenregeln der erweiterten Arithmetik.
 
-Andernfalls existieren $m, l in NN$ mit $dim U_1 = m "und" dim U_2 = l$.
+#bold[Fall 2:] Andernfalls existieren $m, l in NN$ mit $dim U_1 = m "und" dim U_2 = l$.
 
 Sei $u_1, ..., u_m$ eine Basis von $U_1$ und $u_(m+1), ..., u_(m+l)$ eine Basis von $U_2$. Sei weiter $u in U_1 + U_2$, dann existieren $v in U_1$ und $w in U_2$, sodass $u = v + w$. Zu $v$ und $w$ existieren $lambda_1, ..., lambda_m in K$ bzw. $lambda_(m+1), ..., lambda_(m+l) in K$ mit 
 $
@@ -2121,7 +2121,7 @@ Eindeutigkeit: Seien $f, g in L(V, W)$ mit $f(v_i) = g(v_i) = w_i$, $forall i in
 $
 f(v) &= f(sum lambda_i v_i) = sum_(i = 1)^n lambda_i f(v_i) \
 &= sum_(i = 1)^n lambda_i w_i = sum_(i = 1)^n lambda_i g(v_i) = g(v) \
-&==> f(x) = g(x) space forall v in V \
+&==> f(v) = g(v) space forall v in V \
 &==> f "ist eindeutig bestimmt"
 $
 Existenz: $B$ Basis $==> "Span" B = V ==> "zu" v in V$ existieren nach Satz 3.8 eindeutige Koordinaten 
@@ -2436,17 +2436,23 @@ mit Koeffizienten $a_(i j) in K$ für $1 <= i <= m$ und $1 <= j <= n$.
 "$==>$": Sei $f in L(K^n, K^m)$. Zu zeigen: $f$ ist in angegebener Form darzustellen. 
 
 #bold[Beobachtung:] Wenn $f$ so darstellbar ist, haben alle Bilder der Standardbasis $e_1, ..., e_n$ folgende Form:
+#v(-2pt)
 $
 f(e_i) = vec(a_(1 i), dots.v, a_(m i)) in K^m
 $
+#v(-2pt)
 Deswegen definieren wir
+#v(-2pt)
 $
 vec(a_(1 i), dots.v, a_(m i)) := f(e_i) in K^m
 $
+#v(-2pt)
 Jetzt definieren wir $g in L(K^n, K^m)$ durch
+#v(-2pt)
 $
 g(vec(x_1, dots.v, x_n)) = vec(a_(1 1) x_1 + ... + a_(1 n) x_n, dots.v, a_(m 1) x_1 + ... + a_(m n) x_n)
 $
+#v(-2pt)
 Per Konstruktion gilt $f(e_i) = g(e_i)$. 
 
 Mit Lemma 4.10 folgt $f = g$.
@@ -3014,7 +3020,7 @@ $
 Dann folgt für $v_j, j = 1, ..., n$
 $
 (g circ f)(v_j) = g lr(size: #3em, (underbrace(sum_(k = 1)^m a_(k j) w_k, = space.thin f(v_j)) )) = sum_(k = 1)^m a_(k j) g(w_k) \
-= sum_(k = 1)^m a_(k j) sum_(i = 1)^s b_(i k) x_i = sum_(i = 1)^s sum_(k = 1)^m a_(k j) b_k x_i \
+= sum_(k = 1)^m a_(k j) sum_(i = 1)^s b_(i k) x_i = sum_(i = 1)^s sum_(k = 1)^m a_(k j) b_(i k) x_i \
 = sum_(i = 1)^s (sum_(k = 1)^m b_(i k) a_(k j)) x_i
 $ 
 D.h. für die Darstellungsmatrix 
@@ -3199,11 +3205,11 @@ rg_S (A) = dim("Span"(a_1, ..., a_n)) = dim("Span"(tilde(a)_1, ..., tilde(a)_n))
 $
 Jetzt (Z2). Dies entspricht der Multiplikation des $i$-ten Einheitsvektor mit $lambda^(-1)$. D.h. man erhält die neue Basis $hat(B) = {e_1, ..., lambda^(-1) e_i, ..., e_m}$ und die zugehörigen Koordinaten
 $
-hat(a)_1 = vec(a_(1 1), dots.v, lambda a_(i 1), dots.v, a_(m 1)), space ... space, hat(a)_n = vec(a_(1 n), dots.v, lambda a_(1 n), dots.v a_(m n))
+hat(a)_1 = vec(a_(1 1), dots.v, lambda a_(i 1), dots.v, a_(m 1)), space ... space, hat(a)_n = vec(a_(1 n), dots.v, lambda a_(1 n), dots.v, a_(m n))
 $
 Es folgt
 $
-rg_S (A) = dim("Span"(a_1, ..., a_n)) = dim("Span"(hat(a)_1, ... hat(a)_n))
+rg_S (A) = dim("Span"(a_1, ..., a_n)) = dim("Span"(hat(a)_1, ..., hat(a)_n))
 $
 (Z3)
 
