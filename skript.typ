@@ -2993,16 +2993,16 @@ Solche kommutativen Diagramme sind sehr wichtige Hilfsmittel! Man erhält daraus
 #boxedlist[
   Für die gegebenen Basen $B$ und $C$ gibt es zwei Wege von $V$ nach $K^m$:
   $
-  Phi_C circ f = A_f^(B,C) circ Phi_B
+  Phi_C^(-1) circ f = A_f^(B,C) circ Phi_B^(-1)
   $
   D.h.:
   $
-  Phi_C (f(v)) = A_f^(B,C) dot Phi_B (v) space forall v in V
+  Phi_C^(-1) (f(v)) = A_f^(B,C) dot Phi_B^(-1) (v) space forall v in V
   $
 ][
   Mithilfe der inversen Abbildungen kann man auch andere Wege gehen, z.B:
   $
-  f = Phi_C^(-1) circ A_f^(B,C) dot Phi_B
+  f = Phi_C circ A_f^(B,C) dot Phi_B^(-1)
   $
 ]
 
@@ -3264,7 +3264,7 @@ für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und 
     ]
 ]
  
-#bold[Hier:] Fragen 1 + 2), etwas zu 3). Beantwortung von 3): Numerische Lineare Algebra
+#bold[Hier:] Fragen 1 + 2, etwas zu 3). Beantwortung von 3): Numerische Lineare Algebra
 
 == Existenz von Lösungen und Lösungsmengen
 
