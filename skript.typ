@@ -2290,8 +2290,8 @@ x = sum_(i = 1)^n lambda_i v_i
 $
 Mit der Linearität von $f$ folgt:
 $
-f(x) = f(sum_(i = 1)^n lambda_i v_i) = sum_(i = 1)^n lambda_i f(v_i) = \
-v_1, ..., v_r in ker(f) ==> y = f(x) = sum_(i = 1)^n lambda_i f(v_i) \
+f(x) = f(sum_(i = 1)^n lambda_i v_i) = sum_(i = 1)^n lambda_i f(v_i) = y \
+v_1, ..., v_r in ker(f) ==> y = f(x) = sum_(i = r+1)^n lambda_i f(v_i) \
 ==> im(f) subset.eq "Span" C \
 ==> im(f) = "Span" C \
 checkmark
@@ -2308,10 +2308,10 @@ f "linear" ==> 0 = sum_(i = r +1)^n lambda_i f(v_i) = f(sum_(i = r+1)^n lambda_i
 $
 $==>$ es existieren eindeutige Koeffizienten $mu_i in K, 1 <= i <= r$
 $
-sum_(i = r+1)^n lambda_i v_i = sum_(i = 1)^n mu_i v_i
-==> sum_(i = r+1)^n lambda_i v_i - sum_(i = 1)^n mu_i v_i = 0
+sum_(i = r+1)^n lambda_i v_i = sum_(i = 1)^r mu_i v_i
+==> sum_(i = r+1)^n lambda_i v_i - sum_(i = 1)^r mu_i v_i = 0
 $
-${v_1, ..., v_n}$ sind Basis von $V$. $==>$ $mu_i = ... = mu_r = lambda_(r+1) = ... = lambda_n = 0$. $==>$ $f(v_(n+1)), ..., f(v_n)$ sind linear unabhängig $==>$ $C$ ist Basis von $im(f)$ 
+${v_1, ..., v_n}$ sind Basis von $V$. $==>$ $mu_1 = ... = mu_r = lambda_(r+1) = ... = lambda_n = 0$. $==>$ $f(v_(r+1)), ..., f(v_n)$ sind linear unabhängig $==>$ $C$ ist Basis von $im(f)$ 
 $
 ==> dim(im(f)) = n - r 
 $
