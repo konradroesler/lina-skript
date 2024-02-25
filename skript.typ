@@ -4214,20 +4214,20 @@ $
 
 #bold[Beobachtung:] Für $sigma = [3 space space 2 space space 1]$ ($3 = sigma(1), 2 = sigma(2), 1 = sigma(3)$) gilt
 $
-product_(1 <= i < j <= n) (sigma(j) - sigma(i))/(j - i) = (2-3)/(2-1) dot (1-3)/(3-1) dot (1-2)/(3-2) = (-1)^3 = -1 = sgn (sigma)
+product_(1 <= i < j <= n) (sigma(j) - sigma(i))/(j - i) = (2-3)/(2-1) dot (1-3)/(3-1) dot (1-2)/(3-2) = (-1)^3 = -1 = sgn(sigma)
 $
 
 Diese Eigenschaft kann man allgemein beweisen:
 
 #bold[Lemma 7.8:] Seien $n in NN$ und $sigma in S_n$. Dann gilt 
 $
-sgn (sigma) = product_(1 <= i < j <= n) (sigma(j)- sigma(i))/(j -i )
+sgn(sigma) = product_(1 <= i < j <= n) (sigma(j)- sigma(i))/(j -i )
 $
 #italic[Beweis:]
 
 $n = 1:$ Wegen der Definition von $sgn$ und der Definition des leeren Produktes folgt $1 = 1$.
 
-$n > 1:$ Sei $sgn (sigma) = (-1)^k$, d.h. die Anzahl der Fehlstände ist $k$. Dann gilt
+$n > 1:$ Sei $sgn(sigma) = (-1)^k$, d.h. die Anzahl der Fehlstände ist $k$. Dann gilt
 $
 product_(1 <= i < j <= n) (sigma(j) - sigma(i)) = (-1)^k product_(1<= i < j <=n) (sigma(j) - sigma(i)) \
 = (-1)^k product_(1 <= i < j <= n) (j -i)
@@ -4237,12 +4237,12 @@ Bei diesen letzten Gleichungen verwendet man, dass die beiden Produkte bis auf d
 
 #bold[Satz 7.9:] Seien $n in NN$ und $cal(T), sigma in S_n$. Dann gilt
 $
-sgn (cal(T) circ sigma) = sgn (cal(T)) dot sgn (sigma)
+sgn(cal(T) circ sigma) = sgn(cal(T)) dot sgn(sigma)
 $
 #italic[Beweis:] Wegen Lemma 7.8 gilt:
 $
-sgn (cal(T) circ sigma) = product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(j - i) \
-= underbrace(product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)), = sgn (cal(T)) space ?) underbrace(product_(1 <= i < j <= n) (sigma(j) - sigma(i))/(j-i), = sgn (sigma)) \
+sgn(cal(T) circ sigma) = product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(j - i) \
+= underbrace(product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)), = sgn(cal(T)) space ?) underbrace(product_(1 <= i < j <= n) (sigma(j) - sigma(i))/(j-i), = sgn(sigma)) \
 $ 
 
 zu zeigen: ? (s.o.)
@@ -4250,7 +4250,7 @@ zu zeigen: ? (s.o.)
 $
 product_(1 <= i < j <= n) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= i < j <= n))_(sigma(i) > sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) \
 = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) limits(product_(1 <= j < i <= n))_(sigma(i) < sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j)- sigma(i)) = limits(product_(1 <= i < j <= n))_(sigma(i)<sigma(j)) (cal(T)(sigma(j)) - cal(T)(sigma(i)))/(sigma(j) - sigma(i)) \
-=^(star) product_(1<=i<j<=n) (cal(T)(j) - cal(T)(i))/(j - i) =^"Lemma 7.8" sgn (cal(T))
+=^(star) product_(1<=i<j<=n) (cal(T)(j) - cal(T)(i))/(j - i) =^"Lemma 7.8" sgn(cal(T))
 $
 
 $star$: $sigma$ ist bijektiv, damit enthält das letzte Produkt bis auf die Reihenfolge die gleichen Faktoren.
@@ -4258,8 +4258,8 @@ $star$: $sigma$ ist bijektiv, damit enthält das letzte Produkt bis auf die Reih
 #bold[Lemma 7.10:] Sei $n in NN$. Dann gilt 
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
-  1. Ist $cal(T) in S_n$ eine Tranposition, so gilt $sgn (cal(T)) = -1$
-  2. Ist $sigma in S_n$ mit $sigma = cal(T)_1 circ ... circ cal(T)_k$ mit Transpositionen $cal(T)_i in S_n$, so ist $sgn (sigma) = (-1)^k$
+  1. Ist $cal(T) in S_n$ eine Tranposition, so gilt $sgn(cal(T)) = -1$
+  2. Ist $sigma in S_n$ mit $sigma = cal(T)_1 circ ... circ cal(T)_k$ mit Transpositionen $cal(T)_i in S_n$, so ist $sgn(sigma) = (-1)^k$
 ]
 
 #italic[Beweis:] 
@@ -4277,7 +4277,7 @@ Insgesamt folgt: Anzahl der Fehlstände
 $
 j + j - 1 = 2 j - 1
 $
-$==> sgn (cal(T)) = (-1)^(2j-1) = -1$
+$==> sgn(cal(T)) = (-1)^(2j-1) = -1$
 
 zu 2) Folgt aus Satz 7.9.
 #endproof
@@ -4300,7 +4300,7 @@ Allgemein: "Bei einem Ring mit Charakteristik 2 darf man Vorzeichen ignorieren."
 
 #bold[Korollar 7.12:] Sei $n in NN$. Für jede Permutation $sigma in S_n$ gilt
 $
-det (I_sigma) = det vec(e^top_(sigma(1)), dots.v, e^top_(sigma(n))) = cases(sgn (sigma) space.quad &"für" char (K) != 2, 1 &"für" char (K) = 2)
+det (I_sigma) = det vec(e^top_(sigma(1)), dots.v, e^top_(sigma(n))) = cases(sgn(sigma) space.quad &"für" char (K) != 2, 1 &"für" char (K) = 2)
 $
 
 #italic[Beweis:]
@@ -4313,10 +4313,10 @@ Ist $sigma = cal(T)_1 circ dots circ cal(T)_k$, so kann man $I_sigma$ durch $k$ 
 Ist $K$ ein Körper und $n >= 1$, so gibt es genau eine Determinante $det: K^(n,n) -> K$. Dies ist für $A in K^(n,n)$ die Abbildung
 
 $
-det (A) = sum_(sigma in S_n) sgn (sigma) dot a_(1 sigma(1)) dot ... dot a_(n sigma(n)) wide (star)
+det (A) = sum_(sigma in S_n) sgn(sigma) dot a_(1 sigma(1)) dot ... dot a_(n sigma(n)) wide (star)
 $
 
-Für $char (K) = 2$ sind die Faktoren $sgn (sigma)$ in den Summanden überflüssig.
+Für $char (K) = 2$ sind die Faktoren $sgn(sigma)$ in den Summanden überflüssig.
 
 #italic[Beweis:]
 
@@ -4333,7 +4333,7 @@ det (A) &= det vec(a_1, dots.v, a_n) = sum_(j_1 = 1)^n a_(1 j_1) det vec(e_(j_1)
 &= ... \
 &= sum_(j_1 = 1)^n sum_(j_2 = 1)^n dots sum_(j_n = 1)^n a_(1 j_1) space a_(2 j_2) space a_(3 j_3) space ... space a_(n j_n) underbrace(det vec(e_(j_1)^top, e_(j_2)^top, dots.v, e_(j_n)^top), (1))
 $
-$(1)$: $sgn (sigma) = sgn ([j_1 space.quad j_2 space.quad ... space.quad j_n])$
+$(1)$: $sgn(sigma) = sgn([j_1 space.quad j_2 space.quad ... space.quad j_n])$
 $
 det vec(e_(1 j_1)^top, dots.v, e^top_(n j_n)) = cases(0 #h(3.5em) &exists k\,l in {1, ..., n} space j_k = j_l , sgn(sigma) &sigma = [j_1 space.quad ... space.quad j_n])
 $
@@ -4343,19 +4343,19 @@ D1 + D2 sichern damit die Eindeutigkeit.
 
 D1.1:
 $
-det vec(dots.v, a_i^' + a_i^'', dots.v) &= sum_(sigma in S_n) sgn (sigma) a_(1 sigma(1)) dots (a^'_(i sigma(i)) + a^''_(i sigma(i))) dots a_(n sigma(n)) \
-&= sum_(sigma in S_1) sgn (sigma) a_(1 sigma(1)) dots a_(i sigma(i))^' dots a_(n sigma(n)) + sum_(sigma in S_n) sgn (sigma) a_(1 sigma(1)) dots a_(i sigma(i))^'' dots a_(n sigma(n)) \
+det vec(dots.v, a_i^' + a_i^'', dots.v) &= sum_(sigma in S_n) sgn(sigma) a_(1 sigma(1)) dots (a^'_(i sigma(i)) + a^''_(i sigma(i))) dots a_(n sigma(n)) \
+&= sum_(sigma in S_1) sgn(sigma) a_(1 sigma(1)) dots a_(i sigma(i))^' dots a_(n sigma(n)) + sum_(sigma in S_n) sgn(sigma) a_(1 sigma(1)) dots a_(i sigma(i))^'' dots a_(n sigma(n)) \
 &= det vec(dots.v, a_i^', dots.v) + det vec(dots.v, a_i^'', dots.v), "D1.2 kann man analog nachrechnen"
 $
 D2: 
 
-Angenommen in $A in K^(n,n)$ sind Zeilen $k$ und $l$ mit $k<l$ gleich. Ist $cal(T)$ die Transposition, die $K$ und $l$ vertauscht, so gilt $sgn (cal(T)) = -1$. Betrachte
+Angenommen in $A in K^(n,n)$ sind Zeilen $k$ und $l$ mit $k<l$ gleich. Ist $cal(T)$ die Transposition, die $K$ und $l$ vertauscht, so gilt $sgn(cal(T)) = -1$. Betrachte
 $
-A_n = {sigma in S_n | sgn (sigma) = 1}
+A_n = {sigma in S_n | sgn(sigma) = 1}
 $
-Dann gilt für $sigma in S_n$ mit $sgn (sigma) = -1$ dass $sigma in A_n^C := {tilde(sigma) circ cal(T) | tilde(sigma) in S_n}$, denn
+Dann gilt für $sigma in S_n$ mit $sgn(sigma) = -1$ dass $sigma in A_n^C := {tilde(sigma) circ cal(T) | tilde(sigma) in S_n}$, denn
 $
-sgn (sigma circ cal(T)^(-1)) = 1 space "und" space sigma = underbrace(sigma circ cal(T)^(-1), in A_n) circ cal(T)
+sgn(sigma circ cal(T)^(-1)) = 1 space "und" space sigma = underbrace(sigma circ cal(T)^(-1), in A_n) circ cal(T)
 $
 Dann ist
 $
@@ -4379,7 +4379,7 @@ delta_(1 sigma(1)) dot delta_(2 sigma(2)) op(dots) delta_(n sigma(n)) = cases(0 
 $
 Damit folgt
 $
-det (I_n) = det (delta_(i j)) = sum_(sigma in S_n) sgn (sigma) delta_(1 sigma(1)) op(dots) delta_(n sigma(n)) = 1^n
+det (I_n) = det (delta_(i j)) = sum_(sigma in S_n) sgn(sigma) delta_(1 sigma(1)) op(dots) delta_(n sigma(n)) = 1^n
 $
 #endproof
 
