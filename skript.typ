@@ -1439,7 +1439,7 @@ Falls $a_k != 0$ für ein $k in {0, ..., n}$ gilt, so hat $p(t)$ höchstens $n$ 
   $
   v = sum_(k = 1)^n lambda_k v_k
   $
-  4. $B$ ist unverlängerbar linear unabhängig. D.h. für alle $v in V$ ist $B union {v}$ linear abhängig
+  4. $B$ ist unverlängerbar linear unabhängig. D.h. für alle $v in V without B$ ist $B union {v}$ linear abhängig
 ]
 
 #italic[Beweis:]
@@ -2479,7 +2479,7 @@ Wir nehmen für dieses Kapitel an: $R$ ist ein Ring mit $1 != 0$.
     a_(m 1), a_(m 2), ..., a_(m n);;
   )
   $
-  mit $a_(i j) in K$ für $1 <= i <= m$ und $1 <= j <= n$ heißt #bold[(m $times$ n) Matrix] mit den Einträgen in $R$. Die Einträge nennt man auch Koeffizienten. Die Menge aller ($m times n$) Matrizen nennt man $R^(m times n)$.
+  mit $a_(i j) in R$ für $1 <= i <= m$ und $1 <= j <= n$ heißt #bold[(m $times$ n) Matrix] mit den Einträgen in $R$. Die Einträge nennt man auch Koeffizienten. Die Menge aller ($m times n$) Matrizen nennt man $R^(m times n)$.
 ] <def>
 
 #bold[Bemerkungen:] 
