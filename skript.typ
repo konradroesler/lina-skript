@@ -4140,7 +4140,7 @@ $
 8 = det (A_2) = det (G_(3 2) (2)) dot det (A_1) = underbrace(det (G_(3 2) (2)), = 1) dot det (A)
 $
 
-== Existens und Eindeutigkeit
+== Existenz und Eindeutigkeit
 
 #bold[Frage:] Ist die Berechung der Determinante eindeutig? Oder hängt sie von der Reihenfolge der Zeilenumformungen ab?
 
