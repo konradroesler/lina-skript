@@ -4206,7 +4206,10 @@ $
 müssen wir zeigen, dass die Anzahl der Transpositionen immer gerade oder immer ungerade ist.
 
 #definition("7.7", "Fehlstand")[
-  Seien $n in NN$, $n >= 2$ und $sigma in S_n$. Ein Paar $(i, j) in N times N$ mit $1 <=i < j <=n$ und $sigma (i) > sigma (j)$ nennt man #bold[Fehlstand] von $sigma$. Ist $k$ die Anzahl der Fehlstände von $sigma$, so heißt $sgn (sigma)$ das #bold[Signum] oder Vorzeichen von $sigma$. Für $n = 1$ setzt man $sgn([1]) := 1 = (-1)^0$
+  Seien $n in NN$, $n >= 2$ und $sigma in S_n$. Ein Paar $(i, j) in N times N$ mit $1 <=i < j <=n$ und $sigma (i) > sigma (j)$ nennt man #bold[Fehlstand] von $sigma$. Ist $k$ die Anzahl der Fehlstände von $sigma$, so heißt $sgn(sigma)$ das #bold[Signum] oder Vorzeichen von $sigma$. Für $n = 1$ setzt man $sgn([1]) := 1 = (-1)^0$
+$
+sgn(sigma) = (-1)^k
+$
 ] <def>
 
 #bold[Beobachtung:] Für $sigma = [3 space space 2 space space 1]$ ($3 = sigma(1), 2 = sigma(2), 1 = sigma(3)$) gilt
@@ -4261,7 +4264,7 @@ $star$: $sigma$ ist bijektiv, damit enthält das letzte Produkt bis auf die Reih
 
 #italic[Beweis:] 
 
-zu 1): Sei $cal(T)$ die Transposition, die $k$ und $l$ mit $1<=k<l<=n$ vertauscht. Damit ist $l = k + j$ für ein $j >= 1$ und $cal(T)$ ist gegeben durch
+zu 1: Sei $cal(T)$ die Transposition, die $k$ und $l$ mit $1<=k<l<=n$ vertauscht. Damit ist $l = k + j$ für ein $j >= 1$ und $cal(T)$ ist gegeben durch
 $
 cal(T) = [1 space space 2 space space k-1 space space overbrace(k+j, = l) space space k+1 space space ... space space overbrace(k+j-1, l-1) space space k space space overbrace(k+j+1, l+1) space space ... space space n]
 $
