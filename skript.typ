@@ -4337,7 +4337,7 @@ $(1)$: $sgn(sigma) = sgn([j_1 space.quad j_2 space.quad ... space.quad j_n])$
 $
 det vec(e_(1 j_1)^top, dots.v, e^top_(n j_n)) = cases(0 #h(3.5em) &exists k\,l in {1, ..., n} space j_k = j_l , sgn(sigma) &sigma = [j_1 space.quad ... space.quad j_n])
 $
-D1 + D2 sichern damit die Eindeutigkeit.
+D1 - D3 sichern damit die Eindeutigkeit.
 
 #bold[Existenz:] zu zeigen, dass $(star)$ die Axiome D1-D3 aus Def 7.1 erfüllt.
 
