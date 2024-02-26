@@ -3579,7 +3579,7 @@ Das Produkt $space G_(i j) (lambda)^T dot A space$ bewirkt, dass das $lambda$-fa
 ]
 
 #boxedlist[
-  $lambda in K$, $i in {1, ..., m}$, $M_i (lambda) := (e_1, ..., e_(j-1), lambda e_i, e_(j + 1), ..., e_m) in K^(m,m)$
+  $lambda in K$, $i in {1, ..., m}$, $M_i (lambda) := (e_1, ..., e_(i-1), lambda e_i, e_(i+1), ..., e_m) in K^(m,m)$
   $==>$ Multipliziert man $A$ von links mit $M_i (lambda)$, so wird die $i$-te Zeile von $A$ mit $lambda$ multipliziert $corres$ (Z2) für $lambda != 0$
 ]
 #bold[Beobachtung:] $P_(i j), G_(i j) (lambda), M_i (lambda)$ sind für $lambda != 0$ invertierbar!
@@ -3673,7 +3673,7 @@ Ist mindestens ein Eintrag von $A_((2))$ ungleich Null, so führt man die obigen
 Für $k = 2, 3, ...$ werden die Matrizen $S_k$ rekursiv durch
 
 #figure(
-  image("bilder/610_78.jpeg", width: 40%)
+  image("bilder/610_78.jpeg", width: 50%)
 )
 
 wobei die Matrix $tilde(S)_k$ analog zu $S_1$ konstruiert wird. 
@@ -3693,11 +3693,11 @@ $
 #italic[Beweis:]
 
 #figure(
-  image("bilder/610_11.jpg", width: 40%)
+  image("bilder/610_11.jpg", width: 30%)
 )
 
 #figure(
-  image("bilder/610_12.jpg", width: 100%)
+  image("bilder/610_12.jpg", width: 80%)
 )
 
 Nach $r$ Schritten
@@ -3771,7 +3771,7 @@ Zwei motivierende Beispiele:
 Lösung linearer Gleichungssysteme
 
 #boxedlist[
-  Gegeben sei ein lineares Gleichungssystem
+  Gegeben sei ein lineares Gleichungssystem $#sspace$
   $
   a_(1 1) x_1 + a_(1 2) x_2 = b_1 wide &"I" \
   a_(2 1) x_1 + a_(2 2) x_2 = b_2 wide &"II"
@@ -3975,7 +3975,7 @@ hat die folgenden weiteren Eigenschaften:
 
 #bold[D8.] Ist $A$ eine obere Dreiecksmatrix
 $
-A = mat(lambda_1,ast,ast;0,dots.down,ast;0,0,lambda)
+A = mat(lambda_1,ast,ast;0,dots.down,ast;0,0,lambda_n)
 $
 so ist $det A = lambda_1 dot ... dot lambda_n$ #text(fill: red, size:24pt)[!]
 
