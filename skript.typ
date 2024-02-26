@@ -3250,7 +3250,7 @@ $
 $
 <==> A x = b
 $
-für eine gegebene Matrix $A in K^(m n)$, einem gegebenen Vektor $b in K^m$ und einem unbekannten Vektor $x in K^n$ heißt #bold[lineares Gleichungssystem (LGS)]. Die Lösung von linearen Gleichungssystemen ist ein zentrales Problem der linearen Algebra. Wichtige Fragen:
+für eine gegebene Matrix $A in K^(m,n)$, einem gegebenen Vektor $b in K^m$ und einem unbekannten Vektor $x in K^n$ heißt #bold[lineares Gleichungssystem (LGS)]. Die Lösung von linearen Gleichungssystemen ist ein zentrales Problem der linearen Algebra. Wichtige Fragen:
 
 #box(width: 100%, inset: (left: 1cm, right: 1cm))[
   1. #[
@@ -3413,7 +3413,7 @@ so folgt $W = tilde(W)$ und $tilde(v) - v in W$
 
 #italic[Beweis:] $U = v + W$, $tilde(v) in U ==>$ $exists overline(w) in W: tilde(v) = v + overline(w) ==>$ $v = tilde(v) - overline(w)$
 
-1 $U subset.eq tilde(v) + W$
+1) $U subset.eq tilde(v) + W$
 
 $
 u in U ==> u = v + w "mit" w in W \
@@ -3430,7 +3430,7 @@ $==> U = tilde(v) + W$
 
 Sei nun $U = v + W = tilde(v) + tilde(W)$. Mit $U - U = {u - tilde(u) | u, tilde(u) in U}$ als Menge der Differenzen folgt, dass $U - U =^"(1)" W$ und $U - U =^"(2)" tilde(W)$. 
 $
-==> W - tilde(W)
+==> W = tilde(W)
 $
 wir wissen: $ v + W = tilde(v) + W$
 $
