@@ -2059,7 +2059,7 @@ Dann ist $(L(V, W), +, dot)$ ein $K$-Vektorraum.
 $
 Phi_B: K^n -> V, (a_i)_(1 <= i <= n) arrow.bar sum_(i = 1)^n a_i v_i
 $
-ein Homomorphimus von $K$-Vekroräumen.
+ein Homomorphimus von $K$-Vektorräumen.
 
 #italic[Beweis:] Seien $lambda in K$ und zwei Tupel $a = (a_1, ..., a_n) in K^n$, $b = (b_1, ..., b_n) in K^n$ gegeben. Mit der Definition der direkten Summe ist.
 $
@@ -3613,7 +3613,7 @@ Genauer: $C = (c_(i j))$ ist entweder die Nullmatrix oder es gibt eine Folge von
 
   "$<==$":
   $
-I_n = C = underbrace(S_t dots.h.c S_1 A, =: A^(-1))
+I_n = C = underbrace(S_t dots.h.c S_1, =: A^(-1)) A
 $
 
 "$==>$": $A$ invertierbar und $S_1, ..., S_t$ invertierbar. Das Produkt von invertierbaren Matrizen ist invertierbar $==>$ $C$ invertierbar $==>$ $C$ kann keine Nullzeilen bzw. Spalten enthalten $==>$ $C = I_n$
@@ -3668,7 +3668,7 @@ Anschließend werden alle Einträge unterhalb des Eintrags $(1, j_1)$ mit Wert $
 
 mit $A^((2)) in K^(m-1, n-j_1)$. Ist $A^((2)) = ()$, d.h. $m-1 = 0, n-j_1 = 0$ oder $A^((2)) = 0$ $in K^(m-1, n -j_1)$, sind wir fertig, da $C := S_1 A$ in Treppenform ist und $t = 1$.
 
-Ist mindestens ein Eintrag von $A_((2))$ ungleich Null, so führt man die obigen Schritte für die Matrix $A^((2))$ aus.
+Ist mindestens ein Eintrag von $A^((2))$ ungleich Null, so führt man die obigen Schritte für die Matrix $A^((2))$ aus.
 
 Für $k = 2, 3, ...$ werden die Matrizen $S_k$ rekursiv durch
 
@@ -3725,8 +3725,7 @@ $
 
 Zur Lösung von lin. Gleichungssystemen.
 $
-A x = b
-S A x = S b
+A x = b wide S A x = S b
 $
 Auf dem Übungsblatt haben wir bewiesen
 $
@@ -4149,7 +4148,7 @@ $
   $
   sigma: {1, 2, ..., n} -> {1, 2, ..., n}, space j arrow.bar sigma(j)
   $
-  heißt #bold[Permutation] der Zahlen ${1, ..., n}$. Die Menge aller dieser Abbildungen nennt man $S_n$ und man schreibt eine Permuatation $sigma in S_n$ in der Form 
+  heißt #bold[Permutation] der Zahlen ${1, ..., n}$. Die Menge aller dieser Abbildungen nennt man $S_n$ und man schreibt eine Permutation $sigma in S_n$ in der Form 
   $
   [sigma(1) space space sigma(2) space space dots space space sigma(n)]
   $
