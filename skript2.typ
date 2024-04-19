@@ -124,7 +124,7 @@ gilt
 $
 f(phi(x)) = f(c dot e^(lambda x)) = lambda (c e^(lambda x)) = lambda phi(x)
 $
-Hier: $phi'(x) = f(phi)$ ist eine gewöhnlihce Differentialgleichung.
+Hier: $phi'(x) = f(phi)$ ist eine gewöhnliche Differentialgleichung.
 
 #bold[Beispiel 1.4:] Wir betrachten die lineare Abbildung $f: RR^2 -> RR^2$, welche durch 
 $
@@ -158,7 +158,9 @@ zwei Eigenwerte: $2, -2$, es existieren keine Weiteren,
 
 zwei Eigenvektoren: $v_2 = vec(1,1), v_3 = vec(-1,1)$, sind linear unabhängig
 
-#bold[Lemma 1.6:] Es sei $f in L(V,V)$ ein Endomorphismus. Eigenvektoren zu paarweise verschiedenen Eigenwerten von $f$ sind linear unabhängig.
+#lemma("1.6")[
+  Es sei $f in L(V,V)$ ein Endomorphismus. Eigenvektoren zu paarweise verschiedenen Eigenwerten von $f$ sind linear unabhängig.
+]
 
 #italic[Beweis:] Es seien $v_1, ..., v_m$ Eigenvektoren zu den paarweise verschiedenen Eigenwerten $lambda_1, ..., lambda_m$ von $f$. Beweis durch Induktion:
 
@@ -214,10 +216,13 @@ Es gilt:
 
 Die letzte Aussage kann verallgemeinert werden zu:
 
-#bold[Lemma 1.8:] Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $f in L(V,V)$. Sind $lambda_1, ..., lambda_m, m <= n$, paarweise verschiedene Eigenwerte von $f$, so gilt 
-$
-"Eig"(f, lambda_i) sect limits(sum_(j = 1)^m)_(j != i) "Eig"(f, lambda_j) = {0} wide forall i = 1, ..., m
-$
+#lemma("1.8")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $f in L(V,V)$. Sind $lambda_1, ..., lambda_m, m <= n$, paarweise verschiedene Eigenwerte von $f$, so gilt 
+  $
+  "Eig"(f, lambda_i) sect limits(sum_(j = 1)^m)_(j != i) "Eig"(f, lambda_j) = {0} wide forall i = 1, ..., m
+  $
+  #v(-5mm)
+]
 
 #italic[Beweis:] Summe von Vektorräumen, vgl. Def 3.32 LinA I.
 
@@ -235,11 +240,12 @@ Aus Lemma 1.6 folgt damit $v = 0$.
 
 Über die Identifikation von Endomorphismen und Matrizen für $dim(V) < oo$ erhält man:
 
-#bold[Korollar 1.9:] Für ein $n in NN$ und einem Körper $K$ sei $A in K^(n,n)$. Dann gilt für jedes $lambda in K$, dass 
+#corollary("1.9")[Für ein $n in NN$ und einem Körper $K$ sei $A in K^(n,n)$. Dann gilt für jedes $lambda in K$, dass 
 $
 dim("Eig"(A, lambda)) = n - rg(A - lambda I_n)
 $
 Insbesondere ist $lambda in K$ ein Eigenwert von $A$, wenn $rg(A - lambda I_n) < n$ ist.
+]
 
 #definition("1.10", "Geometrische Vielfachheit")[
   Ist $f in L(V,V)$ und $lambda in K$ ein Eigenwert von $f$, so heißt  $#sspace$
@@ -253,11 +259,13 @@ Insbesondere ist $lambda in K$ ein Eigenwert von $A$, wenn $rg(A - lambda I_n) <
 
 Wir bestimmt man Eigenwerte?
 
-#bold[Lemma 1.11:] Seien $A in K^(n,n)$ und $lambda in K$. Dann ist
-$
-det(A - lambda I_n)
-$
-ein Polynom $n$-ten Grades in $lambda$.
+#lemma("1.11")[
+  Seien $A in K^(n,n)$ und $lambda in K$. Dann ist
+  $
+  det(A - lambda I_n)
+  $
+  ein Polynom $n$-ten Grades in $lambda$.
+]
 
 #italic[Beweis:] Mit der Leibnitz-Formel folgt,
 $
@@ -287,11 +295,13 @@ Man nennt $a_(1 1) + a_(2 2) + ... + a_(n n)$ auch die #bold[Spur] von $A$.
   das charakteristische Polynom zu $A$.
 ] <def>
 
-#bold[Lemma 1.13:] Sei $A in K^(n,n)$ und $lambda in K$. Der Skalar $lambda$ ist genau dann Eigenwert von $A$, wenn
-$
-p_A (lambda) = 0
-$
-gilt.
+#lemma("1.13")[
+  Sei $A in K^(n,n)$ und $lambda in K$. Der Skalar $lambda$ ist genau dann Eigenwert von $A$, wenn
+  $
+  p_A (lambda) = 0
+  $
+  gilt.
+]
 
 #italic[Beweis:] Die Gleichung 
 $
@@ -333,4 +343,5 @@ $
 mat(0,8,16;0,4,8;0,-4,-8) vec(v_1, v_2, v_3) = 0 in RR^3 <==> v_2 + 2v_3 = 0
 $
 Damit sind z.B.: $w_2 = (1,2,-1)^top, w_3 = (-1,2,-1)$ Eigenvektoren.
+
 

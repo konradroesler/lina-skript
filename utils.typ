@@ -1,3 +1,7 @@
+#let sspace = [
+  #h(100cm)
+]
+
 #let bold(content) = {
   text(font: "CMU Serif Bold", weight: "bold")[#content]
 }
@@ -26,6 +30,29 @@
   )
 }
 
+// simple box used for theorems lemmata and corollaries
+#let stroked_box(content) = [
+  #box(width: 100%, height: auto, inset: 0.4cm, stroke: 1pt + rgb(100,100,100), radius: 5pt, content)
+]
+
+#let theorem(number, content) = [
+  #stroked_box[
+    #bold[Satz #number:] #content #sspace
+  ]
+]
+
+#let lemma(number, content) = [
+  #stroked_box[
+    #bold[Lemma #number:] #content #sspace 
+  ]
+]
+
+#let corollary(number, content) = [
+  #stroked_box[
+    #bold[Korollar #number:] #content #sspace 
+  ]
+]
+
 #let boxedlist(..content) = {
   box(
     width: 100%,
@@ -49,10 +76,6 @@
 
 #let italic(content) = [
   #text(style: "italic", weight: "medium")[#content]
-]
-
-#let sspace = [
-  #h(100cm)
 ]
 
 #let circ = $op(circle.small)$
