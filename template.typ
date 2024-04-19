@@ -127,7 +127,6 @@
     #v(1cm)
     #align(center, text(size: 1.75em)[Definitionen])
   ]
-  
   let definitions = locate(loc => {
     let elems = query(<def>, loc)
     let definition_array = ()
