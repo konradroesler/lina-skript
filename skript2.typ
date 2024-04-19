@@ -261,7 +261,7 @@ ein Polynom $n$-ten Grades in $lambda$.
 
 #italic[Beweis:] Mit der Leibnitz-Formel folgt,
 $
-det(underbrace(A - lambda I_n, tilde(a)_(i j))) = sum_(sigma in S_1) sgn(sigma) dot tilde(a)_(1 sigma(1)) dot ... dot tilde(a)_(n sigma(n)) \
+det lr((underbrace(A - lambda I_n, tilde(a)_(i j))), size: #25%) = sum_(sigma in S_1) sgn(sigma) dot tilde(a)_(1 sigma(1)) dot ... dot tilde(a)_(n sigma(n)) \
 = underbrace(underbrace((a_(1 1) - lambda) dot (a_(2 2) - lambda) dot ... dot (a_(n n) - lambda), sigma = "Id"), in cal(P)_n space.thin "in" space.thin lambda) + underbrace(underbrace(S, sigma != "Id"), in cal(P)_(n -2) space.thin "in" space.thin lambda)
 $
 Weiter gilt:
