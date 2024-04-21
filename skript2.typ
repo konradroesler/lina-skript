@@ -267,7 +267,7 @@ Wir bestimmt man Eigenwerte?
   ein Polynom $n$-ten Grades in $lambda$.
 ]
 
-#italic[Beweis:] Mit der Leibnitz-Formel folgt,
+#italic[Beweis:] Mit der Leibniz-Formel folgt,
 $
 det lr((underbrace(A - lambda I_n, tilde(a)_(i j))), size: #25%) = sum_(sigma in S_1) sgn(sigma) dot tilde(a)_(1 sigma(1)) dot ... dot tilde(a)_(n sigma(n)) \
 = underbrace(underbrace((a_(1 1) - lambda) dot (a_(2 2) - lambda) dot ... dot (a_(n n) - lambda), sigma = "Id"), in cal(P)_n space.thin "in" space.thin lambda) + underbrace(underbrace(S, sigma != "Id"), in cal(P)_(n -2) space.thin "in" space.thin lambda)
@@ -290,7 +290,7 @@ Man nennt $a_(1 1) + a_(2 2) + ... + a_(n n)$ auch die #bold[Spur] von $A$.
 #definition("1.12", "Charakteristisches Polynom")[
   Sei $A in K^(n,n)$ und $lambda in K$. Dann heißt das Polynom $n$-ten Grades
   $
-  p_A (lambda) := det(A - lambda I_n)
+  P_A (lambda) := det(A - lambda I_n)
   $
   das charakteristische Polynom zu $A$.
 ] <def>
@@ -298,7 +298,7 @@ Man nennt $a_(1 1) + a_(2 2) + ... + a_(n n)$ auch die #bold[Spur] von $A$.
 #lemma("1.13")[
   Sei $A in K^(n,n)$ und $lambda in K$. Der Skalar $lambda$ ist genau dann Eigenwert von $A$, wenn
   $
-  p_A (lambda) = 0
+  P_A (lambda) = 0
   $
   gilt.
 ]
@@ -319,7 +319,7 @@ A = mat(3,8,16;0,7,8;0,-4,-5)
 $
 Regel von Sarrus liefert 
 $
-p_A (lambda) = mat(3-lambda,8,16;0,7-lambda,8;0,-4,-5-lambda) \
+P_A (lambda) = mat(3-lambda,8,16;0,7-lambda,8;0,-4,-5-lambda) \
 = (3-lambda)(-35-7 lambda+5 lambda + lambda^2 +32) \
 = (3-lambda)[(7-lambda)(-5-lambda)-8(-4)]-8 (0-0) + 16(0-0) \
 = (3-lambda)(lambda^2 - 2 lambda -3 ) =(3-lambda)(lambda+1)(lambda-3)
@@ -335,7 +335,7 @@ mat(4,8,26;0,8,8;0,-4,-4) vec(v_1, v_2, v_3) = vec(0,0,0)
 $
 LGS lösen: $==> v_2 = -v_3, v_1 = -2 v_3$
 
-Damit ist z.B.: $w_1 = (2, 1, -1)^top$ Eigenvektoren.
+Damit ist z.B.: $w_1 = (2, 1, -1)^top$ Eigenvektor.
 
 $lambda = 3$:
 $
@@ -343,5 +343,3 @@ $
 mat(0,8,16;0,4,8;0,-4,-8) vec(v_1, v_2, v_3) = 0 in RR^3 <==> v_2 + 2v_3 = 0
 $
 Damit sind z.B.: $w_2 = (1,2,-1)^top, w_3 = (-1,2,-1)$ Eigenvektoren.
-
-

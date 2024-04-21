@@ -25,7 +25,7 @@
       #bold[Definition #number: #name] \
       #v(5pt)
       #set text(size: 11pt)
-      #box(inset: (top: -3mm), content)
+      #box(inset: (top: -3mm), [#content $#sspace$])
     ]
   )
 }
