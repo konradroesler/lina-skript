@@ -452,7 +452,7 @@ $
 A_f^(C,C) = mat(3,-3,5,0,1,0;0,4,7)
 $
 Als Matrizenmultiplikation
-#figure(image("bilder2/1_18_3.jpeg", width: 40%))
+#figure(image("bilder2/1_18_3.jpeg", height: 30%))
 
 Darstellung von $Phi_C$?
 $Phi_C (e_i) = w_i quad "für" quad C = {w_1, w_2, w_3}$
@@ -547,6 +547,8 @@ p_f (lambda) = (tilde(lambda) - lambda)^m dot det(A_2 - lambda I_(n-m,n-m))
 $
 $==>$ EW $tilde(lambda)$ ist mindestens $m$-fache Nullstelle von $p_f (lambda)$. Für $m = n ==> A_f^(B,B) = tilde(lambda) I_n ==>$ $p_f (lambda) = (tilde(lambda) - lambda)^m$
 #endproof
+
+#pagebreak()
 
 = Diagonalisierbarkeit und Normalform
 
