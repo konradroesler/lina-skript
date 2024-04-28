@@ -168,7 +168,7 @@ Induktionsanfang: $m = 1$, $lambda_1, v_1 != 0$ $==> v_1$ lin. unabh.
 
 Induktionsschritt: $m-1 -> m$
 
-Induktionsvorraussetzung: Beh. gelte für $m-1$
+Induktionsvorraussetzung: Behauptung gelte für $m-1$
 
 Betrachte
 $
@@ -343,3 +343,315 @@ $
 mat(0,8,16;0,4,8;0,-4,-8) vec(v_1, v_2, v_3) = 0 in RR^3 <==> v_2 + 2v_3 = 0
 $
 Damit sind z.B.: $w_2 = (1,2,-1)^top, w_3 = (-1,2,-1)$ Eigenvektoren.
+
+$lambda = -1$: einfache Nullstelle und $dim("Span"(w_1)) = 1$ passt zu $rg(A - (-1) I_n) = 2$ und $ dim("Eig"(A_1 - 1)) = 3- 2 = 1$.
+
+$lambda = -3$: doppelte Nullstelle und $dim("Span"(w_2, w_3)) = 2$ passt zu $rg(A - 3 I_n) = 1$ und $dim("Eig"(A, 3)) = 3-1 = 2$ 
+
+#lemma("1.15")[
+  Sei $A in K^(n,n)$. Dann gilt 
+  $
+  p_A (.) = p_(A^top) (.)
+  $
+  D.h. eine Matrix und ihre Transponierte haben die gleichen Eigenwerte.
+]
+#italic[Beweis:] 
+$
+p_A (lambda) = det(A- lambda I_n) =^("D12") = det((A-lambda I_n)^top) = det(A^T - lambda I_n) = p_(A^top) (lambda)
+$
+#endproof
+
+#bold[Achtung:] Die Eigenwerte bleiben gleich, aber nicht die Eigenvektoren.
+
+#bold[Beispiel 1.16:] Für die Matrix $A$ aus Bsp. 1.14 gilt
+$
+A^top = mat(3,0,0;8,7,-4;16,8,-5) ==> det(A^top - lambda I_n) = (3-lambda)[(7-lambda)(-5-lambda)+4 dot 8] \
+= -(lambda-3)^2(lambda+1)
+$
+Aber
+$
+mat(3,0,0;8,7,-4;16,8,-5) vec(2,1,-1) = vec(6,27,45) != (-1) vec(2,1,-1)
+$
+Man kann ausrechnen:
+$
+tilde(w)_1 = vec(0,1,2) space "EV zu EW" -1, tilde(w)_2 = vec(0,1,1), tilde(w)_3 space "EV zu EW" 3
+$
+
+Übertragung auf Endomorphismen?
+
+$p_f (lambda) space f in L(V,V)$, $B "Basis" => exists! A_f^(B,B)$, $C "Basis" ==> exists! A_f^(C,C)$
+$
+p_(A^(B,B)_f) (lambda) =^"?" p_(A^(C,C)_f) (lambda)
+$
+
+#definition("1.17", "ähnliche Matrizen")[
+  Zwei Matrizen $A, B in K^(n,n)$ heißen #bold[ähnlich], wenn es eine Matrix $T in "GL"_n (K)$ gibt, so dass $A = T B T^(-1)$ gilt.
+]
+
+Man kann leicht beweisen, dass die Ähnlichkeit von Matrizen eine Äquivalenzrelation auf der Menge der quadratischen Matrizen ist.
+
+Mit $det(A^(-1)) =^"D11" (det(A))^(-1)$ folgta für zwei ähnliche Matrizen $A$ und $B$, dass 
+$
+det(A) = det(T B T^(-1)) = det(T) det(B) det(T^(-1)) = det(B)
+$
+
+#bold[Beispiel 1.18:] Sei $f in L(RR^3, RR^3)$, d.h. $V= RR^3$, gegeben durch
+$
+f(vec(x_1, x_2, x_3)) = vec(x_1, -4 x_1 + 7 x_2, 3 x_1 + 5 x_2 + 3 x_3)
+$
+Wir betrachten für den $RR^3$ die Basen
+$
+E = {vec(1,0,0), vec(0,1,0), vec(0,0,1)}, \ 
+B = {vec(1,0,0), vec(1,1,0), vec(1,1,1)}, \
+C = {vec(0,0,-1), vec(1,0,0), vec(0,-1,0)}
+$
+Für darstellende Matrix von $f$ bezüglich der Standardmatrix $E$ erhalten wir aus Satz 5.18, LinA I, 
+$
+f(e_j) = sum_(i=1)^3 a_(i j) e_i quad forall j in {1,2,3}
+$
+dass
+$
+A_f^(E,E) = mat(1,0,0;-4,7,0;3,5,3)
+$
+Das zugehörige kommutative Diagramm ist gegeben durch
+#figure(
+  image("bilder2/1_18.jpg", width: 40%)
+)
+
+Für die Basis $B$ erhalten wir 
+$
+f(vec(1,0,0)) = vec(1,-4,3) = 5 vec(1,0,0) + (-7) vec(1,1,0) + 3 vec(1,1,1) \
+f(vec(1,1,0)) = vec(1,3,8) = (-2) vec(1,0,0) + (-5) vec(1,1,0) + 8 vec(1,1,1) \
+f(vec(1,1,1)) = vec(1,3,11) = (-2) vec(1,0,0) + (-8) vec(1,1,0) + 11 vec(1,1,1) \
+==> A_f^(B,B) = mat(5,-2,-2;-7,-5,-8;3,8,11)
+$
+Herleitung bezüglich Matrizen?
+//#align(center, "fehlt")
+//#figure(image("bilder2/1_18_2.jpeg", width: 40%))
+
+Koordinatenabbildung $Phi_B$?
+
+Abbildung vom $RR^3$ + Standardbasis $E$ in den $V (= RR^3)$ + Basis $B$.
+$
+Phi_B = (e_i) = v_i quad "für" quad B = {v_1, v_2, v_3} \
+==> A_(Phi_B)^(E, B) = mat(1,1,1;0,1,1;0,0,1)
+$
+Damit folgt insgesamt:
+$
+A_f^(B,B) = (A_(Phi_B)^(E,B))^(-1) I_n A_f^(E,E) I_n^(-1) A_(Phi_B)^(E,B) = (A_(Phi_B)^(E,B))^(-1) A_f^(E,E) underbrace(A_(Phi_B)^(E,B), in "GL"_n (RR)) \
+==> A_f^(B,B) "und" $A_f^(E,E)$ "sind ähnlich"
+$
+Für die Basis $C$ erhalten wir
+$
+f(vec(0,0,-1)) = vec(0,0,-3) = 3 vec(0,0,-1) + 0 vec(1,0,0) + 0 vec(0,-1,0) \
+f(vec(1,0,0)) = vec(1,-4,3) = (-3) vec(0,0,-1) + 1 vec(1,0,0) + 4 vec(0,-1,0) \
+f(vec(0,-1,0)) = vec(0,-7,-5) = 5 vec(0,0,-1) + 0 vec(1,0,0) + 7 vec(0,-1,0)
+$
+Als Darstellungsmatrix erhält man
+$
+A_f^(C,C) = mat(3,-3,5,0,1,0;0,4,7)
+$
+Als Matrizenmultiplikation
+#figure(image("bilder2/1_18_3.jpeg", width: 40%))
+
+Darstellung von $Phi_C$?
+$Phi_C (e_i) = w_i quad "für" quad C = {w_1, w_2, w_3}$
+$
+A_(Phi_C)^(E,C) = mat(0,1,0;0,0,-1;-1,0,0)
+$
+$
+A_f^(C,C) = (A_(Phi_C)^(E,C))^(-1) I_n A_f^(E,E) I_n^(-1) A_(Phi_C)^(E,C) = (A_(Phi_C)^E,C)^(-1) A_f^(E,E) A_(Phi_C)^(E,C)
+$
+Also auch: $A_f^(C,C)$ ist ähnlich zu $A_f^(E,E)$.
+
+Alternativ:
+$
+A_f^(C,C) &= (A_(Phi_C)^(E,C))^(-1) I_n I_n^(-1) A_(Phi_B)^(E,B) A_f^(B,B) (A_(Phi_B)^(E,B))^(-1) I_n A_(Phi_C)^(E,C) \
+&= underbrace((A_(Phi_C)^(E,C))^(-1) A_(Phi_B)^(E,B), in "GL"_n (RR)) A_f^(B,B) (A_(Phi_B)^(E,B))^(-1) A_(Phi_C)^(E,C)
+$
+
+Jetzt allgemein: $f in L(V,V)$, $dim(V) < oo$, $B,C$ seien Basen von $V$ $==>$ 
+$
+A := A_f^(B,B) wide tilde(A) := A_f^(C,C)
+$
+und es existiert $T in "GL"_n (K)$ als Basistransformationsmatrix, so dass
+$
+tilde(A) = T A T^(-1)
+$
+Dann gilt
+$
+p_(tilde(A)) (lambda) &= det(tilde(A) - lambda I_n) = det(T A T^(-1) - lambda T T^(-1)) \
+&= det(T (A -lambda I_n) T^(-1)) \ 
+&= det(T) det(A - lambda I_n) det(T^(-1)) \
+&= p_A (lambda)
+$
+
+D.h. für einen Endomorphismus ist das charakteristische Polynom der zugehörigen Darstellungsmatrix unabhängig von der Wahl der Basis!
+
+Damit ist es sinnvoll, für $f in L(V,V)$, $dim(V) < oo$, 
+$
+p_f (.) := p_A (.)
+$
+für $A$ als Darstellungsmatrix $A_f^(B,B)$ für eine Basis $B$.
+
+#lemma("1.19")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $f in L(V,V)$. Dann sind folgende Aussagen äquivalent:
+
+  #box(width: 100%, inset: (left: 0.5cm, right: 0.5cm))[
+    1. $lambda in K$ ist ein Eigenwert von $f$.
+    2. $lambda in K$ ist ein Eigenwert der Darstellungsmatrix $A_f^(B,B)$ für eine gewählte $B$ von $V$.
+  ]
+]
+
+Des weiteren gilt auch. Für zwei ähnliche $A$ und $B$ gilt $p_A (lambda) = p_B (lambda)$
+$
+A, B "ähnlich" ==> p_A (lambda) = p_B (lambda)
+$
+z.B.
+$
+A = mat(1,0;2,1) wide B = mat(1,0;0,1) \
+p_A (lambda) = (1-lambda)^2 = p_B (lambda), "aber für jedes" T in "GL"_2 (RR) "gilt" \
+T B T^(-1) = T T^(-1) = I != A "also" A, B "nicht ähnlich"
+$
+
+Weitere Beobachtung: Aus Lemma 1.13 und Lemma 1.19 folgt, dass die Eigenwerte von $f in L(V,V)$ die Nullstellen des charakteristischen Polynoms der Matrix $A_f^(B,B)$ für eine Basis $B$ ist. Dies gilt #bold[nicht] i.a. für Darstellungsmatrizen $A_f^(B,C)$ für $B != C$.
+
+#definition("1.20", "Algebraische Vielfachheit")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$. Ist $f in L(V,V)$ und $tilde(lambda)$ ist Eigenwert von $f$ hat das charakteristische Polynom $p_f (lambda)$ die Form 
+  $
+  p_f (lambda) = (lambda - tilde(lambda))^d dot tilde(p) (lambda)
+  $
+  für ein $tilde(p)(.) in KK[lambda]$ mit $tilde(p)(tilde(lambda)) != 0$, so nennt man $d$ die #bold[algebraische Vielfachheit] von $tilde(lambda)$ und bezeichnet sie $a(f, tilde(lambda))$.
+]
+
+#lemma("1.21")[
+  Seien $V$ ein $K$-Vektorraum, $dim(V) = n < oo$, und $f in L(V,V)$. Für Eigenwert $tilde(lambda)$ von $f$ gilt 
+  $
+  g(f, tilde(lambda)) <= a(f, tilde(lambda))
+  $
+]
+
+#italic[Beweis:] Ist $tilde(lambda)$ EW von $f$ mit der geometrischen Vielfachheit $m := g(f, tilde(lambda))$, so gibt es nach Def. 1.10 zu $tilde(lambda)$ $m$ linear unabhängige Eigenvektoren $v_1, ..., v_m in V$.
+
+Gilt $m = n = dim(V)$ sind ${v_1, ..., v_m}$ schon Basis von $V$.
+
+Gilt $m < n$, so folgt aus dem Basisergänzungssatz (Satz 3.21, LinA I), dass man ${v_1, ..., v_m}$ zu einer Basis ${v_1, ..., v_m, v_(m+1), ..., v_n} =: B$ ergänzen. Wegen $f(v_j) = tilde(lambda) v_j, 1<=j<=m$, gilt 
+$
+A_f^(B,B) = mat(tilde(lambda) I_n, A_1; 0, A_2) in K^(n,n)
+$
+für zwei  Matrizen $A_1 in K^(m, n-m)$, $A_2 in K^(n-m, n-m)$.
+
+Mit D9 aus LinA I folgt
+$
+p_f (lambda) = (tilde(lambda) - lambda)^m dot det(A_2 - lambda I_(n-m,n-m))
+$
+$==>$ EW $tilde(lambda)$ ist mindestens $m$-fache Nullstelle von $p_f (lambda)$. Für $m = n ==> A_f^(B,B) = tilde(lambda) I_n ==>$ $p_f (lambda) = (tilde(lambda) - lambda)^m$
+#endproof
+
+= Diagonalisierbarkeit und Normalform
+
+== Diagonalisierbarkeit
+
+#definition("2.1", "Diagonalisierbar")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$. Ein $f in L(V,V)$ heißt #bold[diagonalisierbar], wenn es eine Basis $B$ von $V$ gibt, so dass $A_f^(B,B)$ eine Diagonalmatrix ist. D.h. es existieren $lambda_1, ..., lambda_n in K$ mit 
+  $
+  A_f^(B,B) = mat(lambda_1, ..., 0;dots.v,dots.down,dots.v;0,dots,lambda_n) in K^(n,n)
+  $
+]
+Entsprechend nennen wir eine Matrix $A in K^(n,n)$ #bold[diagonalisierbar], wenn es eine Matrix $T in "GL"_n (K)$ und eine Diagonalmatrix $D in K^(n,n)$ gibt mit
+$
+A = T D T^(-1)
+$
+D.h. $A$ ist ähnlich zu einer Diagonalmatrix.
+
+#theorem("2.2")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $f in L(V,V)$. Dann sind folgende Aussagen äquivalent:
+
+  #box(width: 100%, inset: (left: 0.5cm, right: 0.5cm))[
+    1. $f$ ist diagonalisierbar
+    2. Es gbit eine Basis $B$ von $V$ bestehend aus Eigenvektoren von $f$.
+    3. #[
+      Das charakteristische Polynom $p_f (.)$ zerfällt in $n$ Linearfaktoren über $K$, d.h.
+      $
+      p_f (lambda) = (lambda - lambda_1) dot ... dot (lambda - lambda_n)
+      $
+      mit Eigenwerten $lambda_1, ..., lambda_n in K$ für $f$ und für jeden Eigenwert $tilde(lambda)$ gilt $a(f, tilde(lambda)) = g(f, tilde(lambda))$. 
+    ]
+  ]
+]
+
+#italic[Beweis:] 
+
+"$1 ==> 2$": $f$ diagonalisierbar $==>$ $exists {v_1, ..., v_n} = B$ Basis von $V, lambda_1, .., lambda_n in K$:
+$
+tilde(A) := A_f^(B,B) = mat(lambda_1, ..., 0;dots.v,dots.down,dots.v;0,dots,lambda_n) wide f(v_j) = sum_(i = 1)^n a_(i j) v_i
+$
+$==> f(v_j) = lambda_i v_i, 1 <=i <=n, v_i != 0$. $==>$ Damit sind $lambda_1, ..., lambda_n$ Eigenwerte von $f$ mit zugehörigen Eigenvektoren $v_1, ..., v_n$. $==> 2.$
+
+"$2 ==> 1$": Ist $B = {v_1, ..., v_n}$ eine Basis von $V$ bestehend aus Eigenvektoren, so gibt es zugehörige Eigenwerte $lambda_1, ..., lambda_n$ mit $f(v_j) = lambda_j v_j$, $1<= j <=n$ $==>$
+$
+A_f^(B,B) = mat(lambda_1, ..., 0;dots.v,dots.down,dots.v;0,dots,lambda_n)
+$
+
+"$2==>3$": Sei $B = {v_1, ..., v_n}$ eine Basis von Eigenvektoren, $lambda_1, ..., lambda_n$ seien die zugehörigen Eigenwerte $==>$
+$
+p_f (lambda) = p_(A_f^(B,B)) (lambda) = det(A_f^(B,B) - lambda I_n) \
+= (lambda_1 - lambda) dot (lambda_2 - lambda) dot ... dot (lambda_n - lambda)
+$
+$==>$ $p_f (.)$ zerfällt in Linearfaktoren. Verschiedene Eigenwerte $tilde(lambda)_1, ..., tilde(lambda)_k, k <=n$. Der Eigenwert $tilde(lambda)_i$ besitzt die algebraische Vielfachheit $m_j := a(f, tilde(lambda)_j)$ genau dann, wenn er $m_j$-mal auf den Diagnolen von $A_f^(B,B)$ steht. Dies ist genau dann der Fall, wenn $m_j$ Eigenvektoren zu $tilde(lambda)_j$ in $B$ enthalten sind. Diese sind linear unabhängig $==>$
+$
+1. &dim("Eig"(f, tilde(lambda)_j)) = g(f, tilde(lambda)_j) >= m_j = a(f, tilde(lambda)_j) \
+2. &"Lemma 1.21:" g(f, tilde(lambda)_j) <= a(f, tilde(lambda)_j) \
+$
+$
+1 and 2 ==> g(f, tilde(lambda)_j) = a(f, tilde(lambda)_ j)
+$
+
+"$3==>2$": Seien $tilde(lambda)_1, ..., tilde(lambda)_k, k<=n$ die paarweise verschiedenen Eigenwerte von $f$. Wir wissen: $cal(P)_n in p_f (.)$ zerfällt in Linearfaktoren, $a(f, tilde(lambda)_j) = g(f, tilde(lambda)_j), 1<=j<=n$.
+$
+dim(V) = n = sum_(j = 1)^k a(f, tilde(lambda)_j) = sum_(j = 1)^k g(f, tilde(lambda)_j) = sum_(j = 1)^k dim("Eig"(f, tilde(lambda)_j))
+$
+Es gilt (Lemma 1.8):
+$
+"Eig"(f, tilde(lambda)_j) sect sum_(i = 1)^k "Eig"(f, tilde(lambda)_i) = 0 quad forall j = 1, ..., k
+$
+Dann folgt (Lemma 3.31, (2), Lemma 3.35, Satz 3.14) (direkte Summe, $U subset V$ UVR $==>$ $dim(U) <= dim(V)$, $U=V$ $dim(U) = dim(V)$, Basis $<==>$ eindeutige Darstelltung), dass die zu $tilde(lambda)_1, ..., tilde(lambda)_n$ linear unabhängigen Eigenvektoren, die jeweils eine Basis von $"Eig"(f, tilde(lambda)_j)$, $1 <=j<=k$, eine Basis von $V$ bilden.
+#endproof
+
+In Verbindung mit Lemma 1.6 folgt unmittelbar:
+
+#corollary("2.3")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $f in L(V,V)$ mit $n$ paarweise verschiedenen Eigenwerten, dann ist $f$ diagonalisierbar.
+]
+
+#bold[Bemerkung:] Das Kriterium der $n$ paarweise verschiedenen Eigenwerte ist nicht notwendig z.B. $V = K^n$, $B = E$ Standardbasis
+$
+f: "Id": K^n -> K^n, ==> A_f^(E,E) = I_n ==> 1 n"-facher Eigenwert"
+$
+
+#bold[Beispiel 2.4:] Fortsetzung von Bsp. 1.14
+$
+A = mat(3,8,16;0,7,8;0,-4,-5), "EW:" -1, 3 \
+w_1 = vec(2,1,-1) "EV zu" -1, space w_2 = vec(1,2,-1), w_3 = vec(-1,2,-1) "EV zu" 3
+$
+$==>$ $exists$ Basis von Eigenvektoren
+$==>^"Satz 2.2"$ $A$ ist diagonalisierbar
+$
+p_A (lambda) = (3-lambda)(lambda+1)(lambda-3) \
+a(f, -1) = 1 = g(f, -1) \
+a(f, 3) = 2 = g(f, 3)
+$
+$T in "GL"_n (RR)$ so, dass $T^(-1) A T = D$? 
+
+Die zu $B = {w_1, w_2, w_3}$ gehörende Koordinatentransformation $Phi_B$ ist gegeben durch 
+$
+A_(Phi_B)^(E,B) = mat(2,1,-1;1,2,2,;-1,-1,-1)
+$
+Dann gilt: Für $f in L(RR^3, RR^3)$ mit 
+$
+A_f^(E,E) = A wide A_f^(B,B) = mat(-1,0,0;0,3,0;0,0,3) = D
+$
+Mit Basiswechsel von $A$ zu $D$
+$
+D = (A_(Phi_B)^(E,B))^(-1) A underbrace(A_(Phi_B)^(E,B), = T)
+$
