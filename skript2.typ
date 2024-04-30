@@ -439,7 +439,7 @@ $
 Damit folgt insgesamt:
 $
 A_f^(B,B) = (A_(Phi_B)^(E,B))^(-1) I_n A_f^(E,E) I_n^(-1) A_(Phi_B)^(E,B) = (A_(Phi_B)^(E,B))^(-1) A_f^(E,E) underbrace(A_(Phi_B)^(E,B), in "GL"_n (RR)) \
-==> A_f^(B,B) "und" $A_f^(E,E)$ "sind ähnlich"
+==> A_f^(B,B) "und" A_f^(E,E) "sind ähnlich"
 $
 Für die Basis $C$ erhalten wir
 $
@@ -657,3 +657,140 @@ Mit Basiswechsel von $A$ zu $D$
 $
 D = (A_(Phi_B)^(E,B))^(-1) A underbrace(A_(Phi_B)^(E,B), = T)
 $
+
+#bold[Beispiel 2.5:] Nicht jeder Endomorphismus bzw. jede Matrix ist diagonalisierbar. Bsp. 1.4:
+$
+f: RR^2 -> RR^2, quad f(vec(x_1, x_2)) = overbrace(mat(0,1;-1,0), A) vec(x_1, x_2), quad p_f (lambda) = lambda^1 + 1
+$
+D.h. über $RR$ zerfällt $p_f (.)$ nicht in Linearfaktoren.
+
+Ein weiteres Beispiel
+$
+A = mat(5,10,7;0,-3,-3;0,3,3)
+$
+$==>$ $p_A (lambda) = (5-lambda) lambda^2$ $==>$ $p_A (.)$ zerfällt in Linearfaktoren. $a(f, lambda_i), g(f, lambda_i)$ für $lambda_1 = 5, lambda_2 = 0$.
+Lemma 1.21: $g(f, lambda_i) <= a(f, lambda_i)$
+$==>$ $g(f,5) = 1 = a(f,5)$, $a(f,0) = 2, g(f,0) >= 1$
+Ein Eigenvektor zu $lambda = 0$ sind 
+$
+w_1 = vec(3,-5,5) ==> g(f, 0) = 1 < 2 = a(f,0)
+$
+$==>$ $f$ nicht diagonalisierbar.
+#sect_delim
+
+Mit Satz 2.2 erhält man einen Algorithmus zur Überprüfung, ob ein gegebenes $f in L(V,V)$ (bzw. $A in K^(n,n)$) diagonalisierbar ist:
+
+#enum([
+  Bestimme mit einer Basis $B$ von $V$ die Darstellungsmatrix $A = A_f^(B,B)$
+],[
+  Bestimme für $A$ das charakteristische Polynom $p_A (.)$ (Determinantenberechnung)
+],[
+  Zerfällt $p_A (.)$ in Linearfaktoren über $K$? Nein: $f$ nicht diagonalisierbar. Ja: Seien $lambda_i, 1 <= i <= k <=n = dim(V)$ die paarweise verschiedene Eigenwerte von $f$. 
+
+  Für $i = 1, ..., k$
+
+  #enum([
+    Bestimme eine Basis von $"Eig"(f, lambda_i)$
+  ],[
+    Prüfe, ob $a(f, lambda_i) = g(f, lambda_i)$
+  ])
+
+  Gilt $a(f,lambda_i) = g(f, lambda_i)$ für alle $i in {1,...,k}$. Nein: $f$ ist nicht diagonalisierbar. Ja: $f$ ist diagonalisierbar.
+])
+
+#bold[Beispiel 2.6:] Fischer/Springborn
+
+Betrachtet wird: Masse aufgehänt an einer Feder. Zur Zeit $t = 0$ in Position $y(0) = alpha$ und ausgelenkt in senkrechter Richtung mit Geschwindigkeit $beta = dot(y) (0)$
+
+$y(t) corres$ Position der Masse zum Zeitpunkt $t$
+
+#figure(image("bilder2/2_6.jpeg", width: 50%))
+
+Dieses System wird durch die gewöhnliche Differentialgleichungen
+$
+dot.double(y) + 2 mu dot(y) + omega^2 y = 0, quad y(0) = alpha, dot(y) (0) = beta
+$
+Umschreiben
+$
+dot(y)_0 &= y_1 \
+dot(y)_1 &= -omega^2 y_0 - 2 mu y_1
+$
+mit $y_0 = y, dot.double(y)_0 = dot.double(y), y_0 (0) = alpha, y_1 (0) = beta$.
+$
+dot(tilde(y)) := vec(dot(y)_0,dot(y)_1) = mat(0,1;-omega^2,-2 mu) vec(y_0, y_1)
+$
+$
+p_A (lambda) = lambda^2 + 2 mu lambda + w^2
+$
+mit den potentiellen Nulstellen
+$
+lambda = -mu plus.minus sqrt(mu^2 - w^2)
+$
+Man unterscheidet drei Fälle:
+
+#boxedlist[$0<=mu<omega$, d.h. $mu^2-omega^2<0$ $==>$ schwache Dämpfung][$mu = omega$, d.h. $mu^2 = omega^2$ $==>$ aperiodischer Fall $==>$ $a(A, -mu) = 2$, $dim("Eig"(A, -mu)) = 1$, $A$ nicht diagonalisierbar][$mu > omega$, d.h. $mu^2 >omega^2$, starke Dämpfung]
+
+Eine solche Eigenwertanalyse kann auch nutzen, um das Langzeitverhalten von Lösungen von gewöhnlichen DGL zu bestimmen.
+
+#figure(image("bilder2/2_6_2.jpeg", width: 70%))
+
+#theorem("2.7")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $f in L(V,V)$. Dann sind folgende Aussagen äquivalent:
+
+  #enum([
+    Das charakteristische Polynom $p_f (.)$ zerfällt über $K$ in Linearfaktoren.
+  ],[
+    Es gibt eine Basis $B$ von $V$, so dass $A_f^(B,B)$ eine obere Dreiecksmatrix ist, d.h.
+    $
+    A_f^(B,B) = mat(1, ..., *; dots.v, dots.down, dots.v; 0, ..., *)
+    $
+    und $f$ ist damit #bold[triangulierbar].
+  ])
+]
+
+#italic[Beweis:] Beweis von Satz 14.17 im Liesen/Mehrmann
+#endproof
+
+Nun ist das Ziel:
+
+Bestimmung einer Basis $B$ von $V$, so dass $A_f^(B,B)$ eine obere Dreiecksmatrix ist, die möglichst nah an einer Diagonalmatrix ist und von der geometrischen Vielfachheiten der Eigenwerte abgelesen werden können.
+
+D.h. $p_f (.)$ zerfällt in Linearfaktoren mit den Eigenwerten $lambda_1, ..., lambda_k$ (notwendig, Satz 2.7) und wir wollen eine Basis $B$ bestimmen, so dass $A_f^(B,B)$ Diagonalblockgestalt hat mit 
+$
+A_f^(B,B) = mat(J_1 (lambda_1), ..., 0; dots.v, dots.down, dots.v; 0, ..., J_m (lambda_m))
+$
+wobei jeder Diagonalblock die Form
+$
+J_i (lambda_i) = mat(lambda_1, 1, ..., 0; 0, dots.down, dots.down, dots.v; dots.v, dots.down, dots.down, 1; 0, ..., 0, lambda_i) in K^(d_i, d_i) wide (*)
+$
+
+#definition("2.8", "Jordan-Block")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$, $f in L(V,V)$ und $lambda_i$ ein Eigenwert von $f$. Eine Matrix der Form $(*)$ heißt #bold[Jordan-Block] der Größe $d_i$ zum Eigenwert $lambda_i$.
+]
+Wegen der Bedeutung der Jordan-Normalform gibt es zahlreiche Herleitungen mit unterschiedlichen mathematischen Hilfsmitteln.
+
+Hier: Beweis über die Dualitätstheorie basirend auf einer Arbeit von V. Pt $minus(a)$ k (1956)
+
+== Dualräume
+
+#definition("2.9", "Linarform, Dualraum")[
+  Sei $V$ ein $K$-Vektorraum. Eine Abbildung $f in L(V, K)$ heißt #bold[Linearform]. Den $K$-Vektorraum $V^* := L(V,K)$ nennt man #bold[Dualraum].
+]
+
+Gilt $dim(V) = n < oo$ so folgt aus Satz 5.18 LinA I, dass $dim(V^\*) = n$ gilt. Ist $B = {v_1, ..., v_n}$ eine Basis von $V$ und $C = {1}$ eine Basis des $K$-Vektorraum $K$, dann gilt für
+$
+f(v_i) = mu_i in K space "für" space f in V^\*", d.h." f: V -> K,
+$
+für $i = 1, ..., n$ und damit 
+$
+A_f^(B,C) = (mu_1, ..., mu_n) in K^(1,n)
+$
+
+#bold[Beispiel 2.10:] Sei $V$ der $RR$-Vektorraum der auf dem Intervall $[0, 1]$ stetigen, reellwertigen Funktionen und $a in [0,1]$. Dann sind 
+$
+g_1: &V -> RR, quad g_1 (f) := integral_0^1 f(x) d x \
+g_2: &V -> RR, quad g_2 (f) := f(a)
+$
+Linearformen auf $V$. 
+
+Basis des Dualraums?
