@@ -426,8 +426,7 @@ f(vec(1,1,1)) = vec(1,3,11) = (-2) vec(1,0,0) + (-8) vec(1,1,0) + 11 vec(1,1,1) 
 ==> A_f^(B,B) = mat(5,-2,-2;-7,-5,-8;3,8,11)
 $
 Herleitung bezüglich Matrizen?
-//#align(center, "fehlt")
-//#figure(image("bilder2/1_18_2.jpeg", width: 40%))
+#figure(image("bilder2/1_18_2.jpeg", width: 30%))
 
 Koordinatenabbildung $Phi_B$?
 
