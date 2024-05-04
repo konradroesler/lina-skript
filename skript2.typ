@@ -760,7 +760,7 @@ A_f^(B,B) = mat(J_1 (lambda_1), ..., 0; dots.v, dots.down, dots.v; 0, ..., J_m (
 $
 wobei jeder Diagonalblock die Form
 $
-J_i (lambda_i) = mat(lambda_1, 1, ..., 0; 0, dots.down, dots.down, dots.v; dots.v, dots.down, dots.down, 1; 0, ..., 0, lambda_i) in K^(d_i, d_i) wide (*)
+J_i (lambda_i) = mat(lambda_i, 1, ..., 0; 0, dots.down, dots.down, dots.v; dots.v, dots.down, dots.down, 1; 0, ..., 0, lambda_i) in K^(d_i, d_i) wide (*)
 $
 
 #definition("2.8", "Jordan-Block")[
