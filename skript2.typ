@@ -448,7 +448,7 @@ f(vec(0,-1,0)) = vec(0,-7,-5) = 5 vec(0,0,-1) + 0 vec(1,0,0) + 7 vec(0,-1,0)
 $
 Als Darstellungsmatrix erhält man
 $
-A_f^(C,C) = mat(3,-3,5,0,1,0;0,4,7)
+A_f^(C,C) = mat(3,-3,5;0,1,0;0,4,7)
 $
 Als Matrizenmultiplikation
 #figure(image("bilder2/1_18_3.jpeg", height: 30%))
