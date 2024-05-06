@@ -747,7 +747,7 @@ Eine solche Eigenwertanalyse kann auch nutzen, um das Langzeitverhalten von Lös
   ])
 ]
 
-#italic[Beweis:] Beweis von Satz 14.17 im Liesen/Mehrmann
+#italic[Beweis:] Beweis von Satz 14.18 im Liesen/Mehrmann
 #endproof
 
 Nun ist das Ziel:
@@ -772,7 +772,7 @@ Hier: Beweis über die Dualitätstheorie basirend auf einer Arbeit von V. Pt $mi
 
 == Dualräume
 
-#definition("2.9", "Linarform, Dualraum")[
+#definition("2.9", "Linearform, Dualraum")[
   Sei $V$ ein $K$-Vektorraum. Eine Abbildung $f in L(V, K)$ heißt #bold[Linearform]. Den $K$-Vektorraum $V^* := L(V,K)$ nennt man #bold[Dualraum].
 ]
 
