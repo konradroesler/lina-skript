@@ -793,3 +793,152 @@ $
 Linearformen auf $V$. 
 
 Basis des Dualraums?
+
+#theorem("2.11")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $B = {v_1 .., v_n}$ eine Basis von $V$. Dann gibt es genau eine Basis $B* = {v_1^*, ..., v_n^*}$ vno $V* = L(V, K)$ für die 
+  $
+  v_i^* (v_j) = delta_(i j) quad i, j = 1, ..., n
+  $
+  gilt. Diese Basis heißt die zu $B$ duale Basis.
+]
+
+#italic[Beweis:] Lemma 4.10: LinA I. Es gibt eine lineare Abbildung $v_i^*$ für die $v_i^* (v_j) = delta_(i j)$ für $j = 1, ..., n$, für $i = 1, ..., n$. Noch zu zeigen: $v_i^*$ sind Basis von $V^*$. Wir wissen schon: $dim (V^*) = n$. Also: Es reicht zu zeigen: ${v_i^*}_(i = 1, ..., n)$ linear unabhängig. Seien $mu_i  in K$ so, dass 
+$
+sum_(i = 1)^n mu_i v_i^* = 0 in V^* = L(V,K)
+$
+Dann gilt:
+$
+0_K = 0_(V^*) (v_j) = sum_(i = 1)^n mu_i v_i^* (v_j) = mu_j quad j = 1, ..., n
+$
+#endproof
+
+#definition("2.12", "duale Abbildung")[
+  Seien $V$ und $W$ zwei $K$-Vektorräume mit den zugehörigen Dualräumen $V^*$ und $W^*$ zu $f in L(V,W)$ heißt 
+  $
+  f^*: W^* -> V^*, quad f^* (h) = h circ f
+  $
+  die zu $f$ #bold[duale Abbildung].
+]
+
+#figure(image("bilder2/2_12.jpeg", width: 40%))
+
+Seien $U subset.eq V$ und $Z subset.eq V^*$ zwei Unterräume. Dann heißt die Menge 
+$
+U^0 := {k in V^* | h(u) = 0 "für alle" u in U}
+$
+#bold[Annihilator] vno  $U$ und die Menge
+$
+Z^0 := {v in V | z(v) = 0 "für alle" z in Z}
+$
+#bold[Annihilator] von $Z$.
+
+Man kann sich überlegen: 
+
+#boxedlist[
+  Die Mengen $U^0 subset.eq V^*$ und $Z^0 subset.eq V$ sind Untervektorräume von $V^*$ bzw $V$
+][
+  Es gilt für $f in L(V,V)$
+  $
+  (f^k)^* = (f^*)^k
+  $
+]
+Des Weiteren besitzt die duale Abbildung folgende Eigenschaften:
+
+#theorem("2.13")[
+  Sind $V, W$ und $X$ drei $K$-Vektorräume. Dann gilt 
+
+  #enum[
+    Ist $f in L(V,W)$, dann ist die duale Abbildung $f^*$ linear, d.h. $f^* in L(W^*, V^*)$
+  ][
+    Ist $f in L(V, W)$ und $g in L(W, X)$, dann ist $(g circ f)^* in L(X^*, V^*)$ und es gilt $(g circ f)^* = f^* circ g^*$
+  ][
+    Ist $f in L(V,W)$ bijektiv, dann ist $f^* in L(W^*, V^*)$ bijektiv und es gilt $(f^*)^(-1) = (f^(-1))^*$
+  ]
+]
+
+#italic[Beweis:] ÜB
+#endproof
+
+#theorem("2.14")[
+  Sei $V$ ein endlichdimensionaler Vektorraum, $f in L(V,V), f^* in L(V^*, V^*)$ und $U subset.eq V$, sowie $W subset.eq V^*$ zwei Vektorräume. Dann gilt:
+
+  #enum[
+    $dim(V) = dim(W) + dim(W^0)$
+  ][
+    Ist $f$ nilpotent vom Grad $m$, dann ist die duale Abbildung $f^*$ ebenfalls nitpotent vom Grad $m$.
+  ][
+    Ist $W subset.eq V^*$ ein $f^*$-invarianter Vektorraum, dann ist $W^0$ ein $f$-invarianter Unterraum.
+  ]
+]
+
+#italic[Beweis:] ÜA
+#endproof
+
+#definition("2.15", "nilpotent vom Grad m")[
+  Sei ${0} != V$ ein $K$-Vektorraum. Man nennt $f in L(V,V)$ #bold[nilpotent], wenn ein $m in NN$ existiert, so dass $f^m = 0 in L(V,V)$ gilt. Gilt für dieses $m$, dass $f^(m-1) != 0 in L(V,V)$, so heißt $f$ #bold[nilpotent vom Grad m] und $m$ is der #bold[Nilpotenzindex] von $f$.
+]
+
+#definition("2.16", [$f$-invarianter Unterraum])[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$, $U subset.eq V$ ein Unterraum und $f in L(V,V)$. Gilt $f(U) subset.eq U$, d.h. ist $f(u) in U$ für alle $u in U$, so nennt man $U$ einen $f$-invarianten Unterraum von $V$.
+]
+
+#definition("2.17", "Bilinearform")[
+  Seien $V$ und $W$ zwei $K$-Vektorräume. Eine Abbildung $a: V times W -> K$ heißt Bilinearform, wenn
+
+  #enum[
+    $a(dot, w): V -> K$ für alle $w in W$ eine lineare Abbildung ist und
+  ][
+    $a(v, dot): W -> K$ für alle $v in V$ eine lineare Abbildung ist
+  ]
+
+  Eine Bilinearform $a(dot , dot )$ heißt #bold[nicht ausgeartet] in der ersten Variable, wenn aus 
+  $
+  a(v, w) = 0 quad "für alle" w in W
+  $
+  folgt, dass $v = 0$ ist. Eine Bilinearform heißt nicht ausgeartet in der zweiten Variable, wenn aus 
+  $
+  a(v, w) = 0 quad "für alle" v in V
+  $
+  folgt, dass $w = 0$ ist. Falls $a(dot , dot )$ in beiden Variablen nicht ausgeartet ist, so nennt man $a(dot, dot)$ eine #bold[nicht ausgeartete Bilinearform] und die Räume $V,W$ ein #bold[duales Paar von Räumen] oder #bold[duales Raumpaar] bezüglich $a(dot , dot)$. Ist $V = W$, so heißt $a(dot,dot)$ eine #bold[Bilinearform auf $V$]. Eine Bilinearform $a(., .)$ auf $V$ heißt #bold[symmetrisch], wenn $a(v, w) = a(w, v)$ für alle $v, w in V$, ansonsten heißt $a(dot,dot)$ unsymmetrisch.
+] 
+
+#bold[Bemerkung:] Damit $V, W$ ein duales Raumpaar für eine nicht ausgeartete Bilinearform bilden können, muss $dim(V) = dim(W)$ gelten.
+
+#lemma("2.18")[
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum, $f in L(V,V)$, $f^* in L(V^*, V^*)$ die duale Abbildung zu $f$, $U subset.eq V$ und $W subset.eq V^*$ zwei Untervektorräume. Ist die Bilinearform
+  $
+  a: U times W -> K, (v, h) arrow.bar h(v)
+  $
+  nicht ausgeartet ist, d.h. sind $U$ und $W$ ein duales Raumpaar bezüglcih dieser Bilinearform, so ist
+  $
+  V = U oplus W^0 
+  $
+]
+
+#italic[Beweis:] Sei $u in U sect W^0$. Dann gilt $h(u) = 0$ für alle $h in W$. Weil $U, W$ ein duales Raumpaar bzgl. $a(dot ,dot )$ bilden, folgt $u = 0$. Außerdem $dim(U) = dim(W)$ gelten. Damit folgt aus Lemam 2.14, 1., dass 
+$
+dim(V) &= dim(W) + dim(W^0) \
+&= dim(U) + dim(W^0)
+$
+$==>$ $V = W oplus W^0$
+#endproof
+
+== Zyklische $f$-invariant Unterräume
+
+Jetzr: Genauere Analyse der Struktur von Eigenräumen
+
+#bold[Beispiel:] Ist $V$ ein $K$-Vektorraum, $f in L(V,V)$ und $lambda in K$ ein Eigenwert von $f$, so ist $"Eig"(f, lambda)$ ein $f$-invarianter Unterraum, da: Für $v in "Eig"(f, lambda)$ gilt $f(v) = lambda v in "Eig"(f, lambda)$.
+
+Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $f in L(V,V)$. Ist $v in V without {0}$, so existiert ein eindeutig definiertes $m = m(f, v) in NN$, sodass die Vektoren
+$
+v, f(v), f(f(v)), ..., f^(m-1)(v)
+$
+linear unabhängig, die Vektoren
+$
+v, f(v), ..., f^(m-1) (v)
+$
+jedoch linear abhängig sind. Wegen $dim(V) = n$, muss $m<=n$ gelten!
+
+#definition("2.19", [Grad von $V$])[
+  Die eindeutig definiert Zahl $m(f, v) in NN$ heißt Grad von $V$ bezüglich $f$.
+]
