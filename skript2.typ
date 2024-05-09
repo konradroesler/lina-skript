@@ -795,7 +795,7 @@ Linearformen auf $V$.
 Basis des Dualraums?
 
 #theorem("2.11")[
-  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $B = {v_1 .., v_n}$ eine Basis von $V$. Dann gibt es genau eine Basis $B* = {v_1^*, ..., v_n^*}$ vno $V* = L(V, K)$ für die 
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $B = {v_1 .., v_n}$ eine Basis von $V$. Dann gibt es genau eine Basis $B^* = {v_1^*, ..., v_n^*}$ von $V^* = L(V, K)$ für die 
   $
   v_i^* (v_j) = delta_(i j) quad i, j = 1, ..., n
   $
@@ -824,9 +824,9 @@ $
 
 Seien $U subset.eq V$ und $Z subset.eq V^*$ zwei Unterräume. Dann heißt die Menge 
 $
-U^0 := {k in V^* | h(u) = 0 "für alle" u in U}
+U^0 := {h in V^* | h(u) = 0 "für alle" u in U}
 $
-#bold[Annihilator] vno  $U$ und die Menge
+#bold[Annihilator] von  $U$ und die Menge
 $
 Z^0 := {v in V | z(v) = 0 "für alle" z in Z}
 $
@@ -844,7 +844,7 @@ Man kann sich überlegen:
 ]
 Des Weiteren besitzt die duale Abbildung folgende Eigenschaften:
 
-#theorem("2.13")[
+#lemma("2.13")[
   Sind $V, W$ und $X$ drei $K$-Vektorräume. Dann gilt 
 
   #enum[
@@ -859,8 +859,8 @@ Des Weiteren besitzt die duale Abbildung folgende Eigenschaften:
 #italic[Beweis:] ÜB
 #endproof
 
-#theorem("2.14")[
-  Sei $V$ ein endlichdimensionaler Vektorraum, $f in L(V,V), f^* in L(V^*, V^*)$ und $U subset.eq V$, sowie $W subset.eq V^*$ zwei Vektorräume. Dann gilt:
+#lemma("2.14")[
+  Sei $V$ ein endlichdimensionaler Vektorraum, $f in L(V,V)$, $f^* in$ $L(V^*, V^*)$ und $U subset.eq V$, sowie $W subset.eq V^*$ zwei Vektorräume. Dann gilt:
 
   #enum[
     $dim(V) = dim(W) + dim(W^0)$
