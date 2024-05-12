@@ -386,7 +386,7 @@ $
 
 #definition("1.17", "ähnliche Matrizen")[
   Zwei Matrizen $A, B in K^(n,n)$ heißen #bold[ähnlich], wenn es eine Matrix $T in "GL"_n (K)$ gibt, so dass $A = T B T^(-1)$ gilt.
-]
+] <def>
 
 Man kann leicht beweisen, dass die Ähnlichkeit von Matrizen eine Äquivalenzrelation auf der Menge der quadratischen Matrizen ist.
 
@@ -521,7 +521,7 @@ Weitere Beobachtung: Aus Lemma 1.13 und Lemma 1.19 folgt, dass die Eigenwerte vo
   p_f (lambda) = (lambda - tilde(lambda))^d dot tilde(p) (lambda)
   $
   für ein $tilde(p)(.) in KK[lambda]$ mit $tilde(p)(tilde(lambda)) != 0$, so nennt man $d$ die #bold[algebraische Vielfachheit] von $tilde(lambda)$ und bezeichnet sie $a(f, tilde(lambda))$.
-]
+] <def>
 
 #lemma("1.21")[
   Seien $V$ ein $K$-Vektorraum, $dim(V) = n < oo$, und $f in L(V,V)$. Für Eigenwert $tilde(lambda)$ von $f$ gilt 
@@ -558,7 +558,7 @@ $==>$ EW $tilde(lambda)$ ist mindestens $m$-fache Nullstelle von $p_f (lambda)$.
   $
   A_f^(B,B) = mat(lambda_1, ..., 0;dots.v,dots.down,dots.v;0,dots,lambda_n) in K^(n,n)
   $
-]
+] <def>
 Entsprechend nennen wir eine Matrix $A in K^(n,n)$ #bold[diagonalisierbar], wenn es eine Matrix $T in "GL"_n (K)$ und eine Diagonalmatrix $D in K^(n,n)$ gibt mit
 $
 A = T D T^(-1)
@@ -765,7 +765,7 @@ $
 
 #definition("2.8", "Jordan-Block")[
   Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$, $f in L(V,V)$ und $lambda_i$ ein Eigenwert von $f$. Eine Matrix der Form $(*)$ heißt #bold[Jordan-Block] der Größe $d_i$ zum Eigenwert $lambda_i$.
-]
+] <def>
 Wegen der Bedeutung der Jordan-Normalform gibt es zahlreiche Herleitungen mit unterschiedlichen mathematischen Hilfsmitteln.
 
 Hier: Beweis über die Dualitätstheorie basirend auf einer Arbeit von V. Pt $minus(a)$ k (1956)
@@ -774,7 +774,7 @@ Hier: Beweis über die Dualitätstheorie basirend auf einer Arbeit von V. Pt $mi
 
 #definition("2.9", "Linearform, Dualraum")[
   Sei $V$ ein $K$-Vektorraum. Eine Abbildung $f in L(V, K)$ heißt #bold[Linearform]. Den $K$-Vektorraum $V^* := L(V,K)$ nennt man #bold[Dualraum].
-]
+] <def>
 
 Gilt $dim(V) = n < oo$ so folgt aus Satz 5.18 LinA I, dass $dim(V^\*) = n$ gilt. Ist $B = {v_1, ..., v_n}$ eine Basis von $V$ und $C = {1}$ eine Basis des $K$-Vektorraum $K$, dann gilt für
 $
@@ -813,12 +813,12 @@ $
 #endproof
 
 #definition("2.12", "duale Abbildung")[
-  Seien $V$ und $W$ zwei $K$-Vektorräume mit den zugehörigen Dualräumen $V^*$ und $W^*$ zu $f in L(V,W)$ heißt 
+  Seien $V$ und $W$ zwei $K$-Vektorräume mit den zugehörigen Dualräumen $V^*$ und $W^*$. Für $f in L(V,W)$ heißt 
   $
   f^*: W^* -> V^*, quad f^* (h) = h circ f
   $
   die zu $f$ #bold[duale Abbildung].
-]
+] <def>
 
 #figure(image("bilder2/2_12.jpeg", width: 40%))
 
@@ -876,11 +876,11 @@ Des Weiteren besitzt die duale Abbildung folgende Eigenschaften:
 
 #definition("2.15", "nilpotent vom Grad m")[
   Sei ${0} != V$ ein $K$-Vektorraum. Man nennt $f in L(V,V)$ #bold[nilpotent], wenn ein $m in NN$ existiert, so dass $f^m = 0 in L(V,V)$ gilt. Gilt für dieses $m$, dass $f^(m-1) != 0 in L(V,V)$, so heißt $f$ #bold[nilpotent vom Grad m] und $m$ is der #bold[Nilpotenzindex] von $f$.
-]
+] <def>
 
 #definition("2.16", [$f$-invarianter Unterraum])[
   Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$, $U subset.eq V$ ein Unterraum und $f in L(V,V)$. Gilt $f(U) subset.eq U$, d.h. ist $f(u) in U$ für alle $u in U$, so nennt man $U$ einen $f$-invarianten Unterraum von $V$.
-]
+] <def>
 
 #definition("2.17", "Bilinearform")[
   Seien $V$ und $W$ zwei $K$-Vektorräume. Eine Abbildung $a: V times W -> K$ heißt Bilinearform, wenn
@@ -900,7 +900,7 @@ Des Weiteren besitzt die duale Abbildung folgende Eigenschaften:
   a(v, w) = 0 quad "für alle" v in V
   $
   folgt, dass $w = 0$ ist. Falls $a(dot , dot )$ in beiden Variablen nicht ausgeartet ist, so nennt man $a(dot, dot)$ eine #bold[nicht ausgeartete Bilinearform] und die Räume $V,W$ ein #bold[duales Paar von Räumen] oder #bold[duales Raumpaar] bezüglich $a(dot , dot)$. Ist $V = W$, so heißt $a(dot,dot)$ eine #bold[Bilinearform auf $V$]. Eine Bilinearform $a(., .)$ auf $V$ heißt #bold[symmetrisch], wenn $a(v, w) = a(w, v)$ für alle $v, w in V$, ansonsten heißt $a(dot,dot)$ unsymmetrisch.
-] 
+] <def>
 
 #bold[Bemerkung:] Damit $V, W$ ein duales Raumpaar für eine nicht ausgeartete Bilinearform bilden können, muss $dim(V) = dim(W)$ gelten.
 
@@ -909,7 +909,7 @@ Des Weiteren besitzt die duale Abbildung folgende Eigenschaften:
   $
   a: U times W -> K, (v, h) arrow.bar h(v)
   $
-  nicht ausgeartet ist, d.h. sind $U$ und $W$ ein duales Raumpaar bezüglcih dieser Bilinearform, so ist
+  nicht ausgeartet ist, d.h. sind $U$ und $W$ ein duales Raumpaar bezüglich dieser Bilinearform, so ist
   $
   V = U oplus W^0 
   $
@@ -941,4 +941,4 @@ jedoch linear abhängig sind. Wegen $dim(V) = n$, muss $m<=n$ gelten!
 
 #definition("2.19", [Grad von $V$])[
   Die eindeutig definiert Zahl $m(f, v) in NN$ heißt Grad von $V$ bezüglich $f$.
-]
+] <def>
