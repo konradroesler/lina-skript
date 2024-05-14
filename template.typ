@@ -62,7 +62,7 @@
   // Change the line spacing
   set par(
     leading: 0.65em, // 1em = font size
-    justify: true,
+    justify: false,
   )
 
   // Heading specifications 

@@ -570,7 +570,7 @@ D.h. $A$ ist ähnlich zu einer Diagonalmatrix.
 
   #box(width: 100%, inset: (left: 0.5cm, right: 0.5cm))[
     1. $f$ ist diagonalisierbar
-    2. Es gbit eine Basis $B$ von $V$ bestehend aus Eigenvektoren von $f$.
+    2. Es gibt eine Basis $B$ von $V$ bestehend aus Eigenvektoren von $f$.
     3. #[
       Das charakteristische Polynom $p_f (.)$ zerfällt in $n$ Linearfaktoren über $K$, d.h.
       $
@@ -941,4 +941,174 @@ jedoch linear abhängig sind. Wegen $dim(V) = n$, muss $m<=n$ gelten!
 
 #definition("2.19", [Grad von $V$])[
   Die eindeutig definiert Zahl $m(f, v) in NN$ heißt Grad von $V$ bezüglich $f$.
+  $
+  0 != v, f(v), f^2 (v), ..., f^(m-1) (v) "lin. unabh." \
+  v, f(v), ..., f^m (v) "lin. abh." 
+  $
+  $==>$ Grad $m$ von $v$, $m in NN$.
 ] <def>
+
+#bold[Bemerkungen:]
+
+#list[
+  Der Vektor $v = 0 in V$ ist lin. abhängig.
+  Deswegen muss man $v != 0$ fordern oder $m in NN union {0}$.
+][
+  Der Grad von $0 !0 v in V$ ist gleich 1, genau dann wenn $v, f(v)$ linear abhängig sind. Das ist genau dann der Fall wenn $v$ ein Eigenvektor von $f$ ist. Damit folgt auch: Ist $v in V$ kein Eigenvektor von $f$ und $v != 0$, so ist der Grad von $v$ also $m(v, f) >= 2$.
+]
+
+#definition("2.20", "Krylor-Raum")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$, $f in L(V,V)$, $v in V$ und $j in NN$. Der Unterraum 
+  $
+  cal(K)_j (f, v) := "Span"{v, f(v), f^2 (v), ..., f^(j-1) (v) } subset.eq V
+  $
+  heißt #bold[j-ter Krylor-Raum] von $f$ und $v$. 
+] <def>
+
+Alexei Krylor (russischer Schiffsbauingeneur und Mathematiker, 1863-1945). Krylor-Räume spielen auch eine wichtige Rolle für das CG-Verfahren (Conjugate Gradients).
+
+#lemma("2.21")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $f in L(V,V)$. Dann gilt:
+  
+  #enum[
+    Hat $0 != v in V$ den Grad $m$ bzgl. $f$, so ist $cal(K)_m (f,v)$ ein $f$-invarianter Unterraum und es gilt:
+    $
+    "Span" {v} = cal(K)_1 (f, v) subset cal(K)_2 (f,v) subset ... subset cal(K)_m (f, v) = cal(K)_(m+j) (f, v)
+    $
+    für alle $j in NN$.
+  ][
+    Hat $0 != v in V$ den  Grad $m$ bzgl. $f$ und ist $U subset.eq V$ ein $f$-invarianter Unterraum, so dass $v in U$, so ist
+    $
+    cal(K)_m (f,v) subset.eq U
+    $
+    D.h. betrachtet man alle $f$-invarianten Unterräume von $V$, die $v$ enthalten, so ist $cal(K)_m (f,v)$ derjenige mit der kleinsten Dimension.
+  ][
+    Gilt für $v in V$, dass $f^(m-1) (v) != 0$ und $f^m (v) = 0$ für ein $m in NN$, dann ist
+    $
+    dim(cal(K)_j (f, v)) = j quad "für" space j = 1, ..., m
+    $
+  ]
+]
+
+#italic[Beweis:]
+
+#enum[
+  ÜA
+][
+  Sei $U subset.eq V$ ein $f$-invarianter Unterraum mit $v in U$. Dann gilt $f^j (v) in U$ für $j = 1, ..., m-1$. Da $v$ den Grad $m$ hat, sind $v, f(v), ..., f^(m-1) (v)$ linear unabhängig.
+  $==>$ $cal(K)_m (f,v) subset.eq quad "und" quad dim(cal(K)_m (f,v)) = m <= dim (U)$
+][
+  Seien $mu_0, ...., mu_(m-1) in K$ so gewählt, dass 
+  $
+  0 = mu_0 v + mu_1 f(v) + ... + mu_(m -1) f^(m-1) (v)
+  $
+  gilt. Anwendung $f^(m-1)$
+  $
+  0 = mu_0 f^(m-1) (v) + mu_1 f^m (v) = mu_0 underbrace(f^(m-1) (v), != 0) \
+  ==> mu_0 = 0
+  $
+  Für $m > 1$ kann man dieses Argument induktiv für $f^(m-j)$, $j = 2, ..., m$, anwenden und erhält damit 
+  $
+  mu_1 = ... = mu_(m-1) = 0
+  $
+  $==>$ Beh.
+]
+#endproof
+
+#bold[Beobachtungen:] Hat $v$ den Grad $m$ bzgl. $f$ gilt 
+
+#list[
+  $cal(K)_j (f, v)$ ist für $j < m$ kein $f$-invarianter Unterraum, da $0 != f(f^(j-1)(v)) = f^j (v) in.not cal(K)_j (f,v)$
+][
+  wie oben gezeigt, bilden die Vektoren $v, f(v), ..., f^(m-1) (v)$ eine Basis von $cal(K)_m (f,v)$. Wendet man $f$ auf ein Element dieser Basis an, d.h. $f^(k+1) (v), k = 0, ..., m-1$, so erhält man für $k = m-1$ $f^(m)(v)$ als Linearkombination von $v, f(v), ..., f^(m-1)(v) ==> f^(m) (v) in cal(K)_m (f, v)$. Deswegen wird $cal(K)_m (f,v )$ auch #bold[zyklische invarianter Unterraum] zu $v$ von $f$ genannt.
+]
+
+#lemma("2.22")[
+  Sei ${0} != V$ ein $K$-Vektorraum. Ist $f in L(V,V)$ nilpotent vom Grad $m$, so gilt $m <= dim(V)$.
+]
+
+#italic[Beweis:] Nach Definition existiert ein $v in V$ mit $f^(m-1) (v) != 0$ und $f^(m)(v) = 0$. Lemma 2.21 sichert, dass $v, f(v), ..., f^(m-1)(v)$ linear unabhängig $==>$ $m <= dim(V)$.
+#endproof
+
+#bold[Beobachtung:] Sei $V$ ein $K$-Vektorraum und $f in L(V,V)$. Ist $U subset.eq V$ ein $f$-invarianter Unterraum, so gilt für die Einschränkung von $f$ auf $U, d.h.$
+$
+f|_U : U -> U, quad u -> f(u),
+$
+dass $f|_U in L(U, U)$.
+
+#theorem("2.23")[
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum und $f in L(V,V)$. Dann existieren $f$-invariante Unterräume und $f in L(V,V)$. Dann existieren $f$-invariante Unterräume $U subset.eq V$ und $W subset.eq V$, so dass gilt:
+  
+  #enum[
+    $V = U oplus W$
+  ][
+    $f|_U in L(U, U)$ ist bijektiv 
+  ][
+    $f|_W in L(W,W)$ ist nilpotent
+  ]
+]
+
+#italic[Beweis:] $v in ker(f)$. Dann gilt wegen der Linearität von $f$, sodass $f^2 (v) = f(f(v)) =^(f(v) = 0) 0 ==> ker(f) subset.eq ker(f^2)$
+
+Induktiv zeigt man:
+$
+{0} subset.eq ker(f) subset.eq ker(f^2) subset.eq f^3 subset.eq ...
+$
+Da $dim(V) < oo$, muss es eine kleinste Zahl $m in NN union {0}$ geben, so dass $ker(f^m) = ker(f^(m-j))$ für alle $j in NN$. Damit sehen wir 
+$
+U = im(f^m) quad "und" quad W = ker(f^m)
+$
+Zeige: $U$ und $W$ sind $f$-invariant. Sei $u in U$. Dann existiert $w in V$ mit $f^m (w) = u$ $==>$ $f(u) = f(f^m (w)) = f^m (f(w)) in U$. 
+
+Sei $w in W$. Dann gilt
+$
+f^(m) (f(w)) = f (f^m (w)) = 0 ==> f(w) in W
+$
+Also existieren $f$-invariante Unterräume $U subset.eq V$ und $W subset.eq V$.
+
+#enum[
+  Es gilt $U + W subset.eq V$. Die Dimensionsformel für lineare Abbildungen (Satz 4.16, LinA I) liefert für $f^m$, dass
+  $
+  dim(V) = dim(U) + dim(W)
+  $
+  Ist $v in U sect W$ $==>$ $exists w in V: v = f^m (w) (v in U)$
+  $
+  v in W ==> 0 = f^m (v) = f^m (f^m (v)) = f^(2m) (v)
+  $
+  Es gilt $ker(f^m) = ker(f^(2m)) ==> v = f^m (v) = 0$ 
+
+  $==> V = U oplus W$
+][
+  Sei $v in ker(f|_k) subset.eq U$. Dann existiert ein $w in V$, so dass $f^m (w) = v$ gilt. $==>$ $0 = f(v) = f(f^m (w)) = f^(m+1) (w)$. Mit $ker(f^m) = ker(f^(m+1)) ==> w in ker(f^m) ==> v = f^m (w) = 0$ $==>$ $f$ injektiv.
+
+  Aus der Dimensionsformel folgt, dass $f$ surjektiv ist.
+][
+  Sei $v in W$. Dann gilt 
+  $
+  0 = f^m (v) = (f|_W)^m (v)
+  $
+  $==>$ $(f|_W)^m = 0 in L(W,W)$, d.h. $(f|_W)^m$ ist die Nullabbildung $==>$ $f|_W$ nilpotent.
+]
+
+#theorem("2.24")[
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum, $f in L(V,V)$ nilpotent vom Grad $m$, $v in V$ ein beliebiger Vektor mit $f^(m-1) (v) != 0$ und $h in V^\*$ mit $h(f^(m-1)(v)) != 0$. Dann sind $v$ und $h$ vom Grad $m$ bzgl. $f$ und $f^\*$. Die beiden Räume $cal(K)_m (f,v)$ bzw. $cal(K)_M (f^\*, h)$ sind zyklisch$f$- bzw. $f^\*$-invariante Unterräume von $V$ bzw. $V^\*$. Sie bilden ein duales Raumpaar bzgl. der Bilinearform
+  $
+  a: V times V^\* -> K, quad (v,h) arrow.bar h(v)
+  $
+  und es gilt 
+  $
+  V = cal(K)_m (f, v) oplus (cal(K)_m (f^\*, k))^0
+  $
+  Hierbei ist $cal(K)_m (f^\*, h)^0$ ein $f$-invarianter Unterraum von $V$.
+]
+
+#italic[Beweis:] Für $v in V$ gilt $f^(m-1) (v) != 0$. Lemma 2.20 $==>$ $cal(K)_m (f, v)$ $m$-dimensionaler zyklischer $f$-invarianter Unterraum von $V$. Für $V^\*$ gilt
+$
+0 != h(f^(m-1)(v)) = (f^\*)^(m-1) (h) (v)
+$
+Dann ist $0 != (f^\*)^(m-1) (h) in L(V^\*, V^\*)$. $f$ nilpotent von Grad $m$ $==>$ (Lemma 2.14) $f^\*$ nilpotent von Grad $m$ $==>$
+$
+(f^\*)^m (h) = 0 in L(V^\*, V^\*)
+$
+$==>$ (Lemma 2.20) $cal(K)_m (f^\*, h)$ ist $m$-dimensionaler zyklischer $f^\*$-invarianter Unterraum von $V\*$.
+
