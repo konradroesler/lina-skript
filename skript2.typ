@@ -957,15 +957,15 @@ jedoch linear abhängig sind. Wegen $dim(V) = n$, muss $m<=n$ gelten!
   Der Grad von $0 !0 v in V$ ist gleich 1, genau dann wenn $v, f(v)$ linear abhängig sind. Das ist genau dann der Fall wenn $v$ ein Eigenvektor von $f$ ist. Damit folgt auch: Ist $v in V$ kein Eigenvektor von $f$ und $v != 0$, so ist der Grad von $v$ also $m(v, f) >= 2$.
 ]
 
-#definition("2.20", "Krylor-Raum")[
+#definition("2.20", "Krylov-Raum")[
   Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$, $f in L(V,V)$, $v in V$ und $j in NN$. Der Unterraum 
   $
   cal(K)_j (f, v) := "Span"{v, f(v), f^2 (v), ..., f^(j-1) (v) } subset.eq V
   $
-  heißt #bold[j-ter Krylor-Raum] von $f$ und $v$. 
+  heißt #bold[j-ter Krylov-Raum] von $f$ und $v$. 
 ] <def>
 
-Alexei Krylor (russischer Schiffsbauingeneur und Mathematiker, 1863-1945). Krylor-Räume spielen auch eine wichtige Rolle für das CG-Verfahren (Conjugate Gradients).
+Alexei Krylov (russischer Schiffsbauingeneur und Mathematiker, 1863-1945). Krylov-Räume spielen auch eine wichtige Rolle für das CG-Verfahren (Conjugate Gradients).
 
 #lemma("2.21")[
   Sei $V$ ein $K$-Vektorraum mit $dim(V) = n < oo$ und $f in L(V,V)$. Dann gilt:
