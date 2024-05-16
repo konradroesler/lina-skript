@@ -1194,7 +1194,7 @@ $lambda_1 = 1:$ Es gilt $ker(g_1^3) = ker(g_1^4)$ für $g_1 := f - lambda_1 "Id"
 $==> m_1 = 3$
 
 $
-U_1 = "Span"{vec(0,1,2,3,-2)} wide W_1 = "Span"{(1,-1,1,0,1),vec(1,1,1,0,-1),vec(0,0,1,1,0),vec(0,0,0,0,1)}
+U_1 = "Span"{vec(0,1,2,3,-2)} wide W_1 = "Span"{vec(1,-1,1,0,1),vec(1,1,1,0,-1),vec(0,0,1,1,0),vec(0,0,0,0,1)}
 $
 
 $lambda_2 = 2:$ Für $g_2 = f-lambda_2 "Id"_V$ gilt $ker(g_2) = ker(g_2^2)$
