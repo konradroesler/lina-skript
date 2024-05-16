@@ -1,3 +1,4 @@
+
 #let sspace = [
   #h(100cm)
 ]
@@ -89,3 +90,5 @@
 
 #let sgn = $"sgn"$
 #let char = $"char"$
+
+#let staudihaufen = $#h(8pt) #move(dy: -0.3em, scale(200%, $. #h(-1.414pt) dot #h(-1.414pt) .$)) #h(8pt)$

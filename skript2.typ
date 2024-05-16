@@ -935,7 +935,7 @@ v, f(v), f(f(v)), ..., f^(m-1)(v)
 $
 linear unabhängig, die Vektoren
 $
-v, f(v), ..., f^(m-1) (v)
+v, f(v), ..., f^(m) (v)
 $
 jedoch linear abhängig sind. Wegen $dim(V) = n$, muss $m<=n$ gelten!
 
@@ -954,7 +954,7 @@ jedoch linear abhängig sind. Wegen $dim(V) = n$, muss $m<=n$ gelten!
   Der Vektor $v = 0 in V$ ist lin. abhängig.
   Deswegen muss man $v != 0$ fordern oder $m in NN union {0}$.
 ][
-  Der Grad von $0 !0 v in V$ ist gleich 1, genau dann wenn $v, f(v)$ linear abhängig sind. Das ist genau dann der Fall wenn $v$ ein Eigenvektor von $f$ ist. Damit folgt auch: Ist $v in V$ kein Eigenvektor von $f$ und $v != 0$, so ist der Grad von $v$ also $m(v, f) >= 2$.
+  Der Grad von $0 != v in V$ ist gleich 1, genau dann wenn $v, f(v)$ linear abhängig sind. Das ist genau dann der Fall wenn $v$ ein Eigenvektor von $f$ ist. Damit folgt auch: Ist $v in V$ kein Eigenvektor von $f$ und $v != 0$, so ist der Grad von $v$ also $m(v, f) >= 2$.
 ]
 
 #definition("2.20", "Krylov-Raum")[
@@ -996,7 +996,7 @@ Alexei Krylov (russischer Schiffsbauingeneur und Mathematiker, 1863-1945). Krylo
   ÜA
 ][
   Sei $U subset.eq V$ ein $f$-invarianter Unterraum mit $v in U$. Dann gilt $f^j (v) in U$ für $j = 1, ..., m-1$. Da $v$ den Grad $m$ hat, sind $v, f(v), ..., f^(m-1) (v)$ linear unabhängig.
-  $==>$ $cal(K)_m (f,v) subset.eq quad "und" quad dim(cal(K)_m (f,v)) = m <= dim (U)$
+  $==>$ $cal(K)_m (f,v) subset.eq U quad "und" quad dim(cal(K)_m (f,v)) = m <= dim (U)$
 ][
   Seien $mu_0, ...., mu_(m-1) in K$ so gewählt, dass 
   $
@@ -1037,7 +1037,7 @@ $
 dass $f|_U in L(U, U)$.
 
 #theorem("2.23")[
-  Sei $V$ ein endlichdimensionaler $K$-Vektorraum und $f in L(V,V)$. Dann existieren $f$-invariante Unterräume und $f in L(V,V)$. Dann existieren $f$-invariante Unterräume $U subset.eq V$ und $W subset.eq V$, so dass gilt:
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum und $f in L(V,V)$. Dann existieren $f$-invariante Unterräume $U subset.eq V$ und $W subset.eq V$, so dass gilt:
   
   #enum[
     $V = U oplus W$
@@ -1052,7 +1052,7 @@ dass $f|_U in L(U, U)$.
 
 Induktiv zeigt man:
 $
-{0} subset.eq ker(f) subset.eq ker(f^2) subset.eq f^3 subset.eq ...
+{0} subset.eq ker(f) subset.eq ker(f^2) subset.eq ker(f^3) subset.eq ...
 $
 Da $dim(V) < oo$, muss es eine kleinste Zahl $m in NN union {0}$ geben, so dass $ker(f^m) = ker(f^(m-j))$ für alle $j in NN$. Damit sehen wir 
 $
@@ -1093,7 +1093,7 @@ Also existieren $f$-invariante Unterräume $U subset.eq V$ und $W subset.eq V$.
 #theorem("2.24")[
   Sei $V$ ein endlichdimensionaler $K$-Vektorraum, $f in L(V,V)$ nilpotent vom Grad $m$, $v in V$ ein beliebiger Vektor mit $f^(m-1) (v) != 0$ und $h in V^\*$ mit $h(f^(m-1)(v)) != 0$. Dann sind $v$ und $h$ vom Grad $m$ bzgl. $f$ und $f^\*$. Die beiden Räume $cal(K)_m (f,v)$ bzw. $cal(K)_M (f^\*, h)$ sind zyklisch$f$- bzw. $f^\*$-invariante Unterräume von $V$ bzw. $V^\*$. Sie bilden ein duales Raumpaar bzgl. der Bilinearform
   $
-  a: V times V^\* -> K, quad (v,h) arrow.bar h(v)
+  a: cal(K)_m (f, v) times cal(K)_m (f^*, h) -> K, quad (macron(v),macron(h)) arrow.bar macron(h)(macron(v))
   $
   und es gilt 
   $
@@ -1111,4 +1111,155 @@ $
 (f^\*)^m (h) = 0 in L(V^\*, V^\*)
 $
 $==>$ (Lemma 2.20) $cal(K)_m (f^\*, h)$ ist $m$-dimensionaler zyklischer $f^\*$-invarianter Unterraum von $V\*$.
+
+Nun zu zeigen: $cal(K)_m (f,v), cal(K)_m (f^*, h)$ sind ein duales Raumpaar. Sei
+$
+macron(v) = sum_(i = 0)^(m-1) mu_i f^i (v) space in cal(K)_m (f,v)
+$
+so gewählt, dass
+$
+macron(h)(macron(v)) = a(macron(v), macron(h)) = 0 quad forall macron(h) in cal(K)_m (f^*, h)
+$
+Zeige induktiv, dass $mu_k = 0, k = 0 , ..., m-1$. Wegen $((f^*)^(m-1)(h)) in cal(K)_m (f^*, h)$ folgt
+$
+0 = ((f^*)^(m-1)(h))(macron(v)) = h(f^(m-1) (macron(v))) = sum_(i = 0)^(m-1) mu_i h(f^(m-1+i)(v)) = mu_0 underbrace(h(f^(m-1)(v)), != 0) \
+==> mu_0 = 0
+$
+Sei nun $mu_0 = ... = mu_(k - 1) = 0$ fü ein $k in {1, ..., m-2}$. Wegen $(f^*)^(m-1-k)(h) in cal(K)_m (f^*, h)$ folgt aus der Darstellung von $macron(v)$, dass
+$
+0^((*)) = ((f^*)^(m-1-k)) (h))(macron(v) = h(f^(m-1-k) (macron(v)))) = sum_(i = 0)^(m-1) mu_I h(f^(m-i+i-k) (v)) = mu_k underbrace(h(f^(m-1)(v)), != 0) = mu_k \
+==> macron(v) = 0
+$
+$==> a(.,.)$ ist nicht ausgeartet in der ersten Komponente. Analog zeigt man, dass $a(., .)$ auch in der zweiten Kompontente nicht ausgeartet ist $==>$ $cal(K)_m (f, v)$ und $cal(K)_m (f^*, h)$ sind ein duales Raumpaar.
+
+Mit Lemma 2.16: $V = cal(K)_m (f, v) oplus (cal(K)_m (f^*, h))^0$
+
+Mit Lemma 2.14, 3: $(cal(K)_m (f^*, h))^0$ ist $f$-invarianter UR von $V$.
+#endproof
+
+(zyklisch $f$-invarianter UR: $v, f(v), f^2 (v), ...$)
+
+== Die Jordan-Normalform
+
+#theorem("2.25")[
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum und $f in L(V,V)$. Ist $lambda in K$ ein Eigenwert von $f$, dann gibt es $f$-invariante Unterräume $U subset V$ und ${0} != W subset.eq V$, so dass
+  #enum[
+    $V = U oplus W$
+  ][
+    die Abbildung $f|_U - lambda "Id"_U$ ist bijektiv und
+  ][
+    die Abbildung $f|_W - lambda "Id"_W$ ist nilpotent
+  ]
+  Des Weiteren ist $lambda$ kein Eigenwert von $f|_U$.
+]
+
+#italic[Beweis:] Wir definieren
+$
+g := f - lambda "Id"_V in L(V,V)
+$
+Satz 2.23: $exists$ $g$-invariante UR $U subset.eq V$ und $W subset.eq V$:
+$
+V = U oplus W, space g|_U "bijektiv", space g|_W "nilpotent"
+$
+Annahme: ${0} = W ==> V = U$
+$
+==> g|_U = g|_V = g space "bijektiv"
+$
+$lambda$ ist Eigenwert von $f ==> exists 0 != v: f(v) = lambda v$
+$
+&==> g(v) = f(v) - lambda v = lambda v - lambda v = 0 \
+&==> ker(g) supset.eq {0,v} != {0} space arrow.zigzag space g "bijektiv" \
+&==> U subset V
+$
+Annahme: $lambda$ ist Eigenwert von $f|_U$
+$
+&==> exists 0!= v in U: f(v) = lambda v \
+&==> g|_U (v) = f(v) - lambda v = lambda v - lambda v = 0 space arrow.zigzag space g|_U "bijektiv"
+$
+#endproof
+
+#bold[Beispiel 2.26:] Wie betrachten $V = RR^5$, die Standardbasis $E$ und $f in L(V,V)$ gegeben durch
+$
+A = mat(-3,-1,4,-3,-1;1,1-1,1,0;-1,0,2,0,0;4,1,-4,5,1;-2,0,2,-2,1)
+$
+Dann gilt
+$
+p_f (lambda) = p_A (lambda) = (lambda-1)^4 (lambda-2)^1 \
+==> "EW:" 1,2 quad a(f, 1) = 4 quad a(f,2) = 1
+$
+$==>$ $p_A (.)$ zerfällt in Linearfaktoren
+
+$lambda_1 = 1:$ Es gilt $ker(g_1^3) = ker(g_1^4)$ für $g_1 := f - lambda_1 "Id"_V$
+
+$==> m_1 = 3$
+
+$
+U_1 = "Span"{vec(0,1,2,3,-2)} wide W_1 = "Span"{(1,-1,1,0,1),vec(1,1,1,0,-1),vec(0,0,1,1,0),vec(0,0,0,0,1)}
+$
+
+$lambda_2 = 2:$ Für $g_2 = f-lambda_2 "Id"_V$ gilt $ker(g_2) = ker(g_2^2)$
+
+$==> m_2 = 1$
+$
+U_2 = "Span"{vec(-5,1,-1,4,-2), vec(-1,-1,0,1,0), vec(4,-1,0,-4,2), vec(-3,1,0,3,-2)}, W_2 = "Span"{vec(0,1,2,3,-2)}
+$
+Beobachtung: $dim(W_1) = a(f, lambda_1)$, $dim(W_2) = a(f, lambda_2)$
+
+#theorem("2.27")[
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum und $f in L(V,V)$. Ist $lambda in K$ ein Eigenwert von $f$, dann existieren für den Unterraum $W$ aus Satz 2.25 Vektoren $w_1, ..., w_k in W$ und $d_1, ..., d_k in NN$, so dass 
+  $
+  W = cal(K)_(d_1) (f, w_1) oplus cal(K)_(d_2) (f, w_2) oplus ... oplus cal(K)_(d_k) (f, w_k)
+  $
+  Des Weiteren gibt es eine Basis $B$ von $W$, so dass
+  $
+  A_(f|_W)^(B,B) = mat(J_(d_1) (lambda),,0;,dots.down,,;0,,J_(d_k) (lambda))
+  $
+]
+
+#italic[Beweis:] Sei wie in Satz 2.25 $g := f - lambda "Id"_V$ und $g_1 := g|_W$ nilpotent vom Grad $d_1$. Dann gilt $1 <= d_1 <= dim(W)$.
+
+Sei $w_1 in W$ ein Vektor mit $g_1^(d_1 -1) (w_1) != 0$. Wegen $g^(d_1) (w_1) = 0$
+
+$==>$ $g_1^(d_1-1) (w_1)$ ist ein Eigenvektor von $g_1$ zum Eigenwert $0$.
+
+Lemma 2.21, 3, liefert, dass die $d_1$ Vektoren
+$
+{w_1, g(w_1), ...., g_1^(d_1-1) (w)}
+$
+linear unabhängig sind. Außerdem ist $W_1 := cal(K)_(d_1) (g_1, w_1)$ ein $d_1$-dimensionaler zyklischer $g_1$-invarianter UR von $W$. Also ist
+$
+B_1 := {g_1^(d_1-1)(w_1), g_1^(d_1-2) (w_2), ..., g_1 (w_1), w_1}
+$
+eine Basis von $cal(K)_(d_1) (g_1, w_1) = W_1$ und 
+$
+A_(g_1 |_(W_1))^(B_1, B_1) = mat(0,1,,0;,dots.down,dots.down,;,,dots.down,1;0,,,0) = J_(d_1) (0) in K^(d_1, d_1)
+$
+Per Definition gilt $A_(g_1|_(W_1))^(B_1, B_1) = A_(g|_(W_1))^(B_1, B_1)$. Ist $d_1 = dim(W)$: siehe unten $staudihaufen$.
+
+Sei nun $d_1 < dim(W)$. Satz 2.25 sichert, dass es für $g_1 in L(W,W)$ einen $g_1$-invarianten Untteraum $tilde(W) != {0}$ mit $W = W_1 oplus tilde(W)$ gibt.
+
+Die Abbildung $g_2 := g_1 |_tilde(W)$ ist nilpotent vom Grad $lambda_2$ mit $1 <= d_2 <= d_1$.
+
+Wiederholung der Konstruktion: 
+
+$exists w_2 in tilde(W): g_2^(d_2 -1)(w_1) != 0, ..., W_2 := cal(K)_(d_2) (g_2, w_2)$ ... UR von $tilde(W) subset.eq W$,
+$
+B_2 := {g_2^(d_2-1) (w_2) , g_2^(d_2-2) (w_2), ..., g_2 (w_2), w_2}
+$
+$
+A_(g|_(W_2))^(B_2, B_2) = A_(g_2 |_(W_2))^(B_2, B_2) = mat(0,1,,0;,dots.down,dots.down,;,,dots.down,1;0,,,0)
+$
+Nach $k <= dim(W)$ Schritten muss dies Konstruktion abbrechen und es gilt
+$
+W &= cal(K)_(d_1) (g_1, w_1) oplus cal(K)_(d_2) (g_2, w_2) oplus ... oplus cal(K)_(d_K) (g_k, w_K) \
+&= cal(K)_(d_1) (g, w_1) oplus cal(K)_(d_2) (g,w_2) oplus ... oplus cal(K)_(d_2) (g, w_k)
+$
+Vereinigt man die Basen $B_1, ..., B_k$ zu einer Basis $B$ von $W$ (direkte Summe!), soerhält man
+$
+A_(g|_W)^(B,B) = mat(A_(g|_(W_1))^(B_1, B_1),,0;,dots.down,;0,,A_(g|_(W_k))^(B_k, B_k)) = mat(J_(d_1) (0 ),,0;,dots.down,;0,,J_(d_k) (0))
+$
+Jetzt: Übertragung auf $f = g + lambda "Id"_V$. Man kann sich leicht überlegen, dass jeder $g$-invariante Unterraum von $V$ auch $f$-invariant ist und damit gilt:
+$
+cal(K)_(d_i) (f, w_i) = cal(K)_(d_i) (g, w_i) space "für" i = 1, ..., k
+$
 
