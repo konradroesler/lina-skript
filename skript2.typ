@@ -939,8 +939,8 @@ v, f(v), ..., f^(m) (v)
 $
 jedoch linear abhängig sind. Wegen $dim(V) = n$, muss $m<=n$ gelten!
 
-#definition("2.19", [Grad von $V$])[
-  Die eindeutig definiert Zahl $m(f, v) in NN$ heißt Grad von $V$ bezüglich $f$.
+#definition("2.19", [Grad von $v$])[
+  Die eindeutig definiert Zahl $m(f, v) in NN$ heißt Grad von $v$ bezüglich $f$.
   $
   0 != v, f(v), f^2 (v), ..., f^(m-1) (v) "lin. unabh." \
   v, f(v), ..., f^m (v) "lin. abh." 
@@ -1091,26 +1091,26 @@ Also existieren $f$-invariante Unterräume $U subset.eq V$ und $W subset.eq V$.
 ]
 
 #theorem("2.24")[
-  Sei $V$ ein endlichdimensionaler $K$-Vektorraum, $f in L(V,V)$ nilpotent vom Grad $m$, $v in V$ ein beliebiger Vektor mit $f^(m-1) (v) != 0$ und $h in V^\*$ mit $h(f^(m-1)(v)) != 0$. Dann sind $v$ und $h$ vom Grad $m$ bzgl. $f$ und $f^\*$. Die beiden Räume $cal(K)_m (f,v)$ bzw. $cal(K)_M (f^\*, h)$ sind zyklisch$f$- bzw. $f^\*$-invariante Unterräume von $V$ bzw. $V^\*$. Sie bilden ein duales Raumpaar bzgl. der Bilinearform
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum, $f in L(V,V)$ nilpotent vom Grad $m$, $v in V$ ein beliebiger Vektor mit $f^(m-1) (v) != 0$ und $h in V^*$ mit $h(f^(m-1)(v)) != 0$. Dann sind $v$ und $h$ vom Grad $m$ bzgl. $f$ und $f^*$. Die beiden Räume $cal(K)_m (f,v)$ bzw. $cal(K)_m (f^*, h)$ sind zyklisch$f$- bzw. $f^*$-invariante Unterräume von $V$ bzw. $V^*$. Sie bilden ein duales Raumpaar bzgl. der Bilinearform
   $
   a: cal(K)_m (f, v) times cal(K)_m (f^*, h) -> K, quad (macron(v),macron(h)) arrow.bar macron(h)(macron(v))
   $
   und es gilt 
   $
-  V = cal(K)_m (f, v) oplus (cal(K)_m (f^\*, k))^0
+  V = cal(K)_m (f, v) oplus (cal(K)_m (f^*, h))^0
   $
-  Hierbei ist $cal(K)_m (f^\*, h)^0$ ein $f$-invarianter Unterraum von $V$.
+  Hierbei ist $cal(K)_m (f^*, h)^0$ ein $f$-invarianter Unterraum von $V$.
 ]
 
-#italic[Beweis:] Für $v in V$ gilt $f^(m-1) (v) != 0$. Lemma 2.20 $==>$ $cal(K)_m (f, v)$ $m$-dimensionaler zyklischer $f$-invarianter Unterraum von $V$. Für $V^\*$ gilt
+#italic[Beweis:] Für $v in V$ gilt $f^(m-1) (v) != 0$. Lemma 2.20 $==>$ $cal(K)_m (f, v)$ $m$-dimensionaler zyklischer $f$-invarianter Unterraum von $V$. Für $V^*$ gilt
 $
-0 != h(f^(m-1)(v)) = (f^\*)^(m-1) (h) (v)
+0 != h(f^(m-1)(v)) = (f^*)^(m-1) (h) (v)
 $
-Dann ist $0 != (f^\*)^(m-1) (h) in L(V^\*, V^\*)$. $f$ nilpotent von Grad $m$ $==>$ (Lemma 2.14) $f^\*$ nilpotent von Grad $m$ $==>$
+Dann ist $0 != (f^*)^(m-1) (h) in L(V^*, V^*)$. $f$ nilpotent von Grad $m$ $==>$ (Lemma 2.14) $f^*$ nilpotent von Grad $m$ $==>$
 $
-(f^\*)^m (h) = 0 in L(V^\*, V^\*)
+(f^*)^m (h) = 0 in L(V^*, V^*)
 $
-$==>$ (Lemma 2.20) $cal(K)_m (f^\*, h)$ ist $m$-dimensionaler zyklischer $f^\*$-invarianter Unterraum von $V\*$.
+$==>$ (Lemma 2.20) $cal(K)_m (f^*, h)$ ist $m$-dimensionaler zyklischer $f^*$-invarianter Unterraum von $V^*$.
 
 Nun zu zeigen: $cal(K)_m (f,v), cal(K)_m (f^*, h)$ sind ein duales Raumpaar. Sei
 $
