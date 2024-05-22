@@ -1054,7 +1054,7 @@ Induktiv zeigt man:
 $
 {0} subset.eq ker(f) subset.eq ker(f^2) subset.eq ker(f^3) subset.eq ...
 $
-Da $dim(V) < oo$, muss es eine kleinste Zahl $m in NN union {0}$ geben, so dass $ker(f^m) = ker(f^(m-j))$ für alle $j in NN$. Damit sehen wir 
+Da $dim(V) < oo$, muss es eine kleinste Zahl $m in NN union {0}$ geben, so dass $ker(f^m) = ker(f^(m+j))$ für alle $j in NN$. Damit sehen wir 
 $
 U = im(f^m) quad "und" quad W = ker(f^m)
 $
@@ -1251,10 +1251,10 @@ A_(g|_(W_2))^(B_2, B_2) = A_(g_2 |_(W_2))^(B_2, B_2) = mat(0,1,,0;,dots.down,dot
 $
 Nach $k <= dim(W)$ Schritten muss dies Konstruktion abbrechen und es gilt
 $
-W &= cal(K)_(d_1) (g_1, w_1) oplus cal(K)_(d_2) (g_2, w_2) oplus ... oplus cal(K)_(d_K) (g_k, w_K) \
+W &= cal(K)_(d_1) (g_1, w_1) oplus cal(K)_(d_2) (g_2, w_2) oplus ... oplus cal(K)_(d_K) (g_k, w_k) \
 &= cal(K)_(d_1) (g, w_1) oplus cal(K)_(d_2) (g,w_2) oplus ... oplus cal(K)_(d_2) (g, w_k)
 $
-Vereinigt man die Basen $B_1, ..., B_k$ zu einer Basis $B$ von $W$ (direkte Summe!), soerhält man
+Vereinigt man die Basen $B_1, ..., B_k$ zu einer Basis $B$ von $W$ (direkte Summe!), so erhält man
 $
 A_(g|_W)^(B,B) = mat(A_(g|_(W_1))^(B_1, B_1),,0;,dots.down,;0,,A_(g|_(W_k))^(B_k, B_k)) = mat(J_(d_1) (0 ),,0;,dots.down,;0,,J_(d_k) (0))
 $
@@ -1262,4 +1262,144 @@ Jetzt: Übertragung auf $f = g + lambda "Id"_V$. Man kann sich leicht überlegen
 $
 cal(K)_(d_i) (f, w_i) = cal(K)_(d_i) (g, w_i) space "für" i = 1, ..., k
 $
+$
+==>^"ÜA" W = cal(K)_(d_1) (f, w_1) oplus ... oplus cal(K)_(d_k) (f, w_k)
+$
+Für $j in {1, ... k}$ und $0 <= l <= d_j -1$ ist
+$
+f(g^l (w_j)) &= g(g^l (w_j)) + lambda g^l (w_j) \
+&= lambda g^l (w_j) + underbrace(g^(l+1) (w_j), = 0\, l = d_j -1)
+$
+$
+==> A_(f|_W)^(B,B) = mat(A_(f|_W_1)^(B_1,B_1),,0;,dots.down,;0,,A_(f|_W_k)^(B_k, B_k)) = mat(J_d_1 (lambda),,0;,dots.down,;0,,J_d_k (lambda))
+$
+#endproof
 
+#bold[Beispiel 2.28:] Fortsetzung von Bsp 2.26 
+#let gorone = $#text(fill: orange)[1]$ //orange one =^ gorone
+$
+A = mat(-3,-1,4,-3,-1;1,1,-1,1,0;-1,0,2,0,0;4,1,-4,5,1;-2,0,2,-2,1) wide "EW:" quad #stack(spacing: 1em, [$lambda_1 = 1, a(f, lambda_1) = 4 = dim(W_1)$],[$lambda_2 = 2, a(f, lambda_2) = 1 = dim(W_2)$])
+$
+$lambda_gorone = 1$: $g^gorone_(|_W_1)$ nilpotent vom Grad $lambda_1^gorone = 3$ und $1<d_1^gorone<dim(W_1)$
+
+Erinnerung: $g_1^gorone = f - lambda_gorone I_d$. Für $w_1^gorone = mat(0,0,0,0,1)^T$ ist $(g_1^gorone)^2 (w_1) = mat(1,0,1,0,0)^T != 0$ und $(g_1^gorone)^3 (w_1) = 0 in V = RR^5$.
+
+Mit Lemma 2.21: 
+$
+{w_1, (g_1^gorone)^1 (w_1^gorone), (g_1^gorone)^2 (w_1^gorone)} = {vec(0,0,0,0,1), vec(-1,0,0,1,0), vec(1,0,1,0,0)}
+$
+$
+==> "Span"{w_1, g_1^gorone (w_1^gorone), (g_1^gorone)^2 (w_1)} = cal(K)_3 (g_1^gorone, w_1^gorone)
+$
+$d_1^gorone < dim(W_1) ==>$  es existiert zu $W_(1 1) := cal(K) (g_1^gorone, w_1^gorone)$ ein $tilde(W)_1 != {0}$ mit $W_1 = W_(1 1) oplus tilde(W)_1$.
+
+Zum Beispiel: $w_2^gorone = mat(1,-1,1,0,1)^T$ $==>$
+$
+w_2^gorone, w_1^gorone, g_1^gorone (w_1^gorone), (g_1^gorone)^2 (w_1^gorone) quad "lin. unab." \
+tilde(W)_1 := "Span"{w_2^gorone} sect cal(K)_3 (g_1^gorone, w_1^gorone) = {0}
+$
+Es gilt $g_2^gorone := g_1^gorone|_tilde(W)_1$ nilpotent vom Grad $1$
+$
+==> d_2^gorone = 1 wide W_1 = cal(K)_3(g_1^gorone, w_1^gorone) oplus cal(K)_1 (g_2^gorone, w_2^gorone)
+$
+
+#let gorto = $#text(fill: orange)[2]$ 
+Weitherhin kann man nachrechnen
+$
+cal(K)_3 (f, w_1^gorone) = "Span"{w_1, g_1^gorone (w_1^gorone), (g_1^gorone)^2 (w_1^gorone)} = cal(K)_3 (g_1^gorone, w_1^gorone) \
+cal(K)_1 (f, w_2) = "Span"{w_2^gorone} = cal(K)_1 (g_2^gorone, w_2^gorone)
+$
+$lambda_gorto = 2$: 
+$
+&g_1^gorto |_W_2 "nilpotent vom Grad" lambda_1^gorto = 1 \
+&lambda_1^2 = dim(W_2) \
+&w_1^gorto = mat(0,1,2,3,-3)^T != 0 \
+&(g_1^gorto)^1 (w_1^gorto) = 0 in V ==> W_2 = cal(K)_1 (f, w_1^gorto)
+$
+$
+A_(f|_W_1)^(B^1, B^1) = mat(1,1,0,0;0,1,1,0;0,0,1,0;0,0,0,1), quad A_(f|_W_2)^(B^2, B^2) = (2) \
+==>^"Ziel:" A_f^(B,B) = mat(1,1,0,,0;0,1,1,,;0,0,1,,;,,,1,;0,,,,2)
+$
+
+#theorem("2.29")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) < oo$ und $f in L(V,V)$. Ist $lambda in K$ ein Eigenwert von $f$, dann gilt für die $lambda_j, 1 <= j <= k$ aus Satz 2.27, dass
+  $
+  &a(f, lambda) = dim(W) = d_1 + ... + d_k \
+  &g(f, lambda) = k
+  $
+]
+
+#italic[Beweis:] Für den Unterraum U aus Satz 2.23/2.25 ist die Abbildung $f|_U = (f - lambda "Id")|_U$ bijektiv $==>$ $lambda$ ist kein Eigenwert von $f|_U$. Daraus erhält man
+$
+a(f, lambda) = dim W = d_1 + ... + d_k
+$
+Zur Bestimmung von $g(f, lambda)$ sei $v in W$ ein beliebiger Vektor. Dann ist
+$
+v = sum_(j = 1)^k sum_(l = 0)^(d_j -1) mu_(j l) g^l (w_j)
+$
+und es gilt
+$
+f(v) = sum_(j = 1)^k sum_(l = 0)^(d_j -1) mu_(j l) f(g^l (w_j)) = sum_(j = 1)^k sum_(l = 0)^(d_j -1 ) mu_(j l) g^l (w_j) + sum_(j = 1)^k sum_(l = 0)^(d_j -1) mu_(j l) g^(l+1) (w_j ) \
+= lambda v + underbrace(sum_(j = 1)^k sum_(l = 0)^(d_j- 2) mu_(j l) overbrace(g^(l+1) (w_j), "lin. unab."), = 0)
+$
+$v in "Eig"(f, lambda) <==> mu_(j l) = 0, 1 <= j <= k, 0 <=l <= d_j -2$
+$
+<==> v = sum_(j = 1)^k mu_j g^(d_j -1) (w_j)
+$
+Für $v != 0$ muss mindestens ein Koeffizient $mu_j != 0, j = 1, ..., k$. Daraus folgt
+$
+"Eig"(f, lambda) = "Span" underbrace({g^(d_1 -1) (w_1)\, ...\, g^(d_k -1) (w_k)}, "lin. unabh. wegen direkter Summe")
+$
+
+#bold[Beispiel 2.30:] Fortsetzung von Bsp. 2.28. Es gilt
+$
+"Eig"(f, 1) = "Span"{vec(1,-1,1,0,1), vec(1,1,1,0,-1)} ==> g(f, 1) = 2
+$
+$lambda_1 = 1$: $a(f, 1) = 4 =  3 + 1 = d_1^1 + d_2^1$, $g(f, 1) = 2 = k$
+
+$lambda_2 = 2$: $a(f, 2) = 1 = d_1^2$, $g(f, 2) = 1$
+
+#bold[Fazit:] Für eine Eigenwert $lambda$ zu $f in L(V,V)$ gilt:
+
+#list[
+  Die geomentrische Veilfachheit des Eigenwert $lambda$ ist gleich der Anzahl der Jordanblöcke zu dieem Eigenewrt in der entsprechenden Dartsellungsmatrix 
+  $
+  A_f^(B,B) = mat(J_(d_1) (lambda_1),,0;,dots.down,;0,,J_(d_k) (lambda_m))
+  $
+][
+  Die abgebraishce Vielfachheit des Eigenwert $lambda$ ist gleich der SUmme der Dimensionen der zugehörigen Jordanblöcke
+][
+  In jedem Unterraum $cal(K)_(d_j) (f, w_j)$ gehört genau ein Eigenvektor und seine Vielfachheit en.
+]
+
+Was gilt für weitere Eigenwerte?
+
+Ist $tilde(lambda) != lambda$ ein weiterer Eigenwert von $f$, dann ist $tilde(lambda)$ auch ein Eigenwert der Einschränkung $f|_U in L(U_lambda, U_lambda)$
+
+$==>$ Man kann die Sätze 2.25-2.29 auf $f|U_lambda$ anwenden. Damit erhält man
+
+#list[
+  $U_lambda = X oplus Y$
+][
+  $f|_X - tilde(lambda) "Id"_X$ ist bijektiv
+][
+  $f|_Y - tilde(lambda) "Id"_Y$ ist nilpotent
+][
+  Der UVR $Y$ ist die direkte Summe von Krylorräumen
+][
+  Es gibt eine Darstellungsmatrix von $f|_Y$ bestehend aus Jordanblöcken
+]
+
+Da man dieses Argument für alle paarweise verschiedene Eigenewerte von $f$ anwenden kann, erhält man.
+
+#theorem("2.31")[
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum und $f in L(V,V)$. Zerfällt das charakteristische Polynom $p_f (.)$ in Linearfaktoren, so gibt es eine Basis $B$ von $V$ für welche die Dartsellungsmatrix in Jordan-Normalform ist, d.h.
+  $
+  A_f^(B,B) = mat(J_(d_1) (lambda_1),,0;,dots.down,;0,,J_(d_k) (lambda_m))
+  $
+]
+
+#italic[Beweis:] s.o. 
+#endproof
+
+Marie Ennemond Jordan (fr. Mathematiker, 1838-1922) gab diese Form 1870 an. Zwei Jahre vor Jordan bewies Karl Weierstraß (dt. Mathematiker, 1815-1897) ein Resultat, aus dem die JNF folgt.
