@@ -1091,7 +1091,7 @@ Also existieren $f$-invariante Unterräume $U subset.eq V$ und $W subset.eq V$.
 ]
 
 #theorem("2.24")[
-  Sei $V$ ein endlichdimensionaler $K$-Vektorraum, $f in L(V,V)$ nilpotent vom Grad $m$, $v in V$ ein beliebiger Vektor mit $f^(m-1) (v) != 0$ und $h in V^*$ mit $h(f^(m-1)(v)) != 0$. Dann sind $v$ und $h$ vom Grad $m$ bzgl. $f$ und $f^*$. Die beiden Räume $cal(K)_m (f,v)$ bzw. $cal(K)_m (f^*, h)$ sind zyklisch$f$- bzw. $f^*$-invariante Unterräume von $V$ bzw. $V^*$. Sie bilden ein duales Raumpaar bzgl. der Bilinearform
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum, $f in L(V,V)$ nilpotent vom Grad $m$, $v in V$ ein beliebiger Vektor mit $f^(m-1) (v) != 0$ und $h in V^*$ mit $h(f^(m-1)(v)) != 0$. Dann sind $v$ und $h$ vom Grad $m$ bzgl. $f$ und $f^*$. Die beiden Räume $cal(K)_m (f,v)$ bzw. $cal(K)_m (f^*, h)$ sind zyklisch $f$- bzw. $f^*$-invariante Unterräume von $V$ bzw. $V^*$. Sie bilden ein duales Raumpaar bzgl. der Bilinearform
   $
   a: cal(K)_m (f, v) times cal(K)_m (f^*, h) -> K, quad (macron(v),macron(h)) arrow.bar macron(h)(macron(v))
   $
@@ -1178,7 +1178,7 @@ $
 $
 #endproof
 
-#bold[Beispiel 2.26:] Wie betrachten $V = RR^5$, die Standardbasis $E$ und $f in L(V,V)$ gegeben durch
+#bold[Beispiel 2.26:] Wir betrachten $V = RR^5$, die Standardbasis $E$ und $f in L(V,V)$ gegeben durch
 $
 A = mat(-3,-1,4,-3,-1;1,1-1,1,0;-1,0,2,0,0;4,1,-4,5,1;-2,0,2,-2,1)
 $
@@ -1236,7 +1236,7 @@ A_(g_1 |_(W_1))^(B_1, B_1) = mat(0,1,,0;,dots.down,dots.down,;,,dots.down,1;0,,,
 $
 Per Definition gilt $A_(g_1|_(W_1))^(B_1, B_1) = A_(g|_(W_1))^(B_1, B_1)$. Ist $d_1 = dim(W)$: siehe unten $staudihaufen$.
 
-Sei nun $d_1 < dim(W)$. Satz 2.25 sichert, dass es für $g_1 in L(W,W)$ einen $g_1$-invarianten Untteraum $tilde(W) != {0}$ mit $W = W_1 oplus tilde(W)$ gibt.
+Sei nun $d_1 < dim(W)$. Satz 2.25 sichert, dass es für $g_1 in L(W,W)$ einen $g_1$-invarianten Unterraum $tilde(W) != {0}$ mit $W = W_1 oplus tilde(W)$ gibt.
 
 Die Abbildung $g_2 := g_1 |_tilde(W)$ ist nilpotent vom Grad $lambda_2$ mit $1 <= d_2 <= d_1$.
 
@@ -1249,7 +1249,7 @@ $
 $
 A_(g|_(W_2))^(B_2, B_2) = A_(g_2 |_(W_2))^(B_2, B_2) = mat(0,1,,0;,dots.down,dots.down,;,,dots.down,1;0,,,0)
 $
-Nach $k <= dim(W)$ Schritten muss dies Konstruktion abbrechen und es gilt
+Nach $k <= dim(W)$ Schritten muss diese Konstruktion abbrechen und es gilt
 $
 W &= cal(K)_(d_1) (g_1, w_1) oplus cal(K)_(d_2) (g_2, w_2) oplus ... oplus cal(K)_(d_K) (g_k, w_k) \
 &= cal(K)_(d_1) (g, w_1) oplus cal(K)_(d_2) (g,w_2) oplus ... oplus cal(K)_(d_2) (g, w_k)
@@ -1348,7 +1348,7 @@ $
 $
 Für $v != 0$ muss mindestens ein Koeffizient $mu_j != 0, j = 1, ..., k$. Daraus folgt
 $
-"Eig"(f, lambda) = "Span" underbrace({g^(d_1 -1) (w_1)\, ...\, g^(d_k -1) (w_k)}, "lin. unabh. wegen direkter Summe")
+"Eig"(f, lambda) = "Span" underbrace({g^(d_1 -1) (w_1)\, ...\, g^(d_k -1) (w_k)}, "lin. unab. wegen direkter Summe")
 $
 
 #bold[Beispiel 2.30:] Fortsetzung von Bsp. 2.28. Es gilt
@@ -1359,17 +1359,17 @@ $lambda_1 = 1$: $a(f, 1) = 4 =  3 + 1 = d_1^1 + d_2^1$, $g(f, 1) = 2 = k$
 
 $lambda_2 = 2$: $a(f, 2) = 1 = d_1^2$, $g(f, 2) = 1$
 
-#bold[Fazit:] Für eine Eigenwert $lambda$ zu $f in L(V,V)$ gilt:
+#bold[Fazit:] Für einen Eigenwert $lambda$ zu $f in L(V,V)$ gilt:
 
 #list[
-  Die geomentrische Veilfachheit des Eigenwert $lambda$ ist gleich der Anzahl der Jordanblöcke zu dieem Eigenewrt in der entsprechenden Dartsellungsmatrix 
+  Die geometrische Veilfachheit des Eigenwert $lambda$ ist gleich der Anzahl der Jordanblöcke zu diesem Eigenewrt in der entsprechenden Dartsellungsmatrix 
   $
   A_f^(B,B) = mat(J_(d_1) (lambda_1),,0;,dots.down,;0,,J_(d_k) (lambda_m))
   $
 ][
-  Die abgebraishce Vielfachheit des Eigenwert $lambda$ ist gleich der SUmme der Dimensionen der zugehörigen Jordanblöcke
+  Die algebraische Vielfachheit des Eigenwert $lambda$ ist gleich der Summe der Dimensionen der zugehörigen Jordanblöcke
 ][
-  In jedem Unterraum $cal(K)_(d_j) (f, w_j)$ gehört genau ein Eigenvektor und seine Vielfachheit en.
+  In jedem Unterraum $cal(K)_(d_j) (f, w_j)$ gehört genau ein Eigenvektor und seine Vielfachheiten.
 ]
 
 Was gilt für weitere Eigenwerte?
@@ -1378,14 +1378,14 @@ Ist $tilde(lambda) != lambda$ ein weiterer Eigenwert von $f$, dann ist $tilde(la
 
 $==>$ Man kann die Sätze 2.25-2.29 auf $f|U_lambda$ anwenden. Damit erhält man
 
-#list[
+#boxedlist[
   $U_lambda = X oplus Y$
 ][
   $f|_X - tilde(lambda) "Id"_X$ ist bijektiv
 ][
   $f|_Y - tilde(lambda) "Id"_Y$ ist nilpotent
 ][
-  Der UVR $Y$ ist die direkte Summe von Krylorräumen
+  Der UVR $Y$ ist die direkte Summe von Krylovräumen
 ][
   Es gibt eine Darstellungsmatrix von $f|_Y$ bestehend aus Jordanblöcken
 ]
@@ -1393,7 +1393,7 @@ $==>$ Man kann die Sätze 2.25-2.29 auf $f|U_lambda$ anwenden. Damit erhält man
 Da man dieses Argument für alle paarweise verschiedene Eigenewerte von $f$ anwenden kann, erhält man.
 
 #theorem("2.31")[
-  Sei $V$ ein endlichdimensionaler $K$-Vektorraum und $f in L(V,V)$. Zerfällt das charakteristische Polynom $p_f (.)$ in Linearfaktoren, so gibt es eine Basis $B$ von $V$ für welche die Dartsellungsmatrix in Jordan-Normalform ist, d.h.
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum und $f in L(V,V)$. Zerfällt das charakteristische Polynom $p_f (.)$ in Linearfaktoren, so gibt es eine Basis $B$ von $V$ für welche die Darstellungsmatrix in Jordan-Normalform ist, d.h.
   $
   A_f^(B,B) = mat(J_(d_1) (lambda_1),,0;,dots.down,;0,,J_(d_k) (lambda_m))
   $
