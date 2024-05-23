@@ -70,6 +70,7 @@
 #let corres = $op(hat(#h(1pt) = #h(1pt)))$
 #let isomorph = $op(tilde(#h(1pt) = #h(1pt)))$
 
+#let startproof = italic[Beweis:]
 #let endproof = [
   #set text(size: 0.75em)
   #align(right, $ballot$)
@@ -92,3 +93,5 @@
 #let char = $"char"$
 
 #let staudihaufen = $#h(8pt) #move(dy: -0.3em, scale(200%, $. #h(-1.414pt) dot #h(-1.414pt) .$)) #h(8pt)$
+
+#let ip(arg1, arg2) = $angle.l arg1, arg2 angle.r$

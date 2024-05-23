@@ -1403,3 +1403,205 @@ Da man dieses Argument für alle paarweise verschiedene Eigenewerte von $f$ anwe
 #endproof
 
 Marie Ennemond Jordan (fr. Mathematiker, 1838-1922) gab diese Form 1870 an. Zwei Jahre vor Jordan bewies Karl Weierstraß (dt. Mathematiker, 1815-1897) ein Resultat, aus dem die JNF folgt.
+
+#bold[Beispiel 2.32:]
+$
+A = mat(-3,-1,4,-3,-1;1,1,-1,1,0;-1,0,2,0,0;4,1,-4,5,1;-2,0,2,-2,1) arrow.squiggly J = mat(1,1,0,,0;0,1,1,,;0,0,1,,;,,,1,;0,,,,2) = A_f^(B,B)
+$
+$B = {w_1^1, g_1^1 (w_1^1), (g_1^1)^2 (w_1^1), w_2^1, w_1^2}$
+
+Für 
+$
+S = mat(0,-1,1,1,0;0,0,0,-1,1;0,0,1,1,2;0,1,0,0,3;1,0,0,1,-2)
+$
+gilt $J = S A S^(-1)$. Also $J$ ähnlich zu $A$.
+
+Für $f in L(V,V)$ hatten wir:
+
+#boxedlist[
+  $f$ ist diagonalisierbar $<==>$
+  
+  #boxedlist[
+    $p_f (.)$ zerfällt in Linearfaktoren
+  ][
+    $forall "EW" lambda "von" f: a(f, lambda) = g(f, lambda)$
+  ]
+][
+  zerfällt $p_j (.)$ in Linearfaktor $==>$ $exists$ Basis $B:A_f^(B,B)$ in JNF
+]
+
+#bold[Folgerung:] Existiert eine Darstellungsmatrix in Jordan-Normalform: $f$ ist diagonalisierbar $<==> d_i = 1  forall i in {1, ..., k}$
+
+#bold[Frage:] Wann zerfällt $p_f (.)$ in Linearfaktoren?
+
+#underline[Fundamendtalsatz der Algebra:]
+
+Jedes Polynom $p in P[t]$ über $CC$ mit einem Grad größer $0$ hat mindestens eine Nullstelle.
+
+#italic[Beweis:] Liesen, Mehrmann, Kapitel 15, braucht substantiell Hilfsmittel aus der Analysis.
+
+Damit folgt unmittelbar:
+
+#corollary("2.33")[
+  Jedes Polynom $p in P[t]$ über $CC$ zerfällt in Linearfaktoren, d.h. es gibt $a, lambda_1, ..., lambda_n in CC$ mit $n = "grad"(p)$ und 
+  $
+  p(t) = a(t - lambda_1)(t - lambda_2) ... (t - lambda_n)
+  $
+]
+
+Daraus folgt direkt:
+
+#corollary("2.34")[
+  Sei $V$ ein endlichdimensionaler $CC$-Vektorraum. Dann besitzt jedes $f in L(V,V)$ eine Jordan-Normalform.
+]
+
+Matrix-Version:
+
+#corollary("2.35")[
+  Sei $K$ ein Körper und $A in K^(n,n)$, so dass das charakteristische Polynom $p_A (.)$ in Linearfaktoren zerfällt. Dann ist $A$ ähnlich zu einer Matrix $J$ in Jordan-Normalform.
+]
+
+Ist die Jordan-Nomralform eindeutig bestimmt?
+
+#theorem("2.36")[
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) = n< oo$. Bestizt $f in L(V,V)$ eine Jordan-Normalform, so ist diese bis auf die Reihenfolge der Jordanblöcke eindeutig bestimmt.
+]
+
+#startproof sehr technisch, z.B. Liesen, Mehrmann Satz 16.12, Fischer/Springborn, Abschnitt 5.7.
+#endproof
+
+Alternativer Beweis für die JNF über Hauptvektoren und Haupträume, vgl. Fischer/Spingborn, Abschnitt 5.5.
+
+Damit: Für Bsp. 2.32 wären
+$
+mat(2,,;,J_3 (1),;,,1) quad "oder" quad mat(2,,;,1,;,,J_3 (1))
+$
+alternative JNF. Jordanblöcke bleiben gleich. D.h. Satz 2.36 rechtfertigt den Namen "Normalform".
+
+#pagebreak()
+
+= Euklidische und unitäre Vektorräume
+
+Jetzt: $V$ Vkeotrraum über $RR$ oder $CC$ mit $dim(V) < oo$.
+
+Damit: Definition eines Skalarproduktes und Verallgemeinerung von Begriffen aus der Geometrie für $RR^2$ bzw. $RR^3$. Dies beinhaltet auch Orthogonalität und orthonormale Basen.
+
+== Skalarprodukt und Normen
+
+Für $K = RR$ werden wir Bilinearformen (Def. 2.17) verwenden. Für $K =CC$ benötigen wir 
+
+#definition("3.1", "Sesquilinearform")[
+  Seien $V$ und $W$ zwei $CC$-Vektorräume. Man nennt eine Abbildung
+  $
+  s: V times W -> CC, (v, w) arrow.bar s(v, w)
+  $
+  #bold[Sesquilinearform] auf $V times W$, wenn für alle $v, v_1, v_2 in V$, $w, w_1, w_2 in W$ uund $lambda in CC$ gilt
+
+  #enum[
+    $s(v_1+v_2, w) = s(v_1, w) + s(v_2, w)$ und $s(lambda v, w) = lambda s(v,w )$ 
+
+    $corres$ $s(.,.)$ ist linear in der ersten Komponente
+  ][
+    $s(v, w_1 + w_2) = s(v, w_1) + s(v, w_2)$ und $s(v, lambda w) = macron(lambda) s(v, w)$
+  ]
+  Ist $V=W$, so heißt $s$ Sesquilinearform auf $V$. Eine Sesquilinearform auf $V$ nennt man hermitesch, wenn
+  $
+  s(v, w) = overline(s(w, v)) quad forall v, w in V
+  $
+  #v(-1.5em)
+] <def>
+
+#definition("3.2", "Skalarprodukt")[
+  Sei $V$ ein $K$-Vektorraum. Eine Abbildung
+  $
+  ip(., .): V times V -> K, quad (v, w) -> ip(v, w)
+  $
+  nennet man #bold[Skalarprodukt] oder #bold[inneres Produkt] auf $V$, wenn gilt
+  
+  #enum[
+    Ist $K = RR$, so ist $ip(.,.)$ eine symmetrische Bilinearform
+  ][
+    Ist $K = CC$, so ist $ip(.,.)$ eine hermitische Sesquilinearform
+  ][
+    $ip(.,.)$ ist positiv definit, d.h. es gilt 
+    $
+    &ip(v,v) >= 0 quad forall v in V \
+    &ip(v,v) = 0 <==> v = 0 in V
+    $
+  ]
+
+  Ein $RR$-Vektorraum mit einem Skalarprodukt nennt man #bold[euklidischen Vektorraum] und einen $CC$-Vektorraum mit einem Skalarprodukt #bold[unitären Vektorraum].
+  #v(-1.5em)
+]
+
+#bold[Bemerkungen:] 
+
+#boxedlist[
+  Für alle $v in V$ gilt $ip(v,v) in RR^+$ unabhängig von $K = RR$ oder $K = CC$
+][
+  Ein Unterraum eines euklidischen (unitären) Vektorraums ist wieder ein euklidischer (unitärer) Vektorraum.
+]
+
+#definition("3.3", "hermitesch Matrix")[
+  Für eine Matrix $A = (a_(i j)) in CC^(m,n)$ ist die hermitisch transponierte von $A$ definiert als 
+  $
+  A^H = (macron(a)_(j i)) in CC^(n, m)
+  $
+  Gilt $A = A^H$, so heißt $A$ #bold[hermitesche Matrix].
+] 
+
+Ist $A in RR^(m, n)$, so $A^H = A^T$. Für eine hermitesche Matrix $A$ gilt $a_(i i) = macron(a)_(i i) ==> a_(i i) in RR$.
+
+#bold[Beispiel 3.4:] Man kann leicht nachrechnen:
+
+#list[
+  Für $V = RR^n$ ist 
+  $
+  ip(v, w) := v^T w = sum_(i = 1)^n v_i w_i
+  $
+  ein Skalarprodukt. Es ist das Standardskalarprodukt im $RR^n$.
+][
+  Für $V = CC^n$ ist 
+  $
+  ip(v, w) := w^H v = sum_(i = 1)^n macron(w)_i v_i
+  $
+  ein Skalarprodukt. Es ist das Standardskalarprodukt im $CC^n$.
+][
+  Für $V = K^(m,n)$ ist 
+  $
+  ip(A, B) := "Spur" underbrace((B^H A), in K^(n, n)) = sum_(i = 1)^n (sum_(j = 1)^m macron(b)_(i j) a_(j i))
+  $
+][
+  Auf dem Vektorraum der auf dem Intervall $[0, 1]$ stetigen, reellwertigen Funktionen ist
+  $
+  ip(f, g) := integral_0^1 f(x) g(x) d x
+  $
+  ein Skalarprodukt.
+]
+
+#lemma("3.5")[
+  #bold[Cauchy-Schwarz-Ungleichung]
+
+  Ist $V$ ein euklidischer oder unitärer Vektorraum, so gilt 
+  $
+  abs(ip(v, w))^2 <= ip(v, v) dot ip(w,w) quad forall v, w in V
+  $
+  wobei das Gleichheitszeichen genau dann gilt,, wenn $v$ und $w$ linear abhängig sind.
+]
+
+#startproof Für $w = 0$ folgt die (Un-) gleichung. 
+
+Für $w != 0$ definiert man
+$
+lambda := ip(v, w)/ip(w,w)
+$
+Dann folgt
+$
+0 &<= ip(v-lambda w, v - lambda w) = ip(v, v) - macron(lambda) ip(v, w) - lambda ip(w, v) - lambda ip(w, v) - lambda dot (- macron(lambda)) ip(w, w) \
+&= ip(v, v) - overline(ip(v, w))/ip(w, w) ip(v, w) - ip(v, w)/ip(w, w) ip(w, v) + abs(ip(v, w))^2/(ip(w, w))^2 ip(w, w) \
+&= ip(v, v) - abs(ip(v, w))^2/ip(w,w) \
+$
+$
+==> abs(ip(v, w))^2 <= ip(v,v) dot ip(w,w)
+$
+#endproof
