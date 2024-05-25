@@ -1532,7 +1532,7 @@ Für $K = RR$ werden wir Bilinearformen (Def. 2.17) verwenden. Für $K =CC$ ben�
 
   Ein $RR$-Vektorraum mit einem Skalarprodukt nennt man #bold[euklidischen Vektorraum] und einen $CC$-Vektorraum mit einem Skalarprodukt #bold[unitären Vektorraum].
   #v(-1.5em)
-]
+] <def>
 
 #bold[Bemerkungen:] 
 
@@ -1548,7 +1548,7 @@ Für $K = RR$ werden wir Bilinearformen (Def. 2.17) verwenden. Für $K =CC$ ben�
   A^H = (macron(a)_(j i)) in CC^(n, m)
   $
   Gilt $A = A^H$, so heißt $A$ #bold[hermitesche Matrix].
-] 
+] <def>
 
 Ist $A in RR^(m, n)$, so $A^H = A^T$. Für eine hermitesche Matrix $A$ gilt $a_(i i) = macron(a)_(i i) ==> a_(i i) in RR$.
 
