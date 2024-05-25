@@ -1322,7 +1322,7 @@ A_(f|_W_1)^(B^1, B^1) = mat(1,1,0,0;0,1,1,0;0,0,1,0;0,0,0,1), quad A_(f|_W_2)^(B
 $
 
 #theorem("2.29")[
-  Sei $V$ ein $K$-Vektorraum mit $dim(V) < oo$ und $f in L(V,V)$. Ist $lambda in K$ ein Eigenwert von $f$, dann gilt f체r die $lambda_j, 1 <= j <= k$ aus Satz 2.27, dass
+  Sei $V$ ein $K$-Vektorraum mit $dim(V) < oo$ und $f in L(V,V)$. Ist $lambda in K$ ein Eigenwert von $f$, dann gilt f체r die $d_j, 1 <= j <= k$ aus Satz 2.27, dass
   $
   &a(f, lambda) = dim(W) = d_1 + ... + d_k \
   &g(f, lambda) = k
@@ -1542,7 +1542,7 @@ F체r $K = RR$ werden wir Bilinearformen (Def. 2.17) verwenden. F체r $K =CC$ ben�
   Ein Unterraum eines euklidischen (unit채ren) Vektorraums ist wieder ein euklidischer (unit채rer) Vektorraum.
 ]
 
-#definition("3.3", "hermitesch Matrix")[
+#definition("3.3", "hermitesche Matrix")[
   F체r eine Matrix $A = (a_(i j)) in CC^(m,n)$ ist die hermitesch transponierte von $A$ definiert als 
   $
   A^H = (macron(a)_(j i)) in CC^(n, m)
