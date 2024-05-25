@@ -1495,7 +1495,7 @@ Für $K = RR$ werden wir Bilinearformen (Def. 2.17) verwenden. Für $K =CC$ ben�
   $
   s: V times W -> CC, (v, w) arrow.bar s(v, w)
   $
-  #bold[Sesquilinearform] auf $V times W$, wenn für alle $v, v_1, v_2 in V$, $w, w_1, w_2 in W$ uund $lambda in CC$ gilt
+  #bold[Sesquilinearform] auf $V times W$, wenn für alle $v, v_1, v_2 in V$, $w, w_1, w_2 in W$ und $lambda in CC$ gilt
 
   #enum[
     $s(v_1+v_2, w) = s(v_1, w) + s(v_2, w)$ und $s(lambda v, w) = lambda s(v,w )$ 
@@ -1521,7 +1521,7 @@ Für $K = RR$ werden wir Bilinearformen (Def. 2.17) verwenden. Für $K =CC$ ben�
   #enum[
     Ist $K = RR$, so ist $ip(.,.)$ eine symmetrische Bilinearform
   ][
-    Ist $K = CC$, so ist $ip(.,.)$ eine hermitische Sesquilinearform
+    Ist $K = CC$, so ist $ip(.,.)$ eine hermitesche Sesquilinearform
   ][
     $ip(.,.)$ ist positiv definit, d.h. es gilt 
     $
@@ -1543,7 +1543,7 @@ Für $K = RR$ werden wir Bilinearformen (Def. 2.17) verwenden. Für $K =CC$ ben�
 ]
 
 #definition("3.3", "hermitesch Matrix")[
-  Für eine Matrix $A = (a_(i j)) in CC^(m,n)$ ist die hermitisch transponierte von $A$ definiert als 
+  Für eine Matrix $A = (a_(i j)) in CC^(m,n)$ ist die hermitesch transponierte von $A$ definiert als 
   $
   A^H = (macron(a)_(j i)) in CC^(n, m)
   $
