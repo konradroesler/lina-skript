@@ -920,7 +920,7 @@ $
 dim(V) &= dim(W) + dim(W^0) \
 &= dim(U) + dim(W^0)
 $
-$==>$ $V = W oplus W^0$
+$==>$ $V = U oplus W^0$
 #endproof
 
 == Zyklische $f$-invariant Unterräume
