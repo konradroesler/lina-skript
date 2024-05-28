@@ -1037,6 +1037,8 @@ $
 dass $f|_U in L(U, U)$.
 
 #theorem("2.23")[
+  #bold[Fittingzerlegung]
+
   Sei $V$ ein endlichdimensionaler $K$-Vektorraum und $f in L(V,V)$. Dann existieren $f$-invariante Unterräume $U subset.eq V$ und $W subset.eq V$, so dass gilt:
   
   #enum[
@@ -1604,4 +1606,211 @@ $
 $
 ==> abs(ip(v, w))^2 <= ip(v,v) dot ip(w,w)
 $
+"$=$": 
+$
+0 = ip(v - lambda w, v - lambda w) \
+<==> v -lambda w = 0 <==> v = lambda w <==> w = lambda^(-1) v
+$
 #endproof
+$
+ip(v, lambda w) = macron(lambda) ip(v, w)
+$
+Deshalb:
+
+Die Cauchy-Schwartsche Ungleichung ist ein sehr wichtiges Instrument der Analaysis, z.B. für Approximationsfehler.
+
+Nächstes Ziel: Vektoren $v in V$ eine länge zuzuordnen $->$ Norm als Verallgemeinerung des Betrags
+
+Für die reellen Zahlen: $abs(.): RR -> RR^+, x arrow.bar abs(x)$ mit 
+
+#boxedlist[
+  $abs(lambda x) = abs(lambda) dot abs(x) wide forall lambda in RR, forall x in RR$
+][
+  $abs(x) >= 0 wide forall x in RR, abs(x) = 0 <==> x = 0$
+][
+  $abs(x+y) <= abs(x) + abs(y) wide forall x, y in RR$
+]
+
+#let norm(content) = $bar.double #h(-0em) content #h(-0em) bar.double$
+
+#definition("3.6", "Norm")[
+  Sei $V$ ein $K$-Vektorraum. Eine Abbildung
+  $
+  norm(.): V -> RR, quad v arrow.bar norm(v)
+  $
+  nennt man Norm auf $V$, wenn für alle $v, w in V$ und $lambda in K$ gilt:
+  
+  #boxedlist[
+    sie ist homogen, d.h.
+    $
+    norm(lambda v) = abs(lambda) dot norm(v)
+    $
+  ][
+    sie ist positiv definit, d.h:
+    $
+    norm(v) >= 0, quad norm(v) = 0 <==> v= 0 in V
+    $
+  ][
+    sie erfüllt die Dreiecksungleichung, d.h.
+    $
+    norm(v + w) <= norm(v) + norm(w)
+    $
+  ]
+  Einen $K$-Vektorraum, auf dem eine Norm definierst ist, nennt man #bold[normierten Raum].
+]
+
+#bold[Beispiel 3.7:] Man kann leicht nachrechnen:
+
+#list[
+  Ist $ip(.,.)$ das Standardskalarprodukt auf $RR^m$ oder $CC^m$, dann definiert
+  $
+  norm(v) := ip(v,v)^(1/2) = (v^T v)^(1/2) space "bzw." space = (v^H v)^(1/2)
+  $
+  eine Norm auf $RR^m$ bzw. $CC^m$. Sie wird #bold[euklidische Norm] genannt
+][
+  Für $V = K^(m,n)$ ist 
+  $
+  norm(A)_F := ("Spur"(A^H A))^(1/2) = (sum_(i = 1)^n (sum_(j = 1)^m abs(a_(j i ))^2))^(1/2)
+  $
+  eine Norm. Sie wird Frobeniusnorm genannt. Es gilt $norm(A)_F = norm(A^H)_F$ für alle $A in K^(m,n)$. 
+][
+  Auf dem Vektorraum der auf dem Intervall $[0,1]$ stetigen, reellwertigen Funktionen ist
+  $
+  norm(f) := ip(f,f)^(1/2) = (integral_0^1 (f(x))^2 d x)^(1/2)
+  $
+  eine Norm. Sie wird $L_2$- oder $L^2$-Norm genannt.
+][
+  Sei $p in RR$, $p >= 1$ und $V = K^n$. Dann definiert 
+  $
+  norm(v)_p = (sum_(i = 1)^n abs(v_i)^p)^(1/p)
+  $
+  eine Norm im $K^n$. Sie wird $p$-Norm genannt. Für $n = 2$ erhält man die euklidische Norm. Für $p -> oo$ erhält man die sogenannte $oo$-Norm
+  $
+  norm(v)_oo := max_(1 <= i <= n) abs(v_i)
+  $
+  Je nach Situation kann es einem erheblichen Unterschied bedeuten, welche Norm betrachtet wird. Für $V = RR^2$:
+  #figure(image("bilder2/3_7.JPG", width: 60%))
+][
+  Die $p$-Norm auf $K^(m,n)$ ist definiert durch
+  $
+  norm(A)_p := sup_(0 != v in KK^n) norm(A v)_p/norm(v)_p
+  $
+  $norm(A)_p$ ist die durch die $p$-Norm induzierte Matrix-Norm.
+
+  Man kann zeigen:
+
+  #boxedlist[
+    Supremum wird angenommen
+  ][
+    $norm(A)_p = limits(max_(v in K^n))_(norm(v)_p = 1) norm(A v)_p$
+  ]
+  Man kann zeigen: 
+  $
+  norm(A)_1 = max_(1<=j<=m) sum_(i = 1)^n abs(a_(j i)) quad "(Spaltensummennorm)" \
+  norm(A)_oo = max_(1<= i<=n) sum_(j = 1)^m abs(a_(j i)) quad "(Zeilensummennorm)"
+  $
+]
+
+#corollary("3.8")[
+  Sei $V$ ein $K$-Vektorraum mit einem Skalarprodukt. Dann ist die Abbildung 
+  $
+  norm(.): V -> RR, quad v arrow.bar norm(v) := (ip(v,v))^(1/2)
+  $
+  eine Norm auf $V$. Man nennt sie die durch das Skalarprodukt induzierte Norm.
+]
+
+#startproof 
+
+#enum[
+  Homogenität: (Es gilt mit $"Re"(z) <= abs(z) forall z in CC$)^((\*))
+  $
+  norm(lambda v)^2 = ip(lambda v, lambda v) = lambda macron(lambda) ip(v,v) = abs(lambda^2) ip(v,v)
+  $
+][
+  Positive Definitheit:
+  $
+  ip(v,v) >= 0 ==> norm(v) >= 0 \
+  ip(v,v) = 0 <==> v = 0, \
+  <==> norm(v) = 0
+  $
+][
+  $norm(v+w) <= norm(v) + norm(w)$
+  $
+  norm(v+w)^2 = ip(v+w,v+w) = ip(v,v) + ip(v,w) + ip(w,v) + ip(w,w) \
+  $
+  $
+  &= ip(v,v) + ip(v,w) + overline(ip(v,w)) + ip(w,w) \
+  &= ip(v,v) + 2 "Re"(ip(v,w)) + ip(w,w) \
+  &<=^((\*)) ip(v,v) + 2abs(ip(v,w)) + ip(w,w) \
+  &<=^("CSU") ip(v,v) + 2 ip(v,v) ip(w,w) + ip(w,w) \
+  &= norm(v)^2 + 2 norm(v) norm(w) + norm(w)^2 \
+  &= (norm(v) + norm(w))^2 
+  $
+  $
+  ==>^(sqrt(space)) norm(v+w) <= norm(v) + norm(w) 
+  $
+]
+
+== Winkel und Orthogonalität
+
+In $RR^2$ bzw. $RR^3$ ist der von zwei Vektoren eingeschlossene Winkel anschaulich klar. Übertragung auf allgemeine Vektorräume?
+
+Zunächst: $V = RR^2$, Standardskalarprodukt $ip(v,w) = w^T v$ und der damit induzierten Norm.
+
+Aus Cauchy-Schwartz folgt:
+$
+-1 <= ip(v,w)/(norm(v) dot norm(w)) quad forall v, w in RR^2 without {0}
+$
+D.h. dieser Quotient ist gleich $cos(theta)$ für ein $theta in [0, pi]$. Diesen nennt man den zwischen $v$ und $w$ eingeschlossenen Winkel.
+
+$
+ip(v,w)/(norm(v) dot norm(w)) = cos(theta) quad -> quad angle.arc (v, w) := arccos ip(v,w)/(norm(v) dot norm(w))
+$
+Passt das zur "üblichen" Winkeldefinition?
+
+Aufgrund der Eigenschaften des Skalarprodukts folgt
+$
+angle.arc (v, w) = angle.arc (w, v), quad angle.arc(lambda v, w) = angle.arc(v,w) = angle.arc(v, lambda w) quad forall lambda > 0
+$
+Für $v != 0 != w$ und
+$
+tilde(v) = 1/norm(v) v space (==> norm(tilde(v)) = 1) space "und" space tilde(w) = 1/(norm(w)) space (==> norm(tilde(w)) = 1) 
+$
+gilt $angle.arc(v, w) = angle.arc(tilde(v), tilde(w))$. Im Einheitskreis erhält man
+// bild
+Also gibt es $alpha, beta in [0, 2pi)$ mit 
+$
+tilde(v) = (cos beta, sin beta)^T quad tilde(w) = (cos alpha, sin alpha)^T
+$
+Gilt $alpha, beta in [0, pi)$ folgt aus einem Additionstheorem für $cos$
+$
+cos(beta-alpha) &= cos alpha cos beta + sin alpha sin beta \
+&= ip(tilde(v), tilde(w)) dot 1 dot 1 \
+angle.arc(tilde(v), tilde(w)) = cos(beta-alpha)
+$
+Man kann den Winkel auch über die Gleichung 
+$
+ip(v,w) = norm(v) dot norm(w) dot cos(angle.arc(v,w))
+$
+definiere. Dann ist auch $v = 0$ und/oder $w= 0$ erlaubt. Stehen $v$ und $w$ senkrecht aufeinander ($v perp w$)
+$
+cos(angle.arc(v,w)) = cos(pi/2) = 0 quad ==> quad ip(v,w) = 0
+$
+
+#definition("3.9", "orthogonal")[
+  Sei $V$ ein endlichdimensionaler oder unitärer Vektorraum. 
+
+  #enum[
+    Zwei Vektoren $v, w in V$ heißten #bold[orthogonal] bezüglich des gegebenen Skalarproduktes $ip(.,.)$, wenn gilt $ip(v,w) = 0$.
+  ][
+    Für dieses Skalarprodukt heißt eine Basis ${v_1, ..., v_n}$ von $V$ #bold[Orthogonalbasis], wenn 
+    $
+    ip(v_i, v_j) = 0 quad i, j = 1, ..., n, space i != j
+    $
+    Ist zusätzlich für die induzierte Norm 
+    $
+    ip(v_i, v_i)^(1/2) = norm(v_i) = 1 quad i = 1, ..., n
+    $
+    so heißt ${v_1, ..., v_n}$ #bold[Orthonormalbasis] von $V$. ($<==> ip(v_i, v_j) = delta_(i j)$)
+  ]
+]
