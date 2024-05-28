@@ -28,6 +28,7 @@
       #v(5pt)
       #set text(size: 11pt)
       #box(inset: (top: -3mm), [#content $#sspace$])
+      #v(-1em)
     ]
   )
 }
@@ -39,19 +40,19 @@
 
 #let theorem(number, content) = [
   #stroked_box[
-    #bold[Satz #number:] #content #sspace
+    #bold[Satz #number:] #content // #sspace
   ]
 ]
 
 #let lemma(number, content) = [
   #stroked_box[
-    #bold[Lemma #number:] #content #sspace 
+    #bold[Lemma #number:] #content // #sspace 
   ]
 ]
 
 #let corollary(number, content) = [
   #stroked_box[
-    #bold[Korollar #number:] #content #sspace 
+    #bold[Korollar #number:] #content // #sspace 
   ]
 ]
 
@@ -96,3 +97,5 @@
 #let staudihaufen = $#h(8pt) #move(dy: -0.3em, scale(200%, $. #h(-1.414pt) dot #h(-1.414pt) .$)) #h(8pt)$
 
 #let ip(arg1, arg2) = $angle.l arg1, arg2 angle.r$
+
+#let norm(content) = $bar.double #h(-0em) content #h(-0em) bar.double$

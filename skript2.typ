@@ -221,7 +221,6 @@ Die letzte Aussage kann verallgemeinert werden zu:
   $
   "Eig"(f, lambda_i) sect limits(sum_(j = 1)^m)_(j != i) "Eig"(f, lambda_j) = {0} wide forall i = 1, ..., m
   $
-  #v(-5mm)
 ]
 
 #italic[Beweis:] Summe von Vektorräumen, vgl. Def 3.32 LinA I.
@@ -1510,7 +1509,6 @@ Für $K = RR$ werden wir Bilinearformen (Def. 2.17) verwenden. Für $K =CC$ ben�
   $
   s(v, w) = overline(s(w, v)) quad forall v, w in V
   $
-  #v(-1.5em)
 ] <def>
 
 #definition("3.2", "Skalarprodukt")[
@@ -1533,7 +1531,6 @@ Für $K = RR$ werden wir Bilinearformen (Def. 2.17) verwenden. Für $K =CC$ ben�
   ]
 
   Ein $RR$-Vektorraum mit einem Skalarprodukt nennt man #bold[euklidischen Vektorraum] und einen $CC$-Vektorraum mit einem Skalarprodukt #bold[unitären Vektorraum].
-  #v(-1.5em)
 ] <def>
 
 #bold[Bemerkungen:] 
@@ -1631,8 +1628,6 @@ Für die reellen Zahlen: $abs(.): RR -> RR^+, x arrow.bar abs(x)$ mit
   $abs(x+y) <= abs(x) + abs(y) wide forall x, y in RR$
 ]
 
-#let norm(content) = $bar.double #h(-0em) content #h(-0em) bar.double$
-
 #definition("3.6", "Norm")[
   Sei $V$ ein $K$-Vektorraum. Eine Abbildung
   $
@@ -1657,7 +1652,7 @@ Für die reellen Zahlen: $abs(.): RR -> RR^+, x arrow.bar abs(x)$ mit
     $
   ]
   Einen $K$-Vektorraum, auf dem eine Norm definierst ist, nennt man #bold[normierten Raum].
-]
+] <def>
 
 #bold[Beispiel 3.7:] Man kann leicht nachrechnen:
 
@@ -1813,4 +1808,6 @@ $
     $
     so heißt ${v_1, ..., v_n}$ #bold[Orthonormalbasis] von $V$. ($<==> ip(v_i, v_j) = delta_(i j)$)
   ]
-]
+] <def>
+
+
