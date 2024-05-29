@@ -1181,7 +1181,7 @@ $
 
 #bold[Beispiel 2.26:] Wir betrachten $V = RR^5$, die Standardbasis $E$ und $f in L(V,V)$ gegeben durch
 $
-A = mat(-3,-1,4,-3,-1;1,1-1,1,0;-1,0,2,0,0;4,1,-4,5,1;-2,0,2,-2,1)
+A = mat(-3,-1,4,-3,-1;1,1,-1,1,0;-1,0,2,0,0;4,1,-4,5,1;-2,0,2,-2,1)
 $
 Dann gilt
 $
@@ -1596,7 +1596,7 @@ lambda := ip(v, w)/ip(w,w)
 $
 Dann folgt
 $
-0 &<= ip(v-lambda w, v - lambda w) = ip(v, v) - macron(lambda) ip(v, w) - lambda ip(w, v) - lambda ip(w, v) - lambda dot (- macron(lambda)) ip(w, w) \
+0 &<= ip(v-lambda w, v - lambda w) = ip(v, v) - macron(lambda) ip(v, w) - lambda ip(w, v) - lambda dot (- macron(lambda)) ip(w, w) \
 &= ip(v, v) - overline(ip(v, w))/ip(w, w) ip(v, w) - ip(v, w)/ip(w, w) ip(w, v) + abs(ip(v, w))^2/(ip(w, w))^2 ip(w, w) \
 &= ip(v, v) - abs(ip(v, w))^2/ip(w,w) \
 $
