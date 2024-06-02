@@ -1133,7 +1133,7 @@ $
 $
 $==> a(.,.)$ ist nicht ausgeartet in der ersten Komponente. Analog zeigt man, dass $a(., .)$ auch in der zweiten Kompontente nicht ausgeartet ist $==>$ $cal(K)_m (f, v)$ und $cal(K)_m (f^*, h)$ sind ein duales Raumpaar.
 
-Mit Lemma 2.16: $V = cal(K)_m (f, v) oplus (cal(K)_m (f^*, h))^0$
+Mit Lemma 2.18: $V = cal(K)_m (f, v) oplus (cal(K)_m (f^*, h))^0$
 
 Mit Lemma 2.14, 3: $(cal(K)_m (f^*, h))^0$ ist $f$-invarianter UR von $V$.
 #endproof
@@ -1314,7 +1314,7 @@ $lambda_gorto = 2$:
 $
 &g_1^gorto |_W_2 "nilpotent vom Grad" lambda_1^gorto = 1 \
 &lambda_1^2 = dim(W_2) \
-&w_1^gorto = mat(0,1,2,3,-3)^T != 0 \
+&w_1^gorto = mat(0,1,2,3,-2)^T != 0 \
 &(g_1^gorto)^1 (w_1^gorto) = 0 in V ==> W_2 = cal(K)_1 (f, w_1^gorto)
 $
 $
@@ -1415,7 +1415,7 @@ Für
 $
 S = mat(0,-1,1,1,0;0,0,0,-1,1;0,0,1,1,2;0,1,0,0,3;1,0,0,1,-2)
 $
-gilt $J = S A S^(-1)$. Also $J$ ähnlich zu $A$.
+gilt $J = S^(-1) A S)$. Also $J$ ähnlich zu $A$.
 
 Für $f in L(V,V)$ hatten wir:
 
@@ -1684,7 +1684,7 @@ Für die reellen Zahlen: $abs(.): RR -> RR^+, x arrow.bar abs(x)$ mit
   norm(v)_oo := max_(1 <= i <= n) abs(v_i)
   $
   Je nach Situation kann es einem erheblichen Unterschied bedeuten, welche Norm betrachtet wird. Für $V = RR^2$:
-  #figure(image("bilder2/3_7.JPG", width: 60%))
+  #figure(image("bilder2/3_7.jpeg", width: 100%))
 ][
   Die $p$-Norm auf $K^(m,n)$ ist definiert durch
   $
@@ -1701,8 +1701,8 @@ Für die reellen Zahlen: $abs(.): RR -> RR^+, x arrow.bar abs(x)$ mit
   ]
   Man kann zeigen: 
   $
-  norm(A)_1 = max_(1<=j<=m) sum_(i = 1)^n abs(a_(j i)) quad "(Spaltensummennorm)" \
-  norm(A)_oo = max_(1<= i<=n) sum_(j = 1)^m abs(a_(j i)) quad "(Zeilensummennorm)"
+  norm(A)_1 = max_(1<=j<=m) sum_(i = 1)^n abs(a_(i j)) quad "(Spaltensummennorm)" \
+  norm(A)_oo = max_(1<= i<=n) sum_(j = 1)^m abs(a_(i j)) quad "(Zeilensummennorm)"
   $
 ]
 
@@ -1729,7 +1729,7 @@ Für die reellen Zahlen: $abs(.): RR -> RR^+, x arrow.bar abs(x)$ mit
   <==> norm(v) = 0
   $
 ][
-  $norm(v+w) <= norm(v) + norm(w)$
+  $norm(v+w) <= norm(v) + norm(w)$ $#sspace$
   $
   norm(v+w)^2 = ip(v+w,v+w) = ip(v,v) + ip(v,w) + ip(w,v) + ip(w,w) \
   $
@@ -1772,7 +1772,9 @@ $
 tilde(v) = 1/norm(v) v space (==> norm(tilde(v)) = 1) space "und" space tilde(w) = 1/(norm(w)) space (==> norm(tilde(w)) = 1) 
 $
 gilt $angle.arc(v, w) = angle.arc(tilde(v), tilde(w))$. Im Einheitskreis erhält man
-// bild
+
+#figure(image("bilder2/3_8_2.jpeg", width: 25%))
+
 Also gibt es $alpha, beta in [0, 2pi)$ mit 
 $
 tilde(v) = (cos beta, sin beta)^T quad tilde(w) = (cos alpha, sin alpha)^T
@@ -1810,4 +1812,182 @@ $
   ]
 ] <def>
 
+#theorem("3.10")[
+  Sei $V$ ein euklidischer oder unitärer Vektorraum mit $dim(V) = n < oo$. Sei ${v_1, ..., v_n}$ eine Basis von $V$. Dann existiert eine Orthonormalbasis ${w_1, ..., w_n}$ von $V$. 
+]
 
+#startproof Per Induktion über $n$.
+
+Induktionsanfang: $n = 1$
+
+Sei $v_1 in V$, $v_1 != 0$. Dann gilt für $w_1 = norm(v_1)^(-1) v_1, norm(w_1) = 1$ und $"Span"{v_1} = "Span"{w_1}$. $==>$ ${w_1}$ ONB
+
+Induktionsschritt: $n -> n +1$
+
+Die Aussage gelte für $n$. Sei $dim(V) = n+1$ und ${v_1, ..., v_(n+1)}$ eine Basis von $V$. Dann ist $U = "Span"{v_1, ..., v_n}$ ein $n$-dimensionaler Unterraum von $V$. Nach Induktionsvorraussetzung existiert eine ONB ${w_1, ..., w_n}$ von $U$. D.h,
+$
+"Span"{w_1,...,w_n} = "Span"{v_1, ..., v_n}
+$
+Für 
+$
+tilde(w)_(n+1) = v_(n+1) - sum_(k = 1)^n ip(v_(n+1), w_k) w_k
+$
+gilt wegen $v_(n+1) in.not U$, dass $tilde(w)_(n+1) != 0$. Mit dem Austauschsatz von Steinitz (Satz 2.23, LinA I) folgt für $w_(n+1) = norm(tilde(w)_(n+1))^(-1) tilde(w)_(n+1)$, dass 
+$
+V = "Span"{v_1, ..., v_(n+1)} = "Span"{w_1, ..., w_(n+1)}
+$
+Für $j = 1, ..., n$ erhält man
+$
+ip(w_(n+1), w_j) &= ip(norm(tilde(w)_(n+1))  tilde(w)_(n+1), w_j)) \
+norm(tilde(w)_(n+1))^(-1) ip(v_(n+1) - sum_(k = 1)^n ip(v_(n+1), w_k) w_k, w_j) \
+&= norm(tilde(w)_(n+1))^(-1) (ip(v_(n+1), w_j) - sum_(k = 1)^n ip(v_(n+1), w_k) ip(w_k, w_j)) 
+$
+$
+norm(tilde(w)_(n+1))^(-1) (ip(v_(n+1), w_j)- ip(v_(n+1), w_j)) = 0
+$
+$==>$ ${w_1, ..., w_(n+1)}$ sind ONB.
+#endproof
+
+Diese Orthogonalisierung ist als Gram-Schmidt-Verfahren bekannt. Jorgen Gram (dänishcer Mathematiker, 1850-1916), Erhard Schmidt (deutscher Mathematiker, 1876-1959). Das Verfahren wurde bereits vor Laplace und Cauchy verwendet.
+
+#bold[Algorithmus 3.11: Gram-Schmidt-Verfahren]
+
+Gegeben: ${v_1, ..., v_n}$ als Basis eines euklidischen (unitären) Vektorraums $V$
+
+#enum[
+  Setze $w_1 := norm(v_1)^(-1) v_1$
+][
+  Für $j = 2, ..., n$ setze $#sspace$
+  $
+  tilde(w)_j := v_j - sum_(k = 1)^(j-1) ip(v_j, w_k) w_k \
+  w_j := norm(tilde(w)_j)^(-1) tilde(w)_j
+  $
+]
+Die ursprüngliche Basis ${v_1, ..., v_n}$ hat dann die Darstellung
+$
+(v_1, ..., v_n) = (w_1, ..., w_k) underbrace(mat(norm(v_1), ip(v_1, w_1),...,ip(v_n, w_1);0,norm(tilde(w)_2), dots.down, dots.v;dots.v,dots.v,dots.down, ip(v_n, w_(n-1));0,0,,norm(tilde(w)_n)), = R)
+$
+Da alle Diagnonaleinträge von $R$ ungleich $0$ sind, ist $R$ invertierbar. Sei nun $U$ ein $m$-dimensionaler Unterraum von $RR^n$ oder $CC^n$ mit dem Skalarprodukt. Wir definieren eine Orthonormalbasis ${w_1,.., w_m}$ die Matrix
+$
+Q = (w_1, ..., w_m) in K^(n, m)
+$
+Damit gilt im reellen Fall
+$
+RR^(m,m) #scale(x: -100%, $in$) Q^T Q = (w^T_i w_j)_(i, j = 1, ..., m) = (delta_(i j))_(i, j = 1, ..., m) = I_m
+$
+und im komplexen Fall
+$
+CC^(m,m) #scale(x: -100%, $in$) Q^H Q = (w_i^H w_j)_(i, j = 1, ..., m) = I_m
+$
+für $m = n$: $Q^T = Q^(-1)$ bzw. $Q^H = Q^(-1)$
+
+Umgekehrt gilt: Ist für eine Matrix $Q in K^(m, n)$ $Q^T Q = I_m$ bzw. $Q^H Q = I_m$, so sind die Spalten von $Q$ eine ONB bzgl. des Standardskalarproduktes eines $m$-dimensionalen Unterraums von $RR^n$ bzw. $CC^m$. Damit gilt: 
+
+#theorem("3.12")[
+  Sind $v_1, ..., v_m in K^n$ linear unabhängig, dann gibt es eine Matrix $Q in K^(n, m)$ mit orthonormalen Spalten bezüglich des Standardskalarproduktes und eine obere Dreiecksmatrix $R in "GL"_m (K)$ mit 
+  $
+  K^(n, m) #scale(x: -100%)[$in$] (v_1, ..., v_m) = Q R
+  $
+  als sogenannte $Q R$-Zerlegung
+]
+$Q R$ $->$ numerische lineare Algebra $->$ kleinste Quadrate-Problem
+
+//bild
+
+Die Matrix $Q$ ist längenerhaltend:
+
+#lemma("3.13")[
+  Sei $Q in K^(m, n)$ eine Matrix mit orthogonalen Spalten bzgl des Standardskalarproduktes. Dann gilt $norm(v)_2 = norm(Q v)_2$ für alle $v in K^n$, wobei hier $norm(.)_2$ die euklidische Norm ist.
+]
+
+#startproof
+$
+norm(v)_2^2 = ip(v,v) = v^H v = v^H I v = v^H Q^H Q v = norm(Q v)_2^2
+$
+#endproof
+
+#definition("3.14", "Orthogonalen und unitären Matrizen")[
+  #list[
+    Eine Matrix $Q in RR^(n,n)$ heißt #bold[orthogonal], wenn $Q^T Q = I_n$ gilt. Wir definieren
+    $
+    cal(O)_n (RR) := {Q in RR^(n,n) | Q "orthogonal"}
+    $
+  ][
+    Eine Matrix $Q in CC^(n,n)$ heißt #bold[unitär], wenn $Q^H Q = I_n$. Wir definieren
+    $
+    U_n (CC) := {Q in CC^(n,n) | Q "unitär"}
+    $
+  ]
+]
+
+Für orthogonale bzw. unitäre Matrizen gilt 
+$
+RR^(n,n) #scale(x: -100%)[$in$] Q^T Q = I_n ==> Q^T = Q^(-1), CC^(n,n) #scale(x: -100%)[$in$] Q^H Q = I_n ==> Q^H = Q^(-1)
+$
+D.h.
+
+#lemma("3.15")[
+  Die Mengen $cal(O)_n (RR)$ und $U_n (CC)$ bilden Untergruppen von $"GL"_n (RR)$ und $"GL"_n (CC)$.
+]
+#startproof Hier nur $"GL"_n (RR)$ 
+
+Für $I_n in RR^(n,n)$ gilt $I_n^T I_n = I_n$ $==>$ $I_n in cal(O)_n (RR)$ $==>$ $cal(O)_n (RR) != emptyset$. 
+
+zu zeigen: Gruppeneigenschaften
+
+#enum[
+  Abgeschlossenheit bzgl. der inneren Verknüpfung 
+
+  Sind $Q_1, Q_2 in cal(O)_n (RR)$. Dann gilt:
+  $
+  (Q_1 Q_2)^T Q_1 Q_2 = Q_2^T Q_1^T Q_1 Q_2 = I_n \
+  ==> Q_1 Q_2 in cal(O)_n (RR)
+  $
+][
+  Neutrales Element: $I_n$
+][
+  Inverses Element: $Q^(-1) = Q^T$
+]
+
+Jetzt: Übertragung auf Endomorphismen, auch der geometrische Aspekt
+
+#definition("3.16", "orthogonale Abbildung")[
+  Eine Abbildung $f in L(V,V)$ heißt #bold[orthogonal] ($U = RR$) bzw. unitär ($U = CC$) falls gilt
+  $
+  ip(f(v), f(w)) = ip(v, w) quad forall v, w in V
+  $
+]
+
+#definition("3.17", "")[
+  Wir definieren für einene euklidischen Vektorraum $V$
+  $
+  cal(O) (V) := {f in L(V,V) | f "orthogonal"}
+  $
+  bzw. für einen unitären Vektorraum $V$
+  $
+  U(V) := {f in L(V,V) | f "unitär"}
+  $
+]
+
+#lemma("3.18")[
+  Sei $f in L(V,V)$ orthogonal bzw. unitär. Dann gilt:
+
+  #enum[
+    $norm(f(v)) = norm(v) quad forall v in V$ für die durch das Skalarprodukt induzierte Norm
+  ][
+    $v bot w$ $==>$ $f(v) bot f(w)$ 
+  ][
+    $f$ ist ein Isomorphismus und $f^(-1)$ ist ebenfalls orthogonal bzw. unitär.
+  ][
+    Ist $lambda in K$ ein Eigenwert von $f$, so gilt $abs(lambda) = 1$
+  ]
+]
+
+#startproof 1 und 2 folgt direkt aus der Definition.
+
+3 Injektivitt folgt aus 1 + pos. Definitheit der Norm. Surjektivität folgt dann aus der Dimensionsformel. Aus der Surjektivität von $f$ und $F$ orthogonal bzw. unitär folgt diese Eigenschaft auch für $f^(-1)$ 
+4 Ist $lambda$ ein Eigenwert von $f$ mit dem Eigenvektor $v != 0$, so gilt 
+$
+norm(v) = norm(f(v)) = norm(lambda v) = abs(lambda) norm(v) \
+1 = abs(lambda)
+$
