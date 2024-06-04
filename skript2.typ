@@ -1906,7 +1906,7 @@ norm(v)_2^2 = ip(v,v) = v^H v = v^H I v = v^H Q^H Q v = norm(Q v)_2^2
 $
 #endproof
 
-#definition("3.14", "Orthogonalen und unitären Matrizen")[
+#definition("3.14", "Orthogonale und unitäre Matrizen")[
   #list[
     Eine Matrix $Q in RR^(n,n)$ heißt #bold[orthogonal], wenn $Q^T Q = I_n$ gilt. Wir definieren
     $
@@ -1935,10 +1935,10 @@ Für $I_n in RR^(n,n)$ gilt $I_n^T I_n = I_n$ $==>$ $I_n in cal(O)_n (RR)$ $==>$
 
 zu zeigen: Gruppeneigenschaften
 
-#enum[
-  Abgeschlossenheit bzgl. der inneren Verknüpfung 
+#boxedenum[
+  Abgeschlossenheit bzgl. der inneren Verknüpfung
 
-  Sind $Q_1, Q_2 in cal(O)_n (RR)$. Dann gilt:
+  Sind $Q_1, Q_2 in cal(O)_n (RR)$. Dann gilt: 
   $
   (Q_1 Q_2)^T Q_1 Q_2 = Q_2^T Q_1^T Q_1 Q_2 = I_n \
   ==> Q_1 Q_2 in cal(O)_n (RR)
@@ -1961,7 +1961,7 @@ Jetzt: Übertragung auf Endomorphismen, auch der geometrische Aspekt
 #definition("3.17", "")[
   Wir definieren für einene euklidischen Vektorraum $V$
   $
-  cal(O) (V) := {f in L(V,V) | f "orthogonal"}
+  cal(O) := (V) := {f in L(V,V) | f "orthogonal"}
   $
   bzw. für einen unitären Vektorraum $V$
   $
@@ -1991,3 +1991,206 @@ $
 norm(v) = norm(f(v)) = norm(lambda v) = abs(lambda) norm(v) \
 1 = abs(lambda)
 $
+
+Aus der Definition des Skalaeproduktes und orthogonal bzw. unitär folgt
+
+#corollary("3.19")[
+  Gilt für $f in L(V,V)$, dass 
+  $
+  norm(f(v)) = norm(v)
+  $
+  für die durch das Skalarprodukt induzierte Norm, so ist $f$ orthogonal bzw. unitär.
+]
+
+Aus diesen Gründen werden orthogonale bzw. unitäre Abbildungen aus Isometrien genannt.
+
+#theorem("3.20")[
+  Sei $V$ ein euklidischer (unitärer) Vektorraum mit einer Orthonormalbasis $B = {v_1, ..., v_n}$ und $f in L(V,V)$. Dann gilt:
+  $
+  f in cal(O)(V) "bzw." f in U(V) quad <==> quad A_f^(B,B) in cal(O)_n (RR) "bzw." A_f^(B,B) in U_n (CC)
+  $
+  D.h. die Abbildungen
+  $
+  cal(O)(V) -> cal(O)_n (RR), f arrow.bar A_f^(B,B) space "bzw." space U(V) -> U_n (CC), f arrow.bar A_f^(B,B)
+  $
+]
+
+#startproof Hier nur für $K = RR$
+
+"$==>$": $f$ orthogonal
+
+Dann gilt wegen der Orthonormalität von $B$ für $A_f^(B,B) = (a_(i j))$, dass 
+$
+delta_(i j) = ip(v_i, v_j) =^("3.16") ip(f(v_i), f(v_j)) = ip(sum_(l = 1)^n a_(l i) v_l, sum_(k = 1)^n a_(k j) v_k) = sum_(l = 1)^n a_(l i) a_(l j)
+$
+Also:
+$
+I_n = (A_f^(B,B))^T A_f^(B,B) ==> A_f^(B,B) in cal(O)_n (RR)
+$
+
+"$<==$": $A_f^(B,B) in cal(O)_n (RR)$. Für die zugehörige lineare Abbildung $f$ gilt wegen
+$
+f(v_i) = sum_(l = 1)^n a_(l i) v_l,
+$
+dass
+$
+ip(f(v_i), f(v_j)) = ip(sum_(l = 1)^n a_(l i) v_l, sum_(k = 1)^n a_(k j) v_k) = sum_(l = 1)^n a_(l i) a_(l j) =^(A_f^(B,B) in cal(O)_n (RR)) delta_(i j) = ip(v_i, v_j) \
+==> f in cal(O)(V)
+$
+#endproof
+
+== Selbstadjungierte Abbildungen
+
+Was ist ein adjungierter Endomorphismus?
+
+#lemma("3.21")[
+  Sei $V$ ein euklidischer (unitärer) Vektorraum und $f in L(V,V)$. Dann gibt es genau ein $g in L(V,V)$ mit 
+  $
+  ip(f(v), w) = ip(v, g(w)) quad forall v, w in V
+  $
+  Ist $B$ eine Orthonormalbasis von $V$, so gilt
+  $
+  A_g^(B,B) = (A_f^(B,B))^H
+  $
+]
+
+#startproof Hier nur für $K = RR$. Da $B$ orthonormal ist gilt für $v = Phi_B (x)$ und $w = Phi_B (y)$, dass
+$
+ip(v, w) = ip(A_(Phi_B)^(E, B), A_(Phi_B)^(E, B)) = x^T underbrace((A_(Phi_B)^(E,B))^T A_(Phi_B)^(E,B), I) y = x^T y = ip(x,y)_(RR^n) quad forall v, w in V
+$
+Dann gilt für $A_f^(B,B)$
+$
+ip(A_f^(B,B) x, y)_(RR^n) = (A_f^(B,B) x)^T y = x^T (A_f^(B,B))^T y = ip(x, (A_f^(B,B))^T y)_(RR^n)
+$
+Damit ist wegen der Definition des Skalarproduktes eindeutig eine lineare Abbildung mit der Darstellungsmatrix $(A_f^(B,B))^T$ gegeben. Diese bestimmt eindeutig den gesuchten Endomorphismus $g$. 
+#endproof
+
+#definition("3.22", "adjungierter Endorphismus")[
+  Die in Lemma 3.21 eindeutig definierte Abbildung $g in L(V,V)$ nennt man den zu $f in L(V,V)$ #bold[adjungierten Endomorphismus]. Er wird mit $f^"ad"$ bezeichnet.
+] <def>
+
+#definition("3.23", "selbstadjungiert")[
+  Sei $V$ ein euklidischer (unitärer) Vektorraum und $f in L(V,V)$. Der Enomorphismus $f$ heißt #bold[selbstadjungiert], wenn 
+  $
+  ip(f(v), w) = ip(v, f(w)) quad forall v, w in V
+  $
+  gilt. D.h. $f^"ad" = f$.
+] <def>
+
+#bold[Bemerkungen:] Es folgt unmittelbar
+
+#boxedlist[
+  Ist $f in L(V,V)$ und $B$ eine ONB, so gilt
+  $
+  f "selbstadjungiert" <==> A_f^(B,B) "ist symmetrisch bzw. hermitesch, d.h." A = A^H
+  $ 
+][
+  Ist $f$ orthogonal bzw. unitär, so ist $f^"ad" = f^(-1)$, denn für $u, v in V$ mit $w = f(u)$ d.h. $u = f^(-1) (w)$ gilt
+  $
+  ip(f(v), w) = ip(f(v), f(u)) = ip(v, u) = ip(v, f^(-1) (w))
+  $
+]
+
+#lemma("3.24")[
+  Sei $V$ ein euklidischer (unitärer) Vektorraum und $f in L(V,V)$ selbstadjungiert. Dann sind alle Eigenwerte von $f$ reell und das charakteristische Polynom zerfällt in Linearfaktoren.
+]
+
+#startproof Sei zunächst $K =CC$. Sei lambda ein Eigenwert von $f$ mit zugehörigen Eigenvektor $v != 0$. Dann gilt
+$
+lambda underbrace(ip(v,v), > 0) = ip(lambda v, v) = ip(f(v), v) = ip(v, f(v)) = ip(v, lambda v) = macron(lambda) ip(v, v)
+$
+$==> lambda = macron(lambda) in RR$
+
+Fundamentalsatz der Algebra $==>$ $p_f (.) = p_A (.)$ zerfällt über $CC$ in Linearfaktoren. 
+
+Sei nun $K =RR$.
+$B$ ONB $==> A:=A_f^(B,B) = (A_f^(B,B))^T$ ist eine spezielle komplexe Matrix
+$==>$ wie oben folgt für $p_A (.)$ betrachtet über $CC$, dass $p_A (.)$ in Linearfaktoren zerfällt 
+$
+(lambda - lambda_i) wide (lambda_i "ist EW" in RR)
+$
+$==> p_A (.)$ zerfällt auch über $RR$ in Linearfaktoren.
+#endproof
+
+#theorem("3.25")[
+  Sei $V$ ein euklidischer (unitärer) Vektorraum und $f in L(V,V)$ selbstadjungiert. Dann gibt es enie Orthonormalbasis von $V$ die aus Eigenvektoren zu den reellen Eigenwerten von $f$ besteht.
+]
+
+#startproof Sei $n = dim(V) < oo$.
+
+Für $n = 1$: klar $checkmark$
+
+$n-1 -> n$:
+
+Wegen Lemma 3.24 gilt
+$
+p_f (lambda) = plus.minus (lambda-lambda_1) dot ... dot (lambda - lambda_n)
+$
+mit $lambda_1, ..., lambda_n in RR$. Zu $lambda_1$ existiert ein Eigenvektor $v_1$ mit $norm(v_1) = 1$. Dann gilt für 
+$
+u in U := {u in V | ip(v_1, u) = 0}, 
+$
+dass
+$
+ip(v_1, f(u)) = ip(f(v_1), u) = lambda_1 underbrace(ip(v_1, u), = 0) = 0
+$
+d.h. $f(U) subset.eq U$. Also ist $U$ invariant unter $f$. Die Einschränkung $f|_U : U->U$ ist selbstadjungiert mit 
+$
+p_(f|_U) = plus.minus (lambda - lambda_2) dot ... dot (lambda - lambda_k)
+$
+Nach Induktionsvorraussetzung ex. ONB für $U$. Die Vereinigung dieses ONB mit $v_1$ ist ONB für $V$.
+#endproof
+
+Für die Matrixform erhalten wir analog.
+
+#lemma("3.26")[
+  Sei $A in K^(n,n)$ symmetrisch (hermitesch). Dan gibt es ein $T in "GL"_n (K)$ und $lambda_1, ..., lambda_n in RR$ so dass gilt 
+  $
+  T A T^(-1) = mat(lambda_1,,0;,dots.down,;0,,lambda_n)
+  $
+]
+
+#startproof Über Darstellungsmatrix eines selbstadjungierten Endomorphismus.
+#endproof
+
+#definition("3.27", "positiv definite Matrix")[
+  Eine symmetrische (hermitesche) Matrix $A in K^(n,n)$ heißt #bold[positiv definit], wenn 
+  $
+  v^T A v > 0 "bzw." v^H A v > 0 wide forall v in V without {0}
+  $
+]
+
+Lemma 3.26 $==>$ $A$ symmetrisch (hermitesch) $==>$ $A$ diagonalisierbar
+
+Des Weiteren gilt:
+
+#theorem("3.28")[
+  Sei $A in K^(n,n)$ symmetrisch (hermitesch). Dann sind folgende Aussagen äquivalent:
+  
+  #enum[
+    $A$ ist positiv definit
+  ][
+    Alle Eigenwerte $lambda_1, ..., lambda_n in RR$ von $A$ sind positiv.
+  ]
+]
+
+#startproof Vorlesung Donnerstag
+#endproof
+
+Zur Berechnung einer solchen ONB:
+
+#bold[Algorithmus 3.29:] Gegeben: $A in K^(n,n)$  bzw. $f in L(V,V)$ mit $A_f^(B,B) = A$.
+
+#list[
+  Bestimme 
+  $
+  p_A (lambda) = plus.minus (lambda - lambda_1)^(k_1) dot ... dot (lambda - lambda_m)^(k_m)
+  $
+  mit paarweise verschiedenen $lambda_i$, $1 <= i<= m$. Ist dies nicht möglich: STOP
+][
+  Für jeden Eigenwert $lambda_i$ der algebraischen Vielfachheit $k_i$ bestimme eine Basis des dazugehörigen Eigenraums $"Eig"(A, lambda_i)$. Stimmen geometrische und algebraische Vielfachheit überein: STOP
+][
+  Orthonormalisiere die Vereinigung der jeweiligen Basen mit dem Gram-Schmidt-Verfahren.
+]
+
+

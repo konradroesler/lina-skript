@@ -69,10 +69,22 @@
   )
 } 
 
+#let boxedenum(..content) = {
+  box(
+    width: 100%,
+    inset: (
+      right: 0.5cm,
+      left: 0.5cm,
+    ),
+    enum(
+      ..content
+    )
+  )
+} 
+
 #let corres = $op(hat(#h(1pt) = #h(1pt)))$
 #let isomorph = $op(tilde(#h(1pt) = #h(1pt)))$
 
-#let startproof = italic[Beweis:]
 #let endproof = [
   #set text(size: 0.75em)
   #align(right, $ballot$)
@@ -81,6 +93,7 @@
 #let italic(content) = [
   #text(style: "italic", weight: "medium")[#content]
 ]
+#let startproof = italic[Beweis:]
 
 #let circ = $op(circle.small)$
 #let oplus = $op(plus.circle)$
