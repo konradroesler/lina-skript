@@ -1619,9 +1619,9 @@ ip(v, lambda w) = macron(lambda) ip(v, w)
 $
 Deshalb:
 
-Die Cauchy-Schwartsche Ungleichung ist ein sehr wichtiges Instrument der Analaysis, z.B. für Approximationsfehler.
+Die Cauchy-Schwartsche Ungleichung ist ein sehr wichtiges Instrument der Analysis, z.B. für Approximationsfehler.
 
-Nächstes Ziel: Vektoren $v in V$ eine länge zuzuordnen $->$ Norm als Verallgemeinerung des Betrags
+Nächstes Ziel: Vektoren $v in V$ eine Länge zuzuordnen $->$ Norm als Verallgemeinerung des Betrags
 
 Für die reellen Zahlen: $abs(.): RR -> RR^+, x arrow.bar abs(x)$ mit 
 
@@ -1641,7 +1641,7 @@ Für die reellen Zahlen: $abs(.): RR -> RR^+, x arrow.bar abs(x)$ mit
   nennt man Norm auf $V$, wenn für alle $v, w in V$ und $lambda in K$ gilt:
   
   #boxedlist[
-    sie ist homogen, d.h.
+    sie ist homogen, d.h. #v(-1.5em) #h(100cm)
     $
     norm(lambda v) = abs(lambda) dot norm(v)
     $
@@ -1780,11 +1780,11 @@ gilt $angle.arc(v, w) = angle.arc(tilde(v), tilde(w))$. Im Einheitskreis erhält
 
 #figure(image("bilder2/3_8_2.jpeg", width: 25%))
 
-Also gibt es $alpha, beta in [0, 2pi)$ mit 
+Also gibt es $alpha, beta in [0, 2pi$ mit 
 $
 tilde(v) = (cos beta, sin beta)^T quad tilde(w) = (cos alpha, sin alpha)^T
 $
-Gilt $alpha, beta in [0, pi)$ folgt aus einem Additionstheorem für $cos$
+Gilt $alpha, beta in [0, pi$ folgt aus einem Additionstheorem für $cos$
 $
 cos(beta-alpha) &= cos alpha cos beta + sin alpha sin beta \
 &= ip(tilde(v), tilde(w)) dot 1 dot 1 \
@@ -1800,7 +1800,7 @@ cos(angle.arc(v,w)) = cos(pi/2) = 0 quad ==> quad ip(v,w) = 0
 $
 
 #definition("3.9", "orthogonal")[
-  Sei $V$ ein endlichdimensionaler oder unitärer Vektorraum. 
+  Sei $V$ ein endlichdimensionaler euklidischer oder unitärer Vektorraum. 
 
   #enum[
     Zwei Vektoren $v, w in V$ heißten #bold[orthogonal] bezüglich des gegebenen Skalarproduktes $ip(.,.)$, wenn gilt $ip(v,w) = 0$.
@@ -2118,7 +2118,7 @@ $==> p_A (.)$ zerfällt auch über $RR$ in Linearfaktoren.
 #endproof
 
 #theorem("3.25")[
-  Sei $V$ ein euklidischer (unitärer) Vektorraum und $f in L(V,V)$ selbstadjungiert. Dann gibt es enie Orthonormalbasis von $V$ die aus Eigenvektoren zu den reellen Eigenwerten von $f$ besteht.
+  Sei $V$ ein euklidischer (unitärer) Vektorraum und $f in L(V,V)$ selbstadjungiert. Dann gibt es eine Orthonormalbasis von $V$ die aus Eigenvektoren zu den reellen Eigenwerten von $f$ besteht.
 ]
 
 #startproof Sei $n = dim(V) < oo$.
@@ -2146,10 +2146,10 @@ $
 Nach Induktionsvorraussetzung ex. ONB für $U$. Die Vereinigung dieses ONB mit $v_1$ ist ONB für $V$.
 #endproof
 
-Für die Matrixform erhalten wir analog.
+Für die Matrixform erhalten wir analog:
 
 #lemma("3.26")[
-  Sei $A in K^(n,n)$ symmetrisch (hermitesch). Dan gibt es ein $T in "GL"_n (K)$ und $lambda_1, ..., lambda_n in RR$ so dass gilt 
+  Sei $A in K^(n,n)$ symmetrisch (hermitesch). Dann gibt es ein $T in "GL"_n (K)$ und $lambda_1, ..., lambda_n in RR$ so dass gilt 
   $
   T A T^(-1) = mat(lambda_1,,0;,dots.down,;0,,lambda_n)
   $
