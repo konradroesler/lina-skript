@@ -1923,7 +1923,7 @@ $
     U_n (CC) := {Q in CC^(n,n) | Q "unitär"}
     $
   ]
-]
+] <def>
 
 Für orthogonale bzw. unitäre Matrizen gilt 
 $
@@ -1957,22 +1957,22 @@ zu zeigen: Gruppeneigenschaften
 Jetzt: Übertragung auf Endomorphismen, auch der geometrische Aspekt
 
 #definition("3.16", "orthogonale Abbildung")[
-  Eine Abbildung $f in L(V,V)$ heißt #bold[orthogonal] ($U = RR$) bzw. unitär ($U = CC$) falls gilt
+  Eine Abbildung $f in L(V,V)$ heißt #bold[orthogonal] ($V = RR$) bzw. #bold[unitär] ($V = CC$) falls gilt
   $
   ip(f(v), f(w)) = ip(v, w) quad forall v, w in V
   $
-]
+] <def>
 
 #definition("3.17", "")[
-  Wir definieren für einene euklidischen Vektorraum $V$
+  Wir definieren für einen euklidischen Vektorraum $V$
   $
-  cal(O) := (V) := {f in L(V,V) | f "orthogonal"}
+  cal(O)(V) := {f in L(V,V) | f "orthogonal"}
   $
   bzw. für einen unitären Vektorraum $V$
   $
   U(V) := {f in L(V,V) | f "unitär"}
   $
-]
+] <def>
 
 #lemma("3.18")[
   Sei $f in L(V,V)$ orthogonal bzw. unitär. Dann gilt:
@@ -1990,14 +1990,14 @@ Jetzt: Übertragung auf Endomorphismen, auch der geometrische Aspekt
 
 #startproof 1 und 2 folgt direkt aus der Definition.
 
-3 Injektivitt folgt aus 1 + pos. Definitheit der Norm. Surjektivität folgt dann aus der Dimensionsformel. Aus der Surjektivität von $f$ und $F$ orthogonal bzw. unitär folgt diese Eigenschaft auch für $f^(-1)$ 
-4 Ist $lambda$ ein Eigenwert von $f$ mit dem Eigenvektor $v != 0$, so gilt 
+3: Injektivitt folgt aus 1 + pos. Definitheit der Norm. Surjektivität folgt dann aus der Dimensionsformel. Aus der Surjektivität von $f$ und $F$ orthogonal bzw. unitär folgt diese Eigenschaft auch für $f^(-1)$. 
+4: Ist $lambda$ ein Eigenwert von $f$ mit dem Eigenvektor $v != 0$, so gilt 
 $
 norm(v) = norm(f(v)) = norm(lambda v) = abs(lambda) norm(v) \
 1 = abs(lambda)
 $
 
-Aus der Definition des Skalaeproduktes und orthogonal bzw. unitär folgt
+Aus der Definition des Skalarproduktes und orthogonal bzw. unitär folgt
 
 #corollary("3.19")[
   Gilt für $f in L(V,V)$, dass 
@@ -2007,7 +2007,7 @@ Aus der Definition des Skalaeproduktes und orthogonal bzw. unitär folgt
   für die durch das Skalarprodukt induzierte Norm, so ist $f$ orthogonal bzw. unitär.
 ]
 
-Aus diesen Gründen werden orthogonale bzw. unitäre Abbildungen aus Isometrien genannt.
+Aus diesen Gründen werden orthogonale bzw. unitäre Abbildungen auch Isometrien genannt.
 
 #theorem("3.20")[
   Sei $V$ ein euklidischer (unitärer) Vektorraum mit einer Orthonormalbasis $B = {v_1, ..., v_n}$ und $f in L(V,V)$. Dann gilt:
@@ -2163,7 +2163,7 @@ Für die Matrixform erhalten wir analog:
   $
   v^T A v > 0 "bzw." v^H A v > 0 wide forall v in V without {0}
   $
-]
+] <def>
 
 Lemma 3.26 $==>$ $A$ symmetrisch (hermitesch) $==>$ $A$ diagonalisierbar
 
