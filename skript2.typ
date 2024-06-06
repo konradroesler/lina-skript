@@ -2018,6 +2018,7 @@ Aus diesen Gründen werden orthogonale bzw. unitäre Abbildungen auch Isometrien
   $
   cal(O)(V) -> cal(O)_n (RR), f arrow.bar A_f^(B,B) space "bzw." space U(V) -> U_n (CC), f arrow.bar A_f^(B,B)
   $
+  sind isomorph.
 ]
 
 #startproof Hier nur für $K = RR$
