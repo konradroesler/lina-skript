@@ -112,3 +112,6 @@
 #let ip(arg1, arg2) = $angle.l arg1, arg2 angle.r$
 
 #let norm(content) = $bar.double #h(-0em) content #h(-0em) bar.double$
+
+#let ar(content) = $arrow(content)$
+#let circs = $circle.filled.small$

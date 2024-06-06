@@ -2180,7 +2180,25 @@ Des Weiteren gilt:
   ]
 ]
 
-#startproof Vorlesung Donnerstag
+#startproof Hier nur $K = CC$, $K = RR$ folgt analog.
+
+"$1==>2$": Sei $lambda$ Eigenwert von $A$. Lemma 3.26 $==>$ $lambda in RR$. Sei $v$ ein Eigenvektor zu $lambda$, dann gilt:
+$
+0 < v^H A v = v^H A^H v = (A v)^H v = (lambda v)^H v = lambda v^H v = lambda underbrace(norm(v)^2, > 0) ==> lambda > 0
+$
+"$2==>1$": Satz 3.25: Es exitstiert ONB ${v_1, ..., v_n}$ bestehend aus Eigenvektoren zu Eigenwerten von $A$.
+$
+v_i^H A v_j = lambda_i v_i^H v_j = lambda_i delta_(i j)
+$
+Jedes $v in V$ bestizt eine Darstellung
+$
+v = sum_(i = 1)^n mu_i v_i, quad mu_i in CC, 1<=i<=n 
+$
+$
+v^H A v = ip(sum_(i = 1)^n mu_i v_u, sum_(j = 1)^n mu_j A v_j) = sum_(i = 1)^n sum_(j = 1)^n mu_i macron(mu)_j lambda_j underbrace(ip(v_i, v_j), delta_(i j)) \
+= sum_(i = 1)^n mu_i macron(mu)_i underbrace(lambda_i, > 0) = sum_(i = 1)^n underbrace(abs(mu_i)^2, >= 0) lambda_i > 0 quad "für" v != 0
+$
+
 #endproof
 
 Zur Berechnung einer solchen ONB:
@@ -2194,9 +2212,123 @@ Zur Berechnung einer solchen ONB:
   $
   mit paarweise verschiedenen $lambda_i$, $1 <= i<= m$. Ist dies nicht möglich: STOP
 ][
-  Für jeden Eigenwert $lambda_i$ der algebraischen Vielfachheit $k_i$ bestimme eine Basis des dazugehörigen Eigenraums $"Eig"(A, lambda_i)$. Stimmen geometrische und algebraische Vielfachheit überein: STOP
+  Für jeden Eigenwert $lambda_i$ der algebraischen Vielfachheit $k_i$ bestimme eine Basis des dazugehörigen Eigenraums $"Eig"(A, lambda_i)$. Stimmen geometrische und algebraische Vielfachheit nicht überein: STOP
 ][
   Orthonormalisiere die Vereinigung der jeweiligen Basen mit dem Gram-Schmidt-Verfahren.
 ]
 
+#bold[Beispiel 3.30:] Fortsetzung von Beispiel 2.32
 
+Wir betrachten wieder 
+$
+A = mat(3,-1,4,-3,-1;1,1,-1,1,0;-1,0,2,0,0;4,1,-4,5,1;-2,0,2,-2,1) \
+p_A (lambda) = (lambda-1)^4 (lambda-2) wide lambda_1 = 1 > 0, lambda_2 = 2 > 0
+$
+Es gilt
+$
+"Eig"(A, 1) = "Span"{vec(1,-1,1,0,1), vec(1,1,1,0,-1), vec(0,0,1,1,0), vec(0,0,0,0,1)} = {v_1, v_2, v_3, v_4} \
+"Eig"(A, 2) = "Span"{mat(0,1,2,3,-2)^T} = {v_5}
+$
+GS-Verfahren
+$
+w_1 = norm(v_1)^(-1) v_1 = 1/2 mat(1,-1,1,0,1)^T
+$
+$underline(j = 1)$
+$
+tilde(w)_2 = v_2 - sum_(k = 1)^1 ip(v_2, w_k) w_k = mat(1,1,1,0,-1)^T - 0, quad w_2 = 1/2 mat(1,1,1,0,-1)^T
+$
+$underline(j = 2):$
+$
+tilde(w)_3 = v_3 - sum_(k = 1)^2 ip(v_3, w_k) w_k = mat(0,0,1,1,0)^T - 1/2 dot 1/2 dot (1,-1,1,0,1)^T - 1/2 dot 1/2 dot mat(1,1,1,0,-1)^T \
+= mat(-1/2,0,1/2,1,0)^T, quad w_3 = 1/sqrt(3/2) mat(-1/2,0,1/2,1,0)^T
+$
+$j = 3$:...
+$j = 4$:...
+
+#pagebreak()
+
+= Affine Geometrie
+
+Bisher als Struktur:
+$
+"Gruppen" ==> "Körper" ==> "Vektorraum über Körper" ==> #stack(dir: ttb, spacing: 1em)[
+  Unterraum #h(12.5em)
+][
+  affine Unterräume als weitere Struktur
+]
+$
+Zur Motivation/Startpunkt, $RR^3$
+
+Gerade:
+$
+G := {vec(1,2,3) + a dot vec(1,1,0) | a in RR}
+$
+Ebene: 
+$
+E := {vec(1,2,3) + a dot vec(1,0,0) + b dot vec(0,1,0) | a, b in RR}
+$
+
+
+Def. 6.5 aus LinA: $G$ und $E$ sind affine Unterräume des $RR^3$. Damit ist $mat(1,2,3)^T$ ein Punkt im Raum zu dem ein Vektor als Repräsentant einer Äquivalenzklasse addiert wird. D.h.
+$
+G: P limits(+)_= ar(v)
+$
+Wir hatten schon: $U = v limits(+)_= W$ mit $W$ UVR
+
+== Operation einer Gruppe auf einer Menge
+
+#definition("4.1", "Wirkung einer Gruppe")[
+  Es sei $G$ eine Gruppe mit der Verknüpfung $circ$ und dem neutralen Element $e$ sowie eine Menge $M$. Eine Abbildung der Form
+  $
+  G times M -> M, quad (g, m) arrow.bar g circs m
+  $
+  nennt man #bold[Wirkung] oder #bold[Operation] der Gruppe $G$ auf der Menge $M$, falls gilt
+  
+  #boxedenum[
+    $(g_1 circ g_2) circs m = g_1 circs (g_2 circs m) quad forall g_1, g_2 in G, forall m in M$
+  ][
+    $e circs m = m quad forall m in M$
+  ]
+] <def>
+
+#bold[Beispiel 4.2:]
+
+#boxedlist[
+  Passend zum obigen Beispiel der Gerade/Ebene:
+
+  Sei $G = V$ ein $K$-Vektorraum (vgl. Def. 2.26 LinA I), $M = V$. Dann ist durch
+  $
+  V circ V -> V, (v, x) arrow.bar v + x
+  $
+  eine Operation von $V$ auf sich selbst definiert.
+][
+  Für die Gruppe $G := (RR, +)$ und $M = S^1$ als Einheitskreis im $RR^2$, d.h.
+  $
+  S^1 = {x in RR^2 | x_1^2 + x_2^2 = 1}
+  $
+  wird durch
+  $
+  (a, x) arrow.bar e^(i a) dot x quad forall a in G, forall x in M
+  $
+  eine Operation von $(RR, +)$ auf $S^1$ gegeben.
+][
+  Sei $G = "GL"_n (RR)$ und $M =RR^n$. Dann definiert
+  $
+  (A, x) arrow.bar A dot x in M quad forall A in G, forall x in M
+  $
+  eine Operation von $"GL"_n (RR)$ auf $M$.
+]
+
+#definition("4.3", [Bahn von $m$])[
+  Eine Gruppe $G$ wirke auf die Menge $M$. Für $m in M$ wird die Teilmenge
+  $
+  G circs m := { g circs m | g in G } subset.eq M
+  $
+  die #bold[Bahn von $m$ unter $G$] genannt.
+] <def>
+
+#bold[Beobachtung:] In Beispiel 4.2:
+
+In 1 und 2) entspricht die Bahn eines einzigen Elements der ganzen Menge.
+
+In 3)
