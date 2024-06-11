@@ -2018,7 +2018,7 @@ Aus diesen Gründen werden orthogonale bzw. unitäre Abbildungen auch Isometrien
   $
   cal(O)(V) -> cal(O)_n (RR), f arrow.bar A_f^(B,B) space "bzw." space U(V) -> U_n (CC), f arrow.bar A_f^(B,B)
   $
-  sind isomorph.
+  sind Isomorphismen.
 ]
 
 #startproof Hier nur für $K = RR$
@@ -2332,3 +2332,196 @@ Wir hatten schon: $U = v limits(+)_= W$ mit $W$ UVR
 In 1 und 2) entspricht die Bahn eines einzigen Elements der ganzen Menge.
 
 In 3)
+
+#definition("4.4", "transitive Wirkung")[
+  Eine Gruppe $G$ wirke uaf der Menge $M$. Die Wirkung nennt man #bold[transitiv], wenn für alle Paare $m, tilde(m) in M$ ein $g in G$ existiert, so dass
+  $
+  m = g circs tilde(m)
+  $
+  Man nennt die Wirkung #bold[einfach transitiv], falls das Gruppenelement $g$ eindeutig bestimmt ist.
+] <def>
+
+#lemma("4.5")[
+  Eine Gruppe $G$ wirke auf die Menge $M$. Dann gilt:
+
+  #boxedenum[
+    Ist die Wirkung transitiv, so gilt für jedes $m in M$ die Gleichheit $G circs m = M$
+  ][
+    Ist die Wirkung einfach transitiv, so existiert eine Bijektion zwischen $M$ und $G$.
+  ]
+]
+
+#startproof
+
+zu 1) Sei $m in M$ bel. gewählt. Dann existiert wegen der transitiven Wirkung zu $tilde(m) in M$ ein $g in G$ mit $tilde(m) = g circs ==> M = G circs m$
+
+zu 2) Für ein fest gewähltes $m in M$, definiert man 
+$
+psi_m: G -> M, quad g arrow.bar g circs m
+$
+Wegen der transitiven Wirkung ist $phi_m$ surjektiv. Da die Wirkung einfach transitiv ist, ist $phi_m$ auch injektiv $==>$ Bijektivität
+#endproof
+
+== Affine Räume
+
+#definition("4.6", "affiner Raum")[
+  Sei $V$ ein $K$-Vektorraum. Eine nichtleere Menge $M$ heißt #bold[affiner Raum] über dem Vektorraum $V$, wenn $V$ einfach transitiv auf $M$ wirkt. Die Elemente von $M$ werden als #bold[Punkte] bezeichnet. Ist $M = emptyset$, so wird $M$ ebenfalls als affiner Raum aufgefasst.
+] <def>
+
+Wie passt das zu 6.5 aus LinA I?
+
+#bold[Beispiel 4.7:] Sei $cal(L)(A, b)$ die Lösungsmenge des LGS $A x = b$ mit $A in RR^(m,n), x in RR^n, b in RR^m$. Im Satz 6.3, LinA I, haben wir gezeigt, dass $cal(L)(A, 0)$ ist ein Unterraum des $RR^n$ ($==>$ Gruppe). Ist $cal(L)(A, b) != emptyset$, gilt nach Satz 6.4, LinA I, dass
+$
+cal(L)(A, b) = x_* + cal(L)(A, 0)
+$
+für ein beliebiges $x_* in cal(L)(A, b)$. Dann ist $M = cal(L)(A, b)$ ein affiner Raum über dem Vektorraum $cal(L)(A, 0)$, denn es gilt
+$
+plus: cal(L)(A, 0) times cal(L)(A, b) -> cal(L)(A, b), quad (y, x) arrow.bar y + x
+$
+dass
+$forall y in G, forall x in M$:
+$
+A (y + x) = A y + A x = 0 + b = b
+$
+$==> y + x in M$
+
+$forall y, tilde(y) in G, forall x in M$ gilt 
+$
+(y +_G tilde(y)) +_W x = y +_w (tilde(y) +_W x) = y +_(RR^n) tilde(y) +_(RR^n) x \
+0 +_W x = 0 +_(RR^n) x = x
+$
+$==>$ $+$ ist eine Wirkung der Gruppe $G$ auf die Menge $M$. Sind $x, tilde(x) in cal(L)(A, b)$ ist $A x = A tilde(x) = b$ $==>$ 
+$
+A (x - tilde(x)) = b - b = 0
+$
+$y := x - tilde(x) in cal(L)(A, 0) ==> x = (x - tilde(x)) + tilde(x) = y + tilde(x) ==>$ Wirkung ist transitiv
+
+Sei $tilde(y) in cal(L)(A, 0) = G$ so gewählt, dass auch
+$
+x = tilde(y) + tilde(x)
+$
+gilt.
+$
+x = y + tilde(x) \
+x = tilde(y) + tilde(x) \
+==> 0 = y - tilde(y) ==> y = tilde(y) ==> "einfach transitiv"
+$
+#endproof
+
+#corollary("4.8")[
+  Sind $M$ und $tilde(M)$ zwei affine Räume, so existiert eine Bijektion zwischen $M$ und $tilde(M)$.
+]
+
+#startproof Folgt aus Lemma 4.5 und Komposition zweier bijektiver Abbildungen.
+#endproof
+
+#bold[Folgerung:] Ein affiner Raum ist bis auf eine Bijektion eindeutig bestimmt. Damit ist folgendes sinnvoll:
+
+#definition("4.9", "")[
+  Wir bezeichnen den affinen Raum über den zugehörigen $K$-Vektorraum $V$ mit $A(v)$ bzw. A, wenn der Kontext klar ist. Die einfach transitive Wirkung $circs$ von $V$ auf $A(v)$ wird mit $+$ bezeichnet, d.h. 
+  $
+  x circs P := P + x \
+  x in V, P in A(v)
+  $
+]
+
+#lemma("4.10")[
+  Sei $V$ ein $K$-Vektorraum und $A$ ein affiner Raum über $V$. Sei $P, Q, R, S in A$ und $v, w in V$. Dann gelten folgende Aussagen:
+  
+  #boxedenum[
+    $
+    P + v = P + w ==> v = w
+    $
+    D.h. für $Q = P + x in A$ ist der Vektor $x in V$ eindeutig bestimmt.
+  ][
+    $P + v = Q + v ==> P = Q$
+  ][
+    $P + v = Q ==> P = Q + (-v)$
+  ][
+    Für $Q = P + v in A$ wird $v$ als Verbindungsvektor von $P$ nach $Q$ bezeichnet und man schreibt 
+    $
+    v = limits(P Q)^(-->)
+    $
+    Es gilt
+    $
+    limits(P Q)^--> + limits(Q R)^--> = limits(P R)^-->
+    $
+  ][
+    Für $n in NN$ Punkte, $n > 1$, $P_1, ..., P_n in A$ gilt
+    $
+    limits(P_1 P_2)^--> + limits(P_2 P_3)^--> + ... + limits(P_(n-1) P_n)^--> = sum_(i = 1)^(n-1) limits(P_i P_(i+1))^--> = limits(P_1 P_n)^-->
+    $
+  ][
+    $
+    limits(P Q)^--> + limits(Q P)^--> = 0 in V$, d.h. $limits(P Q)^--> = - limits(Q P)^--> in V
+    $
+  ][
+    $limits(P Q)^--> = limits(R S)^--> ==> limits(P R)^--> = limits(Q S)^-->$
+  ]
+]
+
+#startproof Hier nur der Beweis von einigen Aussagen
+
+zu 1: Wegen der einfachen Transitivität existiert genau ein Vektor $v in V$ mit $Q = P + v = P + w$
+
+// zeichnung
+#figure(image("bilder2/4_10.JPG", width: 40%))
+
+Formal: $limits(P Q)^-->, limits(Q R)^-->, limits(P R)^-->$ sind definitionsgemäß die eindeutig bestimmten Vektoren, für die gilt
+$
+Q = P + limits(P Q)^-->, R = Q + limits(Q R)^-->, R = P + limits(P R)^-->
+$
+Damit folgt
+$
+R = (P + limits(P Q)^-->) + limits(Q R)^--> = P + (limits(P Q)^--> + limits(Q R)^-->)
+$
+
+zu 7: Sei $limits(P Q)^--> = limits(R S)^-->$. Dann folgt mit 4):
+$
+limits(P R)^--> = limits(P Q)^--> + limits(Q R)^--> = limits(R S)^--> + limits(Q R)^--> = limits(Q R)^--> + limits(R S)^--> =^("4)") limits(Q S)^-->
+$
+#endproof
+
+#definition("4.11", "")[
+  Sei $V$ ein $K$-Vektorraum und $A$ ein affiner Raum über $V$. Für einen Punkt $O in A$ definiert man:
+  $
+  psi_O: V -> A, quad x arrow.bar P := O + x
+  $
+  Aus Lemma 4.10 folgt unmittelbar, dass $psi_0$ eine Bijektion ist. D.h. für alle $P in A$ ist der Vektor $v_O (P)$ das eindeutig bestimmte Element in $V$ mit 
+  $
+  P = O + v_O (P)
+  $
+]
+
+#definition("4.12", "Dimension affiner Räume")[
+  Sei $V$ ein $K$-Vektorraum und $A$ ein affiner Raum über $V$. Dann ist
+  $
+  dim A := dim V
+  $
+  die #bold[Dimension von $A$]. Ist $A = emptyset$, so definiert man $dim A = -1$.
+]
+
+Als Verallgemeinerung von Def. 6.5, LinA I:
+
+#definition("4.13", "")[
+  Sei $V$ ein $K$-Vektorraum, $A$ ein affiner Raum über $V$ mi der Verknüpfung $+: V times A -> A$ und $P in A$. Ist $U subset.eq V$ ein Untervektorraum von $V$, so nennt man die Menge
+  $
+  B := P + U := {Q in A | exists u in U: Q = u + P}
+  $
+  einen #bold[affinen Unterraum] von $A$.
+] <def>
+
+#lemma("4.14")[
+  Sei $B$ ein affiner Unterraum des affinen Raums $A(V)$, d.h. $B subset.eq A(V)$. Damit ist $B$ selbst ein affiner Raum über einen Vektorraum $U subset.eq V$.
+]
+
+#startproof Nach Definition existiert zu $B$ ein $P in A(V)$ und ein Unterraum $U subset.eq V$:
+$
+B = {Q in A | exists u in U: Q = P + u}
+$
+$A$ affiner Raum $==>$ $exists +: V times A -> A$
+
+Einschränkung auf $B$ liefert:
+$
++: V times B -> B
+$
