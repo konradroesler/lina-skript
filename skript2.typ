@@ -2195,7 +2195,7 @@ $
 v = sum_(i = 1)^n mu_i v_i, quad mu_i in CC, 1<=i<=n 
 $
 $
-v^H A v = ip(sum_(i = 1)^n mu_i v_u, sum_(j = 1)^n mu_j A v_j) = sum_(i = 1)^n sum_(j = 1)^n mu_i macron(mu)_j lambda_j underbrace(ip(v_i, v_j), delta_(i j)) \
+v^H A v = ip(sum_(i = 1)^n mu_i v_i, sum_(j = 1)^n mu_j A v_j) = sum_(i = 1)^n sum_(j = 1)^n mu_i macron(mu)_j lambda_j underbrace(ip(v_i, v_j), delta_(i j)) \
 = sum_(i = 1)^n mu_i macron(mu)_i underbrace(lambda_i, > 0) = sum_(i = 1)^n underbrace(abs(mu_i)^2, >= 0) lambda_i > 0 quad "für" v != 0
 $
 
@@ -2298,7 +2298,7 @@ Wir hatten schon: $U = v limits(+)_= W$ mit $W$ UVR
 
   Sei $G = V$ ein $K$-Vektorraum (vgl. Def. 2.26 LinA I), $M = V$. Dann ist durch
   $
-  V circ V -> V, (v, x) arrow.bar v + x
+  V times V -> V, (v, x) arrow.bar v + x
   $
   eine Operation von $V$ auf sich selbst definiert.
 ][
