@@ -2387,7 +2387,7 @@ $==> y + x in M$
 
 $forall y, tilde(y) in G, forall x in M$ gilt 
 $
-(y +_G tilde(y)) +_W x = y +_w (tilde(y) +_W x) = y +_(RR^n) tilde(y) +_(RR^n) x \
+(y +_G tilde(y)) +_W x = y +_W (tilde(y) +_W x) = y +_(RR^n) tilde(y) +_(RR^n) x \
 0 +_W x = 0 +_(RR^n) x = x
 $
 $==>$ $+$ ist eine Wirkung der Gruppe $G$ auf die Menge $M$. Sind $x, tilde(x) in cal(L)(A, b)$ ist $A x = A tilde(x) = b$ $==>$ 
