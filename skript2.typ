@@ -2334,7 +2334,7 @@ In 1 und 2) entspricht die Bahn eines einzigen Elements der ganzen Menge.
 In 3)
 
 #definition("4.4", "transitive Wirkung")[
-  Eine Gruppe $G$ wirke uaf der Menge $M$. Die Wirkung nennt man #bold[transitiv], wenn für alle Paare $m, tilde(m) in M$ ein $g in G$ existiert, so dass
+  Eine Gruppe $G$ wirke auf der Menge $M$. Die Wirkung nennt man #bold[transitiv], wenn für alle Paare $m, tilde(m) in M$ ein $g in G$ existiert, so dass
   $
   m = g circs tilde(m)
   $
@@ -2353,7 +2353,7 @@ In 3)
 
 #startproof
 
-zu 1) Sei $m in M$ bel. gewählt. Dann existiert wegen der transitiven Wirkung zu $tilde(m) in M$ ein $g in G$ mit $tilde(m) = g circs ==> M = G circs m$
+zu 1) Sei $m in M$ bel. gewählt. Dann existiert wegen der transitiven Wirkung zu $tilde(m) in M$ ein $g in G$ mit $tilde(m) = g circs m ==> M = G circs m$
 
 zu 2) Für ein fest gewähltes $m in M$, definiert man 
 $
@@ -2387,8 +2387,8 @@ $==> y + x in M$
 
 $forall y, tilde(y) in G, forall x in M$ gilt 
 $
-(y +_G tilde(y)) +_W x = y +_W (tilde(y) +_W x) = y +_(RR^n) tilde(y) +_(RR^n) x \
-0 +_W x = 0 +_(RR^n) x = x
+"1."& quad (y +_G tilde(y)) +_W x = y +_W (tilde(y) +_W x) = y +_(RR^n) tilde(y) +_(RR^n) x \
+"2."& quad 0 +_W x = 0 +_(RR^n) x = x
 $
 $==>$ $+$ ist eine Wirkung der Gruppe $G$ auf die Menge $M$. Sind $x, tilde(x) in cal(L)(A, b)$ ist $A x = A tilde(x) = b$ $==>$ 
 $
@@ -2420,8 +2420,7 @@ $
 #definition("4.9", "")[
   Wir bezeichnen den affinen Raum über den zugehörigen $K$-Vektorraum $V$ mit $A(v)$ bzw. A, wenn der Kontext klar ist. Die einfach transitive Wirkung $circs$ von $V$ auf $A(v)$ wird mit $+$ bezeichnet, d.h. 
   $
-  x circs P := P + x \
-  x in V, P in A(v)
+  x circs P := P + x, quad x in V, P in A(v)
   $
 ]
 
@@ -2487,7 +2486,7 @@ $
   $
   psi_O: V -> A, quad x arrow.bar P := O + x
   $
-  Aus Lemma 4.10 folgt unmittelbar, dass $psi_0$ eine Bijektion ist. D.h. für alle $P in A$ ist der Vektor $v_O (P)$ das eindeutig bestimmte Element in $V$ mit 
+  Aus Lemma 4.10 folgt unmittelbar, dass $psi_O$ eine Bijektion ist. D.h. für alle $P in A$ ist der Vektor $v_O (P)$ das eindeutig bestimmte Element in $V$ mit 
   $
   P = O + v_O (P)
   $
@@ -2503,8 +2502,8 @@ $
 
 Als Verallgemeinerung von Def. 6.5, LinA I:
 
-#definition("4.13", "")[
-  Sei $V$ ein $K$-Vektorraum, $A$ ein affiner Raum über $V$ mi der Verknüpfung $+: V times A -> A$ und $P in A$. Ist $U subset.eq V$ ein Untervektorraum von $V$, so nennt man die Menge
+#definition("4.13", "affiner Unterraum")[
+  Sei $V$ ein $K$-Vektorraum, $A$ ein affiner Raum über $V$ mit der Verknüpfung $+: V times A -> A$ und $P in A$. Ist $U subset.eq V$ ein Untervektorraum von $V$, so nennt man die Menge
   $
   B := P + U := {Q in A | exists u in U: Q = u + P}
   $
@@ -2525,3 +2524,159 @@ Einschränkung auf $B$ liefert:
 $
 +: V times B -> B
 $
+$
+B = {Q in A | exists v in U: Q = P + v}, quad +: U times B -> B "wohldefiniert?"
+$
+$forall Q in A: forall v in V$ ist $Q = P + v$ definiert.
+
+$==>$ $forall Q in B subset.eq A, forall u in U subset.eq V$ ist $Q = P + u$ wohldefiniert. Des Weiteren gilt: für $Q in B$, $u in U$ sowie $v in U$ erhält man 
+$
+Q + u = (P+ v) + u = Ü + underbrace((v + u), in U) in B
+$
+Auch bei der Einschränkung auf $B$ bzw. $U$ bleibt die einfache Transitivität erhalten. 
+#endproof
+
+Analago zu Satz 6.6 aus LinA I kann man zeigen:
+
+#theorem("4.15")[
+  Sei $V$ ein $K$-Vektorraum, $A$ ein affiner Raum über $V$, $P, tilde(P) in A$ und $U, tilde(U) subset.eq V$ Untervektorräume von $V$. Dann gilt:
+
+  #boxedenum[
+    Für jedes $Q in P + U$ ist $P + U = Q + U$
+  ][
+    Gilt $P + U = tilde(P) + tilde(U)$, so ist $U = tilde(U)$ und $limits(P tilde(P))^--> in U = tilde(U)$
+  ]
+]
+
+#startproof siehe LinA I 
+#endproof
+
+#definition("4.16", "Aufpunkt und Richtung")[
+  Sei $V$ ein $K$-Vektorraum, $A$ ein affiner Raum über $V$  und $A(W)$ ein affiner Unterraum von $A$. Gilt
+  $
+  A(W) = P + W
+  $
+  so nennt man $P$ einen #bold[Aufpunkt] von $A(W)$ und den Untervektorraum $W$ die #bold[Richtung] von $A(W)$
+] <def>
+
+== Lagebeziehungen von affinen Unterräumen
+
+#definition("4.17", "(schwach) parallel")[
+  Sei $V$ ein $K$-Vektorraum, $A(V)$ ein affiner Raum und $A(W_1), A(W_2)$ zwei affine Unterräume von $A(V)$.
+
+  #boxedlist[
+    $A(W_1)$ und $A(W_2)$ heißen #bold[parallel], wenn $W_1 = W_2$ gilt $(A(W_1) || A(W_2))$
+  ][
+    $A(W_1)$ und $A(W_2)$ heißen #bold[schwach parallel], falls $W_1 subset W_2$ gilt $(A(W_1) triangle.stroked.small.l A(W_2))$
+  ]
+] <def>
+
+#theorem("4.18")[
+  Sei $V$ ein $K$-Vektorraum, $A(V$ ein affiner Raum über $V$ und $A(W_1), A(W_2)$ zwei prallele affine Unterräume. Dann gilt entweder $A(W_1) = A(W_2)$ oder $A(W_1) sect A(W_2) = emptyset$
+]
+
+#startproof Gilt $A(W_1) || A(W_2)) ==> W_1 = W_2$
+
+Annahme: $A(W_1) sect A(W_2) != emptyset$. Dann existiert ein $p in A(W_1) sect A(W_2)$. Satz 4.15 liefert
+$
+A(W_1) = P + W_1 = P + W_2 = A(W_2)
+$
+#endproof
+
+Bekannt ist:
+
+#boxedlist[
+  Ein 0-dimensionaler affine Unterraum $RR^3$ heißt Punkt im $RR^3$.
+][
+  Ein 1-dimensionaler affine Unterraum des $RR^3$ heißt Gerade im $RR^3$.
+][
+  Ein 2-dimensionaler affine Unterraum des $RR^3$ heißt Ebene in $RR^2$.
+]
+
+Verallgemeinerung:
+
+#definition("4.19", "")[
+  Sei $V$ ein $K$-Vektorraum, $A(V)$ ein affiner Raum über $V$ und $A(W)$ ein affiner Unterraum von $A(V)$.
+
+  #boxedlist[
+    Ist $dim(A(W)) = 0$, so heißt $A(W)$ #bold[(affiner) Punkt] von $A(V)$.
+  ][
+    Ist $dim(A(W)) = 1$, so heißt $A(W)$ #bold[(affine) Gerade] von $A(V)$.
+  ][
+    Ist $dim(A(W)) = 2$, so heißt $A(W)$ #bold[(affine) Ebene] von $A(V)$.
+  ]
+]
+
+#bold[Bemerkung:] Geraden können maximal schwach parallel zu Ebenen sein!
+
+Für Untervektorräume gilt: $dim(U_1 sect U_2) = dim(U_1) + dim(U_2) - dim(U_1 + U_2)$, Satz 3.40, LinA I
+
+#lemma("4.20")[
+  Es seien $U_1$ und $U_2$ zwei Untervektorräume eines $K$-Vektorraums $V$ sowie $A(U_1) =: A_1$ und $A(U_2) =: A_2$ zwei affine Unterräume des affinen Raums $A(V)$. Ist $A_1 sect A_2 != emptyset$, so ist $A_1 sect A_2$ ein affiner Unterraum von $A(V)$ mit dem zugehörigen Untervektorraum $U_1 sect U_2$ und es gilt
+  $
+  dim (A_1 sect A_2) = dim(U_1 sect U_2)
+  $
+]
+
+#startproof Es gilt: 
+$
+A_1 = P_1 + U_1 quad "und" quad A_2 = P_2
+$
+$A_1 sect A_2 != emptyset ==> exists Q in A_1 sect A_2$
+$
+A_1 sect A_2 = {P in A | exists u_1 in U_1, u_2 in U_2: P = Q + u_1 = Q + u_2}
+$
+Für jedes Paar $(P, Q)$ von Punkten aus $A$ genau einen Vektor $v in  V$ mit $P = Q + v$ (Lemma 4.10, 1) 
+$
+==> u_1 = u_2 ==> A_1 sect A_2 = {P in A | exists u in underbrace(U_1 sect U_2, "UVR"): P = Q + u}
+$
+$==>$ $A_1 sect A_2$ affiner Raum.
+
+$dim(A_1 sect A_2) = dim(U_1 sect U_2)$ nach Def. 
+#endproof
+
+#lemma("4.21")[
+  Es seien $U_1$ und $U_2$ zwei Untervektorräume des $K$-Vektorraums $V$, $A_1 = A(U_1)$ und $A_2 = A(U_2)$ zwei affine Unterräume eines affinen Raums $A(V)$ sowie $P_1 in A_1$ und $P_2 in A_2$ zwei beliebige Punkte
+  $
+  A_1 sect A_2 != emptyset <==> limits(P_1 P_2)^--> in U_1 + U_2
+  $
+]
+
+#startproof
+
+"$==>$": $A_1 sect A_2 != emptyset ==> exists Q in A_1 sect A_2$
+
+Dann liegen die Verbindungsvektoren $limits(P_1 Q)^-->$ bzw. $limits(P_2 Q)^-->$ in den jeweiligen Untervektorräume $U_1$ bzw. $U_2$. Lemma 4.10, 4):
+$
+limits(P_1 P_2)^--> = underbrace(limits(P_1 Q)^-->, in U_1) + underbrace(limits(Q P_2)^-->, in U_2) in U_1 + U_2 space checkmark
+$
+
+"$<==$": Sei $limits(P_1 P_2)^--> in U_1 + U_2$ $==>$
+
+$exists u_1 in U_1, u_2 in U_2: limits(P_1 P_2)^--> = u_1 + u_2$. Setzt man $Q := P_1 + u_1 in A_1$, so gilt 
+$
+Q &= P_1 + u_1 = P_1 + ((u_1 + u_2) - u_2) = P_1 + (limits(P_1 P_2)^--> - u_2) \
+&= (P_1 + limits(P_1 P_2)^-->) - u_2 = underbrace(P_2, in A_2) + underbrace((-u_2), in U_2) in A_2
+$
+$==> A_1 sect A_2 != emptyset$
+#endproof
+
+#definition("4.22", "affine Hülle")[
+  Sei $M subset A(V)$ eine Teilmenge eines affinen Raumes $A(V)$ über einem $K$-Vektorraum $V$. Der kleinste affine Unterraum von $A$, der $M$ enthält, wird #bold[affine Hülle] von $M$ gennant und mit $angle.l M angle.r_"aff"$ bezeichnet.
+]
+
+#let hull(content) = $angle.l content angle.r_"aff"$
+
+Sind $A(U_1)$ und $A(U_2)$ zwei affine Unterräume eines affines Raums $A(V)$, so bezeichnen wir die affine hülle $hull(A(U_1) union A(U_2))$ als Verbindungsraum von $A_1$ und $A_2$.
+
+#lemma("4.23")[
+  Seien $U_1, U_2 subset.eq V$ zwei Untervektorräume des $K$-Vektorraums $V$, $A_1 = A(U_1)$ zwei offene Unterräume eines affines Raums $A(V)$, sowie $P_1 in A_1$ und $P_2 in A_2$ d.h.
+  $
+  A_1 = P_1 + U_1 space "und" space A_2 = P_2 + U_2
+  $
+  Dann ist der Verbindugsraum durch
+  $
+  hull(A_1 union A_2) = P_1 + ("Span"(limits(P_1 P_2)^-->) + U_1 + U_2)
+  $
+]
+
