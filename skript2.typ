@@ -2674,7 +2674,7 @@ Sind $A(U_1)$ und $A(U_2)$ zwei affine Unterräume eines affines Raums $A(V)$, s
   $
   A_1 = P_1 + U_1 space "und" space A_2 = P_2 + U_2
   $
-  Dann ist der Verbindugsraum durch
+  Dann ist der Verbindungsraum durch
   $
   hull(A_1 union A_2) = P_1 + ("Span"(limits(P_1 P_2)^-->) + U_1 + U_2)
   $
