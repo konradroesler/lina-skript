@@ -2418,9 +2418,9 @@ $
 #bold[Folgerung:] Ein affiner Raum ist bis auf eine Bijektion eindeutig bestimmt. Damit ist folgendes sinnvoll:
 
 #definition("4.9", "")[
-  Wir bezeichnen den affinen Raum über den zugehörigen $K$-Vektorraum $V$ mit $A(v)$ bzw. A, wenn der Kontext klar ist. Die einfach transitive Wirkung $circs$ von $V$ auf $A(v)$ wird mit $+$ bezeichnet, d.h. 
+  Wir bezeichnen den affinen Raum über den zugehörigen $K$-Vektorraum $V$ mit $A(V)$ bzw. A, wenn der Kontext klar ist. Die einfach transitive Wirkung $circs$ von $V$ auf $A(V)$ wird mit $+$ bezeichnet, d.h. 
   $
-  x circs P := P + x, quad x in V, P in A(v)
+  x circs P := P + x, quad x in V, P in A(V)
   $
 ]
 
