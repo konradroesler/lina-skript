@@ -2417,7 +2417,7 @@ $
 
 #bold[Folgerung:] Ein affiner Raum ist bis auf eine Bijektion eindeutig bestimmt. Damit ist folgendes sinnvoll:
 
-#definition("4.9", "")[
+#definition("4.9", [affiner Raum von $V$ als $A(V)$])[
   Wir bezeichnen den affinen Raum über den zugehörigen $K$-Vektorraum $V$ mit $A(V)$ bzw. A, wenn der Kontext klar ist. Die einfach transitive Wirkung $circs$ von $V$ auf $A(V)$ wird mit $+$ bezeichnet, d.h. 
   $
   x circs P := P + x, quad x in V, P in A(V)
@@ -2481,7 +2481,7 @@ limits(P R)^--> = limits(P Q)^--> + limits(Q R)^--> = limits(R S)^--> + limits(Q
 $
 #endproof
 
-#definition("4.11", "")[
+#definition("4.11", [Verbindungsvektor $v_O (P)$])[
   Sei $V$ ein $K$-Vektorraum und $A$ ein affiner Raum über $V$. Für einen Punkt $O in A$ definiert man:
   $
   psi_O: V -> A, quad x arrow.bar P := O + x
@@ -2531,7 +2531,7 @@ $forall Q in A: forall v in V$ ist $Q = P + v$ definiert.
 
 $==>$ $forall Q in B subset.eq A, forall u in U subset.eq V$ ist $Q = P + u$ wohldefiniert. Des Weiteren gilt: für $Q in B$, $u in U$ sowie $v in U$ erhält man 
 $
-Q + u = (P+ v) + u = Ü + underbrace((v + u), in U) in B
+Q + u = (P+ v) + u = P + underbrace((v + u), in U) in B
 $
 Auch bei der Einschränkung auf $B$ bzw. $U$ bleibt die einfache Transitivität erhalten. 
 #endproof
@@ -2572,12 +2572,12 @@ Analago zu Satz 6.6 aus LinA I kann man zeigen:
 ] <def>
 
 #theorem("4.18")[
-  Sei $V$ ein $K$-Vektorraum, $A(V$ ein affiner Raum über $V$ und $A(W_1), A(W_2)$ zwei prallele affine Unterräume. Dann gilt entweder $A(W_1) = A(W_2)$ oder $A(W_1) sect A(W_2) = emptyset$
+  Sei $V$ ein $K$-Vektorraum, $A(V)$ ein affiner Raum über $V$ und $A(W_1), A(W_2)$ zwei parallele affine Unterräume. Dann gilt entweder $A(W_1) = A(W_2)$ oder $A(W_1) sect A(W_2) = emptyset$
 ]
 
-#startproof Gilt $A(W_1) || A(W_2)) ==> W_1 = W_2$
+#startproof Gilt $A(W_1) || A(W_2) ==> W_1 = W_2$
 
-Annahme: $A(W_1) sect A(W_2) != emptyset$. Dann existiert ein $p in A(W_1) sect A(W_2)$. Satz 4.15 liefert
+Annahme: $A(W_1) sect A(W_2) != emptyset$. Dann existiert ein $P in A(W_1) sect A(W_2)$. Satz 4.15 liefert
 $
 A(W_1) = P + W_1 = P + W_2 = A(W_2)
 $
@@ -2595,7 +2595,7 @@ Bekannt ist:
 
 Verallgemeinerung:
 
-#definition("4.19", "")[
+#definition("4.19", "Punkt, Gerade, Ebene")[
   Sei $V$ ein $K$-Vektorraum, $A(V)$ ein affiner Raum über $V$ und $A(W)$ ein affiner Unterraum von $A(V)$.
 
   #boxedlist[
@@ -2620,7 +2620,7 @@ Für Untervektorräume gilt: $dim(U_1 sect U_2) = dim(U_1) + dim(U_2) - dim(U_1 
 
 #startproof Es gilt: 
 $
-A_1 = P_1 + U_1 quad "und" quad A_2 = P_2
+A_1 = P_1 + U_1 quad "und" quad A_2 = P_2 + U_2
 $
 $A_1 sect A_2 != emptyset ==> exists Q in A_1 sect A_2$
 $
@@ -2665,12 +2665,10 @@ $==> A_1 sect A_2 != emptyset$
   Sei $M subset A(V)$ eine Teilmenge eines affinen Raumes $A(V)$ über einem $K$-Vektorraum $V$. Der kleinste affine Unterraum von $A$, der $M$ enthält, wird #bold[affine Hülle] von $M$ gennant und mit $angle.l M angle.r_"aff"$ bezeichnet.
 ]
 
-#let hull(content) = $angle.l content angle.r_"aff"$
-
 Sind $A(U_1)$ und $A(U_2)$ zwei affine Unterräume eines affines Raums $A(V)$, so bezeichnen wir die affine hülle $hull(A(U_1) union A(U_2))$ als Verbindungsraum von $A_1$ und $A_2$.
 
 #lemma("4.23")[
-  Seien $U_1, U_2 subset.eq V$ zwei Untervektorräume des $K$-Vektorraums $V$, $A_1 = A(U_1)$ zwei offene Unterräume eines affines Raums $A(V)$, sowie $P_1 in A_1$ und $P_2 in A_2$ d.h.
+  Seien $U_1, U_2 subset.eq V$ zwei Untervektorräume des $K$-Vektorraums $V$, $A_1 = A(U_1)$ und $A_2 = A(U_2)$ zwei offene Unterräume eines affines Raums $A(V)$, sowie $P_1 in A_1$ und $P_2 in A_2$ d.h.
   $
   A_1 = P_1 + U_1 space "und" space A_2 = P_2 + U_2
   $
@@ -2678,5 +2676,6 @@ Sind $A(U_1)$ und $A(U_2)$ zwei affine Unterräume eines affines Raums $A(V)$, s
   $
   hull(A_1 union A_2) = P_1 + ("Span"(limits(P_1 P_2)^-->) + U_1 + U_2)
   $
+  bestimmt.
 ]
 

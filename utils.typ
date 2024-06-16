@@ -115,3 +115,5 @@
 
 #let ar(content) = $arrow(content)$
 #let circs = $circle.filled.small$
+
+#let hull(content) = $angle.l content angle.r_"aff"$
