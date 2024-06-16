@@ -1915,7 +1915,7 @@ $
   #list[
     Eine Matrix $Q in RR^(n,n)$ heißt #bold[orthogonal], wenn $Q^T Q = I_n$ gilt. Wir definieren
     $
-    cal(O)_n (RR) := {Q in RR^(n,n) | Q "orthogonal"}
+    O_n (RR) := {Q in RR^(n,n) | Q "orthogonal"}
     $
   ][
     Eine Matrix $Q in CC^(n,n)$ heißt #bold[unitär], wenn $Q^H Q = I_n$. Wir definieren
@@ -1932,21 +1932,21 @@ $
 D.h.
 
 #lemma("3.15")[
-  Die Mengen $cal(O)_n (RR)$ und $U_n (CC)$ bilden Untergruppen von $"GL"_n (RR)$ und $"GL"_n (CC)$.
+  Die Mengen $O_n (RR)$ und $U_n (CC)$ bilden Untergruppen von $"GL"_n (RR)$ und $"GL"_n (CC)$.
 ]
 #startproof Hier nur $"GL"_n (RR)$ 
 
-Für $I_n in RR^(n,n)$ gilt $I_n^T I_n = I_n$ $==>$ $I_n in cal(O)_n (RR)$ $==>$ $cal(O)_n (RR) != emptyset$. 
+Für $I_n in RR^(n,n)$ gilt $I_n^T I_n = I_n$ $==>$ $I_n in O_n (RR)$ $==>$ $O_n (RR) != emptyset$. 
 
 zu zeigen: Gruppeneigenschaften
 
 #boxedenum[
   Abgeschlossenheit bzgl. der inneren Verknüpfung
 
-  Sind $Q_1, Q_2 in cal(O)_n (RR)$. Dann gilt: 
+  Sind $Q_1, Q_2 in O_n (RR)$. Dann gilt: 
   $
   (Q_1 Q_2)^T Q_1 Q_2 = Q_2^T Q_1^T Q_1 Q_2 = I_n \
-  ==> Q_1 Q_2 in cal(O)_n (RR)
+  ==> Q_1 Q_2 in O_n (RR)
   $
 ][
   Neutrales Element: $I_n$
@@ -1966,7 +1966,7 @@ Jetzt: Übertragung auf Endomorphismen, auch der geometrische Aspekt
 #definition("3.17", "")[
   Wir definieren für einen euklidischen Vektorraum $V$
   $
-  cal(O)(V) := {f in L(V,V) | f "orthogonal"}
+  O(V) := {f in L(V,V) | f "orthogonal"}
   $
   bzw. für einen unitären Vektorraum $V$
   $
@@ -2012,11 +2012,11 @@ Aus diesen Gründen werden orthogonale bzw. unitäre Abbildungen auch Isometrien
 #theorem("3.20")[
   Sei $V$ ein euklidischer (unitärer) Vektorraum mit einer Orthonormalbasis $B = {v_1, ..., v_n}$ und $f in L(V,V)$. Dann gilt:
   $
-  f in cal(O)(V) "bzw." f in U(V) quad <==> quad A_f^(B,B) in cal(O)_n (RR) "bzw." A_f^(B,B) in U_n (CC)
+  f in O(V) "bzw." f in U(V) quad <==> quad A_f^(B,B) in O_n (RR) "bzw." A_f^(B,B) in U_n (CC)
   $
   D.h. die Abbildungen
   $
-  cal(O)(V) -> cal(O)_n (RR), f arrow.bar A_f^(B,B) space "bzw." space U(V) -> U_n (CC), f arrow.bar A_f^(B,B)
+  O(V) -> O_n (RR), f arrow.bar A_f^(B,B) space "bzw." space U(V) -> U_n (CC), f arrow.bar A_f^(B,B)
   $
   sind Isomorphismen.
 ]
@@ -2031,17 +2031,17 @@ delta_(i j) = ip(v_i, v_j) =^("3.16") ip(f(v_i), f(v_j)) = ip(sum_(l = 1)^n a_(l
 $
 Also:
 $
-I_n = (A_f^(B,B))^T A_f^(B,B) ==> A_f^(B,B) in cal(O)_n (RR)
+I_n = (A_f^(B,B))^T A_f^(B,B) ==> A_f^(B,B) in O_n (RR)
 $
 
-"$<==$": $A_f^(B,B) in cal(O)_n (RR)$. Für die zugehörige lineare Abbildung $f$ gilt wegen
+"$<==$": $A_f^(B,B) in O_n (RR)$. Für die zugehörige lineare Abbildung $f$ gilt wegen
 $
 f(v_i) = sum_(l = 1)^n a_(l i) v_l,
 $
 dass
 $
-ip(f(v_i), f(v_j)) = ip(sum_(l = 1)^n a_(l i) v_l, sum_(k = 1)^n a_(k j) v_k) = sum_(l = 1)^n a_(l i) a_(l j) =^(A_f^(B,B) in cal(O)_n (RR)) delta_(i j) = ip(v_i, v_j) \
-==> f in cal(O)(V)
+ip(f(v_i), f(v_j)) = ip(sum_(l = 1)^n a_(l i) v_l, sum_(k = 1)^n a_(k j) v_k) = sum_(l = 1)^n a_(l i) a_(l j) =^(A_f^(B,B) in O_n (RR)) delta_(i j) = ip(v_i, v_j) \
+==> f in O(V)
 $
 #endproof
 
@@ -2101,7 +2101,7 @@ Damit ist wegen der Definition des Skalarproduktes eindeutig eine lineare Abbild
   Sei $V$ ein euklidischer (unitärer) Vektorraum und $f in L(V,V)$ selbstadjungiert. Dann sind alle Eigenwerte von $f$ reell und das charakteristische Polynom zerfällt in Linearfaktoren.
 ]
 
-#startproof Sei zunächst $K =CC$. Sei lambda ein Eigenwert von $f$ mit zugehörigen Eigenvektor $v != 0$. Dann gilt
+#startproof Sei zunächst $K =CC$. Sei $lambda$ ein Eigenwert von $f$ mit zugehörigen Eigenvektor $v != 0$. Dann gilt
 $
 lambda underbrace(ip(v,v), > 0) = ip(lambda v, v) = ip(f(v), v) = ip(v, f(v)) = ip(v, lambda v) = macron(lambda) ip(v, v)
 $
@@ -2329,7 +2329,7 @@ Wir hatten schon: $U = v limits(+)_= W$ mit $W$ UVR
 
 #bold[Beobachtung:] In Beispiel 4.2:
 
-In 1 und 2) entspricht die Bahn eines einzigen Elements der ganzen Menge.
+In 1 und 2 entspricht die Bahn eines einzigen Elements der ganzen Menge.
 
 In 3)
 
@@ -2422,7 +2422,7 @@ $
   $
   x circs P := P + x, quad x in V, P in A(V)
   $
-]
+] <def>
 
 #lemma("4.10")[
   Sei $V$ ein $K$-Vektorraum und $A$ ein affiner Raum über $V$. Sei $P, Q, R, S in A$ und $v, w in V$. Dann gelten folgende Aussagen:
@@ -2490,7 +2490,7 @@ $
   $
   P = O + v_O (P)
   $
-]
+] <def>
 
 #definition("4.12", "Dimension affiner Räume")[
   Sei $V$ ein $K$-Vektorraum und $A$ ein affiner Raum über $V$. Dann ist
@@ -2498,7 +2498,7 @@ $
   dim A := dim V
   $
   die #bold[Dimension von $A$]. Ist $A = emptyset$, so definiert man $dim A = -1$.
-]
+] <def>
 
 Als Verallgemeinerung von Def. 6.5, LinA I:
 
@@ -2605,7 +2605,7 @@ Verallgemeinerung:
   ][
     Ist $dim(A(W)) = 2$, so heißt $A(W)$ #bold[(affine) Ebene] von $A(V)$.
   ]
-]
+] <def>
 
 #bold[Bemerkung:] Geraden können maximal schwach parallel zu Ebenen sein!
 
@@ -2663,7 +2663,7 @@ $==> A_1 sect A_2 != emptyset$
 
 #definition("4.22", "affine Hülle")[
   Sei $M subset A(V)$ eine Teilmenge eines affinen Raumes $A(V)$ über einem $K$-Vektorraum $V$. Der kleinste affine Unterraum von $A$, der $M$ enthält, wird #bold[affine Hülle] von $M$ gennant und mit $angle.l M angle.r_"aff"$ bezeichnet.
-]
+] <def>
 
 Sind $A(U_1)$ und $A(U_2)$ zwei affine Unterräume eines affines Raums $A(V)$, so bezeichnen wir die affine hülle $hull(A(U_1) union A(U_2))$ als Verbindungsraum von $A_1$ und $A_2$.
 
