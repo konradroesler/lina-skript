@@ -117,3 +117,13 @@
 #let circs = $circle.filled.small$
 
 #let hull(content) = $angle.l content angle.r_"aff"$
+
+#let smar(content) = context {
+    let content = box($content$)
+    if measure(content).width > measure($->$).width [
+      $limits(content)^#[#context line(stroke: 0.048em, length: measure(content).width - measure($->$).width) #h(-0.055em) $->$]$
+    ] else [
+      $limits(content)^->$
+    ]
+}
+

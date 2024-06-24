@@ -2062,7 +2062,7 @@ Was ist ein adjungierter Endomorphismus?
 
 #startproof Hier nur für $K = RR$. Da $B$ orthonormal ist gilt für $v = Phi_B (x)$ und $w = Phi_B (y)$, dass
 $
-ip(v, w) = ip(A_(Phi_B)^(E, B), A_(Phi_B)^(E, B)) = x^T underbrace((A_(Phi_B)^(E,B))^T A_(Phi_B)^(E,B), I) y = x^T y = ip(x,y)_(RR^n) quad forall v, w in V
+ip(v, w) = ip(A_(Phi_B)^(E, B) v, A_(Phi_B)^(E, B) w)_(RR^n) = x^T underbrace((A_(Phi_B)^(E,B))^T A_(Phi_B)^(E,B), I) y = x^T y = ip(x,y)_(RR^n) quad forall v, w in V
 $
 Dann gilt für $A_f^(B,B)$
 $
@@ -2439,23 +2439,23 @@ $
   ][
     Für $Q = P + v in A$ wird $v$ als Verbindungsvektor von $P$ nach $Q$ bezeichnet und man schreibt 
     $
-    v = limits(P Q)^(-->)
+    v = smar(P Q)
     $
     Es gilt
     $
-    limits(P Q)^--> + limits(Q R)^--> = limits(P R)^-->
+    smar(P Q) + smar(Q R) = smar(P R)
     $
   ][
     Für $n in NN$ Punkte, $n > 1$, $P_1, ..., P_n in A$ gilt
     $
-    limits(P_1 P_2)^--> + limits(P_2 P_3)^--> + ... + limits(P_(n-1) P_n)^--> = sum_(i = 1)^(n-1) limits(P_i P_(i+1))^--> = limits(P_1 P_n)^-->
+    smar(P_1 P_2) + smar(P_2 P_3) + ... + smar(P_(n-1) P_n) = sum_(i = 1)^(n-1) smar(P_i P_(i+1)) = smar(P_1 P_n)
     $
   ][
     $
-    limits(P Q)^--> + limits(Q P)^--> = 0 in V$, d.h. $limits(P Q)^--> = - limits(Q P)^--> in V
+    smar(P Q) + smar(Q P) = 0 in V$, d.h. $smar(P Q) = - smar(Q P) in V
     $
   ][
-    $limits(P Q)^--> = limits(R S)^--> ==> limits(P R)^--> = limits(Q S)^-->$
+    $smar(P Q) = smar(R S) ==> smar(P R) = smar(Q S)$
   ]
 ]
 
@@ -2466,18 +2466,18 @@ zu 1: Wegen der einfachen Transitivität existiert genau ein Vektor $v in V$ mit
 // zeichnung
 #figure(image("bilder2/4_10.JPG", width: 40%))
 
-Formal: $limits(P Q)^-->, limits(Q R)^-->, limits(P R)^-->$ sind definitionsgemäß die eindeutig bestimmten Vektoren, für die gilt
+Formal: $smar(P Q), smar(Q R), smar(P R)$ sind definitionsgemäß die eindeutig bestimmten Vektoren, für die gilt
 $
-Q = P + limits(P Q)^-->, R = Q + limits(Q R)^-->, R = P + limits(P R)^-->
+Q = P + smar(P Q), R = Q + smar(Q R), R = P + smar(P R)
 $
 Damit folgt
 $
-R = (P + limits(P Q)^-->) + limits(Q R)^--> = P + (limits(P Q)^--> + limits(Q R)^-->)
+R = (P + smar(P Q)) + smar(Q R) = P + (smar(P Q) + smar(Q R))
 $
 
-zu 7: Sei $limits(P Q)^--> = limits(R S)^-->$. Dann folgt mit 4):
+zu 7: Sei $smar(P Q) = smar(R S)$. Dann folgt mit 4:
 $
-limits(P R)^--> = limits(P Q)^--> + limits(Q R)^--> = limits(R S)^--> + limits(Q R)^--> = limits(Q R)^--> + limits(R S)^--> =^("4)") limits(Q S)^-->
+smar(P R) = smar(P Q) + smar(Q R) = smar(R S) + smar(Q R) = smar(Q R) + smar(R S) =^("4)") smar(Q S)
 $
 #endproof
 
@@ -2544,7 +2544,7 @@ Analago zu Satz 6.6 aus LinA I kann man zeigen:
   #boxedenum[
     Für jedes $Q in P + U$ ist $P + U = Q + U$
   ][
-    Gilt $P + U = tilde(P) + tilde(U)$, so ist $U = tilde(U)$ und $limits(P tilde(P))^--> in U = tilde(U)$
+    Gilt $P + U = tilde(P) + tilde(U)$, so ist $U = tilde(U)$ und $smar(P tilde(P)) in U = tilde(U)$
   ]
 ]
 
@@ -2638,7 +2638,7 @@ $dim(A_1 sect A_2) = dim(U_1 sect U_2)$ nach Def.
 #lemma("4.21")[
   Es seien $U_1$ und $U_2$ zwei Untervektorräume des $K$-Vektorraums $V$, $A_1 = A(U_1)$ und $A_2 = A(U_2)$ zwei affine Unterräume eines affinen Raums $A(V)$ sowie $P_1 in A_1$ und $P_2 in A_2$ zwei beliebige Punkte
   $
-  A_1 sect A_2 != emptyset <==> limits(P_1 P_2)^--> in U_1 + U_2
+  A_1 sect A_2 != emptyset <==> smar(P_1 P_2) in U_1 + U_2
   $
 ]
 
@@ -2646,17 +2646,17 @@ $dim(A_1 sect A_2) = dim(U_1 sect U_2)$ nach Def.
 
 "$==>$": $A_1 sect A_2 != emptyset ==> exists Q in A_1 sect A_2$
 
-Dann liegen die Verbindungsvektoren $limits(P_1 Q)^-->$ bzw. $limits(P_2 Q)^-->$ in den jeweiligen Untervektorräume $U_1$ bzw. $U_2$. Lemma 4.10, 4):
+Dann liegen die Verbindungsvektoren $smar(P_1 Q)$ bzw. $smar(P_2 Q)$ in den jeweiligen Untervektorräume $U_1$ bzw. $U_2$. Lemma 4.10, 4):
 $
-limits(P_1 P_2)^--> = underbrace(limits(P_1 Q)^-->, in U_1) + underbrace(limits(Q P_2)^-->, in U_2) in U_1 + U_2 space checkmark
+smar(P_1 P_2) = underbrace(smar(P_1 Q), in U_1) + underbrace(smar(Q P_2), in U_2) in U_1 + U_2 space checkmark
 $
 
-"$<==$": Sei $limits(P_1 P_2)^--> in U_1 + U_2$ $==>$
+"$<==$": Sei $smar(P_1 P_2) in U_1 + U_2$ $==>$
 
-$exists u_1 in U_1, u_2 in U_2: limits(P_1 P_2)^--> = u_1 + u_2$. Setzt man $Q := P_1 + u_1 in A_1$, so gilt 
+$exists u_1 in U_1, u_2 in U_2: smar(P_1 P_2) = u_1 + u_2$. Setzt man $Q := P_1 + u_1 in A_1$, so gilt 
 $
-Q &= P_1 + u_1 = P_1 + ((u_1 + u_2) - u_2) = P_1 + (limits(P_1 P_2)^--> - u_2) \
-&= (P_1 + limits(P_1 P_2)^-->) - u_2 = underbrace(P_2, in A_2) + underbrace((-u_2), in U_2) in A_2
+Q &= P_1 + u_1 = P_1 + ((u_1 + u_2) - u_2) = P_1 + (smar(P_1 P_2) - u_2) \
+&= (P_1 + smar(P_1 P_2)) - u_2 = underbrace(P_2, in A_2) + underbrace((-u_2), in U_2) in A_2
 $
 $==> A_1 sect A_2 != emptyset$
 #endproof
@@ -2674,8 +2674,173 @@ Sind $A(U_1)$ und $A(U_2)$ zwei affine Unterräume eines affines Raums $A(V)$, s
   $
   Dann ist der Verbindungsraum durch
   $
-  hull(A_1 union A_2) = P_1 + ("Span"(limits(P_1 P_2)^-->) + U_1 + U_2)
+  hull(A_1 union A_2) = P_1 + ("Span"(smar(P_1 P_2)) + U_1 + U_2)
   $
   bestimmt.
 ]
+
+#startproof Sei $U$ der Untervektorraum zu $hull(A_1 union A_2)$. Nach Definition gilt
+$
+A_1 union A_2 subset.eq hull(A_1 union A_2)
+$
+also auch
+$
+A_1 = P_1 + U_1 subset.eq hull(A_1 union A_2) "und" \
+A_2 = P_2 + U_2 subset.eq hull(A_1 union A_2)
+$
+$==> U_1 subset.eq V, U_2 subset.eq V$. $P_1, P_2 in hull(A_1 union A_2)$ und $hull(A_1 union A_2)$ affiner Unterrraum $==>$ $smar(P_1 P_2) in V$
+
+Damit erhalten wir
+$
+P_1 + "Span"(smar(P_1 P_2)) subset.eq hull(A_1 union A_2)
+$
+Man kann sich überlegen:
+
+Für Teilmengen $M_1, M_2 subset.eq V$, $V$ Vektorraum, gilt 
+$
+&"Span"{M_1 union M_2} = "Span"{M_1} + "Span"{M_2} \
+&==> "Span"{smar(P_1 P_2)} + U_1 + U_2 subset.eq U \
+&==> P_1 + "Span"{smar(P_1 P_2)} + U_1 + U_2 subset.eq hull(A_1 union A_2)
+$
+Gleihheit gilt nach Definition der affinen Hülle.
+#endproof
+
+#theorem("4.24")[
+  #bold[Dimensionssatz]
+
+  Seien $U_1, U_2$ zwei Untervektorräume eines $K$-Vektorraums $V$ sowie $A_1 = P_1 + U_1$ und $A_2 = P_2 + U_2$ zwei affine Unterräume eines affinen Raums $A(V)$. Dann gilt 
+  
+  #boxedenum[
+    Ist $A_1 sect A_2 != emptyset$, so ist 
+    $
+    dim hull(A_1 union A_2) &= dim(U_1 + U_2) \
+    &= dim(A_1) + dim(A_2) - dim(U_1 sect U_2) \
+    &= dim(A_1) + dim(A_2) - dim(A_1 sect A_2)
+    $
+  ][
+    Ist $A_1 sect A_2 = emptyset$, so ist
+    $
+    dim hull(A_1 union A_2) &= dim(U_1 + U_2) + 1 \
+    &= dim(A_1) + dim(A_2) - dim(U_1 sect U_2) + 1
+    $
+  ]
+]
+
+#startproof
+
+zu 1) $A_1 sect A_2 != emptyset$ $==>$ Lemma 4.21: $smar(P_1 P_2) in U_1 + U_2$. Mit Lemma 4.23:
+$
+hull(A_1 union A_2) = P_1 + ("Span"{smar(P_1 P_2)} + U_1 + U_2) = P_1 + (U_1 + U_2)
+$
+Satz 3.40, LinA I (Dimensionssatz für UVR)
+$
+dim(U_1 + U_2) = dim(U_1) + dim(U_2) - dim(U_1 sect U_2)
+$
+Die Aussage folgt dann aus Lemma 4.20.
+
+zu 2) Lemma 4.21: $smar(P_1 P_2) in.not U_1 + U_2$ $==>$ 
+$
+dim("Span"{smar(P_1 P_2)} + U_1 + U_2) = 1 + dim(U_1) + dim(U_2) - dim(U_1 sect U_2)
+$
+#endproof
+
+== Affine Abbildungen
+
+#definition("4.25", "affine Abbildung")[
+  Seien $A(V)$ und $A(W)$ zwei affine Räume über dem $K$-Vektorraum $V$ und $W$. Eine Abbildung $f: A(V) -> A(W)$, d.h. zwischen den Mengen, die $A(V)$ und $A(W)$ zugrundeliegen, heißt affine Abbildung, falls ein Punkt $P in A(V)$ existiert, so dass die Abbildung
+  $
+  smar(f_P) : V -> W, quad smar(f_P) (smar(P Q)) := smar(f(P) f(Q)) wide forall Q in A(V)
+  $
+  linear ist.
+]
+
+#bold[Beispiel 4.26:] Für $n, m in NN$ sei $A in RR^(m,n)$, $b in RR^m$
+$
+g: RR^n -> RR^m, quad g(x) := A x + b quad "für" b != 0 "nicht linear!"
+$
+Ist diese Abbildung affin? Dazu: $V := RR^n, W = RR^m$, $A(V) = RR^n$, $A(W) = RR^m$, $P = "?"$, $g_P = "?"$
+
+Sei $p in A(V)$ beliebig gewählt, $v in V$ und $q := p + v$. Dann gilt:
+$
+g(p) = A p + b quad g(q) = A q + b = A (p + v) + b = A v + g(p)
+$
+Damit setzen wir
+$
+smar(g_P) (v) = smar(g(p) g(q)) = A v
+$
+D.h. die resultierende Abbildung
+$
+smar(g_P): V -> W, quad smar(g_P) (v) = A v
+$
+ist linear, also ist $g$ affin
+
+#sect_delim
+
+Sind die Eigenschaften von $smar(f_P)$ Abhängigkeit von der Wahl von $P$?
+
+#lemma("4.27")[
+  Die Definition einer affinen Abbildung $f: A(V) -> A(W)$ ist unabhängig von dem in der Definitionausgegebenen Punkt $P$.
+]
+
+#startproof Zuerst: Zeige für $v in V$ beliebig, dass das Bild $smar(f_P) in W$ unabhängig von $P$ ist. Dazu sei $Q in A(V)$ beliebig gewhählt. Für $R := Q + v in A(V)$ gilt $Q, R in A(V)$, $v = smar(Q R)$. Wegen
+$
+smar(P R) = smar(P Q) + smar(Q R) ==> v = smar(P R) - smar(P Q)
+$
+$smar(f_P)$ linear $==>$ 
+$
+smar(f_P) (v) = smar(f_P) (smar(P R) - smar(P Q)) = smar(f_P) (smar(P R)) - smar(f_P) (smar(P Q)) = smar(f(P) f(R)) - smar(f(P) f(Q)) = op(plus.circle.arrow) \
+(smar(f(P) f(R)) = smar(f(P) f(Q)) + smar(f(Q) f(R))) \
+op(plus.circle.arrow) = smar(f(Q) f(R))
+$
+$==>$ $smar(f_P) (v)$ ist unabhängig von $P$.
+#endproof
+
+#bold[Bemerkung:] Ist $f: A(V) -> A(W)$ eine affine Abbildung, so erlaubt Lemma 4.27, die durch $f$ induzierte lineare Abbildung $smar(f_P) in L(V,W)$ mit $smar(f) in L(V, W)$ zu bezeichnen. Damit haben wir zwei Möglichkeiten $smar(f)$ zu charakterisieren: $P, Q in A(V)$
+$
+smar(f) (smar(P Q)) = smar(f(P) f(Q)) <==> f(Q) = f(P) + smar(f) (smar(P Q))
+$
+
+#definition("4.28", "")[
+  Seien $A(V)$, $A(W)$ zwei affine Räume mit zugehörigen $K$-Vektorräumen $V$ und $W$. Dann definiert man
+  $
+  A(V, W) := {f: A(V) -> A(W) | f "affin"}
+  $
+  Eine affine Abbildung $f: A(V) -> A(V)$ nennt man #bold[affine Selbstabbildung]. Für ein $f in A(V, V)$ nennt man einen Punkt $P in A(V)$ mit $f(P) = P$ #bold[Fixpunkt von $f$]. Die Menge der bijektiven affinen Selbstabbildungen bezeichnet man mit 
+  $
+  "GA"(V) := {f: A(V) -> A(V) | f "affin und bijektiv"}
+  $
+]
+
+#bold[Bemerkungen:]
+
+#boxedlist[
+  Die Menge $"GA"(V)$ bildet eine Gruppe bzgl. der Komposition von Abbildungen. Sie wird deswegen auch #bold[affine Gruppe] zum $K$-Vektorraum $V$ gennant.
+][
+  Betrachtet man einen Vektorraum $V$, als $A(V)$ über sich selbst, so lässt sich sich jede lineare Abbildung $f in L(V,V)$ als affine Abbildung interpretieren
+  $
+  f_P : V -> V, quad x arrow.bar 0_V + smar(f)(smar(0_V x)) = f(x)
+  $
+  Diese Abbildung besitzt immer den Fixpunkt $0_V$, denn $f_P (0_V) = f(0_V) = 0_V$.
+]
+
+#lemma("4.29")[
+  Seien $f in A(V, W)$ und $A(V')$ ein affiner Unterraum von $A(V)$. Dann ist das Bild $f(A(V'))$ ein affiner Unterraum von $A(W)$ mit der Richtung $smar(f) (V')$.
+]
+
+#startproof Nach Definition existiert ein $P in A(V')$ mit der Eigenschaft 
+$
+A(V') = P + V'
+$
+$f in A(V, W)$ induziert eine lineare Abbildung $smar(f) in L(V,W)$. Für diese gilt: 
+$
+f(A(V')) = f(P + V') = f(P) + smar(f) (V')
+$
+#endproof
+
+Man kann sich relativ leicht überlegen: 
+
+Ist $f in "GA"(V)$, so werden mittels $f$ (affine) Geraden und Ebenen wieder in (affine) Geraden und Ebenen überführt. Deswegen nennt man eine Abbildung $f in "GA"(V)$ auch #bold[geradentreu]. Vgl. Lemma 4.37, Satz 4.39.
+
+Beispiele für affine Abbildungen.
+
 
