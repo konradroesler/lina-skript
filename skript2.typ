@@ -2752,7 +2752,7 @@ $
   smar(f_P) : V -> W, quad smar(f_P) (smar(P Q)) := smar(f(P) f(Q)) wide forall Q in A(V)
   $
   linear ist.
-]
+] <def>
 
 #bold[Beispiel 4.26:] Für $n, m in NN$ sei $A in RR^(m,n)$, $b in RR^m$
 $
@@ -2760,13 +2760,13 @@ g: RR^n -> RR^m, quad g(x) := A x + b quad "für" b != 0 "nicht linear!"
 $
 Ist diese Abbildung affin? Dazu: $V := RR^n, W = RR^m$, $A(V) = RR^n$, $A(W) = RR^m$, $P = "?"$, $g_P = "?"$
 
-Sei $p in A(V)$ beliebig gewählt, $v in V$ und $q := p + v$. Dann gilt:
+Sei $P in A(V)$ beliebig gewählt, $v in V$ und $Q := P + v$. Dann gilt:
 $
-g(p) = A p + b quad g(q) = A q + b = A (p + v) + b = A v + g(p)
+g(P) = A P + b quad g(Q) = A Q + b = A (P + v) + b = A v + g(P)
 $
 Damit setzen wir
 $
-smar(g_P) (v) = smar(g(p) g(q)) = A v
+smar(g_P) (v) = smar(g(P) g(Q)) = A v
 $
 D.h. die resultierende Abbildung
 $
@@ -2779,10 +2779,10 @@ ist linear, also ist $g$ affin
 Sind die Eigenschaften von $smar(f_P)$ Abhängigkeit von der Wahl von $P$?
 
 #lemma("4.27")[
-  Die Definition einer affinen Abbildung $f: A(V) -> A(W)$ ist unabhängig von dem in der Definitionausgegebenen Punkt $P$.
+  Die Definition einer affinen Abbildung $f: A(V) -> A(W)$ ist unabhängig von dem in der Definition angegebenen Punkt $P$.
 ]
 
-#startproof Zuerst: Zeige für $v in V$ beliebig, dass das Bild $smar(f_P) in W$ unabhängig von $P$ ist. Dazu sei $Q in A(V)$ beliebig gewhählt. Für $R := Q + v in A(V)$ gilt $Q, R in A(V)$, $v = smar(Q R)$. Wegen
+#startproof Zuerst: Zeige für $v in V$ beliebig, dass das Bild $smar(f_P) in W$ unabhängig von $P$ ist. Dazu sei $Q in A(V)$ beliebig gewählt. Für $R := Q + v in A(V)$ gilt $Q, R in A(V)$, $v = smar(Q R)$. Wegen
 $
 smar(P R) = smar(P Q) + smar(Q R) ==> v = smar(P R) - smar(P Q)
 $
@@ -2816,7 +2816,7 @@ $
 #boxedlist[
   Die Menge $"GA"(V)$ bildet eine Gruppe bzgl. der Komposition von Abbildungen. Sie wird deswegen auch #bold[affine Gruppe] zum $K$-Vektorraum $V$ gennant.
 ][
-  Betrachtet man einen Vektorraum $V$, als $A(V)$ über sich selbst, so lässt sich sich jede lineare Abbildung $f in L(V,V)$ als affine Abbildung interpretieren
+  Betrachtet man einen Vektorraum $V$, als $A(V)$ über sich selbst, so lässt sich jede lineare Abbildung $f in L(V,V)$ als affine Abbildung interpretieren
   $
   f_P : V -> V, quad x arrow.bar 0_V + smar(f)(smar(0_V x)) = f(x)
   $
@@ -2863,7 +2863,7 @@ Beispiele für affine Abbildungen.
 $f_v$ bijektiv: einfach zu zeigen
 $f_v$ affin: Seien $P, Q in A(V)$. Dann gilt:
 $
-f_v (Q) &= f_v(P) + smar(f_v (P) f_v (Q))
+f_v (Q) &= f_v (P) + smar(f_v (P) f_v (Q)) \
 &= P + v + smar(f_v) (smar(P Q)) \
 &= Q + smar(Q P) + v + smar(f_v) (smar(P Q))
 $
@@ -2905,8 +2905,8 @@ $
 #startproof ÜA 
 #endproof
 
-#definition("4.34", "zentrisch")[
-  Ist $f in D(V) without T(V)$ und besitzt $f$ den Fixpunkt $Z in A(V)$, so nennt man $f$ #bold[zentrische] Streckung mit dem Zentrum $Z$ und dem Streckungsfaktor $lambda != 1$.
+#definition("4.34", "zentrische Streckung")[
+  Ist $f in D(V) without T(V)$ und besitzt $f$ den Fixpunkt $Z in A(V)$, so nennt man $f$ #bold[zentrische Streckung] mit dem #bold[Zentrum] $Z$ und dem Streckungsfaktor $lambda != 1$.
 ] <def>
 
 Dafür zunächst noch:
@@ -2963,7 +2963,7 @@ $
 &==> 0 <= sigma(a- b) = sigma(a) - sigma(b) \
 &==> sigma(b) <= sigma(a)
 $
-Sei $x in RR$, dann kann man $x$ durch zwei monotone, rationale Zahlenfolgen ${hat(r)_n}$ von uunten und ${caron(r)_n}$ von oben approximieren. Damit gilt
+Sei $x in RR$, dann kann man $x$ durch zwei monotone, rationale Zahlenfolgen ${hat(r)_n}$ von unten und ${caron(r)_n}$ von oben approximieren. Damit gilt
 $
 ... <= hat(r)_n <= hat(r)_(n+1) <= ... <= x <= ... <= caron(r)_(n+1) <= caron(r)_n <= ...
 $
@@ -2977,7 +2977,7 @@ Für $n -> oo$ folgt $sigma(x) = x$.
 #endproof
 
 #theorem("4.39")[
-  #bold[Hauptsatz der afinnen Geometrie]
+  #bold[Hauptsatz der affinen Geometrie]
 
   Sei $K = RR$ und $A(V)$ ein affiner Raum der Dimension $n >= 2$. Ist $f: A(V) -> A(V)$ eine bijektive Abbildung, die je drei kollineare Punkte $P, Q, R in A(V)$ in drei kollineare Punkte $f(P), f(Q), f(R) in A(V)$ abbildet, so gilt $f in "GA"(V)$
 ]
@@ -2987,8 +2987,19 @@ Für $n -> oo$ folgt $sigma(x) = x$.
 #theorem("")[
   Für $K = RR$ gilt:
 
-  Eine bijektive Abbildung $f: A(V) -> A(V)$ ist genau dann geradentreu, wenn sie affin ist. Damit erhält man für $O in A(V)$
+  Eine bijektive Abbildung $f: A(V) -> A(V)$ ist genau dann geradentreu, wenn sie affin ist.
 ]
+
+Damit erhält man für $O in A(V)$
+#align(center, stack(
+  dir: ltr,
+  figure(image("bilder2/4_39.png", width: 40%)),
+  align(center, [
+    #v(2.5cm)
+    $==> #h(1cm) smar(f) "bij."$
+    #v(2.5cm)
+  ])
+))
 
 #startproof Der Beweis besteht aus 5 Schritten.
 
@@ -3001,3 +3012,4 @@ Für $n -> oo$ folgt $sigma(x) = x$.
 ]
 
 $==>$ ÜA
+
