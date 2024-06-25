@@ -2800,7 +2800,7 @@ $
 smar(f) (smar(P Q)) = smar(f(P) f(Q)) <==> f(Q) = f(P) + smar(f) (smar(P Q))
 $
 
-#definition("4.28", "")[
+#definition("4.28", "affine Selbstabbildung, Fixpunkt")[
   Seien $A(V)$, $A(W)$ zwei affine Räume mit zugehörigen $K$-Vektorräumen $V$ und $W$. Dann definiert man
   $
   A(V, W) := {f: A(V) -> A(W) | f "affin"}
@@ -2809,7 +2809,7 @@ $
   $
   "GA"(V) := {f: A(V) -> A(V) | f "affin und bijektiv"}
   $
-]
+] <def>
 
 #bold[Bemerkungen:]
 
@@ -2843,4 +2843,161 @@ Ist $f in "GA"(V)$, so werden mittels $f$ (affine) Geraden und Ebenen wieder in 
 
 Beispiele für affine Abbildungen.
 
+#definition("4.30", "Translation")[
+  Sei $V$ ein $K$-Vektorraum, $v in V$ und $A(V)$ ein affiner Raum. Dann heißt die Abbildung 
+  $
+  f_v: A(V) -> A(V), quad f_v (P) = P + v
+  $
+  #bold[Verschiebung] oder #bold[Translation] um den Vektor $v$.
+] <def>
 
+#lemma("4.31")[
+  Für eine Translation $f_v$ gilt 
+  $
+  f_v in "GA"(V)
+  $
+]
+
+#startproof 
+
+$f_v$ bijektiv: einfach zu zeigen
+$f_v$ affin: Seien $P, Q in A(V)$. Dann gilt:
+$
+f_v (Q) &= f_v(P) + smar(f_v (P) f_v (Q))
+&= P + v + smar(f_v) (smar(P Q)) \
+&= Q + smar(Q P) + v + smar(f_v) (smar(P Q))
+$
+Des Weiteren gilt
+$
+&f_v (Q) = Q + v quad (==> Q + v = Q + smar(Q P) + v + f_v (smar(P Q))) \
+&==> v = smar(Q P) + v + smar(f_v) (smar(Q P)) \
+&==> smar(f_v) (smar(P Q)) = - smar(Q P) = smar(P Q) ==> smar(f_v) = "Id" "in V" \
+&==> smar(f_v) in L(V,V)
+$
+#endproof
+
+#bold[Bemerkungen:] 
+
+#boxedlist[
+  Nicht jede affine Abbildung besitzt einen Fixpunkt, z.B. hat jede Translation um $v != 0_V$ keinen Fixpunkt
+][
+  Die Menge der Translationen werden mit 
+  $
+  T(V) = {f in "GA"(V) | exists v in V: f = f_v}
+  $
+  zusammengefasst. Diese Menge bildet eine Untergruppe von $"GA"(V)$.
+]
+
+#corollary("4.32")[
+  $
+  D(V) = {f in "GA"(V) | exists lambda in K: smar(f) = lambda "Id"_V}
+  $
+  ist eine Verallgemeinerung von $T(V)$ und bildet wieder eine Untergruppe von $"GA"(V)$, wobei $T(V)$ eine Untergruppe von $D(V)$ ist. Die Elemente von $D(V)$ nennt man #bold[Dilationen].
+]
+
+#lemma("4.33")[
+  Es sei $f in D(V) without T(V)$, d.h. $smar(f) = lambda "Id"_V$ mit $lambda != 1$. Dann existiert ein eindeutig bestimmter Punkt $Z in A(V)$ mit
+  $
+  f(P) = Z + lambda smar(Z P) quad forall P in A(V)
+  $
+]
+
+#startproof ÜA 
+#endproof
+
+#definition("4.34", "zentrisch")[
+  Ist $f in D(V) without T(V)$ und besitzt $f$ den Fixpunkt $Z in A(V)$, so nennt man $f$ #bold[zentrische] Streckung mit dem Zentrum $Z$ und dem Streckungsfaktor $lambda != 1$.
+] <def>
+
+Dafür zunächst noch:
+
+#definition("4.35", "affin unabhängig")[
+  Die $(n+1)$ Punkte $P_0, ..., P_n in A(V)$ heißen #bold[affin unabhängig], falls die $n$ Verbindungsvektoren
+  $
+  smar(P_0 P_1), smar(P_0 P_2), ..., smar(P_0 P_n) in V
+  $
+  linear unabhängig sind.
+] <def>
+
+#definition("4.36", "kollinear")[
+  Drei Punkte $P, Q, R in A(V)$ heißen #bold[kollinear], falls eine affine Gerade $A(W) subset.eq A(V)$ existiert, so dass $P, Q, R in A(W)$.
+] <def>
+
+#lemma("4.37")[
+  Ist $f in "GA"(V)$ und sind $P, Q, R in A(V)$ kollinear, so sind auch die Bildpunkte kollinear.
+]
+
+#startproof Nach Vorraussetzung existiert eine affine Gerade $A(W)$ mit $P, Q, R in A(W)$
+
+$f in "GA"(V)$ $==>$ (Ü A) $f$ bildet Geraden auf Geraden ab $==>$ Bildpunkte sind kollinear
+#endproof
+
+Hilfsresultat:
+
+#lemma("4.38")[
+  Es sei $sigma: RR -> RR$ eine bijektive Abbildung, welche additiv und multiplikativ ist, d.h. es gilt
+  $
+  sigma(x+y) = sigma(x) + sigma(y) space "und" space sigma(x dot y) = sigma(x) dot sigma(y)
+  $
+  Dann ist $sigma = "Id"$.
+]
+
+#startproof Aus der Additivität folgt sofort $sigma(0) = 0$. Wegen $sigma(0) = 0$ und $sigma(1) != 0$ folgt aus der Multiplikativität $sigma(1) = 1$. Mit der Additivität erhält man $sigma(n) = n, forall n in NN$. Aus der Additivität und $sigma(0) = 0$ folgt, dass $sigma(-x) = - sigma(x)$
+$
+==> sigma(y) = y quad forall y in ZZ
+$
+Jetzt: $r in QQ, "d.h." r = p/q "mit" p, q in ZZ, q != 0$
+$
+p = sigma(p) = sigma(r dot q) = sigma(r) dot sigma(q) = sigma(r) dot q \
+==> sigma(r) = r quad forall r in QQ
+$
+Wenn $sigma$ stetig wäre, wären wir fertig. Das wissen wir aber nicht. Zeige zunächst, dass $sigma$ monoton wachsend ist.
+
+Ist $x >= 0$ $==>$ $exists y in RR: x = y^2$. Dann gilt:
+$
+sigma(x) = sigma(y^2) = sigma(y) dot sigma(y) >= 0
+$
+Ist also $a >= b$, also $a-b>=0$
+$
+&==> sigma(a - b) >= 0 \
+&==> 0 <= sigma(a- b) = sigma(a) - sigma(b) \
+&==> sigma(b) <= sigma(a)
+$
+Sei $x in RR$, dann kann man $x$ durch zwei monotone, rationale Zahlenfolgen ${hat(r)_n}$ von uunten und ${caron(r)_n}$ von oben approximieren. Damit gilt
+$
+... <= hat(r)_n <= hat(r)_(n+1) <= ... <= x <= ... <= caron(r)_(n+1) <= caron(r)_n <= ...
+$
+Anwendung von $sigma$ liefert
+$
+... <= hat(r)_n <= hat(r)_(n+1) <= ... <= sigma(x) <= ... <= caron(r)_(n+1) <= caron(r)_n <= ...
+$
+$==>$ $abs(x - sigma(x)) <= caron(r)_n - hat(r)_n quad forall n in NN$
+
+Für $n -> oo$ folgt $sigma(x) = x$.
+#endproof
+
+#theorem("4.39")[
+  #bold[Hauptsatz der afinnen Geometrie]
+
+  Sei $K = RR$ und $A(V)$ ein affiner Raum der Dimension $n >= 2$. Ist $f: A(V) -> A(V)$ eine bijektive Abbildung, die je drei kollineare Punkte $P, Q, R in A(V)$ in drei kollineare Punkte $f(P), f(Q), f(R) in A(V)$ abbildet, so gilt $f in "GA"(V)$
+]
+
+#bold[Folgerung:] Wir hatten schon, dass bijektive affine Abbildungen geradentreu sind. Damit erhalten wir das Gesamtresultat:
+
+#theorem("")[
+  Für $K = RR$ gilt:
+
+  Eine bijektive Abbildung $f: A(V) -> A(V)$ ist genau dann geradentreu, wenn sie affin ist. Damit erhält man für $O in A(V)$
+]
+
+#startproof Der Beweis besteht aus 5 Schritten.
+
+#enum[
+  Sind $A, B, C in A(V)$ affin unabhängig so sind auch $f(A), f(B), f(C)$ affin unabhängig.
+][
+  Ist $A(W)$ eine affine Gerade in $A(V)$, so ist auch $f(A(W))$ eine affine Gerade.
+][
+  Sdin $A(W), A(tilde(W))$ parallele Geraden in $A(V)$, so sind $f(A(W))$ und $f(A(tilde(W)))$ auch parallele Geraden in $A(V)$.
+]
+
+$==>$ ÜA
