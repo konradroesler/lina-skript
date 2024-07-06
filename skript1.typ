@@ -1652,7 +1652,7 @@ $
 Dann folgt die zweite Aussage aus dem Basisergänzungssatz.
 #endproof
 
-#bold[Lemma 3.24:] Ist $(V, +, dot)$ ein von endlich vielen Vektoren erzeugter $K$-Vektorraum, so besitzt $V$ eine Basis und je zwei Basen von $V$ haben gleich viele Elemente. 
+#bold[Lemma 3.24:] Ist $(V, +, dot)$ ein von endlich vielen Vektoren erzeugter $K$-Vektorraum, so besitzt $V$ eine endliche Basis und je zwei Basen von $V$ haben gleich viele Elemente. 
 
 #italic[Beweis:] Sei $V = "Span"{v_1, ..., v_n}$ mit $v_1 != 0$. Nach Satz 3.21 kann ${v_1}$ durch Hinzunahme von geeigneten Elementen aus ${v_2, ..., v_n}$ zu einer Basis von $V$ ergänzen. Also besitzt $V$ eine Basis mit endlich vielen Elementen.
 

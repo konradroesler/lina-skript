@@ -1413,7 +1413,6 @@ $B = {(g_1^1)^2 (w_1^1),g_1^1 (w_1^1), w_1^1, w_2^1, w_1^2}$
 
 Für 
 $
-// S = mat(0,-1,1,1,0;0,0,0,-1,1;0,0,1,1,2;0,1,0,0,3;1,0,0,1,-2) \
 S = mat(1,-1,0,1,0;
         0,0,0,-1,1;
         1,0,0,1,2;
@@ -2463,7 +2462,6 @@ $
 
 zu 1: Wegen der einfachen Transitivität existiert genau ein Vektor $v in V$ mit $Q = P + v = P + w$
 
-// zeichnung
 #figure(image("bilder2/4_10.JPG", width: 40%))
 
 Formal: $smar(P Q), smar(Q R), smar(P R)$ sind definitionsgemäß die eindeutig bestimmten Vektoren, für die gilt
@@ -2590,7 +2588,7 @@ Bekannt ist:
 ][
   Ein 1-dimensionaler affine Unterraum des $RR^3$ heißt Gerade im $RR^3$.
 ][
-  Ein 2-dimensionaler affine Unterraum des $RR^3$ heißt Ebene in $RR^2$.
+  Ein 2-dimensionaler affine Unterraum des $RR^3$ heißt Ebene in $RR^3$.
 ]
 
 Verallgemeinerung:
@@ -2661,11 +2659,12 @@ $
 $==> A_1 sect A_2 != emptyset$
 #endproof
 
-#definition("4.22", "affine Hülle")[
+#definition("4.22", "affine Hülle, Verbindungsraum")[
   Sei $M subset A(V)$ eine Teilmenge eines affinen Raumes $A(V)$ über einem $K$-Vektorraum $V$. Der kleinste affine Unterraum von $A$, der $M$ enthält, wird #bold[affine Hülle] von $M$ gennant und mit $angle.l M angle.r_"aff"$ bezeichnet.
+
+  Sind $A(U_1)$ und $A(U_2)$ zwei affine Unterräume eines affines Raums $A(V)$, so bezeichnen wir die affine hülle $hull(A(U_1) union A(U_2))$ als #bold[Verbindungsraum] von $A_1$ und $A_2$.
 ] <def>
 
-Sind $A(U_1)$ und $A(U_2)$ zwei affine Unterräume eines affines Raums $A(V)$, so bezeichnen wir die affine hülle $hull(A(U_1) union A(U_2))$ als Verbindungsraum von $A_1$ und $A_2$.
 
 #lemma("4.23")[
   Seien $U_1, U_2 subset.eq V$ zwei Untervektorräume des $K$-Vektorraums $V$, $A_1 = A(U_1)$ und $A_2 = A(U_2)$ zwei offene Unterräume eines affines Raums $A(V)$, sowie $P_1 in A_1$ und $P_2 in A_2$ d.h.
@@ -3008,8 +3007,277 @@ Damit erhält man für $O in A(V)$
 ][
   Ist $A(W)$ eine affine Gerade in $A(V)$, so ist auch $f(A(W))$ eine affine Gerade.
 ][
-  Sdin $A(W), A(tilde(W))$ parallele Geraden in $A(V)$, so sind $f(A(W))$ und $f(A(tilde(W)))$ auch parallele Geraden in $A(V)$.
+  Sind $A(W), A(tilde(W))$ parallele Geraden in $A(V)$, so sind $f(A(W))$ und $f(A(tilde(W)))$ auch parallele Geraden in $A(V)$.
 ]
 
 $==>$ ÜA
 
+#enum(start: 4)[
+  $smar(f): V -> V$ ist additiv, d.h. $smar(f)(x+y) = smar(f)(x) + smar(f)(y)$
+][
+  $smar(f): V -> V$ ist homogen, d.h. $smar(f)(lambda x) = lambda smar(f)(x)$
+]
+
+#startproof
+
+zu 4) 
+
+Seien $x, y in V$ beliebig gewählt:
+
+Fall 1: $x, y$ sind linear abhängig 
+
+$==> y = lambda x ==> x + y = (1+lambda) x$. Z.z: $smar(f)(x) + smar(f)(y) = (1+ lambda) smar(f)(x) quad$ siehe 5 Homogenität
+
+Fall 2: $x, y$ sind linear unabhängig
+
+$f$ bijektiv $==>$ es gibt eindeutig bestimmte Punkte $A, B in A(V)$, so dass für $O in A(V)$ gilt:
+$
+x = smar(O A) quad "und" quad y = smar(O B)
+$
+Wir betrachten das durch die Punkte $O, A, B$ erzeugte "Parallelogramm"
+
+#figure(image("bilder2/4_39_2.png", width: 50%))
+
+Wegen 2) und $A(W_1) ||| A(tilde(W)_1)$ bzw. $A(W_2) || A(tilde(W)_2)$ sind $f(A(W_1)), f(A(tilde(W)_1)), f(A(W_2))$ und $f(A(tilde(W)_2))$ wieder affine Geraden. Wegen 3) gilt $f(A(W_1)) || f(A(tilde(W)_1))$ und $f(A(W_2)) || f(A(tilde(W)_2))$. Damit erhält man:
+
+#figure(image("bilder2/4_39_3.png", width: 50%))
+
+Wegen $x + y = smar(O A) + smar(O B) = smar(O C)$ folgt:
+$
+smar(f)(x + y) = smar(f)(smar(O C)) = smar(f(O) f(C)) = smar(f(O) f(A)) + smar(f(O) f(B)) = smar(f)(x) + smar(f)(y)
+$
+
+zu 5)
+
+Es sei $x in V$, $x != 0$. Wir betrachten die affine Gerade $N subset A(V)$ mit dem Aufpunkt $O$ und der Richtung $"Span"{x}$, d.h.
+$
+N = O + "Span"{x}
+$
+Mit 2) $==>$ $f(N) subset A(V)$ ist eine affine Gerade mit dem Aufpunkt $f(O)$ und der Richtung $"Span"{smar(f)(x)}$, d.h.
+$
+f(N) = f(O) + "Span"{smar(f)(x)}
+$
+Sei $P in N$, d.h. $P = Q + lambda x$. Dann gilt für $f(P) in f(N)$, dass
+$
+f(P) = f(O) + smar(f)(lambda x) = f(O) + tilde(lambda) smar(f)(x)
+$
+Da $f$ bijektiv ist, ist $tilde(lambda)$ eindeutig durch $lambda$ bestimmt. Dies definiert eine bijektive Abbildung $sigma: RR -> RR$. Ist $sigma$ additiv und multiplikativ so folgt mit Lemma 4.38 $lambda = tilde(lambda)$ $==>$ 5)
+
+Noch zu zeigen: $sigma$ ist additiv und multiplikativ 
+
+Da $dim(A(V)) >= 2$ existiert $y in V$, das von $x$ linear unabhängig ist. Für $x in V, lambda, mu in RR$ gilt:
+$
+lambda x + mu x = (lambda + mu ) x
+$
+sowie
+
+#figure(image("bilder2/4_39_4.png", width: 50%))
+
+Mit 2) + 3) folgt analog zu Schritt 4)
+
+#figure(image("bilder2/4_39_5.png", width: 50%))
+
+Als Beschreibung in Formeln erhält man:
+$
+&smar(f)(lambda x) + smar(f)(mu x) = smar(f)((lambda+ mu) x) \
+==> &tilde(lambda) smar(f)(x) + tilde(mu) smar(f)(x) = tilde((lambda + mu)) smar(f)(x) /
+==> &sigma(lambda) + sigma(mu) = sigma(lambda + mu) \
+==> &sigma "ist additiv"
+$
+Wieder mit Hilfe von $y$ und $lambda(mu x) = (lambda mu) x$, $forall lambda, mu in RR$ kann man Parallelen konstruieren:
+
+#figure(image("bilder2/4_39_6.png", width: 100%))
+
+Aus dem Strahlensatz folgt
+$
+&tilde(lambda mu) = tilde(lambda) tilde(mu) \
+==> &sigma(lambda mu) = sigma(lambda) sigma(mu) \
+==> &sigma "ist mutliplikativ"
+$
+#endproof
+
+#pagebreak()
+
+= Projektive Geometrie
+
+In Kapitel IV haben wir gezeigt:
+
+Für zwei affine Geraden $L_1 = P_1 + W_1$ und $L_2 = P_2 + W_2$ gilt in einem zweidimensionalen affinen Raum $A(V)$, d.h. $dim(V) = 2$, $dim(W_1) = dim(W_2) = 1$:
+
+Ist $W_1 = W_2$, so sind $L_1$ und $L_2$ parallel. Satz 4.18: $L_1 = L_2$ oder $L_1 sect L_2 = emptyset$.
+
+Ist $W_1 != W_2$, so ist $W_1 sect W_2 = {0}$ und $"Span"{W_1, w_2} = V$. Aus der Bemerkung nach Definition 4.11 folgt dann $v_(P_1) in "Span"{W_1, W_2} = V$. Also ist $v_(P_1) = w_1 + w_2$, $w_1 in W_1, w_2 in W_2$. $==>$ $P_1 + w_1 = P_2 - w_2 in L_1 sect L_2$
+
+Satz 4.24/Dimensionssatz für affine Räume liefert:
+$
+0 = dim(W_1 sect W_2) = dim(A(W_1 union W_2)) - dim(W_1) - dim(W_2) \
+==> L_1 sect L_2 = P_1 + w_1
+$
+
+Insgesamt: Entweder sind zwei affine Geraden parallel oder sie genau einen Schnittpunkt.
+
+Jetzt: Projektive Räume $==>$ zwei verschiedene Geraden besitzen immer genau einen Schnittpunkt.
+
+Als Motivation dafür:
+
+Betrachte die affine Ebene
+$
+E = {vec(x_1, x_2, x_3) in RR^3 | x_1, x_2 in RR, x_3 = 1} subset RR^3
+$
+sowie 
+$
+cal(G) &:= {G subset RR^3 | G "ist eine Gerade durch" 0 in RR^3 and G subset.not {x_1, x_2}"-Ebene"} \
+&= {G subset RR^3 | G "ist 1-dimensionaler Unterraum", G subset.not {x_1, x_2}"-Ebene"}
+$
+
+//#align(center, [hier fehlt noch eine abbildung])
+
+Damit gibt es eine Bijektion
+$
+E -> cal(G), quad P arrow.bar G := "Span"{smar(0 P)}
+$
+Die Umkehrabbildung ist gegeben durch 
+$
+cal(G) -> E, quad G arrow.bar P := E sect G
+$
+Also kann man $E$ mit $cal(G)$ identifizieren.
+
+Haupsatz der affinen Geometrie:
+
+Die affine Struktur von $E$ wird im wesentlichen durch die Menge der affinen Geraden in $E$ charakterisiert.
+
+Zusammenhang mit $cal(G)$?
+$
+cal(E) := {tilde(E) subset RR^3 | tilde(E) corres "Ebene durch" 0 in RR^3 and tilde(E) != (x_1, x_2)"-Ebene"}
+$
+Dies liefer die Bijektion
+$
+cal(E) -> { G subset E | G "affine Gerade" }, quad tilde(E) arrow.bar G = E sect tilde(E)
+$
+Bedigung $tilde(E) != (x_1, x_2)$-Ebene vernachlässigen?
+
+$==>$ liefert projektive Ebene
+$
+macron(cal(E)) = {macron(E) subset RR^3 | macron(E) 2"-dimesionaler? Unterraum"}
+$
+beziehungsweise projektive Gerade
+$
+macron(cal(G)) = {G subset RR^3 | G 1"-dimensionaler? Untterraum"}
+$
+Die Elemente von $macron(cal(G))$ welche durch eindimensionale Unterräume der $(x_1,x_2)$-Ebene gegeben sind, nennt man unendlich feine Punkte der affinen Ebene $E$.
+
+#definition("5.1", "Projektiver Raum")[
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum. Der #bold[projektive Raum] $P(V)$ zu $V$ ist gegeben durch
+  $
+  P(V) := { G subset V | G = "eindimensionaler Unterraum" }
+  $
+  Man setzt 
+  $
+  dim P(V) = dim V -1
+  $
+  als Dimension von $P(V)$. Für $V=K^n$, $n in NN$, nutzt man auch 
+  $
+  P^(n-1) (K) := P(K^n)
+  $
+] <def>
+Bemerkungen:
+
+#boxedlist[
+  Man kann auch $P(V) = { "Span"(x) | x in V without {0}}$ definieren
+][
+  Im Fall $V = {0}$ gilt $P(V) = emptyset$ und $dim P(V) = -1$. Ist $dim V = 1$, so besteht $P(V)$ aus einem Punkt und $dim P(V) = 0$.
+][
+  Die Abbildung 
+  $
+  p: V without {0} -> P(V), quad v arrow.bar "Span"{v}
+  $
+  ist surjektiv. Denn: Jede Gerade in $V$ wird von einem $v in V, v != 0$ aufgepspannt. Es gilt für $v != 0 != w, v, w in V$:
+  $
+  p(v) = p(w) &<==> "Span"{v} = "Span"{w} \
+  &<==> v in "Span"{w} <==> v = lambda w, lambda != 0
+  $
+]
+
+#definition("5.2", "Projektiver Unterraum")[
+  Sei $P(V)$ ein projektiver Raum zu dem endlichdimensionalen $K$-Vektorraum $V$. Eine Teilmenge $N subset.eq P(V)$ heißt #bold[projektiver Unterraum] von $P(V)$, falls ein Unterraum $U subset.eq V$ existiert, so dass $N = P(U)$ gilt.
+] <def>
+
+#bold[Beispiel 5.3:] Es sei $V = RR^3$ und $U subset.eq V$ ein 2-dimensionaler Unterraum, d.h. eine Ebene durch $0 in V$. Dann sind $P(U) subset.eq P(V)$ Geraden in $P^2 (RR)$.
+
+#definition("5.4", "projektiver Punkt, Gerade, Ebene")[
+  Sei $V$ ein endlichdimensionaler $K$-Vektorraum, $P(V)$ ein projektiver Raum über $V$ und $P(U)$ ein projektiver Unterraum von $P(V)$.
+
+  #boxedlist[
+    Ist $dim(P(U)) = -1$, so ist $P(U) = emptyset$
+  ][
+    Ist $dim(P(U)) = 0$, so heißt $P(U)$ (projektiver) Punkt
+  ][
+    Ist $dim(P(U)) = 1$, so heißt $P(U)$ (projektive) Gerade
+  ][
+    Ist $dim(P(U)) = 2$, so heißt $P(U)$ (projektive) Ebene
+  ][
+    Ist $dim(P(U)) = dim(V) - 1$, so heißt $P(U)$ (projektive) Hyperebene
+  ]
+] <def>
+
+Beziehung zur affinen Geometrie?
+
+Wir betrachten für $K^(n+1)$, $n in NN$, den Unterraum
+$
+W := {(x_0, ..., x_n) | x_0 = 0}
+$
+Er bestimmt eine Hyperebene $H := P(W) subset P^n (K)$ mit der Form
+$
+H := { "Span"{x_0, ..., x_n} in P^k | x_0 = 0 }
+$
+Damit erhält man eine kanonische Einbettung des affinen Raums $K^n$ in dem projektiven Raum $P^n (K)$. Für $K = RR$, $n = 2$ kann man dies so skizzieren:
+
+//bild 
+
+Allgemein: Man kann Punkte des $K^n$ mit den nicht in $W$ enthaltenen Geraden durch 0 in $K^(n+1)$ identifizieren.
+
+#definition("5.5", "")[
+  Es seien $P(U_1)$ und $P(U_2)$ zwei projektive Unterräume eines projektiven Raums $P(V)$. Dann wird der kleinste projektive Raum, der $P(U_1)$ und $P(U_2)$ enthält mit $P(U_1, U_2)$ bezeichnet. 
+]
+
+Ziel: Dimensionssatz
+
+Dazu:
+
+#lemma("5.6")[
+  Es seiene $P(U_1)$ und $P(U_2)$ zwei projektive Unterräume eines porjektiven Raums $P(V)$. Dann gilt:
+  $
+  P(U_1, U_2) = P(U_1 + U_2)
+  $
+]
+
+#startproof Nach Definition gilt:
+$
+"Span"{x} in P_1 (U_1, U_2) &<==> x in U_1 without {0} or x_1 in U_2 without {0}  \
+&==> x in (U_1 + U_2) without {0} <==> "Span"{x} in P(U_1 + U_2)
+$
+#endproof
+
+#lemma("5.7")[
+  Es seien $P(U_1)$ und $P(U_2)$ zwei projektive Unterräume eines projektiven Raums $P(V)$. Dann gilt:
+  $
+  P(U_1) sect P(U_2) = P(U_1 sect U_2)
+  $
+]
+
+#startproof
+$
+"Span"{x} in P(U_1) sect P(U_2) <==> x in U_1 without {0} and x in U_2 without {0} \
+<==> x in (U_1 sect U_2) without {0} <=> "Span"{x} in P(U_1 sect U_2)
+$
+#endproof
+
+#theorem("5.8")[
+  #bold[Dimensionssatz]
+
+  Seien $P(U_1)$ und $P(U_2)$ zwei projektive Unterräume eines projektiven Raumes $P(V)$. Dann gilt 
+  $
+
+  $
+
+]
