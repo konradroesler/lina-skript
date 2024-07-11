@@ -3130,7 +3130,7 @@ cal(G) &:= {G subset RR^3 | G "ist eine Gerade durch" 0 in RR^3 and G subset.not
 &= {G subset RR^3 | G "ist 1-dimensionaler Unterraum", G subset.not {x_1, x_2}"-Ebene"}
 $
 
-//#align(center, [hier fehlt noch eine abbildung])
+#figure(image("bilder2/5_1.png", width: 40%))
 
 Damit gibt es eine Bijektion
 $
@@ -3180,7 +3180,8 @@ Die Elemente von $macron(cal(G))$ welche durch eindimensionale Unterräume der $
   P^(n-1) (K) := P(K^n)
   $
 ] <def>
-Bemerkungen:
+
+#bold[Bemerkungen:]
 
 #boxedlist[
   Man kann auch $P(V) = { "Span"(x) | x in V without {0}}$ definieren
@@ -3281,3 +3282,151 @@ $
   $
 
 ]
+
+// franz vorlesung
+
+#pagebreak()
+
+= Tenorprodukt
+
+Sei $K$ Körper, $V, W, U$ VR über $K$
+$
+B(V, W; U) = {beta: V times W -> U | beta "bilinear"}
+$
+d.h. für alle $v in V$ ist $beta(v, dot) in L(W, U)$ und für alle $w in W$ ist $beta(dot, w) in L(V, U)$.
+
+#bold[Beispiel 6.1:] $K$ Körper, $V := W := K[x]$, $U := K[x_1, x_2]$, $beta in B(K[x], K[x]; K[x_1, x_2])$
+$
+beta(p q)(x_1, x_2) := p(x_1) q(x_2) \
+p(x) = x^2, q(x) = (x+1) ==> beta(p, q)(x_1, x_2) = x_1^2 (x_2 + 1)
+$
+Dies zeigt, dass die Multiplikation von zwei Vektoren yummindest im Fall von Polynomen ein natürlicher Vorgang ist. 
+
+#bold[Bemerkung:] $K$ Körper, $V, W, U$ seien $K$-VR. $I$ und $J$ Indexmengen, sodass $(v_i)_(i in I)$ eine Basis von $V$ und $(w_j)_(j in J)$ eine Basis von $W$. Sei weiter $(u_(i j))_(i in I)^(j in J)$ eine beliebige Familie in $U$. Dann existiert ein $beta in B(U, W; U)$ eindeutig mit 
+$
+beta(v_i, w_j) = u_(i j) quad i in I, j in J
+$
+Bemerkenswert ist, dass $beta$ nicht auf der Basis $(v_i, 0)_(i in I), (0, w_j)_(j in J)$ von $V times W$ festgelegt wurde. Stattdessen wurde $beta$ auf $(v_i, w_j)_(i in I)^(j in J)$ fixiert, was im Allgemeinen weder erzeugend noch linear unabhängig ist. Für $v in V, w in W$ mit 
+$
+v = sum_(i in I) lambda_i v_i, quad w = sum_(j in J) mu_j w_j
+$
+wobei nur endlich viele Summanden verschieden von 0 sind, ist
+$
+
+beta(v, w) = limits(sum_(i in I))_(j in J) lambda_i mu_j u_(i j) = limits(sum_(i in I))_(j in J) lambda_i mu_j beta(v_i, w_j)
+$
+
+#theorem("6.2")[
+  Sei $K$ Körper, $V$ und $W$ $K$-VR. Dann gibt es ein bis auf Isomorphie eindeutig bestimmter $K$-VR $T$ und eine Abbildung $tau in B(V, W, T)$ mit der #bold[universellen Eigenschaft]:
+
+  Für beliebige $K$-VR $U$ und $beta in B(V, W; U)$ gibt es eindeutiges $b in L(T, U)$, sodass 
+  $
+  beta = b circ tau
+  $
+]
+#figure(image("bilder2/6_1.png", width: 40%))
+
+#startproof 
+
+Existenz: Seien $(v_i)_(i in I)$ und $(w_j)_(j in J)$ Basen von $V$ bzw. $W$. Dann ist
+$
+T := {t in "Abb"(I times J, K) | t(i, j) != 0 "für nur endlich viele" (i, j) in I times J}
+$
+ein Untervektorraum von $"Abb"(I times J, K)$. Sei für $i in I$ und $j in J$ die Abbildung $t_(i j) in T$ gegeben durch
+$
+t_(i j) := delta_(i k) delta_(j l) quad "für" (k, l) in I times J
+$
+
+Dann sind die $(t_(i j))_(i in I)^(j in J)$ ein Erzeugendensystem von $T$, denn für $t in T$ gilt
+$
+t = limits(sum_(i in I))_(j in J) t(i, j) t_(i j)
+$
+Für $(alpha_(i j))_(i in I)^(j in J)$ mit $0 = sum_(i, j) alpha_(i j) t_(i j)$ folgt sofort $alpha_(i j) = 0$ für alle $(i, j) in I times J$. Also ist $(t_(i j))_(i in I)^(j in J)$ eine Basis von $T$. Wir definieren $tau in B(V, W, T)$ durch
+$
+tau(v_i, w_j) = t_(i j)
+$
+Sei $U$ ein beliebiger $K$-VR und $beta in B(V, W; U)$, dann kann $b in L(T, U)$ eindeutig durch
+$
+b(t_(i j)) := beta(v_i, w_j)
+$
+definiert werden. Dann gilt per Konstruktion $beta = b circ tau$.
+
+Eindeutigkeit: Erfülle $T'$ zusammen mit $tau'$ auch die universelle Eigenschaft 
+
+#figure(image("bilder2/6_2.png", width: 110%))
+
+Wendet man die universelle Eigenschaft von $T$ auf $U = T$, $beta = tau$ an, so folgt die Existenz einer eindeutigen Abbildung $b in L(T, T)$ mit $tau = b circ tau$. Dies ist sicher durch $b = "id"_T$ erfüllt. Analog folgt, dass $"id"_(T'')$ die einzige Abbildung in $L(T', T')$ mit $tau' = "id"_T' circ tau'$. Wendet man nun die universelle Eigenschaft von $T$ auf $U = T', beta = tau'$ an, so sichert diese die eindeutige Existenz von $g' in L(T, T')$ mit $tau' = g' circ tau$. Analog $exists! g in L(T', T)$ mit $tau = g circ tau'$. Es folgt $tau' = g' circ g circ tau'$, also $g' circ g = "id"_(T')$. Analog folgt $g circ g' = id_T$. Also sind $g, g'$ invers und $T op(tilde(=)) T'$.
+#endproof
+
+#bold[Bemerkung 6.3:]
+
+#boxedenum[
+  Im Folgenden werden wir keinen Bezug zur konkreten Konstruktion von $T$ nehmen, sondern lediglich die universelle Eigenschaft verwenden. Daher ist es nicht nötig zwischen $T$ und $T'$ zu unterscheiden. Dies wird durch die Notation $V otimes W := T$ ausgedrückt.
+]
+
+#let enum_6_2 = enum(start: 2)[
+  Für die zu $T$ gehörenden Abbildung $tau$ verwenden wir $otimes := tau$ zusammen mit der Infixnotation:
+  $
+  V otimes W = otimes(V, W) = tau(V, W)
+  $
+  Damit kann Satz 6.2 durch das kommutative Diagramm 
+  #figure(image("bilder2/6_3.png", width: 40%))
+  ergänzt werden.
+][
+  Die Abbildung die einem $beta in B(V, W, U)$ eindeutig ein $b in L(V otimes W, U)$ zuordnet erfüllt für $beta, beta' in B(V, W; U), lambda in K$ gilt
+  $
+  (beta + lambda beta')(v, w) &= beta(v, w) + lambda beta'(v, w) \
+  &= b(v otimes w) + lambda b'(v otimes w) \
+  &= (b + lambda b')(v otimes w)
+  $
+  Daher ist $beta arrow.bar b$ linear.
+  $
+  B(V, W; U) op(tilde(=)) L(V otimes W; U)
+  $
+][
+  Gilt $dim(V), dim(W) < oo$, so ist $dim(V otimes W) = dim(V) dim(W)$.
+][
+  Da für $oo > dim(V), dim(W) > 2$ gilt, dass 
+  $
+  dim(V times W) = dim(V) + dim(W) < dim(V) dim(W) = dim(V otimes W)
+  $
+  ist $otimes: V times W -> V otimes W$ im Allgemeinen nicht surjektiv.
+][
+  Die Eelemente von $V otimes W$ nennen wir Tensoren. Die Tensoren im Bild von $otimes$ heißten #bold[einfach].
+]
+
+#box(
+  width: 100%,
+  inset: (
+    right: 0.5cm,
+    left: 0.5cm,
+  ),
+  enum_6_2
+)
+
+
+#bold[Bemerkung:] Für $v, v' in V$, $w, w' in W, lambda in K$ gilt aufgrund der Bilinearität von $otimes$, dass 
+
+#boxedenum[
+  $v otimes w + v' otimes w = (v + v') otimes w$
+][
+  $v otimes w + v otimes w' = v otimes (w + w')$
+][
+  $(lambda v) otimes w = v otimes (lambda w) = lambda (v otimes w)$
+]
+
+#corollary("6.4")[
+  Seien $V, W$ Vektorräume über einen Körper mit Basen $(v_i)_(i in I)$ bzw. $(w_j)_(j in J)$, dann ist $(v_i otimes w_j)_(i in I)^(j in J)$ eine Basis von $V otimes W$.
+]
+
+#startproof Wäre die $(v_i otimes w_j)_(i in I)^(j in J)$ linear abhängig, dnn gäbe es $(k, l) in (I times J)$ und $(lambda_(i j))_((i, j in (I times J) without {(k, l)}))$ mit 
+$
+v_k otimes w_l = sum_((i, j) in (I times J) without {(k, l)}) lambda_(i j) v_i otimes w_j
+$
+Sei $beta in B(V, W, K)$ mit $beta(v_i, w_i) := delta_(i k) delta_(j l)$, dann existiert ein eindeutiges $b in L(V otimes W, K)$ mit $beta = b circ otimes$.
+$
+1 = beta(v_k, w_j) = b(v_k otimes w_l) = sum_((i, j)) lambda_(i j) underbrace(b(v_I otimes w_j), beta(v_i, w_j)) = 0 quad arrow.zigzag
+$
+Also sind die $(v_i otimes w_l)_(i in I)^(j in J)$ linear unabhängig.
+
+Sei $T := "Span"{v otimes w | (v, w) in V times W}$ mit der Basis $(v_i otimes w_j)_(i in I)^(j in J)$e
