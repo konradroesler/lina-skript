@@ -3287,7 +3287,7 @@ $
 
 #pagebreak()
 
-= Tenorprodukt
+= Tensorprodukt
 
 Sei $K$ Körper, $V, W, U$ VR über $K$
 $
@@ -3419,7 +3419,7 @@ Wendet man die universelle Eigenschaft von $T$ auf $U = T$, $beta = tau$ an, so 
   Seien $V, W$ Vektorräume über einen Körper mit Basen $(v_i)_(i in I)$ bzw. $(w_j)_(j in J)$, dann ist $(v_i otimes w_j)_(i in I)^(j in J)$ eine Basis von $V otimes W$.
 ]
 
-#startproof Wäre die $(v_i otimes w_j)_(i in I)^(j in J)$ linear abhängig, dnn gäbe es $(k, l) in (I times J)$ und $(lambda_(i j))_((i, j in (I times J) without {(k, l)}))$ mit 
+#startproof Wäre die $(v_i otimes w_j)_(i in I)^(j in J)$ linear abhängig, dann gäbe es $(k, l) in (I times J)$ und $(lambda_(i j))_((i, j) in (I times J) without {(k, l)})$ mit 
 $
 v_k otimes w_l = sum_((i, j) in (I times J) without {(k, l)}) lambda_(i j) v_i otimes w_j
 $
@@ -3429,4 +3429,123 @@ $
 $
 Also sind die $(v_i otimes w_l)_(i in I)^(j in J)$ linear unabhängig.
 
-Sei $T := "Span"{v otimes w | (v, w) in V times W}$ mit der Basis $(v_i otimes w_j)_(i in I)^(j in J)$e
+$T := "Span"{ v otimes w  in V otimes W | v in V, w in W }, otimes': V times W -> T, otimes' := otimes, i: T -> V otimes W$. Nach u.E. gibt es ein $f(V otimes W; T)$ mit 
+$
+otimes' = f circ otimes wide i circ otimes' = otimes
+$
+Betrachte
+$
+i circ f circ otimes = i circ otimes' = otimes
+$
+$==> i circ f = "id"_(V otimes W), i$ besitzt Rechtsinverse und surjektiv. Für $theta in V otimes W$ finden wir $t in T$
+$
+theta = i(t) = i(limits(sum_(i in I))_(j in J) lambda_(i j) underbrace(v_i otimes w_j, in T)) = limits(sum_(i in I))_(j in J) lambda_(i j) i(v_i otimes w_j) = limits(sum_(i in I))_(j in J) lambda_(i j) v_i otimes w_j
+$
+#endproof
+
+#bold[Beispiel 6.5:] $K$ Körper. Für $K[x]$ sei die Basis $(x^i)_(i in NN union {0})$ gewählt. Dann ist nach Korollar 6.4 $(x^i otimes x^j)_(i,j in NN union {0})$ eine Basis von $K[x] otimes K[x]$. Sei $b in L(K[x] otimes K[x], K[x_1, x_2])$ gegeben durch 
+$
+b(x^i otimes x^j) := x_1^i x_2^j
+$
+Dann ist $b$ die zu $beta$ aus Bsp. 6.1 gehörige linear Abbildung. Da $b$ Isomorph folgt
+$
+K[x] otimes K[x] isomorph K[x_1, x_2]
+$
+
+#bold[Beispiel 6.6:] Gegben sei ein $RR$-VR $W$. Dann kann die Komplexifizieren von $W$ durch $CC otimes W$ konstruiert werden. (Dabei ist $CC$ als zweidimensionaler VR über $RR$ aufgefasst.) Sei $(w_j)_(j in J)$ eine Basis von $W$. Sei ${1, i}$ eine Basis von $CC$ über $RR$. Dann ist $(1 otimes w_j)_(j in J), (i otimes w_j)_(j in J)$ eine Basis von $CC otimes W$. D.h. für $hat(w) in CC otimes WW$ existiert $(alpha_j)_(j in J)$ als Familie in $RR$ und $(beta_j)_(j in J)$ als Familie in $RR$ mit 
+$
+hat(w) = sum_(j in J) alpha_j (1 otimes w_j) + sum_(j in J) beta_j (i otimes w_j)
+$
+wobei die Summen wieder nur endlich viele von 0 verschiedenen Summanden aufweisen.
+$
+= sum_(j in J) (alpha_j + i beta_j) otimes w_j
+$
+Dann definieren wir für $mu in CC$
+$
+mu hat(w)_j := sum_(j in J) (mu_j) (alpha_j + i beta_j) otimes w_j
+$
+die übliche Multiplikation über $CC$.
+
+#corollary("6.7")[
+  Sei $K$ Körper, $V$ ein $K$-VR. Dann gilt $V isomorph V otimes K$.
+]
+
+#corollary("6.8")[
+  Seien $V, W, U$ VR über einem Körper $K$, dann gilt 
+  $
+  (V otimes W) otimes U isomorph V otimes (W otimes U)
+  $
+]
+
+#theorem("6.9")[
+  Sei $K$ ein Körper, $V, W$ seien $K$-VR mit $dim(V), dim(W) < oo$, dann gilt:
+
+  #boxedenum[
+    $L(V, K) isomorph V^* otimes K$
+  ][
+    $L(V, W) isomorph V^* otimes W$
+  ][
+    $B(V, W; K) isomorph (V otimes W)^* isomorph V^* otimes W^* isomorph V^* otimes W^* otimes K$
+  ]
+
+  Wobei der Isomorphismus in 2. gegeben ist durch
+  $
+  V^* otimes W #scale(x: -100%, $in$) phi otimes W arrow.bar phi(dot) w in L(V,W), quad phi in V^*, w in W
+  $
+  und der Isomorphismus für $(v otimes w)^* isomorph V^* otimes W^*$ gegeben ist durch
+  $
+  (phi otimes psi)(v otimes w) := underbrace(phi(v), in K) underbrace(psi(w), in K) in K, \
+  phi in V^*, psi in W^*, v in V, w in W
+  $
+]
+
+#startproof
+
+1. Es gilt $V^* otimes K isomorph V^* := L(V, K)$ nach Korollar 6.7.
+
+2. Sei $beta: V^* times W -> L(V, W)$ für $phi in V^*, w in W$ definiert durch 
+$
+beta(phi, w) := phi(dot) w
+$
+Dann gilt $beta in B(V^*, W; L(V, W))$, also existiert $b in L(V^* otimes W; L(V, W))$ mit $beta = b circ otimes$.
+
+Sei nun $m := dim(V), (v_1, ..., v_n)$ Basis von $V$ und $n := dim(W), (w_1, ..., w_n)$ Basis von $W$ und $(v_1^*, ..., v_m^*)$ die zu $(v_1, ..., v_m)$ duale Basis von $V^*$. Dann ist $(v_i^* otimes w_j)_(i in {1, ..., m})^(j in {1, ..., n})$ eine Basis von $V^* otimes W$. Auf $L(V, W)$ ist 
+$
+F_(i j) in L(V, W) "definiert durch" F_(i j) (v_k) = delta_(i k) w_j quad i,k in {1, ..., m}, j in {1, ..., n}
+$
+eine Basis.
+$
+b(v_i^* otimes w_j)(v_k) &= beta(v_i^*, w_j)(v_k) \
+&= v_i^*(v_k) w_j \
+&= delta_(i k) w_j \
+&= F_(i j)(v_k)
+$
+Also $b(v_i^* otimes w_j) = F_(i j)$ und damit ist $b$ eine Isomorphismus.
+
+3. Es gilt 
+$
+B(V, W, K) &isomorph L(V otimes W, K) \
+&= (V otimes W)^* "(Bemerkung nach Satz 6.2)"
+$
+$
+V^* otimes W^* isomorph V^* otimes W^* otimes K "nach Korollar 6.7"
+$
+Sei für $phi in V^*, psi in W^*, beta_(phi, psi) in B(V, W; K)$ definiert durch
+$
+beta_(phi, psi) (v, w) = phi(v) psi(w)
+$
+Dazu gibt es jeweils $b_(phi, psi) in L(V otimes W, K) = (V otimes W)^*$. Die so gegebene Abbildung $V^* times W^* -> (V otimes W)^*$
+$
+beta(phi, psi) := b_(phi, psi)
+$
+ist bilinear. Also existiert $b in L(V^* otimes W^*, (V otimes W)^*)$ mit $beta = b circ otimes$. Sei nun $phi in V^*, psi in W^*, v in V, w in W$
+$
+b(phi otimes psi)(v otimes w) = beta(phi, psi)(v otimes w) = b_(phi, psi) (v otimes w) = beta_(phi, psi) (v, w) = phi(v) psi(w)
+$
+Also zusätzlich zu den Basen in 2. sei $(w_1^*, ..., w_n^*)$ die zu $(w_1, ..., w_n)$ duale Basis von $W^*$. Dann ist $(v_i^* otimes w_j^*)_(i in {1, ..., m})^(j in {1, ..., n})$ eine Basis von $V^* otimes W^*$ und $(v_i otimes w_j)^*_(#stack(dir: ttb, spacing: 0.25em, [$i in {1,...,m}$],[$j in {1,...,j}$]))$ eine Basis von $(v otimes w)^*$
+$
+b(v_i^* otimes w_j^*)(v_k otimes w_l) = v_i^*(v_k) w_j^*(w_l) = delta_(i k) delta_(j l) = (v_i otimes w_j)^* (v_k otimes w_l) \
+==> b(v_i^* otimes w_j^*) = (v_i otimes w_j)^*
+$
+also $b$ Isomorphismus.
+#endproof
