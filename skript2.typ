@@ -3341,7 +3341,7 @@ Dies motiviert:
 ] <def>
 
 #theorem("5.11")[
-  #bold[Hauptsatz der affinen Geometrie]
+  #bold[Hauptsatz der projektiven Geometrie]
 
   Seien $P(V)$ und $P(W)$ projektive Räume zu den $RR$-Vektorräumen $V$ und $W$ mit $dim(P(V)) = dim(P(W)) >= 2$. Dann gilt: Bildet die projektive Abbildung $f: P(V) -> P(W)$ je drei Elemente $P, Q, R in P(V)$, die in einer projektiven Geraden liegen in drei Elemente $f(P), f(Q), f(R) in P(W)$ ab, die wieder in einer projektiven Geraden liegen, so ist $f$ bijektiv.
 ]
