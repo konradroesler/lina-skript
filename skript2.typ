@@ -3211,8 +3211,6 @@ Die Elemente von $macron(cal(G))$ welche durch eindimensionale Unterräume der $
   #boxedlist[
     Ist $dim(P(U)) = -1$, so ist $P(U) = emptyset$
   ][
-    Ist $dim(P(U)) = 0$, so heißt $P(U)$ (projektiver) Punkt
-  ][
     Ist $dim(P(U)) = 1$, so heißt $P(U)$ (projektive) Gerade
   ][
     Ist $dim(P(U)) = 2$, so heißt $P(U)$ (projektive) Ebene
@@ -3246,16 +3244,27 @@ Ziel: Dimensionssatz
 Dazu:
 
 #lemma("5.6")[
-  Es seiene $P(U_1)$ und $P(U_2)$ zwei projektive Unterräume eines porjektiven Raums $P(V)$. Dann gilt:
+  Es seien $P(U_1)$ und $P(U_2)$ zwei projektive Unterräume eines projektiven Raums $P(V)$. Dann gilt:
   $
   P(U_1, U_2) = P(U_1 + U_2)
   $
 ]
 
-#startproof Nach Definition gilt:
+#startproof  $P(U_1, U_2)$ ist der kleinste projektive Raum, so dass 
 $
-"Span"{x} in P_1 (U_1, U_2) &<==> x in U_1 without {0} or x_1 in U_2 without {0}  \
-&==> x in (U_1 + U_2) without {0} <==> "Span"{x} in P(U_1 + U_2)
+P(U_1) subset P(U_1, U_2), quad P(U_2) subset P(U_1, U_2)
+$
+Es existiert ein Unterraum $U$: $P(U_1, U_2) = P(U)$ mit $U_1, U_2 subset U$.
+
+Annahme: $exists u in U: u != u_1+u_2$ mit $u_1 in U_1, u_2 in U_2$
+$
+==>& 0 != macron(u) := underbrace(u, in U) - underbrace((u_1 + u_2), in U) in U \
+==>& "Span"{macron(u)} in P(U) = P(U_1, U_2) \
+$
+$==> arrow.zigzag$ Dann ist $P(U_1, U_2)$ nicht der kleinste Unterraum der $P(U_1)$ und $P(U_2)$ entählt.
+$
+==>& forall u in U: u = u_1 + u_2 ==> U = U_1 + U_2 \
+==>& P(U) = P(U_1 + U_2) 
 $
 #endproof
 
@@ -3278,12 +3287,66 @@ $
 
   Seien $P(U_1)$ und $P(U_2)$ zwei projektive Unterräume eines projektiven Raumes $P(V)$. Dann gilt 
   $
-
+  dim(P(U_1, U_2)) = dim(P(U_1)) + dim(P(U_2)) - dim(P(U_1) sect P(U_2))
   $
-
 ]
 
-// franz vorlesung
+#startproof
+$
+dim(P(U_1, U_2)) =^"5.6"& dim(P(U_1 + U_2)) \
+=& dim(U_1 + U_2) - 1 \
+=& dim(U_1) + dim(U_2) - dim(U_1 sect U_2) -1 \
+=& dim(U_1) -1 + dim(U_2) - 1 -(dim(U_1 sect U_2) -1) \
+=& dim(P(U_1)) + dim(P(U_2)) - dim(P(U_1 sect U_2))
+$
+#endproof
+
+Damit folgt unmittelbar das Resultat für die Geraden.
+
+#corollary("5.9")[
+  Sei $V$ ein $K$-Vektorraum und $P(V)$ ein projektiver Raum über $V$ mit $dim(P(V)) = n >= 0$. Sind $P(U_1)$ und $P(U_2)$ zwei projektive Unterräume von $P(V)$ mit $dim(P(U_1)) + dim(P(U_2)) >= n$, so gilt $P(U_1) sect P(U_2) != emptyset$.
+]
+
+#startproof
+$
+dim(P(U_1)) + dim(P(U_2)) >= n, quad dim(P(U_1, U_2)) <= n
+$
+Mit dem Dimensionssatz folgt
+$
+dim(P(U_1) sect P(U_2)) = underbrace(dim(P(U_1)) + dim(P(U_2)), >= n) - underbrace(dim(P(U_1, U_2)), <= n) >= 0
+$
+$==> P(U_1) sect P(U_2) != emptyset$
+#endproof
+
+#bold[Folgerung:] Ist $P(V)$ ein zweidimensionaler projektiver Raum, so besitzen je zwei projektive Geradden in $P(V)$ einen Schnittpunkt.
+
+Sind $P(V)$ und $P(W)$ zwei projektive Räume zu den $K$-Vektoräumen $V$ und $W$ sowie $p_V : V without {0} -> P(V)$ und $p_W : W without {0} -> P(W)$ die entsprechenden Projektionsabbildungen.
+$
+f: P(V) -> P(W) space ?
+$
+Ist $smar(f) in L(V, W)$, so könnte man durch die Zuordnung
+$
+"Span"{ast} -> "Span"{smar(f)(x)}
+$
+eine Abbildung definieren. Problem $x in ker(f)$?
+
+Dies motiviert:
+
+#definition("5.10", "Projektive Abbildungen")[
+  Seien $P(V)$ und $P(W)$ zwei projektive Räume zu den $K$-Vektorräumen $V$ und $W$. Eine Abbildung $f: P(V) -> P(W)$ heißt #bold[projektive Abbildung], falls eine injektive lineare Abbildung $smar(f): V -> W$ existiert, so dass für alle $"Span"{x} in P(V)$ die Gleichung
+  $
+  f("Span"{x}) = "Span"{smar(f)(x)}
+  $
+  gilt. Die Abhängigkeit der projektiven Abbildung $f$ von $smar(f)$ wird mit $f = P(smar(f))$ bezeichnet.
+] <def>
+
+#theorem("5.11")[
+  #bold[Hauptsatz der affinen Geometrie]
+
+  Seien $P(V)$ und $P(W)$ projektive Räume zu den $RR$-Vektorräumen $V$ und $W$ mit $dim(P(V)) = dim(P(W)) >= 2$. Dann gilt: Bildet die projektive Abbildung $f: P(V) -> P(W)$ je drei Elemente $P, Q, R in P(V)$, die in einer projektiven Geraden liegen in drei Elemente $f(P), f(Q), f(R) in P(W)$ ab, die wieder in einer projektiven Geraden liegen, so ist $f$ bijektiv.
+]
+#startproof Siehe Fischer, Analytische Geometrie, Satz 33.9
+#endproof
 
 #pagebreak()
 
@@ -3300,7 +3363,7 @@ $
 beta(p q)(x_1, x_2) := p(x_1) q(x_2) \
 p(x) = x^2, q(x) = (x+1) ==> beta(p, q)(x_1, x_2) = x_1^2 (x_2 + 1)
 $
-Dies zeigt, dass die Multiplikation von zwei Vektoren yummindest im Fall von Polynomen ein natürlicher Vorgang ist. 
+Dies zeigt, dass die Multiplikation von zwei Vektoren zummindest im Fall von Polynomen ein natürlicher Vorgang ist. 
 
 #bold[Bemerkung:] $K$ Körper, $V, W, U$ seien $K$-VR. $I$ und $J$ Indexmengen, sodass $(v_i)_(i in I)$ eine Basis von $V$ und $(w_j)_(j in J)$ eine Basis von $W$. Sei weiter $(u_(i j))_(i in I)^(j in J)$ eine beliebige Familie in $U$. Dann existiert ein $beta in B(U, W; U)$ eindeutig mit 
 $
@@ -3381,7 +3444,7 @@ Wendet man die universelle Eigenschaft von $T$ auf $U = T$, $beta = tau$ an, so 
   $
   Daher ist $beta arrow.bar b$ linear.
   $
-  B(V, W; U) op(tilde(=)) L(V otimes W; U)
+  B(V, W; U) isomorph L(V otimes W; U)
   $
 ][
   Gilt $dim(V), dim(W) < oo$, so ist $dim(V otimes W) = dim(V) dim(W)$.
@@ -3392,7 +3455,7 @@ Wendet man die universelle Eigenschaft von $T$ auf $U = T$, $beta = tau$ an, so 
   $
   ist $otimes: V times W -> V otimes W$ im Allgemeinen nicht surjektiv.
 ][
-  Die Eelemente von $V otimes W$ nennen wir Tensoren. Die Tensoren im Bild von $otimes$ heißten #bold[einfach].
+  Die Elemente von $V otimes W$ nennen wir Tensoren. Die Tensoren im Bild von $otimes$ heißten #bold[einfach].
 ]
 
 #box(
@@ -3549,3 +3612,91 @@ b(v_i^* otimes w_j^*)(v_k otimes w_l) = v_i^*(v_k) w_j^*(w_l) = delta_(i k) delt
 $
 also $b$ Isomorphismus.
 #endproof
+
+#pagebreak()
+
+= Nichtlineare Algebra
+
+Die #bold[lineare] Algebra $corres$ "Wissenschaft der linearen Gleichungssysteme"
+
+D.h. Problemstellungen, die auf Aussagen zu
+$
+f(x_1, ..., x_n) = a_1 x_1 + a_2 x_2 + a_n x_n - b = 0 quad (ast)
+$
+über einem Körper $K$.
+
+Mögliche Erweiterungen: Polynome, dasnn wäre $(ast)$ ein Polynom ersten Gerades über $K$.
+
+#bold[Bisher:]
+
+Kurven und Flächen erster Ordnung, d.h. solche, die durch lineare Gleichungen in den Unbekannten beschrieben werden.
+
+#boxedlist[
+  Geraden, Ebenen, Hyperebenen  
+][
+  Interpretierbar als vorgegebenes Skalarprodukt mit einem Vektor
+][
+  Geometrisch: Intepretation als Schnittmenge verschiedener Objekte
+]
+
+== Quadriken
+
+Jetzt: Kurven $corres$ Flächen zweiter Ordnung
+
+linear Gleichungen $arrow.wave$ quadratische Gleichungen:
+
+#boxedlist[
+  In jedem Summanden treten Variablen insgesamt hächstens zweimal als Faktor auf, z.B.
+  $
+  x_1^2 + 2 x_1 x_2 + 5 = 0
+  $
+][
+  Geometrische Interpretation:
+
+  Schnittmengen von Kreis-Kreis, Kreis-Ebene, Zylinder-Ebene
+
+  Hier: Quadriken als Gleichungen mit zwei Unbekannten in $RR^2$
+  
+  $arrow.wave$ klassische Kegelschnitte, Hyperbel, Ellipse, Parabel
+]
+
+Verallgemeinerung von quadratischen Funktionen
+$
+f: RR -> RR, quad x arrow.bar a x^2
+$
+für $K$ als Körper?
+
+#definition("7.1", "Quadratische Form")[
+  Sei $K$ ein Körper und $A in K^(n,n)$ symmetrisch. Die Abbildung 
+  $
+  Q_A: K^n -> K, quad x arrow.bar x^T A x
+  $
+  nennt man die zu $A$ gehörenden #bold[quadratische Form].
+] 
+
+#bold[Bemerkungen:]
+
+#boxedlist[
+  Eine zu $A$ gehörende quadratische Form lässt sich auch für nicht symmetrische Matrizen, d.h. $A != A^T$, definieren. Man kann zeigen, dass sich jede qudratische Form auch mit Hilfe einer symmetrischen Matrix $B$ darstellen lässt.
+][
+  Besonders interessant: quadratische Formen für $RR^(2,2)$.
+]
+
+#definition("7.2", "allgemeine quadratische Funktion")[
+  Eine quadratische Funktion über $K$ ist für $A in K^(n,n)$, $b in K^N$ und $c in K$ definiert als 
+  $
+  f: K^n -> K, quad x arrow.bar x^T A x + b^T x + c
+  $
+]
+
+#bold[Bemerkung:] Eine quadratische Gleichung erhält man dann durch
+$
+f(x) = 0 quad <==> quad x^T A x + b^T x + c = 0
+$
+
+#bold[Beispiel 7.3:] Für $K^n = RR^3$ mit symmetrischen $A in RR^(3,3)$ und $b in RR^3$ ergibt sich
+$
+vec(x_1, x_2, x_3) arrow.bar \ 
+a_(1 1) x_1^2 + a_(2 2) x_2^2 + a_(3 3) x_3^2 + 2 a_(1 2) x_1 x_2 + 2 a_(2 3) x_2 x_3 + 2 a_(1 3) x_1 x_3 + b_1 x_2 + b_2 x_2 + b_3 x_3 + c = 0
+$
+Die Lösungsmengen solcher allgemeinen quadratischen Gleichungen bezeichnet man als #bold[Quadrik].
