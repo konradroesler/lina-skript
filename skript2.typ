@@ -1487,7 +1487,7 @@ alternative JNF. Jordanblöcke bleiben gleich. D.h. Satz 2.36 rechtfertigt den N
 
 = Euklidische und unitäre Vektorräume
 
-Jetzt: $V$ Vkeotrraum über $RR$ oder $CC$ mit $dim(V) < oo$.
+Jetzt: $V$ Vektorraum über $RR$ oder $CC$ mit $dim(V) < oo$.
 
 Damit: Definition eines Skalarproduktes und Verallgemeinerung von Begriffen aus der Geometrie für $RR^2$ bzw. $RR^3$. Dies beinhaltet auch Orthogonalität und orthonormale Basen.
 
@@ -2667,7 +2667,7 @@ $==> A_1 sect A_2 != emptyset$
 
 
 #lemma("4.23")[
-  Seien $U_1, U_2 subset.eq V$ zwei Untervektorräume des $K$-Vektorraums $V$, $A_1 = A(U_1)$ und $A_2 = A(U_2)$ zwei offene Unterräume eines affines Raums $A(V)$, sowie $P_1 in A_1$ und $P_2 in A_2$ d.h.
+  Seien $U_1, U_2 subset.eq V$ zwei Untervektorräume des $K$-Vektorraums $V$, $A_1 = A(U_1)$ und $A_2 = A(U_2)$ zwei affine Unterräume eines affines Raums $A(V)$, sowie $P_1 in A_1$ und $P_2 in A_2$ d.h.
   $
   A_1 = P_1 + U_1 space "und" space A_2 = P_2 + U_2
   $
@@ -3672,7 +3672,7 @@ für $K$ als Körper?
   Q_A: K^n -> K, quad x arrow.bar x^T A x
   $
   nennt man die zu $A$ gehörenden #bold[quadratische Form].
-] 
+]
 
 #bold[Bemerkungen:]
 
@@ -3700,3 +3700,96 @@ vec(x_1, x_2, x_3) arrow.bar \
 a_(1 1) x_1^2 + a_(2 2) x_2^2 + a_(3 3) x_3^2 + 2 a_(1 2) x_1 x_2 + 2 a_(2 3) x_2 x_3 + 2 a_(1 3) x_1 x_3 + b_1 x_2 + b_2 x_2 + b_3 x_3 + c = 0
 $
 Die Lösungsmengen solcher allgemeinen quadratischen Gleichungen bezeichnet man als #bold[Quadrik].
+
+// 
+
+allgemeine quadratische Gleichung $K^n = RR^n$
+$
+x^T A x + b^T x + c = 0 quad x in RR^n quad (ast)
+$
+für $A in RR^(n,n)$ symmetrisch, $b in RR^n$, $c in RR$ 
+
+Was ist die Lösungsmenge? $corres$ Quadriken
+
+Vollständige Klassifizierung der Quadriken im $RR^2$. Jede Quadrik zu $(ast)$ lässt sich mit Hilfe von affinen Isometrien, d.h. längenerhaltenden Koordinatenransformationen also Abbildungen der Form $RR^2 -> RR^2, x arrow.bar Q x + t$ mit einer orthogonalen Matrix auf eine der folgenden Formen bringen.
+
+#boxedlist[
+  $A$-invertierbar: Dann wird $(ast)$ zu
+  $
+  mat(x_1 x_2) mat(lambda_1,0;0,lambda_2) vec(x_1, x_2) = lambda_1 x_1^2 + lambda_2 x_2^2 = d quad lambda_1 != 0 != lambda_2
+  $
+][
+  $A$ nicht invertierbar $==>$ $lambda_2 = 0$
+  $
+  mat(x_1 x_2) mat(lambda_1,0;0,0) vec(x_1, x_2) = lambda_1 x_1^2 + b x_2 = d
+  $ 
+]
+
+Über $Q$ als Koordinatentransformation nach Satz 3.25.
+
+
+Jetzt weitere Unterschiede 
+
+#boxedlist[
+  definite Fälle: $lambda_1, lambda_2 > 0$ oder $lambda_1, lambda_2 < 0$
+
+  #boxedlist[
+    Ellipse 
+    $
+    lambda_1 x_1^2 + lambda_2 x_2^2 = d
+    $
+    $d = 0$
+    $
+    underbrace(lambda_1, > 0) underbrace(x_1^2, >= 0) + underbrace(lambda_2, > 0) underbrace(x_2^2, >= 0) = 0 quad x_1 = x_2 = 0
+    $
+    $d != 0$
+    $
+    lambda_1/d x_1^2 + lambda_2/d x_2^2 = 1
+    $
+    beide $> 0$: Ellipsengleichung, beide $< 0$: keine Lösung!
+  ]
+][
+  indefiniter Fall: $lambda_1 > 0, lambda_2 < 0$
+    $
+    lambda_1 x_1^2 + lambda_2 x_2^2 = d
+    $
+    $d = 0$
+    $
+    underbrace(lambda_1, > 0) x_1^2 + underbrace(lambda_2, < 0) x_2^2 = 0 \
+  ==> "zwei sich schneidende Geraden"
+    $
+    $d != 0$
+    $
+    lambda_1/d x_1^2 + lambda_2/d x_2^2 = 1 \
+    "z.B. Hyperbel" cases(a x_1^2 - b x_2^2 = 1, a"," b > 0)
+    $
+    beide $> 0$: Ellipsengleichung, beide $< 0$: keine Lösung!
+][
+  semidefiniter Fall: $lambda_2 = 0$
+  $
+  a x_1^2 &= 1, a > 0 quad "also zwei parallele Geraden" \
+  x_2^2 &= 0 quad "eine Gerade"
+$
+]
+
+// loch
+
+Schnitt von nichtlinearen Mengen und Ebenen
+
+Diese Überlegungen lassen für höhere Polynomgerade verallgemeinern.
+
+== Computeralgebra
+
+Spannungsfeld: Rechner mit Gleitkommazahlen ($arrow.wave$ Rechnungsfehler!) $<-->$ symbolisches Rechnen (exakt, aber extrem aufwändig!)
+
+Typische Anwendungen:
+
+#boxedlist[
+  algebraische Terme vereinfachen oder vergleichen
+][
+  algebraische Gleichungen lösen
+][
+  lineare Gleichungssysteme lösen
+][
+  Fehler
+]
