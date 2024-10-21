@@ -158,48 +158,50 @@
       ])
     }
 
-    let chap_count = int(repr(definition_array.at(-2)).find(regex("\d\.\d{1,2}")).at(0))
-    let partitioned_def_array = ()
-    for i in range(chap_count) {
-      partitioned_def_array.push(())
-    }
-    
-    let x = 0
-    while x < definition_array.len() {
-      let chapter = int(repr(definition_array.at(x)).find(regex("\d\.\d{1,2}")).at(0))
-      partitioned_def_array.at(chapter -1).push(definition_array.at(x))
-      partitioned_def_array.at(chapter -1).push(definition_array.at(x+1))
-      x += 2
-    } 
-    let def_index = ()
-    for chapter in partitioned_def_array {
-      def_index.push(
-        [
-          #let chapter_num = int(repr(chapter.at(0)).find(regex("\d\.\d{1,2}")).at(0))
-          #align(center, strong(text(size: 1.5em)[#chapter_num .]))
-          #v(-12pt)
-          #line(length: 100%, stroke: 1pt)
-          #v(-10pt)
-          #table(
-            columns: (40pt, 1fr),
-            inset: 5pt,
-            stroke: none,
-            ..partitioned_def_array.at(chapter_num -1)
-          )
-        ]
-      )
-    }
-
-    // Display the definition index in two column mode
-    [ 
-      #show: columns.with(2, gutter: 12pt)
-      #for chap in def_index {
-        [
-          #chap
-
-        ]
+    if definition_array.len() > 2 {
+      let chap_count = int(repr(definition_array.at(-2)).find(regex("\d\.\d{1,2}")).at(0))
+      let partitioned_def_array = ()
+      for i in range(chap_count) {
+        partitioned_def_array.push(())
       }
-    ]
+      
+      let x = 0
+      while x < definition_array.len() {
+        let chapter = int(repr(definition_array.at(x)).find(regex("\d\.\d{1,2}")).at(0))
+        partitioned_def_array.at(chapter -1).push(definition_array.at(x))
+        partitioned_def_array.at(chapter -1).push(definition_array.at(x+1))
+        x += 2
+      } 
+      let def_index = ()
+      for chapter in partitioned_def_array {
+        def_index.push(
+          [
+            #let chapter_num = int(repr(chapter.at(0)).find(regex("\d\.\d{1,2}")).at(0))
+            #align(center, strong(text(size: 1.5em)[#chapter_num .]))
+            #v(-12pt)
+            #line(length: 100%, stroke: 1pt)
+            #v(-10pt)
+            #table(
+              columns: (40pt, 1fr),
+              inset: 5pt,
+              stroke: none,
+              ..partitioned_def_array.at(chapter_num -1)
+            )
+          ]
+        )
+      }
+
+      // Display the definition index in two column mode
+      [ 
+        #show: columns.with(2, gutter: 12pt)
+        #for chap in def_index {
+          [
+            #chap
+
+          ]
+        }
+      ]
+    }
   })
 
   definitions
