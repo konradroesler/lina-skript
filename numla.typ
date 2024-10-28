@@ -167,3 +167,146 @@ $
 sum_(i = 1)^n (i-1) = (n(n-1))/2 = cal(O)(n^2)
 $
 Addition und Multiplikationen und $n$ Divsionen.
+
+#bold[Landau-Symbol:] $cal(O)(.)$
+$
+f(n) = cal(O)(g(n)) <==> exists c > 0: abs(f(n)) <= C abs(g(n))
+$
+Für ein lineares Gleichungssystem der Form
+$
+L x = z, quad L = mat(l_(1 1),,0;dots.v,dots.down,;l_(n 1), ..., l_(n n)) in RR^(n times n) quad z in vec(z_1, ..., z_n) in RR^n
+$
+gibt es einen analogen Algorithmus:
+$
+x_1 = z_1 / l_(1 1) quad l_(1 1) != 0 \
+dots.v \
+x_n = (z_n - sum_(i = 1)^(n-1) l_(n i) x_i )/l_(n n) quad l_(n n) != 0
+$
+$==>$ Vorwärtssubstitution mit gleichem Aufwand $cal(O)(n^2)$
+
+Lösungsidee für ein allgemeines Gleichungssystem:
+
+Faktorisiere $A = L dot R$ und berechne die Lösung $x$ von $A x = b$ durch
+$
+A x = L underbrace(R x, =: z) = b \
+L z = b ==> z = L^(-1) b space "Vorwärtssubstitution" \
+R x = z ==> x = R^(-1) z space "Rückwärtssubstitution" 
+$
+Mit Aufwand: $cal(O)(n^2)$
+
+Frage: Wie berechnet man Zerlegun $A = L dot R$
+
+Man generiert eine Folge von Matrizen:
+$
+A = A^((1)) --> A^((2)) --> ... --> A^(n) = R
+$
+von Matrizen der Gestalt 
+$
+A^((k)) = mat(a_(1 1)^((1)), ..., ..., ..., ...,a_(1 n)^((1));0,a_(2 2)^((2)), ..., ..., ..., a_(2 n)^((2));,0,dots.down,,,dots.v;,,0,a_(k k)^((k)),...,a_(k n)^((k));,,,dots.v,,dots.v;,,,a_(n k)^((k)), ..., a_(n n)^((k)))
+$
+Wie?
+
+Sei $x = (x_1, ..., x_n)^T in RR^(n), x_k != 0 corres$ $k$-Spalte
+
+Definiere: $l_(j k) = x_j/x_k$
+$
+l_k = (underbrace(0\, ...\, 0, k "mal"), l_(k+1 k), ..., l_(n k))^T
+$
+$e_k = k$-ter einheitsvektor
+$
+L_k = I_n - l_k e_k^T in RR^(n times n)
+$
+Dann gilt 
+$
+L_k x = mat(1,,,,0;,dots.down,,,;,,1,,;,,-l_(k+1 k),dots.down,;,,dots.v,,;,,-l_(n k),,1) vec(x_1, dots.v, x_n) = vec(x_1, dots.v, x_k,0, dots.v, 0)
+$
+Jeder Eliminationsschritt $A^((k)) --> A^((k+1))$ lässt sich damit als Multiplikation mit einer Matrix $L_k in RR^(n times n)$ von links
+$
+A^(k+1) = L_k A^((k)) = mat(I_k,,0;0,*,I_(n-k)) mat(A_(1 1)^((k)), A_(1 2)^((k)); A_(2 1)^((k)), A_(2 2)^((k))) = mat(A_(1 1)^((k)), A_(1 2)^((k));0,A_(2 2)^((k+1))) quad * in RR^(n-k,1)
+$
+Eine Matrix der Gestalt $L_k$ heißt Frobeniusmatrix $->$ weitere Eigenschaften siehe Übung .
+
+Der Eliminationsschritt ist genau dann durchführbar wenn $a_(k k)^((k)) != 0$ gilt. Angenommen, dies gilt, dann erhält man
+$
+L_n dots.c L_2 L_1 A = R
+$
+#line(length: 1cm, stroke: 1pt)
+$
+A = underbrace(L_1^(-1) dots.c L_(n-2)^(-1) L_(n-1)^(-1), =: L) R
+$
+Induktiv beweißt man
+$
+L = L_1^(-1) dots.c L_(n-1)^(-1) = mat(1,,,,0;l_(2 1),dots.down,,;dots.v,l_(3 2),dots.down,,;dots.v,dots.v,,,;dots.v,dots.v,,dots.down,;l_(n 1),l_(n 2),...,l_(n n-1),1)
+$
+Durch diese Struktur kann der Speicherplatz für $A$ zum Speichern von $L$ und $R$ genutzt werden!
+
+#bold[Algorithmus 2.3: $L R$-Zerlegung]
+
+Gegeben: $A in RR^(n times n)$
+
+#align(center, box(radius: 10pt, inset: 0.25cm, fill: rgb(210,210,210), [
+#set text(size: 11pt)
+$
+&"for" i = 1,...,n-1 \
+&quad "for" j = i, ..., n \
+&quad quad "for" k=1,...,i-1 \
+&quad quad quad a_(i j) = a_(i j) - a_(i k) * a_(k j) \
+&quad quad "end" \
+&quad "end" \
+&quad "for" j = i+1, ..., n \
+&quad quad "for" k = 1, ..., i-1 \
+&quad quad quad a_(j i) = a_(j i) - a_(j k) * a_(k i) \
+&quad quad "end" \
+&quad quad a_(j i) = a_(j i) / a_(i i) \
+&quad "end" \
+&"end"
+$
+]))
+
+Aufwand für die Dreieckszerlegung $A = L dot R$
+
+\#Operationen =
+$
+sum_(i = 1)^(n-1) ((n-i)^2 + (n-i)) 1/3 n^3 - 1/2 n^2 + 1/6 + 1/2 n^3 - 1/2 n \ 
+= 1/3 n^3 + cal(O)(n^2) = cal(O)(n^3)
+$
+$==>$ kubischer Aufwand! Nur akzeptabel für moderates $n$!
+
+#bold[Algorithmus 2.4: Gaußsche Eliminationsverfahren]
+
+Gegeben: $A in RR^(n times n)$, $b in RR^n$
+
+1) Berechne $A = L dot R$ #h(1cm) $cal(O)(n^3)$
+
+2) Berechne $z$ aus $L z = b$ #h(1cm) $cal(O)(n^3)$
+
+3) Berechne $x$ aus $R x = z$ #h(1cm) $cal(O)(n^3)$
+
+$==>$ Gesamtaufwand (Operationen): $cal(O)(n^3)$, (Speicherplatz): $n^2 + n$
+
+Vorteil der Faktorisierung:
+
+Zerlegung (teuer) kann für mehrere rechte Seiten nachgenutzt werden.
+
+== Pivot-Strategien
+
+#bold[Beispiel 2.5:] Algo 2.4 kann selbst für einfache Schritte scheitern:
+$
+A x = b, quad x = vec(w, z), quad A = mat(0,1;1,0), quad det(A) = -1, quad b = vec(c, e)
+$
+$==> a_11 = 0 quad arrow.zigzag$
+
+Bei der völlig äquivalenten Formulierung
+$
+tilde(A) tilde(x) = tilde(b), quad tilde(x) = vec(w, z), quad tilde(A) = mat(1,0;0,1), quad det(tilde(A)) = 1, quad tilde(b) = vec(e, c)
+$
+funktioniert Algo 2.4 mit 
+$
+tilde(A) = I_2 = L dot R \
+L = I_2 quad R = I_2
+$
+$==>$ Zeilenvertauschung in $A$ und der rechten Seite, #bold[nicht] in $x$ bzw. $tilde(x)$!
+
+Die $L R$-Zerlegung versagt nicht nur bei verschwindenen Diagonalelementen, sondern auch wenn diese betragsmäßig klein im Vergleich zu den restlichen Elementen sind. 
+
+$arrow.squiggly$ Praktikum, Fehlertheorie (Kap. III)
