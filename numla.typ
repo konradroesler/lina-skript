@@ -276,11 +276,11 @@ $==>$ kubischer Aufwand! Nur akzeptabel für moderates $n$!
 
 Gegeben: $A in RR^(n times n)$, $b in RR^n$
 
-1) Berechne $A = L dot R$ #h(1cm) $cal(O)(n^3)$
+1) Berechne $A = L dot R$ #h(1cm) #h(5mm) $cal(O)(n^3)$
 
-2) Berechne $z$ aus $L z = b$ #h(1cm) $cal(O)(n^3)$
+2) Berechne $z$ aus $L z = b$ #h(10mm) $cal(O)(n^2)$
 
-3) Berechne $x$ aus $R x = z$ #h(1cm) $cal(O)(n^3)$
+3) Berechne $x$ aus $R x = z$ #h(8.5mm) $cal(O)(n^2)$
 
 $==>$ Gesamtaufwand (Operationen): $cal(O)(n^3)$, (Speicherplatz): $n^2 + n$
 
