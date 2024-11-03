@@ -212,7 +212,7 @@ Definiere: $l_(j k) = x_j/x_k$
 $
 l_k = (underbrace(0\, ...\, 0, k "mal"), l_(k+1 k), ..., l_(n k))^T
 $
-$e_k = k$-ter einheitsvektor
+$e_k = k$-ter Einheitsvektor
 $
 L_k = I_n - l_k e_k^T in RR^(n times n)
 $
