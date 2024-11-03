@@ -267,7 +267,7 @@ Aufwand für die Dreieckszerlegung $A = L dot R$
 
 \#Operationen =
 $
-sum_(i = 1)^(n-1) ((n-i)^2 + (n-i)) 1/3 n^3 - 1/2 n^2 + 1/6 + 1/2 n^3 - 1/2 n \ 
+sum_(i = 1)^(n-1) ((n-i)^2 + (n-i)) = 1/3 n^3 - 1/2 n^2 + 1/6 n + 1/2 n^2 - 1/2 n \ 
 = 1/3 n^3 + cal(O)(n^2) = cal(O)(n^3)
 $
 $==>$ kubischer Aufwand! Nur akzeptabel für moderates $n$!
