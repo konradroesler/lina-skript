@@ -137,7 +137,7 @@ $corres$ direktes Verfahren für quadratische System
 
 Erste Idee: Systeme spezieller Struktur, z.B.
 $
-R x = c, quad R = mat(r_(1 1), ..., r_(1 n);0,dots.down,dots.h;0,0,r_(m n)) in RR^(n times n), quad c = vec(c_1, dots.v, c_n) in RR^n
+R x = c, quad R = mat(r_(1 1), ..., r_(1 n);0,dots.down,dots.h;0,0,r_(n n)) in RR^(n times n), quad c = vec(c_1, dots.v, c_n) in RR^n
 $
 $R x = c$ 
 $
@@ -194,7 +194,7 @@ R x = z ==> x = R^(-1) z space "Rückwärtssubstitution"
 $
 Mit Aufwand: $cal(O)(n^2)$
 
-Frage: Wie berechnet man Zerlegun $A = L dot R$
+Frage: Wie berechnet man Zerlegung $A = L dot R$
 
 Man generiert eine Folge von Matrizen:
 $
