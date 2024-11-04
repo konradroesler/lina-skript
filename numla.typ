@@ -247,7 +247,7 @@ Gegeben: $A in RR^(n times n)$
 #align(center, box(radius: 10pt, inset: 0.25cm, fill: rgb(210,210,210), [
 #set text(size: 11pt)
 $
-&"for" i = 1,...,n-1 \
+&"for" i = 1,...,n \
 &quad "for" j = i, ..., n \
 &quad quad "for" k=1,...,i-1 \
 &quad quad quad a_(i j) = a_(i j) - a_(i k) * a_(k j) \
@@ -310,3 +310,145 @@ $==>$ Zeilenvertauschung in $A$ und der rechten Seite, #bold[nicht] in $x$ bzw. 
 Die $L R$-Zerlegung versagt nicht nur bei verschwindenen Diagonalelementen, sondern auch wenn diese betragsmäßig klein im Vergleich zu den restlichen Elementen sind. 
 
 $arrow.squiggly$ Praktikum, Fehlertheorie (Kap. III)
+
+#bold[Algorithmus 2.6: $L R$-Zerlegung mit Spaltenpivotisierung]
+
+1. $k = 1, A^((1)) = A$
+2. #[
+Spaltenpivotisierung
+
+Bestimme $p in {k, ..., n}$ so, dass
+$
+abs(a_(p k)^((k))) >= abs(a_(j k)^((k))) "für" j = k, ..., n
+$
+]
+3. #[
+Vertausche die Zeilen $p$ und $k$ durch
+$
+A^((k)) --> tilde(A)^((k)) space "mit" space tilde(a)_(i j)^((k)) = cases(a_(k j)^((k)) quad "falls" i = p, a_(p j)^((k)) quad "falls" i = k, a_(i j)^((k)) quad "sonst")
+$
+]
+4. #[
+Führen der Eliminationsschritte
+$
+tilde(A)^((k)) --> A^((k+1)) quad "setzte" k = k+1
+$
+]
+5. #[
+Falls $k = n$ STOP
+
+Sonst gehe zu 2.
+]
+
+Alternative Pivotisierungsstrategien:
+
+#boxedlist[
+  Zeilenpivotisierung und Spaltentausch
+][
+  vollständige Pivotisierung, d.h. Suche des betragsmäßig größten Elements in der Restmatrix 
+]
+
+#bold[Aufwand:]
+
+#boxedlist[
+  Sowohl Spalten- als auch Zeilenpivotisierung: Im schlimmsten Fall $cal(O)(n^2)$ zusätzliche Operationen
+][
+  vollständige Pivotisierung: Im schlimmsten Fall $cal(O)(n^3)$ zusätzliche Operationen
+]
+
+Formale Beschreibung von Algo 2.6? Dazu: Permutationsmatrizen $P_pi in RR^(n times n)$
+
+Jede Permutation $pi: {1, ..., n} --> {1, ..., n}$ der Zahlen $1, ..., n$ bestimmt eine Matrix
+$
+P_pi = mat(e_(pi(1)), ..., e_(pi(n)))
+$
+Eine Zeilenvertauschung in $A$ kann dann durch das Produkt $P_pi A$ beschrieben werden, Spaltenvertauschung durch $A P_pi$. Des Weiteren gilt $P_pi^(-1) = P_pi^T$, $det(P_pi) = {-1,1}$.
+
+Man kann beweisen, dass die $L R$-Zerlegung mit Spaltenpivotisierung #underline[theoretisch] nur versagen kann, wenn $det(A) = 0$
+
+#theorem("2.7")[
+  #bold[Durchführbarkeit der $L R$-Zerlegung]
+
+  Für jede invertierbare Matrix $A$ existiert eine Permutationsmatrix $P$ derart, dass für $P A$ die $L R$-Zerlegung mit Spaltenpivotisierung durchgeführt werden kann. D.h., man erhält $P A = L R$. Dabei kann man $P$ so wählen, dass alle Elemente von $L$ betragsmäßig kleiner gleich 1 sind, also $abs(L) <= 1$
+]
+
+#startproof Da $A$ invertierbar ist, gilt $det(A) != 0$. Damit existiert eine Permutationsmatrix $P_pi_1$, so dass das erste Diagonalelement $tilde(a)_(1 1)^((1))$ der Matrix
+$
+tilde(A)^((1)) = P_pi_1 A^((1))
+$
+von Null verschieden ist und das betragsmäßig größte Element in der ersten Spalte ist:
+$
+0 != abs(tilde(a)_(1 1)^((1))) >= abs(tilde(a)_(i 1)^((1))) space "für" i = 1, ..., n
+$
+Nach dem ersten Eliminationsschritt erhalten wir
+$
+A^((2)) = L_1 tilde(A)^((1)) = L_1 P_pi_1 A = mat(tilde(a)_(1 1)^((1)), *;0,caron(A)_2^((2)))
+$
+Wegen (\*) gilt für $L_1$:
+$
+abs(l_(i 1)) = abs(tilde(a)_(i 1)^((1))/tilde(a)_(1 1)^((1))) <= 1 quad i = 2, ..., n
+$
+$==> abs(L_1) <= 1, quad det(L_1) = 1$
+$
+det(A^((2))) &= underbrace(det(L_1), = 1) underbrace(det(P_pi_1), in {-1, 1}) underbrace(det(A), != 0) \ 
+&!= 0
+$
+$
+det(caron(A)^((2))) = overbrace(det(A^((2))), != 0)/tilde(a)_(1 1)^((1)) != 0
+$
+Induktiv erhält man
+$
+R = A^((n)) = L_(n-1) R_pi_(n-1) L_(n-2) P_pi_(n-2) dots.c L_1 P_pi_1 A
+$
+mit $abs(L_k) <= 1$ und $P_pi_k$ entweder die Identität oder zwei Zeilen $j_1, j_2 >= k$ vertauschen. Deswegen gilt für die Frobeniusmatrix
+$
+L_k = mat(1,,,,,0;,dots.down,,,,;,,1,,,;,,-l_(k+1 k),,,;,,dots.v,,dots.down,;,,-l_(n k),,,1), "dass"
+$
+$
+tilde(L)_k = P_pi_j L_k P_pi_j^(-1) = mat(1,,,,,0;,dots.down,,,,;,,1,,,;,,-l_(pi_j (k+1) k),,,;,,dots.v,,dots.down,;,,-l_(pi_j (n) k),,,1) quad "für" j>k
+$
+Durch geschicktes Einfügen von $I = P^(-1)_pi_(k+1) P_pi_(k+1)$
+/*
+$
+R = A^((n)) = L_(n-1) P_pi_(n-1) L_(n-2) underbrace(P^(-1)_pi_(k+1) P_pi_(k+1), = I) P_pi_(n-2) L_(n-2) P^(-1)_pi_(n-2) underbrace(P^(-1)_pi_(k+1) P_pi_(k+1), = I) P_pi_(n-2) dots.c L_1 P_pi_1 dots.c P^(-1)_(n-1) P_pi_(n-1) dots.c P_pi_1 A
+$
+*/
+$
+R = A^((n)) = &L_(k-1) (P_(pi_(n-1)) L_(n-2) P^(-1)_pi_(n-1))(P_pi_(n-1) P_pi_(n-2) L_(k-3) P^(-1)_pi_(n-2) P^(-1)_pi_(n-1)) \ &P_pi_(n-1) P_pi_(n-2) dot ... dot ( ... L_1 P_pi_1 ... P^(-1)_pi_(n-1) (P_pi_(n-1) ... P_pi_1 A)
+$
+$==> P A = underbrace(tilde(L)_1^(-1) dots.c tilde(L)_(n-1)^(-1), =: L) R$ mit
+$
+L = mat(1,,,0;l_(tilde(pi)_1 (l) 1),dots.down,,,,;,dots.down,dots.down,,,;dots.v;l_(tilde(pi)_1 (n) 1), ..., l_(tilde(pi)_(n-1) (n) (n-1)),1)
+$
+und $abs(L) <= 1$
+
+#bold[Bemerkungen:]
+
+#boxedlist[
+  Gilt $P A = L R$, dann berechnet man 
+  $
+  A x &= b \
+  P A x &= P b \
+  L R x &= P b \
+  x &= R^(-1) L^(-1) P b
+  $
+  #h(100cm)
+][
+  Theoretisch sind die Formulierungen 
+  $
+  A x = b wide D A x = D b
+  $
+  für eine invertierbare Diagonalmatrix $D$ äquivalent. Bei der praktischen Lösung auf dem Rechner haben solche Skalierungen aber u.U. einen #bold[dramatischen] Einfluß, vgl. Kap. III.
+][
+  Auf dem Rechner: Verbesserung der unexakten Lösung durch sogenannte Nachiteration möglich, vgl. Kap. IV.
+]
+
+== Polesky-Verfahren für symm. pos. definite $A$
+
+Gesucht: $A$ spd eine $L in RR^(n times n)$ ($det(L) > 0$) s.d. $A = L L^T$
+
+siehe Übungen
+
+#pagebreak()
+
+= Fehleranalyse
