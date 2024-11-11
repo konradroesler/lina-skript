@@ -452,3 +452,171 @@ siehe Übungen
 #pagebreak()
 
 = Fehleranalyse
+
+#bold[Situation]
+
+ideal: Eingabe $x$ $-->$ Algorithmus/Problemstellung $f$ $-->$ Ausgabe $y = f(x)$ 
+
+real: $tilde(x) = x + epsilon --> tilde(f) --> tilde(y) = tilde(f)(tilde(x))$
+
+Frage: $y <--> tilde(y)$?
+
+Ursachen für den Gesamtfehler $tilde(y) - y$
+
+#boxedlist[
+  #bold[Modellfehler]
+
+  #boxedlist[
+    Idealisierungsfehler, z.B. in der Modellbildung
+  ][
+    Datenfehler
+  ]
+  Modellfehler lassen in der Regel nicht vermeiden!
+
+  Frage: Wie wirken sich solche Fehler #bold[unabhängig] vom gewählten Algorithmus aus?
+  $
+  f(x) <--> f(tilde(x))
+  $
+  #bold[Kondition] eines Problems
+][
+  #bold[numerische Fehler]
+
+  #boxedlist[
+    Diskretisierungsfehler, kontinuierliches Problem versus diskretisierte Formulierung
+  ][
+    Abbruchfehler, eigentlich unendliche Algorithmen werden nach endlichen Schritten abgebrochen
+  ][
+    Approximationsfehler
+    $
+    sin(x) = sum_(n = 0)^oo (-1)^n x^(2n+1)/(2n+1)! \
+    ==> tilde(sin)(x) = sum_(n=0)^k (-1) x^(2n+1)/(2n+1)!
+    $
+  ][
+    Rechengenauigkeit, reelle Zahlen versus Gleitkommazahlen
+  ]
+]
+
+Rundungsfehler und Approximationsfehler $==>$ #bold[Stabilität] eines Alogrithmus
+$
+f(x) <--> tilde(f)(x)
+$
+
+Vernachlässigung von Fehlerbetrachtungen kann dramatische Auswrikungen haben:
+
+#boxedlist[
+  1991: Untergang der Bohrinsel Sleipner, Fehler in den Kräften von 47%
+][
+  1. Golfkrieg: Eine Patriotrakete verpasst angreifende Rakete. Im Steuerprogramm der Patriotrakete durch Multiplikation mit 0.1. Nach 100 Betriebsstunden: Differenz der berechneten Zeit und tatsächlich vergangener Zeit von 0.34 Sekunden
+][
+  Absturz der ersten Ariane 5 Rakete (1996), Umwandlung einer 64 bit Gleitkommazahl in 16 bit integer Zahl in Software der Arian 4
+][
+  London Millenium Bridge (2000), flasche Abschätzung der Fußgängerkräfte
+]
+
+== Zahlendarstellung und Rundungsfehler
+
+$-->$ Einführung in das wissenschaftliche Rechnen
+
+== Kondition eines Problems
+
+Erwartungshaltung: kleiner Fehler in der Aufgabenstellung ($x -> tilde(x)$ verursacht einen kleinen Fehler in der Lösung $tilde(y)$
+
+#bold[Beispiel 3.1:] Störung eines LGS
+
+Gegeben ist das lineare Gleichungssystem
+$
+underbrace(mat(1.2969, 0.8648; 0.2161, 0.1441), =: A) vec(x_1, x_2) = underbrace(vec(0.8642, 0.1440), =: b)
+$
+mit $det(A) != 0$ und der eindeutig bestimmten Lösung $x = mat(2,2)^T$. 
+
+Jetzt: Störung der rechten Seite
+$
+b arrow.squiggly tilde(b) = vec(0.86419999, 0.14400001)
+$
+liefert die Lösung $tilde(x) = mat(0.9911, -0.4870)^T$. Ursache?
+
+Dazu: Formalisierung Eigenschaften der Problemstellung
+
+Wichtig: Notation: $x$ - Eingabe, $f$ - Problemstellung, $y$ - Ausgabe
+
+#definition("3.2", "Numerisches Problem")[
+  Ein numerisches Problem ist ein Paar $(f, x)$ wobei $f: D subset RR^n -> RR^m$ eine Abbildung, $x in D$ die Eingabe und $y = f(x)$ die Ausgabe ist.
+]
+
+#bold[Beispiel 3.3:]
+
+#boxedlist[
+  Auswertung von $sin(x)$: $x = 1.7, y = f(x) = sin(x) = sin(1.7)$
+][
+  Bestimmung von Nullstelle von $g(t) = a t^2 + b t + c$
+
+  Eingabe: $x = (a, b, c), y = f(x)$ definiert durch $g(f(a, b, c)) =^! 0$
+]
+
+Zur Lösung eines numerischen Problems können verschiedene Algorithmen genutzt werden
+
+(Algorithmus: endliche Folge von Elementaroperationen, deterministisch bestimmt)
+
+Hier: Die Kondition ist #bold[unabhängig] vom gewählten Algorithmus!
+
+#definition("3.4", "wohl gestelltes Problem, schlecht gestelltes Problem")[
+  Das numerische Problem $(f, x)$ heißt wohlgestellt, falls es eine konstante $L_"abs" in RR^+$ gibt, so dass 
+  $
+  norm(f(tilde(x)) - f(x)) <= L_"abs" norm(x - tilde(x))
+  $
+  für alle $tilde(x) -> x$. Existiert keine solche Konstante $L_"abs"$, dann heißt $(f, x)$ schlecht gestellt. Zur weiteren Analyse setzt man im wohldefinierten Fall
+  $
+  kappa_"abs" := inf{L_"abs" | L_"abs" >= 0 "und" (*) "gilt"}
+  $
+  Gilt $x != 0 != f(x)$, definiert man analog $kappa_"rel"$ als die kleinste Konstante mit 
+  $
+  norm(f(tilde(x)) - f(x))/norm(f(x)) <= kappa_"rel" norm(tilde(x) - x)/norm(x)
+  $
+  für alle $tilde(x)$ nahe $x$.
+]
+
+#bold[Bemerkungen:]
+
+#boxedlist[
+  Die #bold[absolute Kondition] $kappa_"abs"$ beschreibt die Verstärkung des absoluten Fehlers, die #bold[relative Kondition] $kappa_"rel"$ die Verstärkung des relativen Fehlers
+][
+  Bei nichtlinearen Problemen hängen $kappa_"abs"$ und $kappa_"rel"$ meist stark von der Umgebung ab $==>$ linearisierte Fehlertheorie!
+][
+  $kappa_"abs"$ und $kappa_"rel"$ hängen stark von den verwendeten Normen ab! $norm(dot)_2, norm(dot)_oo, norm(dot)_p, norm(dot)_1$
+]
+
+#definition("3.5", "absolute und relative Kondition")[
+  Die Konstante $kappa_"abs"$ gibt die absolute Kondition eines numerischen Problems $(f, x)$ und $kappa_"rel"$ die relative Kondition.
+]
+
+Das numerische Problem $(f, x)$ ist #bold[schlecht konditioniert], wenn $kappa_"abs"$ bzw. $kappa_"rel"$ "groß" sind und gut konditioniert, wenn $kappa_"abs"$ bzw. $kappa_"rel"$ "klein" sind.
+
+Wie berechnet man $kappa_"abs"$/$kappa_"rel"$? Dafür: Mittelwertsatz der Differentialrechnung
+
+Es sei $f: [a, b] -> RR$ stetig auf $[a, b]$ und diffbar auf $(a, b)$. Dann existiert $macron(x) in (a, b)$, so dass
+$
+f'(macron(x)) = (f(b)-f(a))/(b-a)
+$
+Anwendung in der Fehlertheorie: Für differenzierbare $f: RR^n -> RR$ existiert wegen der Taylorentwicklung für $x$ und $Delta x$ ein $macron(x) in x+t Delta x, t in (0, 1)$ mit 
+$
+Delta y := tilde(y) - y = f(x+ Delta x) - f(x) = nabla f(macron(x)) Delta x
+$
+$==> norm(nabla f(macron(x)))$ ist ein Fehlermaß $tilde -> x$.
+
+Deswegen verwendet man den Term $norm(nabla f(x))$ als Maß für die Fehlerverstärkung des absoluten Eingabefehlers $norm( Delta x) = norm(tilde(x) - x)$.
+
+Der relative Fehler ist meist von größerer Bedeutung. Für $n = 1$ und $x dot y != 0$
+$
+(Delta y)/y approx nabla f(x) (Delta x)/y = underbrace((nabla f(x) x/f(x)), =kappa_"rel") (Delta x)/x
+$
+Verallgemeinerung auf $n>1$: $kappa_"rel" = abs(nabla f(x)^T x dot 1/f(x))$o
+#bold[Beispiel 3.6:] Kondition der Addition
+
+Problem: $f: RR^2 -> RR, f(x_1, x_2) = x_1 + x_2$ mit der $l_1$-Norm
+
+$nabla f(x) = (1, 1)^T ==>$
+$
+kappa_"abs" = norm(nabla f(x))_1 = norm(mat(1,1)^T)_1 = 2 \
+kappa_"rel" = norm(nabla f(x)^T x 1/f(x))_1 = (abs(x_1) + abs(x_2))/(abs(x_1 + x_2))
+$
+Für die Addition zweier Zahlen mit gleichen Vorzeichen ergibt sich $kappa_"rel" = 2$ $==>$ gut konditioniert!
