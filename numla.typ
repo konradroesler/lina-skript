@@ -443,7 +443,7 @@ und $abs(L) <= 1$
   Auf dem Rechner: Verbesserung der unexakten Lösung durch sogenannte Nachiteration möglich, vgl. Kap. IV.
 ]
 
-== Polesky-Verfahren für symm. pos. definite $A$
+== Cholesky-Verfahren für symm. pos. definite $A$
 
 Gesucht: $A$ spd eine $L in RR^(n times n)$ ($det(L) > 0$) s.d. $A = L L^T$
 
