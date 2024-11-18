@@ -620,3 +620,164 @@ kappa_"abs" = norm(nabla f(x))_1 = norm(mat(1,1)^T)_1 = 2 \
 kappa_"rel" = norm(nabla f(x)^T x 1/f(x))_1 = (abs(x_1) + abs(x_2))/(abs(x_1 + x_2))
 $
 Für die Addition zweier Zahlen mit gleichen Vorzeichen ergibt sich $kappa_"rel" = 2$ $==>$ gut konditioniert!
+
+Gleikommazahlen: Hämmerlin, Hoffmann: Numerische Mathematik, Springer (1994)
+
+#bold[Beispiel 3.6:]  $f: RR^2 -> RR, space f(x) = x_1 + x_2$
+$
+kappa_"rel" = norm(nabla f(x)^Y x dot 1/(f(x)))_1 = (abs(x_1) + abs(x_2))/abs(x_1 + x_2) = star
+$
+$x_1, x_2$ #bold[gleiche] Vorzeichen, z.B. $x_1, x_2 > 0$
+$
+star = (x_1 + x_2)/(x_1+x_2) = 1
+$
+$==>$ sehr gut konditioniert!
+
+#bold[Beispiel 3.7:] Subtraktion zweier Zahlen
+
+Problem: $f: RR^2 -> RR, space f(x_1, x_2) = x_1 - x_2$
+
+Wähle die $l_1$-Norm
+$
+f'(x) = vec(1, -1) space ==> space kappa_"abs" = norm(D f(x))_1 = norm(mat(1, -1)^T)_1 = 2 \
+kappa_"rel" = norm(nabla f(x)^T x 1/(f(x)))_1 = (abs(x_1) + abs(x_2))/abs(x_1 - x_2)
+$
+Subtraktion zwei fast gleicher Zahlen ist schlecht konditioniert da
+$
+abs(x_1 - x_2) << abs(x_1) + abs(x_2)
+$
+Für die Rechengenauigkeit $"eps" = 10^(-7)$ (einfache Genauigkeit)
+$
+x_1 = 1.23467* wide "Störung in der 7. Stelle" \
+x_2 = 1.23456* wide "Störung in der 7. Stelle" \
+x_1 - x_2 = 0.00011* = 0.11 dot 10^(-3) "Störung in der 3. Stelle" \
+$
+$==>$ Man verliert 4 Stellen an Genauigkeit
+$
+==> kappa_"rel" approx 10^4
+$
+$
+"Problemstellung, Kondition" <--> "Algorithmus"
+$
+Wichtiges Beispiel: Sekantenverfahren zur Lösung nichtlinearer Gleichungen
+
+theoretisch: serh schöne Konvergenzeigenschaften
+
+praktisch: Erhebliche Probleme durch schlechte Kondition der Subtraktion
+
+== Stabilität von Algorithmen 
+
+Jetzt: Wie wirken sich Eingabefehler und Fehler während der Rechnung auf das Endergebnis aus?
+
+#bold[Vorwärtsanalyse]
+
+#definition("3.8", "Vorwärtsstabilität (komponentenweise)")[
+  Die Implementierung $tilde(f)$ heißt #bold[vorwärtsstabil] wenn für alle $x$ aus dem Definitionsbereich von $f$ mit $f(x) !=0$ ein moderates, von $x$ unabhängiges $C_V > 0$, so dass 
+  $
+  abs((tilde(f)(x) - f(x))/f(x)) <= C_V dot kappa_"rel" dot "eps"
+  $
+  mit eps als Rechengenauigkeit gilt.
+]
+
+Hier betrachtet man die Fehlerfortpflanzung, d.h. die Auswirkung bereits gemachter Fehler.
+
+Dazu: $x_1, x_2$ sind die exakten Daten, $Delta x_1, Delta x_2$ sind die bisher gemachten Fehler mit $abs((Delta x_1)/x_1), abs((Delta x_2)/x_2) << 1$
+
+Was passiert bei exakter Durchführung einer arithmetischen Operation?
+
+#lemma("3.9")[
+  Gegeben seien $x_1, x_2, Delta x_1, Delta x_2 in RR$. Dann gelten mit $compose in {+, -, dot, div }$ für den forgepflanzten Fehler
+  $
+  Delta (x_1 compose x_2) = (x_1 + Delta x_1) compose (x_2 + Delta x_2) - x_1 compose x_2
+  $
+  die Abschätzung:
+  $
+  &Delta(x_1 plus.minus x_2)/(x_1 plus.minus x_2) = x_1/(x_1 plus.minus x_2) dot (Delta x_1)/x_1 plus.minus x_2/(x_1 plus.minus x_2) dot (Delta x_2)/x_2 \
+  &Delta(x_1 dot x_2)/(x_1 dot x_2) approx (Delta x_1)/x_1 + (Delta x_2)/x_2 \
+  &Delta(x_1/x_2)/(x_1/x_2) approx (Delta x_1)/x_1 - (Delta x_2)/x_2
+  $
+  Dabei bedeutet $approx$ ein Vernachlässigen von Termen höherer Ordnung, z.B. $x_1^2, x_2^2$
+]
+#startproof Nachrechnen
+#endproof
+
+Fazit: $plus.minus$ können u.U. zu einer erheblichen Fehlerverstärkung führen!
+
+$dot, div$: Im wesentlichen unkritische Fehlerforpflanzung
+
+Die Fehlerverstärkung tritt besonders dann auf, wenn $abs(x_1) approx abs(x_2), x_1 plus.minus x_2$ nahe Null. Dieser Effekt heißt #bold[Auslöschung]
+
+#bold[Rückwärtsanalyse]
+$
+tilde(f)(x) =^? f(tilde(x)) = f(x + Delta x)
+$
+Erwartungshaltung: $Delta x$ nicht zu groß
+
+#definition("3.10", "Rückwärtsstabilität (komponentenweise)")[
+  Die Implementierung $tilde(f)$ heißt #bold[rückwärtsstabil], wenn für alle $x!=0$ aus dem Definitionsbereich von $f$ und $Delta x$ mit $tilde(f)(x) = f(x+Delta x)$ die Abschätzung
+  $
+  abs((Delta x)/x) <= C_R dot "eps"
+  $
+  für eps als Rechengenauigkeit und ein moderates von $x$ unabhängiges $C_R > 0$ gilt.
+]
+
+D.h. kann $tilde(f)(x)$ als exaktes Ergebnis einer gestörten Eingabe $tilde(x) = x+Delta x$ interpretieren?
+
+#bold[Bemerkungen:]
+
+#boxedlist[
+  $Delta x$ muss nicht existieren, z.B. außerhalb des Definitionsbereichs
+][
+  $f$ nicht injektiv $==>$ u.U. existieren mehrere Kondidaten, dann wählt man $tilde(x)$ so, dass $norm(x - tilde(x))$ minimal ist
+]
+$
+f(x) quad <--> quad tilde(f)(tilde(x)) quad ?
+$
+
+Es gilt:
+$
+abs((tilde(f)(x) - f(x))/f(x)) = abs((f(x+Delta x) - f(x))/f(x)) \
+approx kappa_"rel" abs((x+Delta x - x)/x) <= kappa_"rel" dot C_R dot "eps"
+$
+Also: Für ein wohl gestelltes Problem ist eine rückwärtsstabile Implementierung auch immer vorwärtsstabil mit $C_V = C_R$
+
+Fazit für den Gesamtfehler:
+$
+norm(f(x) - tilde(f)(tilde(x))) = norm(f(x) - f(tilde(x)) + f(tilde(x)) - tilde(f)(tilde(x))) \
+<= underbrace(norm(f(x) - f(tilde(x))), "Kondition") + underbrace(norm(f(tilde(x)) - tilde(f)(tilde(x))), "Stabilität")
+$
+Ein gut konditioniertes Problem und ein stabiler Algorithmus sichern gute numerische Ergebnisse!
+
+#bold[Beispiel 3.11:] Auslöschung
+
+Betrachtet wird
+$
+f(x) = x^3 (x/(x^2 - 1) - 1/x)
+$
+Funktionsauswertung?
+
+Matlab, $x=2$
+$
+y_1 = x/(x^2 -1) = 2/3, quad y_2 = 1/x = 1/2, quad y_3 = x^3 = 8, quad y_4 = y_3 dot (y-1 - y_2) = 4/3
+$
+$x=1.2 dot 10^7$
+$
+y_1 = 8.33333333333339 dot 10^(-8), y_2 = 8.33333333333334 dot 10^(-8), y_3 = x^3 = 1.728^(21) \
+==> y_4 = y_1 - y_2 = 5.691 dot 10^(-22), quad y_5 = y_3 dot y_4 = 0.983
+$
+Wir können $f$ umschreiben zu
+$
+f(x) = x^3 (x/(x^2-1) -1/x) = 1/(1-x^(-2)) =: g(x) > 1
+$
+Stabilität beider Formulierung?
+$
+f'(x) = ... = - (2 x)/(x^2 - 1)^2 \
+kappa_"rel" = 2/(x^2 - 1) <= 1 quad "für" x>=4
+$
+$==>$ Eingabefehler werden gedämpft!
+$
+abs((tilde(f)(x) - f(x))/f(x)) approx 0.02 = C_V dot kappa_"rel" dot "eps" \
+==> C_V > 10^13
+$
+$==>$ diese Implementierung ist nicht vorwärtsstabil!
+
