@@ -773,11 +773,168 @@ Stabilität beider Formulierung?
 $
 f'(x) = ... = - (2 x)/(x^2 - 1)^2 \
 kappa_"rel" = 2/(x^2 - 1) <= 1 quad "für" x>=4
-$
+$ \
 $==>$ Eingabefehler werden gedämpft!
 $
 abs((tilde(f)(x) - f(x))/f(x)) approx 0.02 = C_V dot kappa_"rel" dot "eps" \
 ==> C_V > 10^13
 $
 $==>$ diese Implementierung ist nicht vorwärtsstabil!
+#line(length: 1cm)
 
+Für $x = 1.2 dot 10^7$:
+$
+x^(-2) &approx 6.9macron(4) dot 10^(-15) \ 
+1-x^(-2) &approx 1.0 \
+1/(1-x^(-2)) &approx 1.0
+$
+Stabilität? Exakte Rechnung:
+$
+g(x) &= 1/(1-x^(-2)) \
+&= 1/(1-(12 dot 10^7)^(-2)) \ 
+&= 1/(1-(1.44 dot 10^14)^(-1)) \
+&= 1/(0.99999999999999macron(5)) \
+&approx 1.00000000000000711 \
+$
+$
+==> abs((tilde(g)(x) - g(x))/g(x)) approx 7.11 dot 10^(-15)
+$
+$
+kappa_"rel" (g) = abs(g'(x) dot x/g(x)) = abs(-(2 x)/(1-x^(-2))^2 dot x/(1/(1-x^(-2)))) = abs(2/(x^(-2) - 1)) <= 1
+$
+$==> C_V approx 10$, vorwärtsstabil
+
+#pagebreak()
+
+= Das Gauß-Verfahren II
+
+Wieder die Frage: Wann ist eine lineares Gleichungssystem lösbar? Jetzt mit Fehlertheorie!
+
+#bold[Beispiel 4.1: Interpolationspolynome]
+
+siehe PDF-Datei
+
+#bold[Kondition:]
+
+Zwei Möglichkeiten:
+
+#boxedenum[
+  Störung $Delta b$ in $b$. Löse $A(x + Delta x) = b + Delta b$. Größe von $Delta x$?
+][
+  Störung $Delta A$ in $A$. Existiert eine Lösung $x + Delta x = tilde(x)$ von $(A + Delta A)(x+ Delta x) = b$. Größe von $Delta x$?
+]
+
+zu 1.: 
+
+Absolute Kondition:
+$
+norm(Delta x) = norm(A^(-1) Delta b) <= norm(A^(-1)) dot norm(Delta b) \
+==> kappa_"abs" = norm(A^(-1))
+$
+Relative Kondition:
+$
+norm(Delta x)/norm(x) <= "cond"(A) norm(Delta b)/norm(b) \
+kappa_"rel" = "cond"(A) := norm(A) dot norm(A^(-1))
+$
+
+zu Bsp. 3.1: Hier gilt für $norm(space) = norm(space)_2$
+$
+kappa_"abs" approx 1.5803 dot 10^8 \
+kappa_"rel" approx 1.5803 dot 10^8
+$
+
+Desweiteren gilt: (siehe ÜA)
+$
+"cond"(A) = (max_(norm(x) = 1) norm(A x))/(min_(norm(x) = 1)) in [1, oo[
+$
+
+#boxedlist[
+  Damit erhält man $A != 0$ ist genau dann singulär, wenn $"cond"(A) = oo$
+][
+  Außerdem gilt $"cond"(alpha A) = "cond"(A)$ für $0 != alpha in RR$
+
+  $==>$ die Kondition einer Matrix ist skalierungsinvariant!
+]
+
+zu 2.: Warum existiert $(A + Delta A)^(-1)$ zu der gestörten Matrix $A + Delta A$?
+$
+A + Delta A = A (I + A^(-1) Delta A), quad det(A) != 0
+$
+
+#lemma("4.2")[
+  #bold[Neumannsche Reihe]
+
+  Sei $C in RR^(n times n)$ mit $norm(C) < 1$ mit einer submultiplikativen Norm. Dann ist $I - C$ invertierbar und man schreibt 
+  $
+  (I - C)^(-1) = sum_(k = 0)^oo C^k
+  $
+  Weiterhin gilt 
+  $
+  norm((I - C)^(-1)) <= 1/(1-norm(C))
+  $
+]
+
+#startproof ÜA
+#endproof
+
+nach Carl Gottfried Neumann (1832 - 1925), deutsche Mathematiker
+
+#theorem("4.3")[
+  #bold[Störungssatz]
+
+  Es sei $"cond"(A) dot norm(Delta A)/norm(A) <1$ und $x + Delta x$ die Lösung von $(A + Delta A)(x+ Delta x) = b + Delta b$. Dann gilt (\*)
+  $
+  norm(Delta x)/norm(x) <= "cond"(A) (1-"cond"(A) norm(Delta A)/norm(A)) (norm(Delta A)/norm(A) + norm(Delta b)/norm(b)) 
+  $
+  für $x!=0$ und $b!=0$.
+]
+
+#startproof ÜA
+#endproof
+
+Wenn $"cond"(A) norm(Delta A)/norm(A) << 1$ und (\*) gilt
+$
+norm(Delta x)/norm(x) <= "cond"(A) dot "eps"
+$
+wenn der relative Fehler in $A$ und $b$ auf dem Niveau der Maschinengenauigkeit sind.
+Der Störungssatz liefert dann, dass man wegen der Kondition des numerischen Problems $(A, b) arrow.bar x = A^(-1) b$ einen unvermeidbaren Fehler der Größenordnung $"cond"(A) dot "eps"$ erwarten kann.
+
+#bold[Beispiel 4.4:] Fortsetzung von Bsp. 3.1
+$
+A = mat(1.2969, 0.8648; 0.2161, 0.1441), quad "cond"(A) = 2.469 dot 10^8 space "für" norm(space)_2, quad b = vec(0.8642, 0.1440) \
+==> x = vec(2, -2)
+$
+
+Lösung mit Matlab $quad x = A\\b$
+$
+x = vec(2.000000001802645,-2.000000007450581) \ 
+==> norm(Delta x)_2/norm(x)_2 = 2.715 dot 10^(-9) <= 2.469 dot 10^8 dot 10^(-16)
+$
+Dann: $norm(Delta b)_2 = 1.614 dot 10^(-8)$
+$
+norm(Delta x)_2/norm(x)_2 &= 1.64679 <= "cond"(A) dot 1 dot norm(Delta b)_2/norm(b)_2 \
+&= 2.469 dot 10^8 dot 1 dot 7.6799 dot 10^7 \
+&approx 1.9177
+$
+
+#bold[Beispiel 4.5:]
+$
+&A = mat(2, 0.999; 4, 2.003), quad b = vec(1.001, 1.997) quad ==> quad x = vec(1,-1) \
+&==> A^(-1) = mat(200.2macron(9), -99.9macron(9); -399.macron(9), 199.9macron(9)) \
+&==> norm(A)_oo = 6.003 \
+&==> norm(A^(-1))_oo = 5.99macron(9) \
+$
+$
+"cond"_oo (A) = 3607.7macron(9)
+$
+
+Jetzt: 
+$
+&tilde(A) = mat(2, 1; 4, 2.003), quad tilde(b) = vec(1.001, 2) \
+&A = mat(0, 0.001; 0, 0), quad Delta b = vec(0, 0.003) \
+&==> norm(Delta A)_oo = 0.001, norm(Delta b)_oo = 0.003 \
+&==> norm(Delta x)_oo/norm(x)_oo <= 14.4072
+$
+$
+tilde(x) = vec(0.8macron(3), -0.macron(6)) ==> norm(Delta x)/norm(x) = 1.49
+$
