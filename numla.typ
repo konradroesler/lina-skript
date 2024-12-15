@@ -814,7 +814,7 @@ Wieder die Frage: Wann ist eine lineares Gleichungssystem lösbar? Jetzt mit Feh
 
 siehe PDF-Datei
 
-#bold[Kondition:]
+== Lösung von linearen Gleichungssystemen: Kondition
 
 Zwei Möglichkeiten:
 
@@ -938,3 +938,317 @@ $
 $
 tilde(x) = vec(0.8macron(3), -0.macron(6)) ==> norm(Delta x)/norm(x) = 1.49
 $
+
+gap
+
+== Stabilität der Gaußelimination
+
+Stabilität der $L R$- bzw. Cholesky-Zerlegung.
+
+Rückwärtsanalyse: Interpretation des Ergebnisses als Ergebnis exakter Rechnung mit gestörten Eingangsdaten.
+
+Abschätzung von $Delta A$: Störungssatz 4.3 und Kondition von $A$.
+
+#bold[1. Fall:] $A$ spd Matrix 
+
+$==>$ Cholesky-Verfahren $cal(O)(n^2)$
+
+Für die berechnete Lösung $tilde(x)$ als exakte Lösung des gestörten Systems:
+$
+(A + Delta A) underbrace(tilde(x), = x + Delta x) = b
+$
+mit $norm(Delta A)_oo/norm(A)_oo <= C_n "eps"$ gilt, dass $c_n$ "klein" ist und nur von der Dimension von $A$ abhängt, d.h. $A$ ist im Rahmen der Maschinenungenauigkeit.
+
+Des Weiteren erhält man
+$
+norm(Delta x)_oo/norm(x)_oo = norm(tilde(x) - x)_oo/norm(x)_oo <= ("cond"_oo (A) (norm(Delta A)_oo/norm(A)_oo))/(1-"cond"_oo (A) (norm(Delta A)_oo/norm(A)_oo)) lt.tilde ("cond"_oo (A) c_n "eps")/(1-"cond"_oo (A) c_n "eps") approx "cond"_oo (A) c_n "eps"
+$
+falls $"cond"_oo (A) norm(Delta A)_oo/norm(A)_oo << 1$. D.h. der Fehler in $tilde(x)$ bleibt bzgl. der Größenordnung im Rahmen der unvermeidbaren Fehler. 
+
+$==>$ Cholesky-Verfahren ist stabil
+
+Eine genauere Analyse findet man bei Deuflhard/Hohmann und auch Stoer/Bulirsch.
+
+#bold[2. Fall:] $A$ nicht spd
+
+$==>$ $L R$-Zerlegung mit Spaltenpivotisierung
+
+Dann gilt auch
+$
+(A + Delta A) tilde(x) = b quad "mit" quad norm(Delta A)_oo/norm(A)_oo <= tilde(c)_n "eps"
+$
+Allerdings ist $tilde(c)_n$ sehr viel größer als $c_n$. Trotzdem kann die $L R$-Zerlegung mit Spaltenpivotisierung noch als stabil angesehen werden.
+
+== Nachiteration
+
+Gauß-Elimination liefert $tilde(x)$ als Approximation der Lösung $x$ von $A x = b$. Wie gut ist $tilde(x)$? Für die exakte Lösung $x$ verschwindet das Residuum $r(x) = A x - b = 0$. 
+
+Ist $r(tilde(x)) = A tilde(x) - b$ "klein" ein sinnvolles Kriterium?
+
+Problem: Die Norm
+
+$norm(r(tilde(x)))$ kann durch Zeilenskalierung beliebig verändert werden
+$
+A x = b <==> D A x = D b
+$
+Deswegen: Beurteilung anhand der Rückwärtsanalyse, basiert auf einem Resultat von Rigal und Gaches (1967)
+
+#theorem("4.6")[
+  Gegeben sei das numerische Problem $A x = b$, d.h. $x = A^(-1) b$. Dann ist der normweise relative Rückwärtsfehler einer Näherungslösung $tilde(x)$ gegeben durch:
+  $
+  norm(Delta x) = norm(A tilde(x) - b)/(norm(A) dot norm(tilde(x)) + norm(b))
+  $
+]
+
+Praktischer Nutzen? Nachiteration> D.h.:
+
+Ausgehend von einer Fehlerhaften $L R$-Zerlegung, d.h.
+$
+tilde(L) tilde(R) != P A
+$
+und daher nur einer Näherungslösung $tilde(x) =: x_0$ mit exakten Defekt
+$
+d_0 := r(x_0) = b - A x_0,
+$
+kann man die Zerlegung $tilde(L) tilde(R) approx P A$ zur Lösung der sogenannten Defektgleichung
+$
+A w = d_0 ==> tilde(L) tilde(R) w = d_0.
+$
+$==>$ Korrektur $w_1$ für $x_0$, d.h.
+$
+x_1 = x_0 + w_1
+$
+liefert dann
+$
+A x_1 = A x_0 + A w_1 =  A x_0 - b + b + d_0 = b
+$
+$==>$ $x_1$ wäre exakte Lösung, aber: $w_1$ ist auch fehlerbehaftet
+
+Frage: Ist $x_1$ eine bessere Lösung als $x_0$?
+
+Dazu: Fehleranalyse basierend auf dem Störungssatz, Satz 4.3.
+$
+norm(x_0 - x)/norm(x) <= "cond"(A)/(1-"cond"(A) norm(P A - tilde(L) tilde(R))/norm(A)) dot underbrace(norm(P A - tilde(L) tilde(R))/norm(A), approx "eps")
+$
+$==>$ Stellenverlust entspricht der Kondition von $A$. Die zusätzlich auftretenden Rechenfehler werden vernachlässigt. Ersetzt man den exakten Defekt $d_0$ durch den Ausdruck
+$
+hat(d)_0 = b - hat(A) x_0
+$
+mit einer genaueren Darstellung von $A$,
+$
+norm(A - hat(A))/norm(A) <= tilde(epsilon) << epsilon
+$
+erhält man 
+$
+x_1 = x_0 + w_1 = x_0 + (tilde(L) tilde(R))^(-1) (b - hat(A) x_0) = x_0 + (tilde(L) tilde(R))^(-1) (A x - A x_0 + (A - hat(A)) x_0) \
+==> x_1 - x = x_0 - x + (tilde(L) tilde(R))^(-1) A (x - x_0) + (tilde(L) tilde(R))^(-1) (A - hat(A)) x_0 = (star)
+$
+Es gilt:
+$
+tilde(L) tilde(R) &= A - A + tilde(L) tilde(R) \
+&= A ( I - A^(-1) (A - tilde(L) tilde(R)))
+$
+Dann liefert die Neumannsche Reihe (Lemma 4.2)
+$
+norm((tilde(L) tilde(R))^(-1)) &<= norm(A^(-1)) dot norm(I - A^(-1)(A - tilde(L) tilde(R))^(-1)) \
+&<= norm(A^(-1))/(1 - norm(A^(-1) (A - tilde(L) tilde(R)))) \
+&<= norm(A^(-1))/(1 - norm(A^(-1)) norm(A - tilde(L) tilde(R))) \
+&= norm(A^(-1))/(1 - "cond"(A) norm(A - tilde(L) tilde(R))/norm(A))
+$
+Damit erhält man mit 
+$
+(star) = (tilde(L) tilde(R))^(-1) (tilde(L) tilde(R) - A) (x_0 - x) + (tilde(L) tilde(R))^(-1) (A - hat(A)) x_0
+$
+dass
+$
+norm(x_1 - x)/norm(x) approx "cond"(A) (underbrace(norm(A - tilde(L) tilde(R))/norm(A), epsilon) underbrace(norm(x_0 - x)/norm(x), "cond"(A) dot epsilon) + underbrace(norm(A - hat(A))/norm(A), <= tilde(epsilon) << epsilon) norm(x_0)/norm(x))
+$
+wenn $"cond"(A) norm(P A - tilde(L) tilde(R))/norm(A) << 1$
+$
+("cond"(A))^2 dot (epsilon^2 + tilde(epsilon) dot norm(x_0)/norm(x))
+$
+$x_1$ ist nicht die exakte Lösung, deswegen wendet man die Nachiteration iterativ an. In der Praxis wird der Faktor in $x$ nach wenigen Korrekturschritten (2-3) auf die Größenordnung der Defektgleichung reduziert, d.h. oft hat man
+$
+norm(x_3 -x)/norm(x) op(tilde) tilde(epsilon)
+$
+
+#bold[Beispiel 4.7:] Betrachtet wird das Gleichungssystem
+$
+mat(1.05, 1.02; 1.04, 1.02) vec(x_1, x_2) = vec(1 2)
+$
+Exakte Lösung
+$
+x = (-100, 103.9216)
+$
+$L R$-Zerlegung mit 3-stelliger Genauigkeit: 
+$
+tilde(L) = mat(1, 0; 0.99, 1) wide tilde(R) = mat(1.05, 1.02; 0, 0.01) \
+tilde(L) tilde(R) - A = mat(0,0;,-5 dot 10^(-4), -2 dot 10^(-4)) space checkmark \
+==> norm(tilde(L) tilde(R) - A) <= "eps"
+$
+Näherungslösung $x_0 = (-97.2, 101)$ zugehöriges Residuum.
+$
+d_0 = b - A x_0 = cases((0\, 0)^T quad &3"-stellige Rechnung", (-0.17\, -0.14)^T quad &6"-stellige Rechnung")
+$
+Bei 3-stelliger Rechnung hat die Korrekturgleichung
+$
+mat(1,0;0.99,1) mat(1.05,1.02;0,0.01) vec(w_0^1, w_0^2) = vec(-0.17, -0.14)
+$
+die Lösung $w_1 = (-2.90, 2.83)$ $==>$ $x_1 = x_0 + w_1 = vec(-99.9, 104)$ ist eine deutlich bessere Lösung!
+
+#bold[Vorsicht:] Selbst, wenn die $L R$-Zerlegung mit Spaltenpivotisierung stabil ist, d.h. $norm(P A - tilde(L) tilde(R))$ klein, kann die numerische Lösung $tilde(x)$ sehr ungenau sein, wenn $"cond"(A)$ sehr groß ist. Dann können kleine Störungen zu $A$ zu großen Störungen in $x$ führen.
+
+Abhilfe: Vorkonditionierung
+$
+A x = b quad ==>^tilde(P) quad tilde(P) A x = tilde(b)
+$
+Vorkonditionierung, so dass $"cond"(tilde(P) A) << "cond"(A)$
+
+#bold[Beispiel 4.8: Hilbertmatrix]
+
+Die Hilbertmatrix ist definiert durch $A = (1/(i + j -1)) in RR^(n times n)$. Man kann zeigen: $"cond"(A)$ wächst exponentiell in $n$.
+
+#pagebreak()
+
+= Die $Q R$-Zerlegung
+
+Jetzt: $A in RR^(m times n)$, $m>=n$, $"rang"(A) = n$
+
+$A in CC^(m times n)$ genauso möglich, dann symmetrisch $arrow.squiggly$ hermitesch
+
+Ziel: Faktorisierung $A = Q R$ mit $R=$ rechte obere Dreiecksmatrix, $R in RR^(m times n)$, $Q in RR^(m times m)$ unitär, d.h. $Q^T Q = I_n$.
+
+== Householder-Transformationen
+
+Alston Householder (1904-1993, 1958)
+
+Eigenschaften unitärer Matrizen: Sei $Q in RR^(m times m)$ unitär, dann gilt 
+
+#boxedenum[
+  $
+  norm(Q x)_2^2 = (Q x)^T Q x = x^T Q^T Q x = x^T x = norm(x)_2^2
+  $
+  $==>$ $Q$ normerhaltend #h(10cm)
+  $
+  norm(Q x)_2 = norm(x)_2 wide forall x in RR^m
+  $
+][
+  $
+  norm(Q)_2 = max_(norm(x)_2 = 1) norm(Q x)_2 &= 1 \
+  norm(Q^(-1))_2 = norm(Q^T)_2 = norm(Q)_2 &= 1 \
+  "cond"_2 (Q) <= norm(Q)_2 norm(Q^(-1))_2 &= 1
+  $
+][
+  $P, Q in RR^(m times m)$ unitär $==>$ $P dot Q$ unitär
+]
+
+#definition("5.1", "Householder-Transformation")[
+  Sei $v in RR^m without {0}$. Dei Matrix $P_v = I_m - 2/norm(v)_2^2 v v^T in RR^(m times m)$ heißt #bold[Householder-Transformation].
+]
+
+#lemma("5.2")[
+  Sei $v in RR^m without {0}$. Dann ist $P_v$ eine symmetrische unitäre mit $P_v v = - v$ und für alle $w in RR^m$ mit $w bot v$, d.h. $w^T v = 0$, gilt $P_v w = w$.
+]
+
+#startproof 
+
+Symmetrie: klar
+
+$P_v^T P_v =^? I_m$
+$
+P_v^T P_v &= (I_m - 2/norm(v)_2^2 v v^T)^T (I-2/norm(v)_2^2 v v^T) \
+&= I_m - 4/norm(v)^2_2 v v^T + 4/norm(v)_2^2 (v v^T v v^T)/norm(v)_2^2 \
+&= I_m
+$
+Für $v$ erhält man:
+$
+P_v v = (I_m - 2/norm(v)_2^2 v v^T) v = v - 2/norm(v)_2^2 v overbrace(v^T v, norm(v)_2^2) = - v
+$
+sowie für $w in RR^m$ mit $w bot v$
+$
+P_v w = (I_m - 2/norm(v)_2^2 v v^T) w = w-2/norm(v)_2^2 v underbrace(v^T w, 0) = w
+$
+#endproof
+
+Damit kann $P_v$ als Spiegelung interpretiert werden.
+
+Nun Einsatz von Householder-Transformationen um $A$ auf die Dreiecksgestalt zu bringen. Dazu:
+
+#lemma("5.3")[
+  Gegeben sei $x in RR^n without {0}$. Für $v = x + tau e_1$ mit 
+  $
+  tau = cases(plus.minus x_1/abs(x_1) norm(x)_2 quad &"falls" x_1 != 0, - norm(x)_2 quad &"falls" x_1 = 0)
+  $
+  gelte $v != 0$. Dann ist
+  $
+  P_v x = (I_m - 2/norm(v)_2^2 v v^T) x = - tau e_1
+  $
+]
+
+#startproof
+$
+norm(x + tau e_1)^2_2 &= norm(x)_2^2 + 2 tau e_1^T x + tau^2 \
+&= 2 underbrace((x+tau e_1)^T, v) x
+$
+Dann gilt: $2 v^T x = 2 (x+tau e_1)^T = norm(x+ 2e_1)^2 = norm(v)_2^2$
+
+Mit der Defintion von $v$ folgt weiterhin
+$
+2/norm(v)^2_2 v (v^T x) = v = x + tau e_1 quad ==> quad "Behauptung"
+$
+#endproof
+
+Bemerkung: Damit im Fall $x_1 != 0$ ($x_1 in CC$) bei der Berechnung von $v$ keine Auslöschung auftritt, kann man das Vorzeichen von $tau$ entsprechend wählen.
+
+== Berechnung der $Q R$-Zerlegung
+
+#theorem("5.4")[
+  #bold[Existenz einer $Q R$-Zerlegung]
+
+  Sei $A in RR^(m times n)$ mit $m>=n$ mit $"rang"(A) = n$. Dann existiert eine unitäre Matrix $Q in RR^(m times m)$ und eine obere Dreiecksmatrix $R in RR^(m times n)$ mit 
+  $
+  A = Q dot R
+  $
+  so dass $v_(i i) != 0$, $i = 1, ..., n$.
+]
+
+#startproof
+
+Idee: Nutze Householder-Transformationen, um die Spalten von $R$ zu erhalten. D.h. $Q_n dot ... dot A = R$ mit $Q_i corres$ Householder-Transformationen, dann $Q := Q_1^T Q_2^T ... Q_n^T = Q_1 ... Q_n$.
+
+#boxedenum[
+  Schritt: $A_1 = A$, $0 != x = a_1$ $corres$ 1 Spalte von $A$.
+
+  $Q_1 in RR^(m times n)$ Householder-Transformation mit $v$ gemäß Lemma 5.3.
+  $
+  ==> Q_1 x = Q a_1 = v_(1 1) e_1 
+  $
+  mit $abs(v_(1 1)) = norm(a_1) != 0$ da 1 Vollrang besitzt.
+
+  Also
+  $
+  Q_1 A = mat(v_(1 1), v_(1 2), ..., v_(1 m);0,,,;dots.v,,A_2,;0,,,), wide A_2 in RR^((m-1) times (n-1))
+  $
+][
+  Schritt: $x = a_2 = 1$ Spalte von $A_2$, $x in RR^(m-1)$ und $tilde(Q)_2 in RR^((m-1) times (n-1))$ als Householder-Transformation gemäß Lemma 5.3.
+
+  Dann folgt mit $Q_2 := mat(1, 0, ..., 0;0,,,;dots.v,,tilde(Q_2),;0,,,)$ unitär, dass 
+  $
+  Q_2 Q_1 A = mat(v_(1 1), v_(1 2), ..., ..., v_(1 m);0, v_(2 2), v_(2 3), ..., v_(2 m); dots.v, 0,,,;dots.v,dots.v,,A_3,;0,0,,,)
+  $
+  mit $v_(2 2) != 0$, da $A$ Vollrang hat. 
+]
+
+Nach $n$ Schritten erhält man die gewünschte Zerlegung
+
+#endproof
+
+Bemerkungen:
+
+#boxedlist[
+  "Naive" Householder-Transformation, d.h. Aufstellen der Matrix und Anwenden, erfordert $cal(O)(m^2 n)$ Multiplikationen.
+][
+  Besser $P_1 A = A - 2/norm(v)_2^2 v v^T A = A - 2/norm(v)_2^2 v w^T$
+
+  $==>$ $cal(O)(m n)$ Multiplikationen
+]
