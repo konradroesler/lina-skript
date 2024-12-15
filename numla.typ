@@ -1217,9 +1217,7 @@ Bemerkung: Damit im Fall $x_1 != 0$ ($x_1 in CC$) bei der Berechnung von $v$ kei
 Idee: Nutze Householder-Transformationen, um die Spalten von $R$ zu erhalten. D.h. $Q_n dot ... dot A = R$ mit $Q_i corres$ Householder-Transformationen, dann $Q := Q_1^T Q_2^T ... Q_n^T = Q_1 ... Q_n$.
 
 #boxedenum[
-  Schritt: $A_1 = A$, $0 != x = a_1$ $corres$ 1 Spalte von $A$.
-
-  $Q_1 in RR^(m times n)$ Householder-Transformation mit $v$ gemäß Lemma 5.3.
+  Schritt: $A_1 = A$, $0 != x = a_1$ $corres$ 1 Spalte von $A$. $Q_1 in RR^(m times n)$ Householder-Transformation mit $v$ gemäß Lemma 5.3.
   $
   ==> Q_1 x = Q a_1 = v_(1 1) e_1 
   $
@@ -1230,9 +1228,7 @@ Idee: Nutze Householder-Transformationen, um die Spalten von $R$ zu erhalten. D.
   Q_1 A = mat(v_(1 1), v_(1 2), ..., v_(1 m);0,,,;dots.v,,A_2,;0,,,), wide A_2 in RR^((m-1) times (n-1))
   $
 ][
-  Schritt: $x = a_2 = 1$ Spalte von $A_2$, $x in RR^(m-1)$ und $tilde(Q)_2 in RR^((m-1) times (n-1))$ als Householder-Transformation gemäß Lemma 5.3.
-
-  Dann folgt mit $Q_2 := mat(1, 0, ..., 0;0,,,;dots.v,,tilde(Q_2),;0,,,)$ unitär, dass 
+  Schritt: $x = a_2 = 1$ Spalte von $A_2$, $x in RR^(m-1)$ und $tilde(Q)_2 in RR^((m-1) times (n-1))$ als Householder-Transformation gemäß Lemma 5.3. Dann folgt mit $Q_2 := mat(1, 0;0,tilde(Q_2))$ unitär, dass 
   $
   Q_2 Q_1 A = mat(v_(1 1), v_(1 2), ..., ..., v_(1 m);0, v_(2 2), v_(2 3), ..., v_(2 m); dots.v, 0,,,;dots.v,dots.v,,A_3,;0,0,,,)
   $
